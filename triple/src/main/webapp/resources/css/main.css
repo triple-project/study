@@ -104,7 +104,7 @@
 
 /* 국내여행 카테고리 */
 #sec .category{margin-top:40px;}
-#sec .category .gory_in{width:1300px;margin:0 auto;padding:0 30px;}
+#sec .category .gory_in{width:1240px;margin:0 auto;}
 #sec .category .gory_in .gory_txt{font-size:22px;line-height:30px;font-weight: 500;margin-bottom:45px;}
 
 #sec .category .gory_in .gory_con{}
@@ -127,7 +127,7 @@
 
 /* 인기트립 */
 #sec .hot{margin-top:40px;}
-#sec .hot .hot_in{width:1300px;margin:0 auto;padding:0 30px;}
+#sec .hot .hot_in{width:1240px;margin:0 auto;}
 #sec .hot .hot_in .hot_txt{font-size:22px;line-height:30px;font-weight: 500;margin-bottom:45px;}
 
 #sec .hot .hot_in .list{}
