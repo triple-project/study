@@ -1,5 +1,7 @@
 package com.triple.finalp;
 
+import java.io.IOException;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import com.triple.finalp.mag.service.FileService;
 import com.triple.finalp.mag.service.MagSerivce;
 import com.triple.finalp.mag.vo.MagVo;
 import com.triple.finalp.pro.service.ProductService;
@@ -22,6 +25,9 @@ public class TripleController {
 	
 	@Autowired
 	MagSerivce magSerivce;
+	
+	@Autowired
+	FileService fileService;
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String test0316() {
@@ -52,11 +58,13 @@ public class TripleController {
 	}
 	
 	@RequestMapping(value = "/writesave", method = RequestMethod.POST)
-	public String testsave(MagVo magVo) {
+	public String testsave(MagVo magVo, MultipartHttpServletRequest mhsr,Model model) throws IllegalStateException, IOException {
 		//작성글 저장
 		//mhsr 사용,이동후 file서비스를 사용하는 방식으로
 		magSerivce.save(magVo);
-		return "test/mag/testmagwrite";
+		fileService.save(mhsr);
+		//magSerivce.view(model);
+		return "redirect:tmv";
 	}
 	
 	@RequestMapping(value = "/tmv", method = RequestMethod.GET)
