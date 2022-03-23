@@ -1,0 +1,14 @@
+@charset "UTF-8";
+#sec{}
+#sec .cate{width:100%;height:100%;}
+#sec .cate .cate_in{width:1300px;padding:50px 30px;margin:0 auto;border:1px solid blue;}
+#sec .cate .cate_in .txt{margin-bottom:20px;font-size:22px;font-weight: 500;color:#333;line-height:30px;}
+#sec .cate .cate_in .con{border:1px solid green;}
+#sec .cate .cate_in .con .con_in{border:1px solid red;}
+#sec .cate .cate_in .con .con_in .list{}
+#sec .cate .cate_in .con .con_in .list .list_in{}
+#sec .cate .cate_in .con .con_in .list .list_in .list_txt{margin-bottom:10px;}
+#sec .cate .cate_in .con .con_in .list .list_in .list_txt h2{line-height:18px;}
+
+#sec .cate .cate_in .con .con_in .list .list_in .list_con{border:1px solid blue;height:200px;width:100%;}
+#sec .cate .cate_in .con .con_in .list .list_in .list_con .list_con_in{width:100%;height:100%;}

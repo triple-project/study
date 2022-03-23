@@ -35,6 +35,12 @@ public class TripleController {
 		return "index";
 	}
 	
+	@RequestMapping(value = "/category", method = RequestMethod.GET)
+	public String cate() {
+		//카테고리로 보내기
+		return "category";
+	}
+	
 	@RequestMapping(value = "/testview/{id}", method = RequestMethod.GET)
 	public String testcate(@PathVariable("id") String id, Model model) {
 		// 카테고리 클릭시 조회페이지

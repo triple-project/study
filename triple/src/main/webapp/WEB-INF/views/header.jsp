@@ -2,11 +2,65 @@
     pageEncoding="UTF-8"%>
 <header id="header">
 	<div class="header_in">
-		<h1><a href="index.jsp">TRIPLE</a></h1>
+		<h1><a href="/">TRIPLE</a></h1>
 		<div class="menu">
 			<span></span>
 			<span></span>
 			<span></span>
+		</div>
+	</div>
+
+	<div class="header_ch">
+		<div class="ch_in">
+			<form action="" id="ch_form">
+				<div class="ch_title">
+					<h2>Triple 트리플</h2>
+					<div class="tit_cover"></div>
+				</div>
+	
+				<div class="ch_btn">
+					<div class="btn" onclick="$('#ch_form').submit()">
+						<i class="fa-solid fa-magnifying-glass"></i>
+					</div>
+				</div>
+	
+				<div class="ch_context ch_tot">
+					<select name="" id="" >
+						<option value="" selected="selected" hidden="hidden">여행상품 검색</option>
+						<option value="모텔">모텔</option>
+						<option value="펜션">펜션</option>
+						<option value="풀빌라">풀빌라</option>
+						<option value="호텔">호텔</option>
+						<option value="게스트하우스">게스트하우스</option>
+					</select>
+				</div>
+	
+				<div class="ch_local ch_tot">
+					<select name="" id="" >
+						<option value="" selected="selected" hidden="hidden">여행지를 선택하세요</option>
+						<option value="서울">서울</option>
+						<option value="대전">대전</option>
+						<option value="대구">대구</option>
+						<option value="부산">부산</option>
+						<option value="제주">제주</option>
+					</select>
+				</div>
+	
+				<div class="ch_search ch_tot">
+					<select name="" id="" >
+						<option value="여행지 검색">여행지 검색</option>
+						<option value="매거진 검색">매거진 검색</option>
+					</select>
+				</div>
+	
+				<!-- <div class="ch_date">
+					<label>
+						<input id="range" mbsc-input placeholder="여행날짜를 선택해주세요." readonly/>
+					</label>
+				</div> -->
+	
+				
+			</form>
 		</div>
 	</div>
 </header>
@@ -234,7 +288,7 @@
 	<div id="join">
 		<div class="join_in">
 			<div class="img">
-				<img src="img/join/1.jpg" alt="">
+				<img src="resources/img/join/1.jpg" alt="">
 			</div>
 
 			<div class="info">

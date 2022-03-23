@@ -3,11 +3,12 @@
 html{font-family: 'Noto Sans KR';}
 body{-ms-overflow-style: none;scrollbar-width: none;}
 body::-webkit-scrollbar {display: none;}
+#sec.on{padding-top:173px;}
 
 body.on{overflow: hidden;}
-#header {height: 50px;z-index: 997;background: #fff;width:100%;transition: all .4s ease-in-out;}
+#header {z-index: 997;background: #fff;width:100%;transition: all .4s ease-in-out;}
 #header.on {position: fixed;box-shadow: 0 1px 4px rgba(0,0,0,.3);top:0;left:0;}
-#header .header_in{width:1300px;padding:0 30px;position: relative;height:100%;margin:0 auto;}
+#header .header_in{width:1300px;padding:0 30px;position: relative;height: 50px;margin:0 auto;}
 #header h1{margin-left:-20px;display:inline-block;}
 #header h1 a{color:#000;padding:0 20px;display: block;height:50px;line-height:50px;font-family: "Fredoka";font-weight: 500;letter-spacing: 1px;}
 
@@ -130,3 +131,36 @@ body.on{overflow: hidden;}
 #join_cover1{width:calc(100% - 450px);height:100%;position: fixed;left:0;top:0;bottom:0;z-index: 1000;display: none;}
 #join_cover2{width:450px;height:calc(100% - 60px);position: fixed;z-index: 1000;right:0;bottom:0;display: none;}
 /* 회원가입 끝 */
+
+/* 여행지검색 */
+#header .header_ch{background: #5de4c2;}
+#header .header_ch .ch_in{height:123px;width:1300px;margin:0 auto;padding:0 30px;}
+#header .header_ch .ch_in form{height:100%;width:100%;}
+#header .header_ch .ch_in form:after{content: "";display: block;clear: both;}
+
+#header .header_ch .ch_in form > div{float:right;}
+
+#header .header_ch .ch_in form .ch_title{text-align: center;display: block;float:left;line-height:123px;position: relative;}
+#header .header_ch .ch_in form .ch_title h2{display: block;height:100%;font-family: 'Noto Sans KR';font-size:16px;font-weight: 500;color:#fff;text-shadow: 1px 1px 5px rgba(0,0,0,.5);}
+#header .header_ch .ch_in form .ch_title .tit_cover{width:100%;height:100%;position: absolute;left:0;top:0;}
+
+#header .header_ch .ch_in form .ch_tot{width:280px;height:46px;margin-right:30px;cursor: pointer;margin-top:41px;}
+#header .header_ch .ch_in form .ch_tot select{height:100%;width:100%;border:none;font-size:14px;padding:0 10px;color:#fff;text-shadow: 1px 1px 5px rgba(0,0,0,.5);border-radius: 5px;border:1px solid #fff;outline: none;background: #5de4c2 url(../resources/img/bottom.png)no-repeat 95% center;}
+#header .header_ch .ch_in form .ch_tot select option{background:(0,0,0,.4);color:#fff;}
+
+
+#header .header_ch .ch_in form .ch_btn{border:1px solid #fff;width:46px;height:46px;overflow: hidden;border-radius: 5px;position: relative;cursor: pointer;margin-top:41px;}
+#header .header_ch .ch_in form .ch_btn .btn{width:100%;height:100%;position: relative;}
+#header .header_ch .ch_in form .ch_btn .btn i{color:#fff;font-size:20px;position: absolute;left:50%;top:50%;transform: translate(-50%,-50%);text-shadow: 1px 1px 5px rgba(0,0,0,.3);}
+
+/* 달력 */
+/*#sec .main .main_ch .ch_in form .ch_date{width:240px;margin:0 10px;border:1px solid #fff;border-radius: 5px;overflow: hidden;}
+#sec .main .main_ch .ch_in form .ch_date label{margin:0;border:none;}
+#sec .main .main_ch .ch_in form .ch_date label:after{border:none;}
+#sec .main .main_ch .ch_in form .ch_date label:before{border:none;}
+.mbsc-ios.mbsc-form-control-wrapper{margin-top:0;}
+#sec .main .main_ch .ch_in form .ch_date label span{display: block;}
+#sec .main .main_ch .ch_in form .ch_date label span input{border:none;height:44px;font-family: 'Noto Sans KR';font-size:14px;color:#fff;background: #5de4c2;text-shadow: 1px 1px 5px rgba(0,0,0,.5);padding:0 10px;}
+#sec .main .main_ch .ch_in form .ch_date label span input::placeholder { opacity: 1; } */
+/* 달력 끝 */
+/* 여행지검색 끝 */
