@@ -1,21 +1,34 @@
 package com.triple.finalp;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.web.savedrequest.HttpSessionRequestCache;
+import org.springframework.security.web.savedrequest.RequestCache;
+import org.springframework.security.web.savedrequest.SavedRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
+import org.springframework.web.util.WebUtils;
 
 import com.triple.finalp.mag.service.FileService;
 import com.triple.finalp.mag.service.MagSerivce;
 import com.triple.finalp.mag.vo.MagVo;
+import com.triple.finalp.mem.service.MemberService;
+import com.triple.finalp.mem.vo.MemVo;
 import com.triple.finalp.pro.service.ProductService;
 
 @Controller
@@ -29,10 +42,53 @@ public class TripleController {
 	@Autowired
 	FileService fileService;
 	
+	@Autowired
+	MemberService memberService;
+	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String test0316() {
+	public String index(Authentication authentication,Model model) {
 		//인덱스로 보내기
+		
+		/*
+		 * if(authentication==null) { return "index"; }else{ String id =
+		 * authentication.getName(); memberService.info(model,id); }
+		 */
+		
 		return "index";
+	}
+	
+	@RequestMapping(value = "/it", method = RequestMethod.GET)
+	public String it(Authentication authentication,Model model) {
+		//테스ㅡㅌ용
+		return "NewFile";
+	}
+	
+	/*
+	 * @RequestMapping(value = "/info", method = RequestMethod.POST) public String
+	 * testinfo(@RequestParam("mem_id") String id, Model model,Authentication
+	 * authentication) { System.out.println(authentication.getName());
+	 * 
+	 * memberService.info(model,id);
+	 * 
+	 * return "index"; }
+	 */
+	
+	@RequestMapping(value = "/tl", method = RequestMethod.GET)
+	public String testlogin() {
+		//인덱스로 보내기
+		return "test/member/login";
+	}
+	
+	@RequestMapping(value = "/tj", method = RequestMethod.GET)
+	public String testjoin() {
+		//인덱스로 보내기
+		return "test/member/join";
+	}
+	
+	@RequestMapping(value = "/join", method = RequestMethod.POST)
+	public String testjoinjoin(MemVo memVo) {
+		memberService.join(memVo);
+		return "redirect:tl";
 	}
 	
 	@RequestMapping(value = "/category", method = RequestMethod.GET)
@@ -78,6 +134,20 @@ public class TripleController {
 		//작성결과
 		magSerivce.view(model);
 		return "test/mag/testmagview";
+	}
+	
+	@GetMapping("/login")
+	public String Login(HttpServletRequest request, HttpServletResponse response) {
+		RequestCache requestCache = new HttpSessionRequestCache();
+		SavedRequest savedRequest = requestCache.getRequest(request, response); 
+		try {
+			//여러가지 이유로 이전페이지 정보가 없는 경우가 있음.
+			//https://stackoverflow.com/questions/6880659/in-what-cases-will-http-referer-be-empty
+			request.getSession().setAttribute("prevPage", savedRequest.getRedirectUrl());
+		} catch(NullPointerException e) {
+			request.getSession().setAttribute("prevPage", "/");
+		}
+		return "login";
 	}
 	
 }

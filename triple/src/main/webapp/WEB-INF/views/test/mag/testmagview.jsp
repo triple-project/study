@@ -6,8 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-</head>
 <script src="resources/js/jquery-3.6.0.min.js"></script>
+</head>
 <body>
 <h1>뭔데?</h1>
 <table border="1">

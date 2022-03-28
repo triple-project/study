@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix='security' uri='http://www.springframework.org/security/tags'%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -71,9 +72,35 @@
 		console.log(filename)
 	}
 </script>
+
+<script type="text/javascript">
+
+function select() {
+	const element = document.getElementById('pro_category');	
+	const a = document.getElementById('h_category');
+	const b = element.options[element.selectedIndex].value;
+	document.getElementById('h_category').value = b;
+	
+	console.log(a)
+	}
+</script>
+<script type="text/javascript">
+	/* function cookie() {
+		 var x = getCookie("remember-me");
+		console.log(x);
+		
+		var c = getCookie("JSESSIONID");
+		console.log(c);
+	} */
+</script>
 <body>
 	<h1>매거진 작성 페이지</h1>
-
+	<!-- 시큐리티 태그사용 authorize access="hasRole('admin')해당 권한이 있다면 
+			isAnonymous() 아무나			isAuthenticated() 로그인을 했다면-->
+	<security:authorize access="isAuthenticated()">
+		<h2><security:authentication property="principal.username"/></h2>
+	</security:authorize>
+	
 	<form action="writesave" onsubmit="jjjtest()" method="post" id="writeform" enctype="multipart/form-data">
 	<!-- enctype="multipart/form-data" -->
 		<input type="text" value="제목" name="mgz_title">
@@ -96,6 +123,23 @@
       	
 	</form>
    <!--  <button onclick="jjjtest()">댐?</button> -->
+   
+   	<form action="액션" method="post">
+		<select id="pro_category" onchange="select()">
+				<option value="none" selected="selected" disabled="disabled">=== 선택 ===</option>
+				<option value="서울">서울</option>
+				<option value="대전">대전</option>
+				<option value="daegu">대구</option>
+				<option value="busan">부산</option>
+				<option value="jeju">제주</option>
+		</select>
+		<input type="hidden" id="h_category">
+		<input type="hidden" id="h2_category">
+	</form>
+	
+	<button onclick="select()">셀?</button>
+	<a href="logout">로그아웃경로테스트</a>
+	<button onclick="">쿠키테스트</button>
     
 </body>
 

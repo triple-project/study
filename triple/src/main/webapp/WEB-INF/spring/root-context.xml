@@ -5,7 +5,9 @@
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
 	xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
-	xsi:schemaLocation="http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.3.xsd
+	xmlns:security="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd
+		http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.3.xsd
 		http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
 		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
@@ -32,5 +34,53 @@
 		<property name="basePackage"
 			value="com/triple/finalp/**/dao" />
 	</bean>
+	
+		<!-- 시큐리티 권한설정 시작 -->
+	<security:http pattern="/resources/js/*.js" security="none" />
+	<security:http pattern="/resources/css/*.css" security="none" />
+	<security:http pattern="/resources/img/*" security="none" />
+	<security:http auto-config="true" use-expressions="true">
+	
+		<security:intercept-url pattern="/"
+			access="permitAll" />
+		<security:intercept-url pattern="/user/*"
+			access="hasRole('ROLE_USER')" />
+		<security:intercept-url pattern="/padmin/*"
+			access="hasRole('ROLE_PADMIN')" />
+		<security:intercept-url pattern="/sadmin/*"
+			access="hasRole('ROLE_SADMIN')" />
+		<!-- 접근 불가능한 곳에 접근시 처리할 페이지 지정 -->
+		<security:access-denied-handler
+			error-page="/403" />
+		<!-- 사용자가 만든 로그인 페이지를 사용하려면 이부분을 수정한다. -->
+		<security:form-login login-page="/"
+			username-parameter="mem_id" password-parameter="mem_pw" authentication-success-handler-ref="customAuthenticationSuccessHandler" authentication-failure-url="/login?error"/>
+			<!-- default-target-url="/" authentication-failure-url="/login?error" /> --> <!-- 로그인 실패시 이동하 페이지 지정 -->
+		<security:logout logout-url="/logout" logout-success-url="/" delete-cookies="JSESSIONID,remember_me"/> <!-- 로그아웃 성공시 이동할 페이지 지정 -->
+		<!-- 자동로그인설정 -->
+		<security:remember-me key="triple" token-validity-seconds="604800" remember-me-parameter="remember_me" remember-me-cookie="remember_me"
+			authentication-success-handler-ref="customAuthenticationSuccessHandler2"/>
+		<!-- csrf 프로텍션을 사용하지않겠다. -->
+		<security:csrf disabled="true" />
+	</security:http>
+	
+	
 
+	<!-- 시큐리티 권한설정 종료 -->
+	<!-- 시큐리티 사용자 설정 시작 -->
+	<security:authentication-manager>
+		<security:authentication-provider>
+			<security:jdbc-user-service
+				data-source-ref="dataSource"
+				users-by-username-query="select mem_id as username, mem_pw as password, enabled  from member where mem_id=?"
+				authorities-by-username-query="select mem_id as username, mem_role as role from member where mem_id=?" />
+		</security:authentication-provider>
+	</security:authentication-manager>
+
+	<!-- 시큐리트 암호화 객체 등록 -->
+	<bean id="bCryptPasswordEncoder"
+		class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
+	<!-- 시큐리티 사용자 설정 종료 -->
+	<bean id="customAuthenticationSuccessHandler" class="com.triple.finalp.security.CustomAuthenticationSuccessHandler"/>
+	<bean id="customAuthenticationSuccessHandler2" class="com.triple.finalp.security.CustomAuthenticationSuccessHandler2"/>
 </beans>
