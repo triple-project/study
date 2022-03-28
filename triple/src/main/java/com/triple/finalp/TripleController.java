@@ -1,10 +1,7 @@
 package com.triple.finalp;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -17,12 +14,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
-import org.springframework.web.util.WebUtils;
 
 import com.triple.finalp.mag.service.FileService;
 import com.triple.finalp.mag.service.MagSerivce;
@@ -30,6 +24,7 @@ import com.triple.finalp.mag.vo.MagVo;
 import com.triple.finalp.mem.service.MemberService;
 import com.triple.finalp.mem.vo.MemVo;
 import com.triple.finalp.pro.service.ProductService;
+import com.triple.finalp.pro.vo.ProductDetailVo;
 
 @Controller
 public class TripleController {
@@ -125,6 +120,7 @@ public class TripleController {
 		//mhsr 사용,이동후 file서비스를 사용하는 방식으로
 		magSerivce.save(magVo);
 		fileService.save(mhsr);
+		/* tagService.tagadd(magVo.getMgz_id(),magvo.getTag()); */
 		//magSerivce.view(model);
 		return "redirect:tmv";
 	}
@@ -148,6 +144,49 @@ public class TripleController {
 			request.getSession().setAttribute("prevPage", "/");
 		}
 		return "login";
+	}
+	
+	//상품상세등록 - 업주
+	@GetMapping("/product/pdr")
+	//@RequestMapping(value = "/pdr", method = RequestMethod.GET)
+	public String registerDGet() {
+		return "/product/proDetailRegister"; 
+	}
+	@RequestMapping(value = "/product/pdr/proDetailRegister", method = RequestMethod.POST)
+	public String registerDetail(ProductDetailVo pdvo) {
+		productService.registerDetail(pdvo);
+		return "redirect:/product/myList";
+	}
+	// 상품디테일등록	// url경로
+	@RequestMapping(value = "/product/pdr/{product_id}", method = RequestMethod.GET)
+	public String goDetail(@PathVariable("product_id") String product_id, Model model) {
+		productService.findp(product_id,model);
+		return "/product/proDetailRegister";	//.jsp경로		
+	}
+	// 나의(업주)의 상품리스트
+	@GetMapping("/product/myList") 
+	public void view(Model model) {
+		String admin_id = "ad1";
+		productService.getProId(admin_id, model);
+	}
+	 //상품전체 -고객
+	@GetMapping("/product/list")
+	public void list(Model model) {
+		productService.getAllProList(model);
+	}
+
+	//고객의 상품상세조회
+	@RequestMapping(value="product/list/{product_id}",method = RequestMethod.GET)
+	public String cusDetail(@PathVariable("product_id") String product_id, Model model) {
+		productService.showPro(product_id,model);
+		return "/product/showPro";
+	}
+	
+	//상품의상세의상세
+	@RequestMapping(value = "product/list/showPro/{product_id}/{pd_name}", method = RequestMethod.GET)
+	public String showProDetail( @PathVariable("product_id") String product_id,@PathVariable("pd_name") String pd_name,Model model) {
+		productService.showProDetail(product_id,pd_name,model);
+		return "/product/showProDetail";	
 	}
 	
 }

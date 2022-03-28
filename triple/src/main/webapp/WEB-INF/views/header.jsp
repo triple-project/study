@@ -212,7 +212,7 @@
 		<div class="menu_login" id="menu_login">
 			<div class="login_in">
 				<security:authorize access="isAnonymous()">
-				<div class="top" id="ml_top">
+					<div class="top" id="ml_top">
 						<a href="javascript:;">
 							<h3>로그인/회원가입</h3>
 						</a>
@@ -221,13 +221,13 @@
 				
 				<security:authorize access="isAuthenticated()">
 					<div class="top2" id="ml_top2">
-					<a href="javascript:;">
-						<span id="sat"><security:authentication property="principal.username"/></span><span>님 반갑습니다.</span>
+						<a href="javascript:;">
+							<span id="sat"><security:authentication property="principal.username"/></span><span>님 반갑습니다.</span>
 						<img alt="" src="">
-					</a>
-					<p onclick="logout()">로그아웃</p>
+						</a>
+						<p onclick="logout()">로그아웃</p>
 					<!-- <a href="/logout">로그아웃</a> -->
-				</div>
+					</div>
 				</security:authorize>
 
 				<div class="bottom">
