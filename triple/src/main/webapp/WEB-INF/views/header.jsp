@@ -118,9 +118,7 @@
       window.addEventListener('load', l, false);
     }
   })();
-  ChannelIO('boot', {
-    "pluginKey": "1e213c36-73e2-41d9-9cdb-722f2d2c697f"
-  });
+  ChannelIO('boot', { "pluginKey": "1e213c36-73e2-41d9-9cdb-722f2d2c697f" });
 </script>
 <!-- End Channel Plugin -->
 <header id="header">
@@ -261,17 +259,17 @@
 							</a>
 						</li>
 
-						<li>
+						<!-- <li>
 							<a href="javascript:;">
 								<div class="num">
-									<!-- jsp코드 -->
+									jsp코드
 									<p></p>
 								</div>
 								<div class="txt">
 									<h4>공유 일정</h4>
 								</div>
 							</a>
-						</li>
+						</li> -->
 					</ul>
 				</div>
 			</div>
@@ -321,12 +319,12 @@
 						</a>
 					</li>
 
-					<li>
+					<!-- <li>
 						<a href="javascript:;">
 							<h3>트리플 캐시</h3>
 							<div class="l_wrap">
 								<div class="num">
-									<!-- jsp코드 -->
+									jsp코드
 									0
 									<span> 원</span>
 								</div>
@@ -335,7 +333,7 @@
 								</div>
 							</div>
 						</a>
-					</li>
+					</li> -->
 
 					<li>
 						<a href="javascript:;">
@@ -388,11 +386,11 @@
 					<li>
 						<a href="javascript:;">
 							<div class="img">
-								<i class="fa-solid fa-comment-dots"></i>
+								<i class="fa-solid fa-user"></i>
 							</div>
 
 							<div class="txt">
-								<h3>1:1 채팅</h3>
+								<h3>회원정보수정</h3>
 							</div>
 						</a>
 					</li>

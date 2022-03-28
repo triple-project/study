@@ -63,6 +63,7 @@ body.on{overflow: hidden;}
 #s_menu .menu_in .menu_login .login_in .bottom ul li a{display: block;width:100%;height:100%;}
 #s_menu .menu_in .menu_login .login_in .bottom ul li a .num{height:30px;position: relative;}
 #s_menu .menu_in .menu_login .login_in .bottom ul li a .num p{height:3px;width:10px;background: #3d75dc;position: absolute;left:0;top:50%;transform: translate(0,-50%);}
+#s_menu .menu_in .menu_login .login_in .bottom ul li a .num span{line-height:30px;color:#3d75dc;font-weight:600;}
 
 #s_menu .menu_in .menu_login .login_in .bottom ul li a .txt{height:20px;}
 #s_menu .menu_in .menu_login .login_in .bottom ul li a .txt h4{font-size:12px;color:#444;}
