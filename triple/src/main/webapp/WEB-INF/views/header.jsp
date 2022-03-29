@@ -220,11 +220,11 @@
 				<security:authorize access="isAuthenticated()">
 					<div class="top2" id="ml_top2">
 						<a href="javascript:;">
-							<span id="sat"><security:authentication property="principal.username"/></span><span>님 반갑습니다.</span>
+							<h3 id="sat"><security:authentication property="principal.username"/></h3>
+							<h3>님 반갑습니다.</h3>
 						<img alt="" src="">
 						</a>
 						<p onclick="logout()">로그아웃</p>
-					<!-- <a href="/logout">로그아웃</a> -->
 					</div>
 				</security:authorize>
 
@@ -259,17 +259,17 @@
 							</a>
 						</li>
 
-						<!-- <li>
+						<li>
 							<a href="javascript:;">
 								<div class="num">
-									jsp코드
-									<p></p>
+									<!-- jsp코드 -->
+									<img id="wicon" src="">
 								</div>
 								<div class="txt">
-									<h4>공유 일정</h4>
+									<h4 class="wb_r">날씨 : </h4><h4 id="wename"></h4>
 								</div>
 							</a>
-						</li> -->
+						</li>
 					</ul>
 				</div>
 			</div>

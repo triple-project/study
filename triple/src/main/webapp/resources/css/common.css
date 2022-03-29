@@ -51,26 +51,34 @@ body.on{overflow: hidden;}
 #s_menu .menu_in .menu_top .close span:last-child{transform: translate(-50%,-50%) rotate(-45deg);}
 
 #s_menu .menu_in .menu_login{width:100%;}
-#s_menu .menu_in .menu_login .login_in{}
+#s_menu .menu_in .menu_login .login_in{position:relative;width:100%;height:100%;}
 #s_menu .menu_in .menu_login .login_in .top{}
 #s_menu .menu_in .menu_login .login_in .top a{display: block;width:100%;height:100%;padding:15px 0;}
-#s_menu .menu_in .menu_login .login_in .top a h3{font-size:20px;color:#333;font-weight: 500;letter-spacing: -1px;}
+#s_menu .menu_in .menu_login .login_in .top a h3{font-size:20px;color:#333;font-weight: 500;letter-spacing: -1px;display:inline-block;}
 
-#s_menu .menu_in .menu_login .login_in .bottom{}
-#s_menu .menu_in .menu_login .login_in .bottom ul{}
+/* 로그인 되었을때 회원 로그인 */
+#s_menu .menu_in .menu_login .login_in .top2{display:inline-block;}
+#s_menu .menu_in .menu_login .login_in .top2 a{display: block;width:100%;height:100%;padding:10px 0;}
+#s_menu .menu_in .menu_login .login_in .top2 a h3{font-size:20px;color:#333;font-weight: 500;letter-spacing: -1px;display:inline-block;}
+#s_menu .menu_in .menu_login .login_in .top2 a h3#sat{color:#5de4c2;}
+#s_menu .menu_in .menu_login .login_in .top2 a img{border: 1px solid red; width: 94px; height: 94px; border-radius: 50%; overflow: hidden; position: absolute; right: 30px; top: 50%; transform: translateY(-50%);}
+
+#s_menu .menu_in .menu_login .login_in .top2 p{padding:5px 0; font-size:14px; cursor:pointer;display:inline-block;}
+#s_menu .menu_in .menu_login .login_in .top2 p:hover{color:#5de4c2;}
+
 #s_menu .menu_in .menu_login .login_in .bottom ul:after{content: "";display: block;clear: both;}
 #s_menu .menu_in .menu_login .login_in .bottom ul li{float:left;width:70px;height:50px;margin-right:20px;}
 #s_menu .menu_in .menu_login .login_in .bottom ul li a{display: block;width:100%;height:100%;}
 #s_menu .menu_in .menu_login .login_in .bottom ul li a .num{height:30px;position: relative;}
+#s_menu .menu_in .menu_login .login_in .bottom ul li a .num img{position: absolute;left: 0px;top: 50%;transform: translateY(-50%);width:36px;height:36px;}
 #s_menu .menu_in .menu_login .login_in .bottom ul li a .num p{height:3px;width:10px;background: #3d75dc;position: absolute;left:0;top:50%;transform: translate(0,-50%);}
 #s_menu .menu_in .menu_login .login_in .bottom ul li a .num span{line-height:30px;color:#3d75dc;font-weight:600;}
 
 #s_menu .menu_in .menu_login .login_in .bottom ul li a .txt{height:20px;}
-#s_menu .menu_in .menu_login .login_in .bottom ul li a .txt h4{font-size:12px;color:#444;}
+#s_menu .menu_in .menu_login .login_in .bottom ul li a .txt h4{font-size:12px;color:#444;display:inline-block;}
+#s_menu .menu_in .menu_login .login_in .bottom ul li a .txt h4.wb_r{margin-right:5px;}
 
-#s_menu .menu_in .list_menu{margin-top:20px;}
-#s_menu .menu_in .list_menu .l_menu_in{}
-#s_menu .menu_in .list_menu .l_menu_in ul{}
+#s_menu .menu_in .list_menu{margin-top:26px;}
 #s_menu .menu_in .list_menu .l_menu_in ul li{border-top:1px solid #ccc;}
 #s_menu .menu_in .list_menu .l_menu_in ul li a{display: block;width:100%;height:100%;position: relative;padding:20px 0;}
 #s_menu .menu_in .list_menu .l_menu_in ul li a h3{color:#666;font-weight: 500;}
