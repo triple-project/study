@@ -56,7 +56,18 @@
                                         <div class="hart_list list_slider">
                                             <div class="swiper-wrapper">
                                                 <div class="swiper-slide">
-
+                                                	<div class="slide_in">
+                                                        <div class="slide_img" style="background: gray url(../resources/img/??/??.jpg);"></div>
+                                                		<div class="slide_cover">
+                                                            <div class="txt">
+                                                                <h2 class="cover_txt">제목</h2>
+                                                			    <h3 class="cover_txt">소제목</h3>
+                                                            </div>
+                                                		</div>
+                                                        <div class="slide_txt">
+                                                            <h2>제목</h2>
+                                                        </div>
+                                                	</div>
                                                 </div>
                                                 
                                                 <div class="swiper-slide">
