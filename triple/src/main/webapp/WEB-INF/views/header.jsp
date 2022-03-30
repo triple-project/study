@@ -122,6 +122,34 @@
 </script>
 <!-- End Channel Plugin -->
 
+<script type="text/javascript">
+   function readURL(input) {
+      var file = input.files[0] //파일에 대한 정보
+      console.log(file)
+      if (file != '') {
+         var reader = new FileReader();
+         reader.readAsDataURL(file); //파일의 정보를 토대로 파일을 읽고 
+         reader.onload = function (e) { // 파일 로드한 값을 표현한다
+          //e : 이벤트 안에 result값이 파일의 정보를 가지고 있다.
+            console.log(e)
+            console.log(e.target)
+            console.log(e.target.result)
+           $('#preview').attr('src', e.target.result);
+          }
+      }
+  }  
+</script>
+<script type="text/javascript">
+   function amu() {
+      //const a = $('#img').val();
+      //console.log(a);
+      var fileValue = $("#image_file_name").val().split("\\");
+      var fileName = fileValue[fileValue.length-1]; // 파일명
+      console.log(fileName);
+      const a = $('#img_h').val(fileName);
+      console.log(a);
+   }
+</script>
 
 <header id="header">
 	<div class="header_in" id="header_in">
@@ -498,70 +526,74 @@
 	</div>
 </div>
 
-	<div id="join_mbs">
-		<div class="join_mbs_in">
-			<h3>회원가입</h3>
-			<div class="mbs_form">
-				<form id="mbs" method="">
-					<div class="mbs_id mbs_con mbs_id_pw">
-						<span>아이디</span>
-						<input type="text" name="" placeholder="아이디 입력">
-					</div>
-					<div class="mbs_pw1 mbs_con">
-						<span>비밀번호</span>
-						<input type="password" name="" id="pw1" placeholder="비밀번호 입력">
-					</div>
-					<div class="mbs_pw2 mbs_con mbs_id_pw">
-						<span>비밀번호 확인</span>
-						<input type="password" name="" id="pw2" placeholder="비밀번호 확인">
-						<p class="pwMsg_ok">비밀번호가 맞습니다.</p>
-						<p class="pwMsg_no">비밀번호가 틀립니다.</p>
-						<p id="pwMsg" class="at">비밀번호 를 입력해주세요.</p>
-					</div>
-					<div class="email">
-						<span>이메일</span>
-						<input type="text" name="" placeholder="메일주소 클릭해서 맞춰주세요">
-						<select name="" id="">
-							<option value="@naver.com">@naver.com</option>
-							<option value="@daum.net">@daum.net</option>
-							<option value="@google.com">@google.com</option>
-							<option value="@nate.com">@nate.com</option>
-						</select>
-					</div>
-					<div class="mbs_name mbs_con">
-						<span>이름</span>
-						<input type="text" name="" placeholder="이름 입력">
-					</div>
-					<div class="mbs_phone mbs_con">
-						<span>전화번호</span>
-						<input type="text" name="" placeholder="전화번호 입력">
-					</div>
-					<div class="mbs_profile">
-						<div class="profile_frame1">
-							<div class="frame1_1">
-								<span>프로필</span>
-								<input type="file" name="" placeholder="사진은 꼭 안넣으셔도 됩니다.">
-							</div>
-							<!-- <div class="frame1_2">
-								<p>기본 프로필 사용</p>
-								<input type="checkbox" name="">
-							</div> -->
-						</div>
-						<div class="profile_frame2">
-							<div class="preview"></div>
-							<span></span>
-						</div>
-					</div>
-					<div class="mbs_btn">
-						<div class="mbs_btn_rt mbs_btn_frame" id="backtologin">
-							뒤로가기
-							<!-- <input type="submit" value="뒤로가기" id="backtologin"> -->
-						</div>
-						<div class="mbs_btn_join mbs_btn_frame" onclick="$('#mbs').submit()">
-							회원가입 
-						</div>
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
+	 <div id="join_mbs">
+      <div class="join_mbs_in">
+         <h3>회원가입</h3>
+         <div class="mbs_form">
+            <form id="mbs" method="post" enctype="multipart/form-data" action="/join" onsubmit="amu()">
+               <div class="mbs_id mbs_con mbs_id_pw">
+                  <span>아이디</span>
+                  <input type="text" name="mem_id" placeholder="아이디 입력">
+               </div>
+               <div class="mbs_pw1 mbs_con">
+                  <span>비밀번호</span>
+                  <input type="password" name="mem_pw" id="pw1" placeholder="비밀번호 입력">
+               </div>
+               <div class="mbs_pw2 mbs_con mbs_id_pw">
+                  <span>비밀번호 확인</span>
+                  <input type="password" name="mem_pw2" id="pw2" placeholder="비밀번호 확인">
+                  <p class="pwMsg_ok">비밀번호가 맞습니다.</p>
+                  <p class="pwMsg_no">비밀번호가 틀립니다.</p>
+                  <p id="pwMsg" class="at">비밀번호 를 입력해주세요.</p>
+               </div>
+               <div class="email">
+                  <span>이메일</span>
+                  <input type="text" name="e_mail" placeholder="메일주소 클릭해서 맞춰주세요">
+                  <select name="" id="">
+                     <option value="@naver.com">@naver.com</option>
+                     <option value="@daum.net">@daum.net</option>
+                     <option value="@google.com">@google.com</option>
+                     <option value="@nate.com">@nate.com</option>
+                  </select>
+               </div>
+               <div class="mbs_name mbs_con">
+                  <span>이름</span>
+                  <input type="text" name="name" placeholder="이름 입력">
+               </div>
+               <div class="mbs_phone mbs_con">
+                  <span>전화번호</span>
+                  <input type="text" name="tel" placeholder="전화번호 입력">
+               </div>
+               <div class="mbs_profile">
+                  <div class="profile_frame1">
+                     <div class="frame1_1">
+                        <span>프로필</span>
+                        <!-- <input type="text" name="mem_img" placeholder="사진은 꼭 안넣으셔도 됩니다."> -->
+                        <input type="file" name="image_file_name" id="image_file_name" onchange="readURL(this);" /> 
+                        <input type="hidden" name="mem_img" id="img_h">
+                        </div>
+                     <!-- <div class="frame1_2">
+                        <p>기본 프로필 사용</p>
+                        <input type="checkbox" name="">
+                     </div> -->
+                  </div>
+                  <div class="profile_frame2">
+                     <div class="preview">
+                           <img id="preview" src="#" width=100 height=100 alt="선택된 이미지가 없습니다" />
+                     </div>
+                  <!--    <span></span> -->
+                  </div>
+               </div>
+               <div class="mbs_btn">
+                  <div class="mbs_btn_rt mbs_btn_frame" id="backtologin">
+                     뒤로가기
+                     <!-- <input type="submit" value="뒤로가기" id="backtologin"> -->
+                  </div>
+                  <div class="mbs_btn_join mbs_btn_frame" onclick="$('#mbs').submit()">
+                     회원가입 
+                  </div>
+               </div>
+            </form>
+         </div>
+      </div>
+   </div>

@@ -36,7 +36,23 @@ public class FileServiceImpl implements FileService {
 		}
 
 	}
+	
+	@Override
+	public void join(MultipartHttpServletRequest mhsr) throws IllegalStateException, IOException {
+		Iterator<String> fileNames = mhsr.getFileNames();
+		while (fileNames.hasNext()) {
+			String fname = fileNames.next();
+			MultipartFile file = mhsr.getFile(fname);
+			String oname = file.getOriginalFilename();
 
+			if (file.isEmpty()) {
+				// 업로드 파일 없음 프로세스
+			} else {
+				File saveFile = new File(IMAGE_REPO_PATH + "/" + oname);
+				file.transferTo(saveFile);
+			}
+		}
+	}
 }
 
 

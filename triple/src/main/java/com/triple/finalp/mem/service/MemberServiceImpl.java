@@ -26,14 +26,7 @@ public class MemberServiceImpl implements MemberService{
 	PasswordEncoder passwordEncoder;
 	
 	
-	@Override
-	public void join(MemVo memVo) {
-		// TODO Auto-generated method stub
-		String pw = memVo.getMem_pw();
-		pw = "{bcrypt}"+ passwordEncoder.encode(pw);
-		memVo.setMem_pw(pw);
-		memDao.join(memVo);
-	}
+	
 
 
 	@Override
@@ -44,5 +37,14 @@ public class MemberServiceImpl implements MemberService{
 
 		return info;
 	}
+	
+	@Override
+	   public void join(MemVo memVo) {
+	      // TODO Auto-generated method stub
+	      String pw = memVo.getMem_pw();
+	      pw = "{bcrypt}"+ passwordEncoder.encode(pw);
+	      memVo.setMem_pw(pw);
+	      memDao.join(memVo);
+	   }
 
 }

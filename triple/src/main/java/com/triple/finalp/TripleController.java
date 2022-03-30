@@ -75,10 +75,11 @@ public class TripleController {
 	}
 	
 	@RequestMapping(value = "/join", method = RequestMethod.POST)
-	public String testjoinjoin(MemVo memVo) {
-		memberService.join(memVo);
-		return "redirect:tl";
-	}
+	   public String testjoinjoin(MemVo memVo,MultipartHttpServletRequest mhsr) throws IllegalStateException, IOException {
+	      memberService.join(memVo);
+	      fileService.join(mhsr);
+	      return "redirect:/";
+	   }
 	
 	@RequestMapping(value = "/category", method = RequestMethod.GET)
 	public String cate() {

@@ -8,6 +8,6 @@ import com.triple.finalp.mem.vo.MemVo;
 
 public interface MemberService {
 	public void join(MemVo memVo);
-
+	
 	public Map<String, Integer> info(Model model, String id);
 }
