@@ -46,6 +46,24 @@ public class TripleRestController {
 		response.getWriter().print(mapper.writeValueAsString(user));
 		response.getWriter().flush();		
 	}
+	
+	@RequestMapping(value = "/travel", method = RequestMethod.POST)
+	public void testtravel(@RequestParam("mem_id") String id,@RequestParam("plan_name") String plan_name,
+			@RequestParam("startdate") String startdate,@RequestParam("enddate") String enddate,Model model,HttpServletResponse response) throws JsonGenerationException, JsonMappingException, IOException {
+		
+		/*
+		 * ObjectMapper mapper = new ObjectMapper(); //여행등록 서비스 Object user =
+		 * memberService.info(model, id);
+		 * response.getWriter().print(mapper.writeValueAsString(user));
+		 * response.getWriter().flush();
+		 */
+		 		
+		System.out.println("아이디 : " + id);
+		System.out.println("여행이름 : " + plan_name);
+		System.out.println("시작일 : " + startdate);
+		System.out.println("종료일 : " + enddate);
+		
+	}
 	 
 
 }

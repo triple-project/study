@@ -5,14 +5,14 @@
 	<select id="find" resultType="ProVo">
 		select *
 		from product
-		where PRO_CATEGORY = #{id}
+		where product_CATEGORY = #{id}
 	</select>
 	
 	<!-- 상품등록 (업주) -->
 	<insert id="register">
 		insert into
-		product(product_name,pro_category,product_city,product_img1,product_address)
-		values(#{product_name},#{pro_category},#{product_city},#{product_img1},#{product_address})
+		product(product_name,product_category,product_city,product_img1,product_address)
+		values(#{product_name},#{product_category},#{product_city},#{product_img1},#{product_address})
 	</insert>
 	<!-- 상품디테일등록 (업주) -->
 	<insert id="registerDetail">
@@ -22,7 +22,7 @@
 	<!-- 상품 목록들 (업주) -->
 	<select id="getProId" resultType="ProVo">
 		select * from product
-		where admin_id=#{admin_id}
+		where product_admin_id=#{admin_id}
 	</select>
 	<!-- 상품디테일 (업주)//왜만들었찌 다시....보기 <select id="getProDId" resultType="ProDVo"> 
 		select * from product_detail where product_id=#{product_id} </select> -->

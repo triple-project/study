@@ -21,6 +21,7 @@
 	<link rel="stylesheet" href="resources/css/common.css">
 	<link rel="stylesheet" href="resources/css/main.css">
 	
+	
 
 	<script src="resources/js/jquery-3.6.0.min.js"></script>
 	<script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
@@ -32,6 +33,82 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Noto+Serif+KR:wght@200;300;400;500;600;700;900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+	
+	<script type="text/javascript">
+		function travel() {
+			var t_date = $("#t_date").val();
+			t_date = t_date.split("~");
+			var t_dateb = t_date[0].trim();
+			var t_datec = t_date[1].trim();
+			$.ajax({
+				type : "POST",
+				url : "/rest/travel",
+					dataType : "json",
+					data : {
+						mem_id : $("#sat").text(),
+						plan_name : $("#t_name").val(),
+						startdate : t_dateb,
+						enddate : t_datec
+					},
+					success : function(data) {
+		           		 // C에서 받아온 데이터로 새로 뿌려주기
+						console.log(data);
+						/* $("#heart_num").html(data.heart)
+						$("#plan_num").html(data.plan) */
+					},
+					error : function(a){
+						console.log(a);
+		            }
+				});
+		}
+		
+		
+	</script>
+	<script type="text/javascript">
+		function d_test() {
+			var a = $("#t_date").val();
+			var d = $("#t_date").val();
+			console.log(d);
+			a = a.split("~");
+			var b = a[0].trim();
+			var c = a[1].trim();
+			console.log(a);
+			console.log(b);
+			console.log(c);
+		}
+	</script>
+	
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+	<script type="text/javascript">
+	$(function () {
+        $('#t_date').daterangepicker({
+            "locale": {
+                "format": "YYYY-MM-DD",
+                "separator": " ~ ",
+                "applyLabel": "확인",
+                "cancelLabel": "취소",
+                "fromLabel": "From",
+                "toLabel": "To",
+                "customRangeLabel": "Custom",
+                "weekLabel": "W",
+                "daysOfWeek": ["월", "화", "수", "목", "금", "토", "일"],
+                "monthNames": ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"],
+                
+            },
+            "startDate": new Date(),
+            "endDate": new Date(),
+            "drops": "down",
+            "opens": "center"
+        }, function (start, end, label) {
+            console.log('New date range selected: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD') + ' (predefined range: ' + label + ')');
+        });
+    });
+	</script>
+
+
+
 </head>
 <body>
 	<jsp:include page="/WEB-INF/views/header.jsp" flush="true"/>
@@ -42,5 +119,21 @@
 	<input type="submit" value="가입">
 	</form>
 	<a href="aa">test</a>
+	<hr>
+	<p style="font-size: 5em;">일정 혹은 여행</p>
+	
+	
+	<div id="travel_c">
+		<div>일정이름</div>
+		<div>일정날짜</div>
+	</div>
+	<form action="">
+	여행이름	<input type="text" name="t_name" id="t_name"><br>
+	여행기간	<input type="text" id="t_date" name="t_date" readonly="readonly"/><br>
+	
+	</form>
+	<button onclick="travel()">일정만들기</button>
+	<button onclick="d_test()">날짜값조회</button>
+	<button onclick="select()">상단검색테스트</button>
 </body>
 </html>

@@ -1,5 +1,5 @@
 $(function(){
-   const swiper1 = new Swiper('.hart_list', {
+   const swiperh = new Swiper('.hart_list', {
       // loop: true,
       slidesPerView: 5,
         spaceBetween: 30,

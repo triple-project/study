@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.triple.finalp.search.dao.SearchDao">
+
+	<select id="citylist" resultType="String">
+		select product_city
+		from PRODUCT
+		group by product_city
+	</select>
+	
+	<select id="psearch" resultType="ProVo">
+		select *
+		from PRODUCT
+	</select>
+	
+	<select id="msearch" resultType="MagVo">
+		select *
+		from MAGAZINE
+	</select>
+	
+	<select id="pcatesearch" resultType="ProVo">
+		select *
+		from PRODUCT
+		where product_city = #{city}	
+	</select>
+	
+	<select id="catelist" resultType="String">
+		select product_category
+		from PRODUCT
+		group by product_category
+	</select>
+	
+	<select id="pccsearch" resultType="ProVo">
+		select *
+		from PRODUCT
+		where product_city = #{city}
+		and product_category = #{cate}
+	</select>
+	
+	<select id="pcsearch" resultType="ProVo">
+		select *
+		from PRODUCT
+		where product_category = #{cate}
+	</select>
+	
+	<select id="mcsearch" resultType="MagVo">
+		select *
+		from MAGAZINE
+		where mgz_category = #{cate}
+	</select>
+	
+	<select id="mcatesearch" resultType="MagVo">
+		select *
+		from MAGAZINE
+		where mgz_city = #{city}
+	</select>
+	
+	<select id="mccsearch" resultType="MagVo">
+		select *
+		from MAGAZINE
+		where mgz_city = #{city}
+		and mgz_category = #{cate}
+	</select>
+
+</mapper>

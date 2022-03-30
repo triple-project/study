@@ -227,7 +227,7 @@
 					<div class="con_in">
 						<ul>
 							<li class="li1">
-								<a href="">
+								<a href="/category/펜션">
 									<div class="img"></div>
 									<div class="cover">
 										<h2>펜션/캠핑</h2>

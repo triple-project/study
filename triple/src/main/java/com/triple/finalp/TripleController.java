@@ -1,6 +1,7 @@
 package com.triple.finalp;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,8 +15,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.triple.finalp.mag.service.FileService;
@@ -25,6 +29,8 @@ import com.triple.finalp.mem.service.MemberService;
 import com.triple.finalp.mem.vo.MemVo;
 import com.triple.finalp.pro.service.ProductService;
 import com.triple.finalp.pro.vo.ProductDetailVo;
+import com.triple.finalp.pro.vo.ProductVo;
+import com.triple.finalp.search.service.SearchService;
 
 @Controller
 public class TripleController {
@@ -40,6 +46,9 @@ public class TripleController {
 	@Autowired
 	MemberService memberService;
 	
+	@Autowired
+	SearchService searchService;
+	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String index(Authentication authentication,Model model) {
 		//인덱스로 보내기
@@ -52,21 +61,6 @@ public class TripleController {
 		return "index";
 	}
 	
-	@RequestMapping(value = "/it", method = RequestMethod.GET)
-	public String it(Authentication authentication,Model model) {
-		//테스ㅡㅌ용
-		return "NewFile";
-	}
-	
-	/*
-	 * @RequestMapping(value = "/info", method = RequestMethod.POST) public String
-	 * testinfo(@RequestParam("mem_id") String id, Model model,Authentication
-	 * authentication) { System.out.println(authentication.getName());
-	 * 
-	 * memberService.info(model,id);
-	 * 
-	 * return "index"; }
-	 */
 	
 	@RequestMapping(value = "/tl", method = RequestMethod.GET)
 	public String testlogin() {
@@ -92,14 +86,14 @@ public class TripleController {
 		return "category";
 	}
 	
-	@RequestMapping(value = "/testview/{id}", method = RequestMethod.GET)
-	public String testcate(@PathVariable("id") String id, Model model) {
+	@RequestMapping(value = "/category/{id}", method = RequestMethod.GET)
+	public String category(@PathVariable("id") String id, Model model) {
 		// 카테고리 클릭시 조회페이지
 		// id << jsp 페이지에서 클릭시 보내주는 값
 		System.out.println(id);	//확인
 		model.addAttribute("main",id);	//main에 id값을 삽입
 		productService.find(id, model);	//id값에 대한 조회 > 서비스 > dao > mapper
-		return "test/testview";			//조회결과에 사용할 jsp주소
+		return "category";			//조회결과에 사용할 jsp주소
 	}
 	
 	@RequestMapping(value = "/tm", method = RequestMethod.GET)
@@ -146,6 +140,19 @@ public class TripleController {
 		return "login";
 	}
 	
+	//상품등록 - 업주
+		@GetMapping("product/pr") 
+		//@RequestMapping(value = "/pr", method = RequestMethod.GET)
+		public String registerGet() {
+			return "/product/proRegister"; 
+		}
+		@RequestMapping(value = "/product/proRegister", method = RequestMethod.POST)
+		public String register(ProductVo pvo) {
+			System.out.println("3"+pvo);
+			productService.register(pvo);
+			return "redirect:/product/myList";
+		} 
+	
 	//상품상세등록 - 업주
 	@GetMapping("/product/pdr")
 	//@RequestMapping(value = "/pdr", method = RequestMethod.GET)
@@ -188,5 +195,23 @@ public class TripleController {
 		productService.showProDetail(product_id,pd_name,model);
 		return "/product/showProDetail";	
 	}
+	
+	//상단검색바
+	@PostMapping("/top_search")
+	public String top_search(@RequestParam("main_search") String main, @RequestParam("city_search") String city,
+			@RequestParam("cate_search") String cate, Model model) {
+		System.out.println("종류 : " + main);
+		System.out.println("도시 : " + city);
+		System.out.println("카테고리 : " + cate);
+		
+		searchService.search(main,city,cate,model);
+		model.addAttribute("main_search",main);
+		model.addAttribute("city_search",city);
+		model.addAttribute("cate_search",cate);
+		
+		//if main 이 여행지면 categoryA 아니면 categoryB로 보내면서 해결해야할듯
+		return "category";
+	}
+	
 	
 }

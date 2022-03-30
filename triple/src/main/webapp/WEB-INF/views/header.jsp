@@ -121,6 +121,8 @@
   ChannelIO('boot', { "pluginKey": "1e213c36-73e2-41d9-9cdb-722f2d2c697f" });
 </script>
 <!-- End Channel Plugin -->
+
+
 <header id="header">
 	<div class="header_in" id="header_in">
 		<h1><a href="/">TRIPLE</a></h1>
@@ -142,7 +144,7 @@
 
 	<div class="header_ch" id="header_ch">
 		<div class="ch_in">
-			<form action="" id="ch_form">
+			<form action="/top_search" id="ch_form" method="post">
 				<div class="ch_title">
 					<h2>Triple 트리플</h2>
 					<div class="tit_cover"></div>
@@ -155,29 +157,43 @@
 				</div>
 
 				<div class="ch_context ch_tot">
-					<select name="" id="">
-						<option value="" selected="selected" hidden="hidden">여행상품 검색</option>
-						<option value="모텔">모텔</option>
-						<option value="펜션">펜션</option>
-						<option value="풀빌라">풀빌라</option>
+					<select name="cate_search" id="cate_search">
+						<option value="전체" selected="selected" hidden="hidden">여행상품 검색</option>
+						<option value="전체">전체</option>
 						<option value="호텔">호텔</option>
-						<option value="게스트하우스">게스트하우스</option>
+						<option value="리조트">리조트</option>
+						<option value="펜션">펜션</option>
+						<option value="모텔">모텔</option>
+						<option value="게스트하우스">게스트하우스</option>					
+						<option value="캠핑">캠핑</option>
+						<option value="맛집">맛집</option>
+						<option value="패키지여행">패키지여행</option>
+						<option value="티켓">티켓</option>
 					</select>
 				</div>
 
 				<div class="ch_local ch_tot">
-					<select name="" id="">
-						<option value="" selected="selected" hidden="hidden">여행지를 선택하세요</option>
+					<select name="city_search" id="city_search">
+						<option value="전체" selected="selected" hidden="hidden">여행지를 선택하세요</option>
+						<option value="전체">전체</option>
 						<option value="서울">서울</option>
 						<option value="대전">대전</option>
 						<option value="대구">대구</option>
 						<option value="부산">부산</option>
+						<option value="울산">울산</option>
+						<option value="인천">인천</option>
+						<option value="광주">광주</option>
 						<option value="제주">제주</option>
+						<option value="경기도">경기도</option>
+						<option value="강원도">강원도</option>
+						<option value="충청도">충청도</option>
+						<option value="전라도">전라도</option>
+						<option value="경상도">경상도</option>
 					</select>
 				</div>
 
 				<div class="ch_search ch_tot">
-					<select name="" id="">
+					<select name="main_search" id="main_search">
 						<option value="여행지 검색">여행지 검색</option>
 						<option value="매거진 검색">매거진 검색</option>
 					</select>
@@ -188,8 +204,6 @@
 						<input id="range" mbsc-input placeholder="여행날짜를 선택해주세요." readonly/>
 					</label>
 				</div> -->
-
-
 			</form>
 		</div>
 	</div>
