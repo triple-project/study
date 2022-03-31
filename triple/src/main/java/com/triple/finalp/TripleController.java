@@ -63,6 +63,29 @@ public class TripleController {
 		return "index";
 	}
 	
+	@RequestMapping(value = "/train", method = RequestMethod.GET)
+	public String train() {
+		//인덱스로 보내기
+		
+		/*
+		 * if(authentication==null) { return "index"; }else{ String id =
+		 * authentication.getName(); memberService.info(model,id); }
+		 */
+		
+		return "test/train";
+	}
+	@RequestMapping(value = "/apit.php", method = RequestMethod.GET)
+	public String train2() {
+		//인덱스로 보내기
+		
+		/*
+		 * if(authentication==null) { return "index"; }else{ String id =
+		 * authentication.getName(); memberService.info(model,id); }
+		 */
+		
+		return "apit";
+	}
+	
 
 	
 	@RequestMapping(value = "/join", method = RequestMethod.POST)
