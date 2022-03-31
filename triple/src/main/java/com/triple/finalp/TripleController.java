@@ -66,17 +66,17 @@ public class TripleController {
 
 	
 	@RequestMapping(value = "/join", method = RequestMethod.POST)
-	   public String join(MemVo memVo,MultipartHttpServletRequest mhsr) throws IllegalStateException, IOException {
+	   public String join(@RequestParam("image_file_name_h")String image_file_name_h,MemVo memVo,MultipartHttpServletRequest mhsr) throws IllegalStateException, IOException {
 	      memberService.join(memVo);
-	      fileService.join(mhsr);
+	      fileService.join(mhsr,image_file_name_h);
 	      return "redirect:/";
 	   }
 	
 	@RequestMapping(value = "/updateProfile", method = RequestMethod.POST)
-	   public String updateProfile(MemVo memVo,MultipartHttpServletRequest mhsr) throws IllegalStateException, IOException {
+	   public String updateProfile(@RequestParam("image_file_name_h")String image_file_name_h,MemVo memVo,MultipartHttpServletRequest mhsr) throws IllegalStateException, IOException {
 	      memberService.updateProfile(memVo);
 	      System.out.println(memVo);
-	      fileService.join(mhsr);
+	      fileService.join(mhsr,image_file_name_h);
 	      return "redirect:/";
 	   }
 	
@@ -87,14 +87,22 @@ public class TripleController {
 		return "redirect:/logout";
 	}
 	
+	@RequestMapping(value = "/tm", method = RequestMethod.GET)
+	public String mag(Authentication authentication,Model model) {
+		//매거진작성으로 보내기
+
+		return "test/mag/testmagwrite";
+	}
+	
 
 	
 	@RequestMapping(value = "/writesave", method = RequestMethod.POST)
-	public String testsave(MagVo magVo, MultipartHttpServletRequest mhsr,Model model) throws IllegalStateException, IOException {
+	public String testsave(@RequestParam("image_file_name_h") List<String> image_file_name_h,MagVo magVo, MultipartHttpServletRequest mhsr,Model model) throws IllegalStateException, IOException {
 		//작성글 저장
 		//mhsr 사용,이동후 file서비스를 사용하는 방식으로
 		magSerivce.save(magVo);
-		fileService.save(mhsr);
+		fileService.save(mhsr,image_file_name_h);
+
 		/* tagService.tagadd(magVo.getMgz_id(),magvo.getTag()); */
 		//magSerivce.view(model);
 		return "redirect:tmv";

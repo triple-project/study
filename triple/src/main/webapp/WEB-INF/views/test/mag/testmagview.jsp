@@ -22,7 +22,7 @@
 		</tr>
 	</c:forEach>
 	</table>
-	<p>${maglist[0].mgz_id}</p>
-	<p>${maglist[0].mgz_content}</p>
+	<p>${maglist[125].mgz_id}</p>
+	<p>${maglist[125].mgz_content}</p>
 </body>
 </html>

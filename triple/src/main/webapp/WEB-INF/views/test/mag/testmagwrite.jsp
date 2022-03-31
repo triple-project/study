@@ -16,15 +16,13 @@
 	function readURL(input) {
 		var file = input.files[0] //파일에 대한 정보
 		filename.push(file.name);
-		console.log(file.name)
+
 		if (file != '') {
 			var reader = new FileReader();
 			reader.readAsDataURL(file); //파일의 정보를 토대로 파일을 읽고 
 			reader.onload = function(e) { // 파일 로드한 값을 표현한다
 				//e : 이벤트 안에 result값이 파일의 정보를 가지고 있다.
-				console.log(e)
-				console.log(e.target)
-				console.log(e.target.result)
+				
 				$('#preview' + count).attr('src', e.target.result);
 				// 이미지 실험
 				const element = document.getElementById('magwrite');
@@ -58,18 +56,21 @@
 		const element = document.getElementById('magwrite');
 		// for id 어디까지? var count 까지
 		// + file name 도 count까지
-
+		var today = new Date();
+		var hours = ('0' + today.getHours()).slice(-2);
+		var minutes = ('0' + today.getMinutes()).slice(-2);
+		var seconds = ('0' + today.getSeconds()).slice(-2);
+		var fArray = new Array();
 		for (var i = 0; i < count; i++) {
-			var img = document.getElementById('img' + i); //위에서 생성된 이미지의 id들
-			var fnn = filename[i]
-			img.setAttribute("src", "resources/img/upload/" + fnn) //id별로 서버에 저장되는 img경로
+			var img = document.getElementById('img' + i); //위에서 생성된 이미지의 id들			
+			var ti = hours + minutes + seconds;
+			var fnn = i + ti + filename[i];
+			img.setAttribute("src", "/resources/img/upload/" + fnn); //id별로 서버에 저장되는 img경로
+			fArray.push(fnn);
 		}
 		document.getElementById('mgz_content').value = element.innerHTML;
-		const jj2 = document.getElementById('mgz_content');
-		console.log(element.innerHTML);
-		console.log(jj2);
-		console.log(count)
-		console.log(filename)
+		$("#image_file_name_h").val(fArray);
+
 	}
 </script>
 
@@ -101,7 +102,7 @@ function select() {
 		<h2><security:authentication property="principal.username"/></h2>
 	</security:authorize>
 	
-	<form action="writesave" onsubmit="jjjtest()" method="post" id="writeform" enctype="multipart/form-data">
+	<form action="/writesave" onsubmit="jjjtest()" method="post" id="writeform" enctype="multipart/form-data">
 	<!-- enctype="multipart/form-data" -->
 		<input type="text" value="제목" name="mgz_title">
 		<input type="text" value="소제목" name="mgz_smalltitle">
@@ -117,6 +118,7 @@ function select() {
 		<b>이미지파일 첨부</b><br>
       	
       	<input type="hidden" name="mgz_content" id="mgz_content">
+      	<input type="hidden" name="image_file_name_h" id="image_file_name_h">
 		
 		<input type="file" id="image_file_name0" name="image_file_name0" onchange="readURL(this);" /> 
       	<img id="preview0" src="#" width=100 height=100 alt="선택된 이미지가 없습니다" />

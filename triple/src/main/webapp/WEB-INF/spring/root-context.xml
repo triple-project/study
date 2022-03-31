@@ -39,6 +39,7 @@
 	<security:http pattern="/resources/js/*.js" security="none" />
 	<security:http pattern="/resources/css/*.css" security="none" />
 	<security:http pattern="/resources/img/*" security="none" />
+	<security:http pattern="/resources/img/*/*" security="none" />
 	<security:http auto-config="true" use-expressions="true">
 	
 		<security:intercept-url pattern="/"

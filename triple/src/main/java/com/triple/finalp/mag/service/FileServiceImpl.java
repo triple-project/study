@@ -14,11 +14,11 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 public class FileServiceImpl implements FileService {
 
 	@Override
-	public void save(MultipartHttpServletRequest mhsr) throws IllegalStateException, IOException {
+	public void save(MultipartHttpServletRequest mhsr,List<String> image_file_name_h) throws IllegalStateException, IOException {
 		// TODO Auto-generated method stub
 		List<String> fileList = new ArrayList<String>();
 		Iterator<String> fileNames = mhsr.getFileNames();
-		
+		int i = 0;
 		while (fileNames.hasNext()) {
 			String fname = fileNames.next();
 			MultipartFile file = mhsr.getFile(fname);
@@ -30,15 +30,16 @@ public class FileServiceImpl implements FileService {
 				
 			} else {
 				
-				File saveFile = new File(IMAGE_REPO_PATH + "/" + oname);
+				File saveFile = new File(IMAGE_REPO_PATH + "/" + image_file_name_h.get(i));
 				file.transferTo(saveFile);
+				i++;
 			}
 		}
 
 	}
 	
 	@Override
-	public void join(MultipartHttpServletRequest mhsr) throws IllegalStateException, IOException {
+	public void join(MultipartHttpServletRequest mhsr,String image_file_name_h) throws IllegalStateException, IOException {
 		Iterator<String> fileNames = mhsr.getFileNames();
 		while (fileNames.hasNext()) {
 			String fname = fileNames.next();
@@ -48,7 +49,7 @@ public class FileServiceImpl implements FileService {
 			if (file.isEmpty()) {
 				// 업로드 파일 없음 프로세스
 			} else {
-				File saveFile = new File(IMAGE_REPO_PATH + "/" + oname);
+				File saveFile = new File(IMAGE_REPO_PATH + "/" + image_file_name_h);
 				file.transferTo(saveFile);
 			}
 		}

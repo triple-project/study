@@ -150,15 +150,15 @@
 <script type="text/javascript">
    function readURL(input) {
       var file = input.files[0] //파일에 대한 정보
-      console.log(file)
+     /*  console.log(file) */
       if (file != '') {
          var reader = new FileReader();
          reader.readAsDataURL(file); //파일의 정보를 토대로 파일을 읽고 
          reader.onload = function (e) { // 파일 로드한 값을 표현한다
           //e : 이벤트 안에 result값이 파일의 정보를 가지고 있다.
-            console.log(e)
+/*             console.log(e)
             console.log(e.target)
-            console.log(e.target.result)
+            console.log(e.target.result) */
            $('#preview').attr('src', e.target.result);
           }
       }
@@ -169,11 +169,17 @@
       
 	//const a = $('#img').val();
 		//console.log(a);
+		var today = new Date();
+		var hours = ('0' + today.getHours()).slice(-2);
+		var minutes = ('0' + today.getMinutes()).slice(-2);
+		var seconds = ('0' + today.getSeconds()).slice(-2);
+		var ti = hours + minutes + seconds;
 		var fileValue = $("#image_file_name").val().split("\\");
 		var fileName = fileValue[fileValue.length - 1]; // 파일명
-		console.log(fileName);
-		const a = $('#img_h').val(fileName);
-		console.log(a);
+		/* console.log(fileName); image_file_name_h */
+		const a = $('#img_h').val(ti+fileName);
+		const b = $('#image_file_name_h').val(ti+fileName);
+		/* console.log(a); */
 
 		var e1 = $('#e_mail').val();	//e_mail 의 밸류
 		var e2 = $('#e_mail2').val();	//e_mail2 의 밸류
@@ -186,6 +192,11 @@
 	      
 		//const a = $('#img').val();
 			//console.log(a);
+			var today = new Date();
+			var hours = ('0' + today.getHours()).slice(-2);
+			var minutes = ('0' + today.getMinutes()).slice(-2);
+			var seconds = ('0' + today.getSeconds()).slice(-2);
+			var ti = hours + minutes + seconds;
 			var fileCheck = document.getElementById("image_file_name").value;
 			var fileValue = $("#image_file_name").val().split("\\");
 			var fileName = fileValue[fileValue.length - 1]; // 파일명
@@ -195,8 +206,9 @@
 				const a = $('#img_h').val(fileName2);
 				console.log(a);
 			}else{
-			const a = $('#img_h').val(fileName);
-			console.log(a);
+				const a = $('#img_h').val(ti+fileName);
+				const b = $('#image_file_name_h').val(ti+fileName);
+				console.log(a);
 			}
 			var e1 = $('#e_mail').val();	//e_mail 의 밸류
 			var e2 = $('#e_mail2').val();	//e_mail2 의 밸류
@@ -597,7 +609,7 @@
 	 <div id="join_mbs">
       <div class="join_mbs_in">
          <h3>회원가입</h3>
-         <button onclick="amu()">테스트버튼</button>
+         
          <div class="mbs_form">
             <form id="mbs" method="post" enctype="multipart/form-data" action="/join" onsubmit="amu()">
                <div class="mbs_id mbs_con mbs_id_pw">
@@ -640,6 +652,7 @@
                         <!-- <input type="text" name="mem_img" placeholder="사진은 꼭 안넣으셔도 됩니다."> -->
                         <input type="file" name="image_file_name" id="image_file_name" onchange="readURL(this);" /> 
                         <input type="hidden" name="mem_img" id="img_h">
+                        <input type="hidden" name="image_file_name_h" id="image_file_name_h">
                         
                         </div>
                      <!-- <div class="frame1_2">
@@ -725,6 +738,7 @@
 									onchange="readURL(this);" /> 
 									<input type="hidden" name="mem_img" id="img_h">
 									<input type="hidden" id="img_hs">
+									<input type="hidden" name="image_file_name_h" id="image_file_name_h">
 							</div>
 							<!-- <div class="frame1_2">
                         <p>기본 프로필 사용</p>

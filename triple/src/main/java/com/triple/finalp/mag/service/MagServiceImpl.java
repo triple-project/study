@@ -23,7 +23,6 @@ public class MagServiceImpl implements MagSerivce{
 	@Override
 	public void save(MagVo magVo) {
 		// TODO Auto-generated method stub
-		System.out.println(magVo);
 		magDao.save(magVo);
 	}
 
@@ -31,7 +30,6 @@ public class MagServiceImpl implements MagSerivce{
 	public void view(Model model) {
 		// TODO Auto-generated method stub
 		ArrayList<MagVo> maglist = magDao.view();
-		System.out.println(maglist);
 		model.addAttribute("maglist",maglist);
 	}
 
