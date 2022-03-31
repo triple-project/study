@@ -109,6 +109,11 @@ $(function() {
 		$("#join_mbs").removeClass("on");
 		$("#join").addClass("on");
 	});
+	
+	$("#backtomenu").click(function() {
+		$("#join_mbs").removeClass("on");
+		/*$("#join").addClass("on");*/
+	});
 
 
 	$('#pw2').blur(function() {

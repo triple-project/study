@@ -1,12 +1,14 @@
 package com.triple.finalp;
 
 import java.io.IOException;
+import java.security.Principal;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.AuthenticatedPrincipal;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.savedrequest.HttpSessionRequestCache;
 import org.springframework.security.web.savedrequest.RequestCache;
@@ -61,53 +63,31 @@ public class TripleController {
 		return "index";
 	}
 	
-	
-	@RequestMapping(value = "/tl", method = RequestMethod.GET)
-	public String testlogin() {
-		//인덱스로 보내기
-		return "test/member/login";
-	}
-	
-	@RequestMapping(value = "/tj", method = RequestMethod.GET)
-	public String testjoin() {
-		//인덱스로 보내기
-		return "test/member/join";
-	}
+
 	
 	@RequestMapping(value = "/join", method = RequestMethod.POST)
-	   public String testjoinjoin(MemVo memVo,MultipartHttpServletRequest mhsr) throws IllegalStateException, IOException {
+	   public String join(MemVo memVo,MultipartHttpServletRequest mhsr) throws IllegalStateException, IOException {
 	      memberService.join(memVo);
 	      fileService.join(mhsr);
 	      return "redirect:/";
 	   }
 	
-	@RequestMapping(value = "/category", method = RequestMethod.GET)
-	public String cate() {
-		//카테고리로 보내기
-		return "category";
+	@RequestMapping(value = "/updateProfile", method = RequestMethod.POST)
+	   public String updateProfile(MemVo memVo,MultipartHttpServletRequest mhsr) throws IllegalStateException, IOException {
+	      memberService.updateProfile(memVo);
+	      System.out.println(memVo);
+	      fileService.join(mhsr);
+	      return "redirect:/";
+	   }
+	
+	@RequestMapping(value = "/updatePw", method = RequestMethod.POST)
+	public String updatePw(MemVo memVo,Principal principal) throws IllegalStateException, IOException {
+		memVo.setMem_id(principal.getName());
+		memberService.updatePw(memVo);
+		return "redirect:/logout";
 	}
 	
-	@RequestMapping(value = "/category/{id}", method = RequestMethod.GET)
-	public String category(@PathVariable("id") String id, Model model) {
-		// 카테고리 클릭시 조회페이지
-		// id << jsp 페이지에서 클릭시 보내주는 값
-		System.out.println(id);	//확인
-		model.addAttribute("main",id);	//main에 id값을 삽입
-		productService.find(id, model);	//id값에 대한 조회 > 서비스 > dao > mapper
-		return "category";			//조회결과에 사용할 jsp주소
-	}
-	
-	@RequestMapping(value = "/tm", method = RequestMethod.GET)
-	public String testmag() {
-		//매거진 작성폼으로 보내기
-		return "test/mag/testmagwrite";
-	}
-	
-	@RequestMapping(value = "/test/mag/magiframe", method = RequestMethod.GET)
-	public String testiframe() {
-		//글작성 옵션
-		return "test/mag/magiframe";
-	}
+
 	
 	@RequestMapping(value = "/writesave", method = RequestMethod.POST)
 	public String testsave(MagVo magVo, MultipartHttpServletRequest mhsr,Model model) throws IllegalStateException, IOException {
@@ -177,18 +157,8 @@ public class TripleController {
 		String admin_id = "ad1";
 		productService.getProId(admin_id, model);
 	}
-	 //상품전체 -고객
-	@GetMapping("/product/list")
-	public void list(Model model) {
-		productService.getAllProList(model);
-	}
 
-	//고객의 상품상세조회
-	@RequestMapping(value="product/list/{product_id}",method = RequestMethod.GET)
-	public String cusDetail(@PathVariable("product_id") String product_id, Model model) {
-		productService.showPro(product_id,model);
-		return "/product/showPro";
-	}
+
 	
 	//상품의상세의상세
 	@RequestMapping(value = "product/list/showPro/{product_id}/{pd_name}", method = RequestMethod.GET)
@@ -205,13 +175,22 @@ public class TripleController {
 		System.out.println("도시 : " + city);
 		System.out.println("카테고리 : " + cate);
 		
-		searchService.search(main,city,cate,model);
+		String r = searchService.search(main,city,cate,model);
 		model.addAttribute("main_search",main);
 		model.addAttribute("city_search",city);
 		model.addAttribute("cate_search",cate);
-		
-		//if main 이 여행지면 categoryA 아니면 categoryB로 보내면서 해결해야할듯
-		return "category";
+				
+		return r;
+	}
+	
+	@RequestMapping(value = "/category/{id}", method = RequestMethod.GET)
+	public String category(@PathVariable("id") String id, Model model) {
+		// 카테고리 클릭시 조회페이지
+		// id << jsp 페이지에서 클릭시 보내주는 값
+		System.out.println(id);	//확인
+		model.addAttribute("main",id);	//main에 id값을 삽입
+		productService.find(id, model);	//id값에 대한 조회 > 서비스 > dao > mapper
+		return "category";			//조회결과에 사용할 jsp주소
 	}
 	
 	

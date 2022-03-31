@@ -9,5 +9,11 @@ import com.triple.finalp.mem.vo.MemVo;
 public interface MemberService {
 	public void join(MemVo memVo);
 	
-	public Map<String, Integer> info(Model model, String id);
+	public Map<String, String> info(String id);
+
+	public void updateProfile(MemVo memVo);
+
+	public Map<String, String> mv(String id);
+
+	public void updatePw(MemVo memVo);
 }

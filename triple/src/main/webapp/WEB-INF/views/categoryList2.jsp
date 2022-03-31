@@ -1,5 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,7 +38,7 @@
         <div class="cate">
             <div class="cate_in">
                 <div class="txt">
-                    <h2>${main_search}</h2>
+                    <h2>매거진검색</h2>
                 </div>
 
                 <div class="con">
@@ -47,11 +46,9 @@
                         <div class="list">
                             <div class="list_in">
                                 <div class="list_txt">
-                                    <h2>${city_search}지역</h2>
-                                    <h2>${cate_search}</h2>
+                                    <h2>전체지역 검색</h2>
                                 </div>
 
-								<c:forEach items="${proS}" var="pv">
                                 <div class="list_con">
                                     <div class="con_in">
                                         <div class="left">
@@ -61,14 +58,12 @@
                                         <div class="right">
                                             <div class="top">
                                                 <div class="txt">
-                                                    <h2>${pv.product_name}</h2>
-                                                    <h3>${pv.product_shortword}</h3>
-                                                   <%--  <c:forEach></c:forEach>
-                                                    <h4>${tag.tag_name}</h4><img  src="/resources/icon/${tag.tag_name}"> --%>
-                                                    <h4>태그?</h4>
-                                                    <h4>태그?</h4>
-                                                    <h4>태그?</h4>
-
+                                                    <h2>매거진 제목</h2>
+                                                    <h3>매거진 소제목 소제목은 대체로 많이 길어질수 있습니다 예를들면 이런것이죠</h3>
+                                                    <h4>매거진 무언가</h4>
+                                                    <h4>매거진 무언가</h4>
+                                                    <h4>매거진 무언가</h4>
+                                                    <h4>매거진 무언가</h4>
                                                 </div>
                                                 <!-- 슬라이드 -->
                                                 <div class="slide">
@@ -86,7 +81,7 @@
                                                         </div>
 
                                                         <div class="txt">
-                                                            <span>미리보기 이미지</span>
+                                                            <span>매거진 이미지</span>
                                                         </div>
 
                                                         <div class="util">
@@ -108,7 +103,6 @@
                                         </div>
                                     </div>
                                 </div>
-                                </c:forEach>
                             </div>
                         </div>
                     </div>

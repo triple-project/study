@@ -7,14 +7,37 @@
 		values (#{mem_id},#{mem_pw},#{e_mail},#{name},#{tel},#{mem_img})
 	</insert>
 
-	<select id="c_heart" resultType="Integer">
+	<select id="c_heart" resultType="String">
 		select count(*)
 		from HEART
 		where mem_id = #{mem_id}
 	</select>
-	<select id="c_plan" resultType="Integer">
+	<select id="c_plan" resultType="String">
 		select count(*)
 		from MYPLAN
+		where mem_id = #{mem_id}
+	</select>
+	<update id="updateProfile">
+		update member 
+		set  e_mail = #{e_mail}, tel = #{tel}, mem_img = #{mem_img}
+		where mem_id = #{mem_id}
+	</update>
+	
+	<update id="updatePw">
+		update member 
+		set  mem_pw = #{mem_pw}
+		where mem_id = #{mem_id}
+	</update>
+	
+	<select id="mv" resultType="MemVo">
+		select e_mail,tel,mem_img,mem_id 
+		from member
+		where mem_id = #{mem_id}
+	</select>
+	
+	<select id="pi" resultType="String">
+		select mem_img
+		from member
 		where mem_id = #{mem_id}
 	</select>
 	

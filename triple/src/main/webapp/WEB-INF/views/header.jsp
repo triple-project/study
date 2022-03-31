@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix='security' uri='http://www.springframework.org/security/tags'%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <script type="text/javascript">
 	function login() {
 		if($("#remember_me").is(":checked") == true){
@@ -59,8 +60,6 @@
 	}
 	
 	function mtest() {
-		var mt = "dd";
-		console.log(mt);
 		$.ajax({
 			type : "POST",
 			url : "/rest/info",
@@ -73,6 +72,32 @@
 					console.log(data);
 					$("#heart_num").html(data.heart)
 					$("#plan_num").html(data.plan)
+					$("#pi").attr("src","/resources/img/upload/" + data.pro_mem_img);
+				},
+				error : function(a){
+					console.log(a);
+	            }
+			});
+	}
+	
+	function mtest2() {
+		$.ajax({
+			type : "POST",
+			url : "/rest/info2",
+				dataType : "json",
+				data : {
+					mem_id : $("#sat").text()
+				},
+				success : function(data) {
+	           		 // C에서 받아온 데이터로 새로 뿌려주기
+					console.log(data);
+					$("#e_mail").attr("value", data.e_mail);
+					$("#e_mail3").val(data.e_mail2);
+					$("#e_mail3").text(data.e_mail2);
+					$("#tel").attr("value", data.tel);
+					$("#preview").attr("src", "/resources/img/upload/" + data.mem_img);
+					$("#img_hs").attr("value", data.mem_img);
+					$("#mem_idp").attr("value", data.mem_id);
 				},
 				error : function(a){
 					console.log(a);
@@ -141,14 +166,45 @@
 </script>
 <script type="text/javascript">
    function amu() {
-      //const a = $('#img').val();
-      //console.log(a);
-      var fileValue = $("#image_file_name").val().split("\\");
-      var fileName = fileValue[fileValue.length-1]; // 파일명
-      console.log(fileName);
-      const a = $('#img_h').val(fileName);
-      console.log(a);
-   }
+      
+	//const a = $('#img').val();
+		//console.log(a);
+		var fileValue = $("#image_file_name").val().split("\\");
+		var fileName = fileValue[fileValue.length - 1]; // 파일명
+		console.log(fileName);
+		const a = $('#img_h').val(fileName);
+		console.log(a);
+
+		var e1 = $('#e_mail').val();	//e_mail 의 밸류
+		var e2 = $('#e_mail2').val();	//e_mail2 의 밸류
+		$('#e_mail').val(e1+e2);		//e_mail 의 밸류에 e1+e2를 넣어라
+		
+		
+	}
+   
+   function amu2() {
+	      
+		//const a = $('#img').val();
+			//console.log(a);
+			var fileCheck = document.getElementById("image_file_name").value;
+			var fileValue = $("#image_file_name").val().split("\\");
+			var fileName = fileValue[fileValue.length - 1]; // 파일명
+			var fileName2 = $("#img_hs").val();
+			console.log(fileName);
+			if (!fileCheck) {
+				const a = $('#img_h').val(fileName2);
+				console.log(a);
+			}else{
+			const a = $('#img_h').val(fileName);
+			console.log(a);
+			}
+			var e1 = $('#e_mail').val();	//e_mail 의 밸류
+			var e2 = $('#e_mail2').val();	//e_mail2 의 밸류
+			$('#e_mail').val(e1+e2);		//e_mail 의 밸류에 e1+e2를 넣어라
+			var i = $("#sat").text();
+			$("#mem_id").val(i);
+			
+		}
 </script>
 
 <header id="header">
@@ -264,7 +320,7 @@
 						<a href="javascript:;">
 							<h3 id="sat"><security:authentication property="principal.username"/></h3>
 							<h3>님 반갑습니다.</h3>
-						<img alt="" src="">
+						<img src="" id="pi">
 						</a>
 						<p onclick="logout()">로그아웃</p>
 					</div>
@@ -427,13 +483,25 @@
 
 					<li>
 						<a href="javascript:;">
+							
+							<security:authorize access="isAnonymous()">
 							<div class="img">
 								<i class="fa-solid fa-user"></i>
 							</div>
-
 							<div class="txt">
 								<h3>회원정보수정</h3>
 							</div>
+							</security:authorize>
+							<security:authorize access="isAuthenticated()">
+								<div id="gotombs" onclick="mtest2()">
+									<div class="img">
+										<i class="fa-solid fa-user"></i>
+									</div>
+									<div class="txt">
+										<h3>회원정보수정</h3>
+									</div>
+								</div>
+							</security:authorize>							
 						</a>
 					</li>
 
@@ -525,10 +593,11 @@
 		</div>
 	</div>
 </div>
-
+	<security:authorize access="isAnonymous()">
 	 <div id="join_mbs">
       <div class="join_mbs_in">
          <h3>회원가입</h3>
+         <button onclick="amu()">테스트버튼</button>
          <div class="mbs_form">
             <form id="mbs" method="post" enctype="multipart/form-data" action="/join" onsubmit="amu()">
                <div class="mbs_id mbs_con mbs_id_pw">
@@ -548,8 +617,8 @@
                </div>
                <div class="email">
                   <span>이메일</span>
-                  <input type="text" name="e_mail" placeholder="메일주소 클릭해서 맞춰주세요">
-                  <select name="" id="">
+                  <input type="text" name="e_mail" id="e_mail" placeholder="메일주소 클릭해서 맞춰주세요">
+                  <select name="e_mail2" id="e_mail2">
                      <option value="@naver.com">@naver.com</option>
                      <option value="@daum.net">@daum.net</option>
                      <option value="@google.com">@google.com</option>
@@ -571,6 +640,7 @@
                         <!-- <input type="text" name="mem_img" placeholder="사진은 꼭 안넣으셔도 됩니다."> -->
                         <input type="file" name="image_file_name" id="image_file_name" onchange="readURL(this);" /> 
                         <input type="hidden" name="mem_img" id="img_h">
+                        
                         </div>
                      <!-- <div class="frame1_2">
                         <p>기본 프로필 사용</p>
@@ -592,8 +662,95 @@
                   <div class="mbs_btn_join mbs_btn_frame" onclick="$('#mbs').submit()">
                      회원가입 
                   </div>
+                  	
                </div>
+               
             </form>
          </div>
       </div>
    </div>
+   </security:authorize>
+   
+   	<security:authorize access="isAuthenticated()">
+	 <div id="join_mbs">
+      <div class="join_mbs_in">
+         <h3>회원정보수정</h3>
+         
+         <div class="mbs_form">
+				<form action="/updatePw" method="post" id="mbsp">
+					
+					<div class="mbs_pw1 mbs_con">
+						<span>변경할 비밀번호</span> 
+						<input type="password" name="mem_pw" id="pw1" placeholder="비밀번호 입력">
+					</div>
+					<div class="mbs_pw2 mbs_con mbs_id_pw">
+						<span>비밀번호 확인</span> <input type="password" name="mem_pw2" id="pw2" placeholder="비밀번호 확인">
+						<p class="pwMsg_ok">비밀번호가 맞습니다.</p>
+						<p class="pwMsg_no">비밀번호가 틀립니다.</p>
+						<p id="pwMsg" class="at">비밀번호 를 입력해주세요.</p>
+					</div>
+					<div class="mbs_btn">
+						<div class="mbs_btn_join mbs_btn_frame"
+								onclick="$('#mbsp').submit()">비밀번호변경
+						</div>
+					</div>
+				</form>
+				<hr>
+				<form id="mbs2" method="post" enctype="multipart/form-data"
+					action="/updateProfile" onsubmit="amu2()">
+					<input type="hidden" id="mem_idp" name="mem_id">
+					<div class="email">
+						<span>이메일</span> 
+						<input type="text" name="e_mail" id="e_mail"> 
+							<select name="e_mail2" id="e_mail2">
+							<option selected="selected" id="e_mail3" hidden="hidden"/>
+							<option value="@naver.com">@naver.com</option>
+							<option value="@daum.net">@daum.net</option>
+							<option value="@google.com">@google.com</option>
+							<option value="@nate.com">@nate.com</option>
+							
+						</select>
+					</div>
+
+					<div class="mbs_phone mbs_con">
+						<span>전화번호</span> 
+						<input type="text" name="tel" id="tel">
+					</div>
+					<div class="mbs_profile">
+						<div class="profile_frame1">
+							<div class="frame1_1">
+								<span>프로필</span>
+								<!-- <input type="text" name="mem_img" placeholder="사진은 꼭 안넣으셔도 됩니다."> -->
+								<input type="file" name="image_file_name" id="image_file_name"
+									onchange="readURL(this);" /> 
+									<input type="hidden" name="mem_img" id="img_h">
+									<input type="hidden" id="img_hs">
+							</div>
+							<!-- <div class="frame1_2">
+                        <p>기본 프로필 사용</p>
+                        <input type="checkbox" name="">
+                     </div> -->
+						</div>
+						<div class="profile_frame2">
+							<div class="preview">
+								<img id="preview" src="#" width=100 height=100
+									alt="선택된 이미지가 없습니다" />
+							</div>
+							<!--    <span></span> -->
+						</div>
+					</div>
+					<div class="mbs_btn">
+						<div class="mbs_btn_rt mbs_btn_frame" id="backtomenu">
+							닫기
+							<!-- <input type="submit" value="뒤로가기" id="backtologin"> -->
+						</div>
+						<div class="mbs_btn_join mbs_btn_frame"
+							onclick="$('#mbs2').submit()">수정하기
+						</div>
+					</div>
+				</form>
+
+			</div>
+      </div>
+   </div>
+   </security:authorize>

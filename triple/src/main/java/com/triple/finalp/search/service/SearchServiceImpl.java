@@ -23,7 +23,7 @@ public class SearchServiceImpl implements SearchService{
 	SearchDao searchdao;
 
 	@Override	//상단 검색 창 시작
-	public void search(String main, String city, String cate, Model model) {
+	public String search(String main, String city, String cate, Model model) {
 		// TODO Auto-generated method stub
 		
 		if (main.equals("여행지 검색")) {
@@ -52,6 +52,7 @@ public class SearchServiceImpl implements SearchService{
 						proS.put(a,mList);
 					}
 					model.addAttribute("proS",proS);
+					return "category";
 					/* System.out.println("proS = "+model.getAttribute("proS")); */
 				} else {
 					System.out.println(cate + "다");
@@ -71,6 +72,7 @@ public class SearchServiceImpl implements SearchService{
 						proS.put(a,mList);
 					}
 					model.addAttribute("proS",proS);
+					return "category";
 					/* System.out.println("proS = "+model.getAttribute("proS")); */		
 				}
 			} else {
@@ -93,12 +95,14 @@ public class SearchServiceImpl implements SearchService{
 						proS.put(a,mList);
 					}
 					model.addAttribute("proS",proS);
+					return "category";
 					/* System.out.println("proS = "+model.getAttribute("proS")); */	
 				} else {
 					System.out.println(cate + "다");
 					//프선선
 					ArrayList<ProductVo> pList = searchdao.pccsearch(city,cate);
 					model.addAttribute("proS",pList);
+					return "categoryList";
 					
 				}
 			}
@@ -125,6 +129,7 @@ public class SearchServiceImpl implements SearchService{
 						magS.put(a,mList);
 					}
 					model.addAttribute("magS",magS);
+					return "category2";
 				} else {
 					System.out.println(cate + "다");
 					//매전선
@@ -143,6 +148,7 @@ public class SearchServiceImpl implements SearchService{
 						magS.put(a,mList);
 					}
 					model.addAttribute("magS",magS);
+					return "category2";
 				}
 			} else {
 				System.out.println(city + "다");
@@ -163,13 +169,14 @@ public class SearchServiceImpl implements SearchService{
 						}
 						magS.put(a,mList);
 					}
-					model.addAttribute("magS",magS);	
+					model.addAttribute("magS",magS);
+					return "category2";
 				} else {
 					System.out.println(cate + "다");
 					//매선선
 					ArrayList<MagVo> mList = searchdao.mccsearch(city,cate);
 					model.addAttribute("magS",mList);
-				
+					return "categoryList2";
 				}
 			}
 		}

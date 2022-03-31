@@ -36,14 +36,18 @@ public class TripleRestController {
 
 	
 	@RequestMapping(value = "/info", method = RequestMethod.POST)
-	public void testcate(@RequestParam("mem_id") String id, Model model,HttpServletResponse response) throws JsonGenerationException, JsonMappingException, IOException {
+	public void info(@RequestParam("mem_id") String id,HttpServletResponse response) throws JsonGenerationException, JsonMappingException, IOException {
 		ObjectMapper mapper = new ObjectMapper();
-		/*
-		 * Map<String, Integer> info = new HashMap<String, Integer>();
-		 * info.put("heart",memberService.info(model, id));
-		 */
-		Object user = memberService.info(model, id);
+		Object user = memberService.info(id);	
 		response.getWriter().print(mapper.writeValueAsString(user));
+		response.getWriter().flush();		
+	}
+	
+	@RequestMapping(value = "/info2", method = RequestMethod.POST)
+	public void info2(@RequestParam("mem_id") String id,HttpServletResponse response) throws JsonGenerationException, JsonMappingException, IOException {
+		ObjectMapper mapper = new ObjectMapper();
+		Object mv = memberService.mv(id);		
+		response.getWriter().print(mapper.writeValueAsString(mv));
 		response.getWriter().flush();		
 	}
 	

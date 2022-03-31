@@ -8,7 +8,8 @@
 #sec .cate .cate_in .con .con_in .list .list_in .list_txt{margin-bottom:40px;font-size:18px;font-weight: 500;color:#444;line-height:26px;}
 #sec .cate .cate_in .con .con_in .list .list_in .list_txt h2{line-height:18px;width: 100%;text-align: center;}
 
-#sec .cate .cate_in .con .con_in .list .list_in .list_con{width:100%;height:100%;overflow: hidden;border-radius: 10px;box-shadow: 0 0 15px rgba(0,0,0,.1);}
+#sec .cate .cate_in .con .con_in .list .list_in .list_con{width:100%;height:100%;overflow: hidden;border-radius: 10px;box-shadow: 0 0 15px rgba(0,0,0,.1); margin-bottom:50px }
+#sec .cate .cate_in .con .con_in .list .list_in .list_con:last-child{margin-bottom:0; }
 #sec .cate .cate_in .con .con_in .list .list_in .list_con .con_in{width:100%;height:100%;display: flex;}
 #sec .cate .cate_in .con .con_in .list .list_in .list_con .con_in .left{width:43%;}
 #sec .cate .cate_in .con .con_in .list .list_in .list_con .con_in .left .m_img{width:100%;height:100%;}

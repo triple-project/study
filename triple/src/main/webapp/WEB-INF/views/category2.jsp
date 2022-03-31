@@ -32,8 +32,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Noto+Serif+KR:wght@200;300;400;500;600;700;900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 	
 	<script type="text/javascript">
-		function result3(data) {
-			location.href="/findp3/"+data;
+		function result4(data) {
+			location.href="/findp4/"+data;
 		}
 	</script>
 </head>
@@ -100,26 +100,26 @@
                                 <!-- ps에서처리끝 -->
                                 <!-- 일단 꺼내 보았다 -->
                                 
-								<c:forEach items="${proS}" var="ps">
+								<c:forEach items="${magS}" var="ms">
 									<div class="list_con">
-										<div class="con_txt">${ps.key}</div>
+										<div class="con_txt">${ms.key}</div>
 										<div class="list_con_in">
 											<div class="hart_list list_slider">
 												<div class="swiper-wrapper">
 												
-													<c:forEach items="${ps.value}" var="pv">
+													<c:forEach items="${ms.value}" var="mv">
 
-														<div class="swiper-slide" onclick="result3(${pv.product_id})">
+														<div class="swiper-slide" onclick="result4(${mv.mgz_id})">
 															<div class="slide_in">
 																<div class="slide_img" style="background: gray url(../resources/img/??/??.jpg);"></div>
 																<div class="slide_cover">
 																	<div class="txt">
-																		<h2 class="cover_txt">${pv.product_name}</h2>
-																		<h3 class="cover_txt">${pv.product_shortword}</h3>
+																		<h2 class="cover_txt">${mv.mgz_title}</h2>
+																		<h3 class="cover_txt">${mv.mgz_smalltitle}</h3>
 																	</div>
 																</div>
 																<div class="slide_txt">
-																	<h2>${pv.product_name}</h2>
+																	<h2>${mv.mgz_title}</h2>
 																</div>
 															</div>
 														</div>
