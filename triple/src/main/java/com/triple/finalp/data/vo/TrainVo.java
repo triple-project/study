@@ -1,9 +1,11 @@
 package com.triple.finalp.data.vo;
 
+import lombok.Data;
+
+@Data
 public class TrainVo {
-	private String arrplacename;
-	private String arrplandtime;
-	private String depplacename;
-	private String depplandtime;
-	private String traingradename;
+	private String depPlandTime;
+	private String depPlaceId;
+	private String arrPlaceId;
+	private String trainGradeCode;
 }

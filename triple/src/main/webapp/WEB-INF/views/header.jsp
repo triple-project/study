@@ -768,3 +768,80 @@
       </div>
    </div>
    </security:authorize>
+   <!-- 회원 리뷰 등 정보 추가 -->
+<div id="myInfo">
+	<div class="myInfoIn">
+		<div class="tap">
+			<ul>
+				<li class="on">
+					<a href="javascript:;">내 여행</a>
+				</li>
+
+				<li>
+					<a href="javascript:;">리뷰</a>
+				</li>
+
+				<li>
+					<a href="javascript:;">날씨</a>
+				</li>
+			</ul>
+		</div>
+
+		<div class="menutap">
+			<div class="tap_in">
+				<div class="con on">
+					<div class="con_in un_login_con">
+						<div class="message_box">
+							<div class="icon">
+								<i class="fa-solid fa-calendar"></i>
+							</div>
+
+							<div class="txt">
+								<h2>여행을 떠나시나요?</h2>
+								<p>여행 일정을 입력하고</p>
+								<p>여행 계획을 세워보세요.</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="login_con">
+						<!-- 내용을 넣어주세요 -->
+					</div>
+				</div>
+
+				<div class="con">
+					<div class="con_in un_login_con">
+						<div class="message_box">
+							<div class="icon">
+								<i class="fa-solid fa-pen"></i>
+							</div>
+
+							<div class="txt">
+								<h2>리뷰가 없습니다.</h2>
+								<p>다녀온 여행지에 대해</p>
+								<p>리뷰를 남겨보세요.</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="login_con">
+						<!-- 내용을 넣어주세요 -->
+					</div>
+				</div>
+
+				<div class="con">
+					<div class="con_in">
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="top_up">
+	<div class="top_in">
+		<i class="fa-solid fa-angles-up"></i>
+	</div>
+</div>
+<!-- <!— 회원 리뷰 등 정보 추가 끝 —> -->

@@ -13,4 +13,5 @@ public class MagVo {
 	private String mgz_smalltitle;
 	private String mgz_category;
 	private String mgz_city;
+	private String mgz_smallcontent;
 }

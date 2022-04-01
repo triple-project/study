@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.triple.finalp.data.service.DataService;
+import com.triple.finalp.data.vo.TrainVo;
 import com.triple.finalp.mem.service.MemberService;
 
 
@@ -37,8 +38,12 @@ public class TripleRestController {
 	DataService dataService;
 	
 	@RequestMapping("/ci")
-	public void ci(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		String a = dataService.train();
+	public void ci(HttpServletRequest request, HttpServletResponse response,TrainVo trainVo) throws IOException {
+		
+		String trainList = dataService.train(trainVo);
+		response.getWriter().print(trainList);
+		response.getWriter().flush();
+
 		 
 	}
 

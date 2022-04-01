@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,7 +39,7 @@
         <div class="cate">
             <div class="cate_in">
                 <div class="txt">
-                    <h2>매거진검색</h2>
+                    <h2>${main_search}</h2>
                 </div>
 
                 <div class="con">
@@ -46,9 +47,10 @@
                         <div class="list">
                             <div class="list_in">
                                 <div class="list_txt">
-                                    <h2>전체지역 검색</h2>
+                                    <h2>${city_search}지역의 ${cate_search} 둘러보기</h2>
                                 </div>
 
+                        <c:forEach items="${magS}" var="mv">
                                 <div class="list_con">
                                     <div class="con_in">
                                         <div class="left">
@@ -58,12 +60,9 @@
                                         <div class="right">
                                             <div class="top">
                                                 <div class="txt">
-                                                    <h2>매거진 제목</h2>
-                                                    <h3>매거진 소제목 소제목은 대체로 많이 길어질수 있습니다 예를들면 이런것이죠</h3>
-                                                    <h4>매거진 무언가</h4>
-                                                    <h4>매거진 무언가</h4>
-                                                    <h4>매거진 무언가</h4>
-                                                    <h4>매거진 무언가</h4>
+                                                    <h2>${mv.mgz_title}</h2>
+                                                    <h4>${mv.mgz_smalltitle}</h4>
+                                                    <h3>${mv.mgz_smallcontent}</h3>
                                                 </div>
                                                 <!-- 슬라이드 -->
                                                 <div class="slide">
@@ -99,10 +98,12 @@
                                             <!-- 슬라이드 끝 -->
                                             <div class="bot">
                                                 <!-- 멀 넣어야할지 모르겠어서 임시로 남겨요 -->
+                                                <h2>#태그 #태그 #태그 #태그</h2>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                                </c:forEach>
                             </div>
                         </div>
                     </div>

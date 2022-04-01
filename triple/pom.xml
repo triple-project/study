@@ -220,6 +220,21 @@
             <version>2.9.6</version>
         </dependency>
         <!-- // 채팅 위한 socket -->
+        
+        <!-- https://mvnrepository.com/artifact/org.json/json -->
+        <!-- xml을 json으로 변환하기 위해 사용 -->
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>20211205</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.9.0</version>
+		</dependency>
 
 
 	</dependencies>
