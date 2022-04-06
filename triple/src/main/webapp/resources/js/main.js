@@ -33,14 +33,14 @@ $(function() {
 		},
 	});
 
-	var con1 = new Swiper(".con_slider", {
+	var con1 = new Swiper(".lowprice_slider", {
 		slidesPerView: 6,
 		spaceBetween: 0,
 		centeredSlides: true,
 		loop: true,
 	});
 
-	var con2 = new Swiper(".con_slider2", {
+	var con2 = new Swiper(".unknown_slider", {
 		slidesPerView: 6,
 		spaceBetween: 0,
 		centeredSlides: true,
@@ -360,7 +360,7 @@ $(function() {
 	
 	}
 	
-	function showError(event) { alert("위치 정보를 얻을 수 없습니다.") }
+	function showError(event) { alert("위치 정보를 얻을 수 없습니다."); console.log(event)}
 	
 	window.addEventListener('load', () => {
 		if(window.navigator.geolocation) {window.navigator.geolocation.getCurrentPosition(showLocation,showError)}
@@ -384,5 +384,17 @@ $(function() {
 	$("#myInfoCover").click(function(){
 		$("#myInfo, #myInfoCover").removeClass();
 	});
+	
+	var stest = new Swiper(".kcategory", {
+        slidesPerView: 6,
+        spaceBetween: 10,
+        slidesPerGroup: 3,
+        loop: true,
+        loopFillGroupWithBlank: true,
+        navigation: {
+          nextEl: ".kcategorybtn2",
+          prevEl: ".kcategorybtn1",
+        },
+      });
 
 });

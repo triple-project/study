@@ -10,6 +10,7 @@
 	<title>Document</title>
 	<link rel="stylesheet" href="resources/css/reset.css">
 	<link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
+	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
 	<link rel="stylesheet" href="resources/css/mobiscroll.jquery.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/brands.min.css" integrity="sha512-BglNUJaVmT9HacZ2AsbVQxjswBmIf3AJj9hhXr/Yre33qU+A1p8gXUcavzcHYkWf5bIvLMIiEbdMrEVqb5h2Rg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -25,6 +26,7 @@
 
 	<script src="resources/js/jquery-3.6.0.min.js"></script>
 	<script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+	<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 	<script src="resources/js/mobiscroll.jquery.min.js"></script>
 	<script src="https://kit.fontawesome.com/8d1d3d3a2e.js" crossorigin="anonymous"></script>
 	<script src="resources/js/main.js"></script>
@@ -88,6 +90,8 @@
 						</div>
 					</div>
 				</div>
+			</div>
+		</div>
 
 				<!-- <div class="about_icon">
 					<div class="icon_in">
@@ -217,32 +221,102 @@
 			</div>
 		</div> -->
 
-		<div class="category">
+
+		<div class="swiper kcategory">
+			<div class="kcategory_head">
+				<div class="kcategory_text">
+					<h2>국내여행 카테고리</h2>
+					<div class="kcategorybtn">
+						<div class="kcategorybtn1 kcategorybtn_com">
+							<i class="fa-solid fa-angle-left"></i>
+						</div>
+						<div class="kcategorybtn2 kcategorybtn_com">
+							<i class="fa-solid fa-angle-right"></i>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="swiper-wrapper">
+				<div class="swiper-slide">
+					<div class="kimg1"></div>
+					<p>호텔</p>
+				</div>
+				<div class="swiper-slide">
+					<div class="kimg2"></div>
+					<p>리조트</p>
+				</div>
+				<div class="swiper-slide">
+					<div class="kimg3"></div>
+					<p>펜션</p>
+				</div>
+				<div class="swiper-slide">
+					<div class="kimg4"></div>
+					<p>모텔</p>
+				</div>
+				<div class="swiper-slide">
+					<div class="kimg5"></div>
+					<p>게스트하우스</p>
+				</div>
+				<div class="swiper-slide">
+					<div class="kimg6"></div>
+					<p>캠핑</p>
+				</div>
+				<div class="swiper-slide">
+					<div class="kimg7"></div>
+					<p>맛집</p>
+				</div>
+				<div class="swiper-slide">
+					<div class="kimg8"></div>
+					<p>패키지여행</p>
+				</div>
+				<div class="swiper-slide">
+					<div class="kimg9"></div>
+					<p>티켓</p>
+				</div>
+			</div>
+		</div>
+
+
+
+		<!-- <div class="category">
 			<div class="gory_in">
 				<div class="gory_txt">
 					<h2>국내여행 카테고리</h2>
 				</div>
 
 				<div class="gory_con">
+					<div class="gory_pagebtn">
+						<div class="gory_lbtn"></div>
+						<div class="gory_rbtn"></div>				
+					</div>
 					<div class="con_in">
 						<ul>
 							<li class="li1">
-								<a href="/category/펜션">
+								<a href="">
 									<div class="img"></div>
 									<div class="cover">
-										<h2>펜션/캠핑</h2>
+										<h2>호텔</h2>
 									</div>
-									<h2>펜션/캠핑</h2>
+									<h2>호텔</h2>
 								</a>
 							</li>
 
+							<li class="li2"><a href=""><div class="img"></div></a></li>
+							<li class="li3"><a href=""><div class="img"></div></a></li>
+							<li class="li4"><a href=""><div class="img"></div></a></li>
+							<li class="li5"><a href=""><div class="img"></div></a></li>
+							<li class="li6"><a href=""><div class="img"></div></a></li>
+							<li class="li7"><a href=""><div class="img"></div></a></li>
+							<li class="li8"><a href=""><div class="img"></div></a></li>
+							<li class="li9"><a href=""><div class="img"></div></a></li>
+							
 							<li class="li2">
 								<a href="">
 									<div class="img"></div>
 									<div class="cover">
-										<h2>호텔/리조트</h2>
+										<h2>리조트</h2>
 									</div>
-									<h2>호텔/리조트</h2>
+									<h2>리조트</h2>
 								</a>
 							</li>
 
@@ -250,9 +324,9 @@
 								<a href="">
 									<div class="img"></div>
 									<div class="cover">
-										<h2>티켓/패스</h2>
+										<h2>펜션</h2>
 									</div>
-									<h2>티켓/패스</h2>
+									<h2>펜션</h2>
 								</a>
 							</li>
 
@@ -260,9 +334,9 @@
 								<a href="">
 									<div class="img"></div>
 									<div class="cover">
-										<h2>렌터카</h2>
+										<h2>모텔</h2>
 									</div>
-									<h2>렌터카</h2>
+									<h2>모텔</h2>
 								</a>
 							</li>
 
@@ -270,16 +344,64 @@
 								<a href="">
 									<div class="img"></div>
 									<div class="cover">
-										<h2>패키지여행/항공</h2>
+										<h2>게스트하우스</h2>
 									</div>
-									<h2>패키지여행/항공</h2>
+									<h2>게스트하우스</h2>
 								</a>
 							</li>
+							
+							<li class="li6">
+								<a href="">
+									<div class="img"></div>
+									<div class="cover">
+										<h2>캠핑</h2>
+									</div>
+									<h2>캠핑</h2>
+								</a>
+							</li>
+							
+							<li class="li7">
+								<a href="">
+									<div class="img"></div>
+									<div class="cover">
+										<h2>맛집</h2>
+									</div>
+									<h2>맛집</h2>
+								</a>
+							</li>
+							
+							<li class="li8">
+								<a href="">
+									<div class="img"></div>
+									<div class="cover">
+										<h2>패키지여행</h2>
+									</div>
+									<h2>패키지여행</h2>
+								</a>
+							</li>
+							
+							<li class="li9">
+								<a href="">
+									<div class="img"></div>
+									<div class="cover">
+										<h2>티켓</h2>
+									</div>
+									<h2>티켓</h2>
+								</a>
+							</li>
+	
 						</ul>
+						
+						
+						
+						
 					</div>
 				</div>
 			</div>
-		</div>
+		</div> -->
+
+
+
 
 		<div class="hot">
 			<div class="hot_in">
@@ -292,67 +414,187 @@
 						<ul>
 							<li>
 								<a href="javascript:;">
-									<div class="content">
+									<%-- <div class="content" style="background: url('../../resources/img/<%=${.product_img1}%>.jpg');"></div> --%>
+									<div class="content" style="background: url('../../resources/img/baenewgi.jpg') no-repeat 50% 50%;background-size: cover;">
+										<div class="contentheadcover">
+											<div class="contenthead">
+												<%-- <<p>${.product_name}</p> --%>
+												<%-- <p>${.product_swordword}</p> --%>
+												<p>우리집이였으면 좋겟다</p>
+												<p>바다가 잘보이고 집에서 가까운 호텔</p>
+											</div>
+										</div>
+										<div class="contentfootercover">
+											<div class="contentfooter">
+												<div class="contentheart">
+													<p><i class="fa-solid fa-heart"></i></p>
+													<%-- <p>${.heart_id}</p> --%>
+													<p>100</p>
+												</div>
+											</div>
+										</div>
+									</div>
+								</a>
+							</li>
 
+
+							<li>
+								<a href="javascript:;">
+									<div class="content" style="background: url('../../resources/img/jeju.jpg') no-repeat 50% 50%;background-size: cover;">
+										<div class="contentheadcover">
+											<div class="contenthead">
+												<p>우리집이였으면 좋겟다</p>
+												<p>바다가 잘보이고 집에서 가까운 호텔</p>
+											</div>
+										</div>
+										<!-- <img src="../../resources/img/jeju.jpg" /> -->
+										<div class="contentfootercover">
+											<div class="contentfooter">
+												<div class="contentheart">
+													<p><i class="fa-solid fa-heart"></i></p>
+													<p>100</p>
+												</div>
+											</div>
+										</div>
+									</div>
+								</a>
+							</li>
+
+
+<li>
+								<a href="javascript:;">
+									<div class="content" style="background: url('../../resources/img/bobopool.jpg') no-repeat 50% 50%;background-size: cover;">
+										<div class="contentheadcover">
+											<div class="contenthead">
+												<p>우리집이였으면 좋겟다</p>
+												<p>바다가 잘보이고 집에서 가까운 호텔</p>
+											</div>
+										</div>
+										<!-- <img src="../../resources/img/baenewgi.jpg" /> -->
+										<div class="contentfootercover">
+											<div class="contentfooter">
+												<div class="contentheart">
+													<p><i class="fa-solid fa-heart"></i></p>
+													<p>100</p>
+												</div>
+											</div>
+										</div>
 									</div>
 								</a>
 							</li>
 
 							<li>
 								<a href="javascript:;">
-									<div class="content">
-										
+									<div class="content" style="background: url('../../resources/img/chosun3.jpg') no-repeat 50% 50%;background-size: cover;">
+										<div class="contentheadcover">
+											<div class="contenthead">
+												<p>우리집이였으면 좋겟다</p>
+												<p>바다가 잘보이고 집에서 가까운 호텔</p>
+											</div>
+										</div>
+										<!-- <img src="../../resources/img/jeju.jpg" /> -->
+										<div class="contentfootercover">
+											<div class="contentfooter">
+												<div class="contentheart">
+													<p><i class="fa-solid fa-heart"></i></p>
+													<p>100</p>
+												</div>
+											</div>
+										</div>
+									</div>
+								</a>
+							</li>
+							
+							<li>
+								<a href="javascript:;">
+									<div class="content" style="background: url('../../resources/img/jeju13.jpg') no-repeat 50% 50%;background-size: cover;">
+										<div class="contentheadcover">
+											<div class="contenthead">
+												<p>우리집이였으면 좋겟다</p>
+												<p>바다가 잘보이고 집에서 가까운 호텔</p>
+											</div>
+										</div>
+										<!-- <img src="../../resources/img/baenewgi.jpg" /> -->
+										<div class="contentfootercover">
+											<div class="contentfooter">
+												<div class="contentheart">
+													<p><i class="fa-solid fa-heart"></i></p>
+													<p>100</p>
+												</div>
+											</div>
+										</div>
 									</div>
 								</a>
 							</li>
 
 							<li>
 								<a href="javascript:;">
-									<div class="content">
-										
+									<div class="content" style="background: url('../../resources/img/jeju5.jpg') no-repeat 50% 50%;background-size: cover;">
+										<div class="contentheadcover">
+											<div class="contenthead">
+												<p>우리집이였으면 좋겟다</p>
+												<p>바다가 잘보이고 집에서 가까운 호텔</p>
+											</div>
+										</div>
+										<!-- <img src="../../resources/img/jeju.jpg" /> -->
+										<div class="contentfootercover">
+											<div class="contentfooter">
+												<div class="contentheart">
+													<p><i class="fa-solid fa-heart"></i></p>
+													<p>100</p>
+												</div>
+											</div>
+										</div>
+									</div>
+								</a>
+							</li>
+
+
+<li>
+								<a href="javascript:;">
+									<div class="content" style="background: url('../../resources/img/pool2.jpg') no-repeat 50% 50%;background-size: cover;">
+										<div class="contentheadcover">
+											<div class="contenthead">
+												<p>우리집이였으면 좋겟다</p>
+												<p>바다가 잘보이고 집에서 가까운 호텔</p>
+											</div>
+										</div>
+										<!-- <img src="../../resources/img/baenewgi.jpg" /> -->
+										<div class="contentfootercover">
+											<div class="contentfooter">
+												<div class="contentheart">
+													<p><i class="fa-solid fa-heart"></i></p>
+													<p>100</p>
+												</div>
+											</div>
+										</div>
 									</div>
 								</a>
 							</li>
 
 							<li>
 								<a href="javascript:;">
-									<div class="content">
-										
+									<div class="content" style="background: url('../../resources/img/uban1.jpg') no-repeat 50% 50%;background-size: cover;">
+										<div class="contentheadcover">
+											<div class="contenthead">
+												<p>우리집이였으면 좋겟다</p>
+												<p>바다가 잘보이고 집에서 가까운 호텔</p>
+											</div>
+										</div>
+										<!-- <img src="../../resources/img/jeju.jpg" /> -->
+										<div class="contentfootercover">
+											<div class="contentfooter">
+												<div class="contentheart">
+													<p><i class="fa-solid fa-heart"></i></p>
+													<p>100</p>
+												</div>
+											</div>
+										</div>
 									</div>
 								</a>
 							</li>
-
-							<li>
-								<a href="javascript:;">
-									<div class="content">
-
-									</div>
-								</a>
-							</li>
-
-							<li>
-								<a href="javascript:;">
-									<div class="content">
-										
-									</div>
-								</a>
-							</li>
-
-							<li>
-								<a href="javascript:;">
-									<div class="content">
-										
-									</div>
-								</a>
-							</li>
-
-							<li>
-								<a href="javascript:;">
-									<div class="content">
-										
-									</div>
-								</a>
-							</li>
+							
+							
 						</ul>
 
 						<div class="hot_btn">
@@ -383,46 +625,251 @@
 				<h2>트리플 최저가 예약</h2>
 			</div>
 
-			<div class="con_slider">
+			<div class="lowprice_slider">
 				<div class="swiper-wrapper">
+				
 					<div class="swiper-slide img1">
 						<a href="1">
-							<h3>테스트</h3>
+							<div class="lowprice_in">
+								<%-- <div class="lowprice_img" style="background-image: url('../../resources/img/<%=${.product.img1%>.jpg') no-repeat <%= {}%> 50%;;"></div> --%>
+								<div class="lowprice_img" style="background: url('../../resources/img/baenewgi.jpg') no-repeat 50% 50%;background-size: cover;"></div>
+								<div class="lowprice_text">
+									<%-- <p>${.product.name}</p> --%>
+									<%-- <p>${.product.price}</p> --%>
+									<p>우리집 거실 사진 찍어봄봄봄봄봄봄봄봄봄</p>
+									<p>10,000</p>
+								</div>
+							</div>
 						</a>
 					</div>
-					<div class="swiper-slide img2"><a href="2"></a></div>
-					<div class="swiper-slide img3"><a href="3"></a></div>
-					<div class="swiper-slide img4"><a href="4"></a></div>
-					<div class="swiper-slide img5"><a href="5"></a></div>
-					<div class="swiper-slide img6"><a href="6"></a></div>
-					<div class="swiper-slide img7"><a href="7"></a></div>
-					<div class="swiper-slide img8"><a href="8"></a></div>
+					
+					<div class="swiper-slide img2">
+						<a href="1">
+							<div class="lowprice_in">
+								<div class="lowprice_img" style="background: url('../../resources/img/bobopool.jpg') no-repeat 50% 50%;background-size: cover;"></div>
+								<div class="lowprice_text">
+									<p>제목</p>
+									<p>가격</p>
+								</div>
+							</div>
+						</a>
+					</div>
+					
+					<div class="swiper-slide img3">
+						<a href="1">
+							<div class="lowprice_in">
+								<div class="lowprice_img" style="background: url('../../resources/img/chosun3.jpg') no-repeat 50% 50%;background-size: cover;"></div>
+								<div class="lowprice_text">
+									<p>제목</p>
+									<p>가격</p>
+								</div>
+							</div>
+						</a>
+					</div>
+					
+					<div class="swiper-slide img4">
+						<a href="1">
+							<div class="lowprice_in">
+								<div class="lowprice_img" style="background: url('../../resources/img/jeju.jpg') no-repeat 50% 50%;background-size: cover;"></div>
+								<div class="lowprice_text">
+									<p>제목</p>
+									<p>가격</p>
+								</div>
+							</div>
+						</a>
+					</div>
+					
+										
+					<div class="swiper-slide img5">
+						<a href="1">
+							<div class="lowprice_in">
+								<div class="lowprice_img" style="background: url('../../resources/img/jeju13.jpg') no-repeat 50% 50%;background-size: cover;"></div>
+								<div class="lowprice_text">
+									<p>제목</p>
+									<p>가격</p>
+								</div>
+							</div>
+						</a>
+					</div>
+					
+					<div class="swiper-slide img6">
+						<a href="1">
+							<div class="lowprice_in">
+								<div class="lowprice_img" style="background: url('../../resources/img/jeju5.jpg') no-repeat 50% 50%;background-size: cover;"></div>
+								<div class="lowprice_text">
+									<p>제목</p>
+									<p>가격</p>
+								</div>
+							</div>
+						</a>
+					</div>
+					
+					
+					<div class="swiper-slide img7">
+						<a href="1">
+							<div class="lowprice_in">
+								<div class="lowprice_img" style="background: url('../../resources/img/pool2.jpg') no-repeat 50% 50%;background-size: cover;"></div>
+								<div class="lowprice_text">
+									<p>제목</p>
+									<p>가격</p>
+								</div>
+							</div>
+						</a>
+					</div>
+					
+					<div class="swiper-slide img8">
+						<a href="1">
+							<div class="lowprice_in">
+								<div class="lowprice_img" style="background: url('../../resources/img/uban1.jpg') no-repeat 50% 50%;background-size: cover;"></div>
+								<div class="lowprice_text">
+									<p>제목</p>
+									<p>가격</p>
+								</div>
+							</div>
+						</a>
+					</div>
+					
+					
+					
 				</div>
 			</div>
 		</div>
+
+
 
 		<div class="con_slide con2">
 			<div class="con_txt">
 				<h2>트리플 추천순위</h2>
 			</div>
 
-			<div class="con_slider con_slider2">
+			<div class="unknown_slider">
 				<div class="swiper-wrapper">
+				
 					<div class="swiper-slide img1">
 						<a href="1">
-							<h3>테스트</h3>
+							<div class="unknown_in">
+								<%-- <div class="lowprice_img" style="background-image: url('../../resources/img/<%=${.product.img1%>.jpg') no-repeat <%= {}%> 50%;;"></div> --%>
+								<div class="unknown_img" style="background: url('../../resources/img/baenewgi.jpg') no-repeat 50% 50%;background-size: cover;"></div>
+								<div class="unknown_text">
+									<%-- <p>${.product.name}</p> --%>
+									<%-- <p>${.product.}</p> --%>
+									<p>우리집 거실 사진 찍어봄봄봄봄봄봄봄봄봄</p>
+									<p>unknown</p>
+								</div>
+							</div>
 						</a>
 					</div>
-					<div class="swiper-slide img2"><a href="2"></a></div>
-					<div class="swiper-slide img3"><a href="3"></a></div>
-					<div class="swiper-slide img4"><a href="4"></a></div>
-					<div class="swiper-slide img5"><a href="5"></a></div>
-					<div class="swiper-slide img6"><a href="6"></a></div>
-					<div class="swiper-slide img7"><a href="7"></a></div>
-					<div class="swiper-slide img8"><a href="8"></a></div>
+									
+					<div class="swiper-slide img1">
+						<a href="1">
+							<div class="unknown_in">
+								<%-- <div class="lowprice_img" style="background-image: url('../../resources/img/<%=${.product.img1%>.jpg') no-repeat <%= {}%> 50%;;"></div> --%>
+								<div class="unknown_img" style="background: url('../../resources/img/baenewgi.jpg') no-repeat 50% 50%;background-size: cover;"></div>
+								<div class="unknown_text">
+									<%-- <p>${.product.name}</p> --%>
+									<%-- <p>${.product.}</p> --%>
+									<p>우리집 거실 사진 찍어봄봄봄봄봄봄봄봄봄</p>
+									<p>unknown</p>
+								</div>
+							</div>
+						</a>
+					</div>
+									
+					<div class="swiper-slide img1">
+						<a href="1">
+							<div class="unknown_in">
+								<%-- <div class="lowprice_img" style="background-image: url('../../resources/img/<%=${.product.img1%>.jpg') no-repeat <%= {}%> 50%;;"></div> --%>
+								<div class="unknown_img" style="background: url('../../resources/img/baenewgi.jpg') no-repeat 50% 50%;background-size: cover;"></div>
+								<div class="unknown_text">
+									<%-- <p>${.product.name}</p> --%>
+									<%-- <p>${.product.}</p> --%>
+									<p>우리집 거실 사진 찍어봄봄봄봄봄봄봄봄봄</p>
+									<p>unknown</p>
+								</div>
+							</div>
+						</a>
+					</div>
+									
+					<div class="swiper-slide img1">
+						<a href="1">
+							<div class="unknown_in">
+								<%-- <div class="lowprice_img" style="background-image: url('../../resources/img/<%=${.product.img1%>.jpg') no-repeat <%= {}%> 50%;;"></div> --%>
+								<div class="unknown_img" style="background: url('../../resources/img/baenewgi.jpg') no-repeat 50% 50%;background-size: cover;"></div>
+								<div class="unknown_text">
+									<%-- <p>${.product.name}</p> --%>
+									<%-- <p>${.product.}</p> --%>
+									<p>우리집 거실 사진 찍어봄봄봄봄봄봄봄봄봄</p>
+									<p>unknown</p>
+								</div>
+							</div>
+						</a>
+					</div>
+									
+					<div class="swiper-slide img1">
+						<a href="1">
+							<div class="unknown_in">
+								<%-- <div class="lowprice_img" style="background-image: url('../../resources/img/<%=${.product.img1%>.jpg') no-repeat <%= {}%> 50%;;"></div> --%>
+								<div class="unknown_img" style="background: url('../../resources/img/baenewgi.jpg') no-repeat 50% 50%;background-size: cover;"></div>
+								<div class="unknown_text">
+									<%-- <p>${.product.name}</p> --%>
+									<%-- <p>${.product.}</p> --%>
+									<p>우리집 거실 사진 찍어봄봄봄봄봄봄봄봄봄</p>
+									<p>unknown</p>
+								</div>
+							</div>
+						</a>
+					</div>
+									
+					<div class="swiper-slide img1">
+						<a href="1">
+							<div class="unknown_in">
+								<%-- <div class="lowprice_img" style="background-image: url('../../resources/img/<%=${.product.img1%>.jpg') no-repeat <%= {}%> 50%;;"></div> --%>
+								<div class="unknown_img" style="background: url('../../resources/img/baenewgi.jpg') no-repeat 50% 50%;background-size: cover;"></div>
+								<div class="unknown_text">
+									<%-- <p>${.product.name}</p> --%>
+									<%-- <p>${.product.}</p> --%>
+									<p>우리집 거실 사진 찍어봄봄봄봄봄봄봄봄봄</p>
+									<p>unknown</p>
+								</div>
+							</div>
+						</a>
+					</div>
+									
+					<div class="swiper-slide img1">
+						<a href="1">
+							<div class="unknown_in">
+								<%-- <div class="lowprice_img" style="background-image: url('../../resources/img/<%=${.product.img1%>.jpg') no-repeat <%= {}%> 50%;;"></div> --%>
+								<div class="unknown_img" style="background: url('../../resources/img/baenewgi.jpg') no-repeat 50% 50%;background-size: cover;"></div>
+								<div class="unknown_text">
+									<%-- <p>${.product.name}</p> --%>
+									<%-- <p>${.product.}</p> --%>
+									<p>우리집 거실 사진 찍어봄봄봄봄봄봄봄봄봄</p>
+									<p>unknown</p>
+								</div>
+							</div>
+						</a>
+					</div>
+									
+					<div class="swiper-slide img1">
+						<a href="1">
+							<div class="unknown_in">
+								<%-- <div class="lowprice_img" style="background-image: url('../../resources/img/<%=${.product.img1%>.jpg') no-repeat <%= {}%> 50%;;"></div> --%>
+								<div class="unknown_img" style="background: url('../../resources/img/baenewgi.jpg') no-repeat 50% 50%;background-size: cover;"></div>
+								<div class="unknown_text">
+									<%-- <p>${.product.name}</p> --%>
+									<%-- <p>${.product.}</p> --%>
+									<p>우리집 거실 사진 찍어봄봄봄봄봄봄봄봄봄</p>
+									<p>unknown</p>
+								</div>
+							</div>
+						</a>
+					</div>
+					
+
 				</div>
 			</div>
 		</div>
+			
 	</section>
 	
 	<%@ include file="footer.jsp"%>

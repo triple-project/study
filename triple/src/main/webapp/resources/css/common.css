@@ -61,7 +61,7 @@ body.on{overflow: hidden;}
 #s_menu .menu_in .menu_login .login_in .top2 a{display: block;width:100%;height:100%;padding:10px 0;}
 #s_menu .menu_in .menu_login .login_in .top2 a h3{font-size:20px;color:#333;font-weight: 500;letter-spacing: -1px;display:inline-block;}
 #s_menu .menu_in .menu_login .login_in .top2 a h3#sat{color:#5de4c2;}
-#s_menu .menu_in .menu_login .login_in .top2 a img{border: 1px solid red; width: 94px; height: 94px; border-radius: 50%; overflow: hidden; position: absolute; right: 30px; top: 50%; transform: translateY(-50%);}
+#s_menu .menu_in .menu_login .login_in .top2 a img{box-shadow: 0 0 8px rgba(0,0,0,.15); width: 94px; height: 94px; border-radius: 50%; overflow: hidden; position: absolute; right: 30px; top: 50%; transform: translateY(-50%);}
 
 #s_menu .menu_in .menu_login .login_in .top2 p{padding:5px 0; font-size:14px; cursor:pointer;display:inline-block;}
 #s_menu .menu_in .menu_login .login_in .top2 p:hover{color:#5de4c2;}
@@ -222,7 +222,8 @@ body.on{overflow: hidden;}
 
 
 #join_mbs .join_mbs_in .mbs_form .mbs_profile .profile_frame2{width: 100px;height: 100px;float: left;}
-#join_mbs .join_mbs_in .mbs_form .mbs_profile .profile_frame2 .preview{width: 100px;height: 100px;border-radius: 50%;border:1px solid #999;}
+#join_mbs .join_mbs_in .mbs_form .mbs_profile .profile_frame2 .preview{width: 100px;height: 100px;border-radius: 50%;border:1px solid #999; overflow: hidden;}
+#join_mbs .join_mbs_in .mbs_form .mbs_profile .profile_frame2 .preview img{display: block;}
 #join_mbs .join_mbs_in .mbs_form .mbs_btn {width: 100%;height: 40px;}
 #join_mbs .join_mbs_in .mbs_form .mbs_btn .mbs_btn_frame {width: 170px;height: 100%;border-radius: 10px;    cursor: pointer;font-size: 14px;line-height: 40px;text-align: center;background: none;border: 1px solid rgba(0,0,0,.5);}
 #join_mbs .join_mbs_in .mbs_form .mbs_btn .mbs_btn_frame:hover {color:white;background:#5de4c2;border:none;}

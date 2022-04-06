@@ -44,7 +44,7 @@
 #sec_reg .oReg .oReg_in .oReg_room .room_form .rfimgframe .rfimg1 {display: flex;justify-content: flex-start;align-items: center;}
 #sec_reg .oReg .oReg_in .oReg_room .room_form .rfimgframe .rfimg2 {}
 #sec_reg .oReg .oReg_in .oReg_room .room_form .rfimgframe .rfimg3 {}
-#sec_reg .oReg .oReg_in .oReg_room .room_form .rfimgframe .rfinputframe .rfimginput input {display: block;padding-left:5px;}
+#sec_reg .oReg .oReg_in .oReg_room .room_form .rfimgframe .rfinputframe .rfimginput input {display: inline-block; width: 225px; padding-left:5px;}
 #sec_reg .oReg .oReg_in .oReg_room .room_form .rfprice {}
 #sec_reg .oReg .oReg_in .oReg_room .room_form .rfprice input {width: 200px;height: 30px;padding-left:5px;border:none;outline: none;}
 /* 객실등록 폼 */
