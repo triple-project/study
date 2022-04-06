@@ -18,7 +18,7 @@
 		</tr>
 		<tr>
 			<td>${fp.product_id}</td>
-			<td>${fp.pro_category}</td>
+			<td>${fp.product_category}</td>
 			<td>${fp.product_address}</td>
 			<td>${fp.product_city}</td>
 			<td>${fp.product_name}</td>

@@ -1,20 +1,26 @@
 package com.triple.finalp.pro.service;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
+import com.triple.finalp.data.vo.PageVo;
 import com.triple.finalp.pro.dao.ProductDao;
 import com.triple.finalp.pro.vo.ProductDetailVo;
 import com.triple.finalp.pro.vo.ProductVo;
+import com.triple.finalp.tag.dao.TagDao;
 
 @Service("productService")
 public class ProductServiceImpl implements ProductService{
 	
 	@Autowired
 	ProductDao productDao;
+	
+	@Autowired
+	TagDao tagDao;
 
 
 	@Override
@@ -26,7 +32,13 @@ public class ProductServiceImpl implements ProductService{
 	}
 	
 	@Override // <!-- 상품등록 (업주)-->
-	public void  register(ProductVo pvo) { 
+	public void  register(ProductVo pvo,List<String> tag_list_h) {
+		String tag_id = pvo.getProduct_id();
+		//String tag_id = "1";
+		for (int i = 0; i < tag_list_h.size(); i++) {
+			String tag_tag = tag_list_h.get(i);			
+			tagDao.insertTag(tag_id,tag_tag);
+		}
 		productDao.register(pvo);
 	}
 	@Override // <!-- 상품디테일등록 (업주)-->	
@@ -35,9 +47,38 @@ public class ProductServiceImpl implements ProductService{
 	}
 	@Override // <!-- 상품 목록들 (업주) -->
 	public void getProId(String admin_id,Model model) {
-		System.out.println("admin_id"+admin_id);
 		ArrayList<ProductVo> myList =  productDao.getProId(admin_id);
+		PageVo pageVo = new PageVo();
+		int page = 1;
+		int pageC = productDao.getProIdC(admin_id);
+		if (pageC%10==0) {
+			pageVo.setPageC(pageC/10);
+		}else {
+			pageVo.setPageC((pageC/10)+1);
+		}		
+		pageVo.setPageS((page*10)-10);
+		pageVo.setPageE((page*10)-1);
+		pageVo.setPageO(page);
 		model.addAttribute("myList", myList);
+		model.addAttribute("page", pageVo);
+	}
+	
+	@Override
+	public void getProId2(String admin_id, Model model, int page) {
+		// TODO Auto-generated method stub
+		ArrayList<ProductVo> myList =  productDao.getProId(admin_id);
+		PageVo pageVo = new PageVo();
+		int pageC = productDao.getProIdC(admin_id);
+		if (pageC%10==0) {
+			pageVo.setPageC(pageC/10);
+		}else {
+			pageVo.setPageC((pageC/10)+1);
+		}		
+		pageVo.setPageS((page*10)-10);
+		pageVo.setPageE((page*10)-1);
+		pageVo.setPageO(page);	
+		model.addAttribute("myList", myList);
+		model.addAttribute("page", pageVo);
 	}
 	/*
 	@Override //<!-- 상품디테일 -->
@@ -83,6 +124,19 @@ public class ProductServiceImpl implements ProductService{
 		ArrayList<ProductDetailVo> pdList = productDao.Ddetail(pd_name);
 		model.addAttribute("pdvo",pdvo);
 		model.addAttribute("pdList",pdList);
+	}
+	
+	//내상품이 맞는지 확인
+	@Override
+	public Boolean mypro(String product_id,String product_admin_id,Model model) {
+		// TODO Auto-generated method stub
+		int a = productDao.mypro(product_id,product_admin_id);
+		if(a==1) {
+			model.addAttribute("product_id",product_id);
+			return true;
+		}else {
+			return false;
+		}
 	}
 
 

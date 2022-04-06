@@ -19,4 +19,5 @@ public class ProductVo {
 	private String product_locationx;   // api사용 때문에 넣었나 ? 
 	private String product_locationy;   // api사용 때문에 넣었나 ?
 	private String product_shortword;
+	private String product_subcontent;
 }

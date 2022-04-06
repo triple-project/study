@@ -8,5 +8,6 @@
 		<typeAlias alias="ProVo" type="com.triple.finalp.pro.vo.ProductVo" />
 		<typeAlias alias="ProDVo" type="com.triple.finalp.pro.vo.ProductDetailVo" />
 		<typeAlias alias="MemVo" type="com.triple.finalp.mem.vo.MemVo" />
+		<typeAlias alias="ReviewVo" type="com.triple.finalp.review.vo.ReviewVo" />
 	</typeAliases>
 </configuration>

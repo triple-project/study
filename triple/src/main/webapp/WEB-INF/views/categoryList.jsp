@@ -103,7 +103,7 @@
                                             </div>
                                             <!-- 슬라이드 끝 -->
                                             <div class="bot">
-                                                <!-- 멀 넣어야할지 모르겠어서 임시로 남겨요 -->
+                                                ${pv.product_subcontent}
                                             </div>
                                         </div>
                                     </div>

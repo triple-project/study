@@ -147,48 +147,242 @@ $(function() {
 	})
 
 	function showLocation(event) {
-		var latitude = event.coords.latitude
+		var latitude = event.coords.latitude 
 		var longitude = event.coords.longitude
-
+	
 		let apiKey = "059aa9eae2040819bfb97ec8742f408c"
-		var apiURI = "https://api.openweathermap.org/data/2.5/weather?lat=" + latitude + "&lon=" + longitude + "&lang=kr&appid=" + apiKey;
+		var apiURI = "https://api.openweathermap.org/data/2.5/weather?lat=" + latitude + "&lon=" + longitude + "&lang=kr&appid=" + apiKey + "&units=metric";
+		var api2URI = "https://api.openweathermap.org/data/2.5/onecall?lat=" + latitude + "&lon=" + longitude + "&exclude=alerts&lang=kr&appid=" + apiKey + "&units=metric";
 		$.ajax({
 			url: apiURI,
 			dataType: "json",
 			type: "GET",
 			async: "false",
 			success: function(resp) {
-				//console.log("현재온도 : "+ (resp.main.temp- 273.15) );
-				//console.log("현재습도 : "+ resp.main.humidity);
-				//console.log("날씨 : "+ resp.weather[0].main );
-				//console.log("상세날씨설명 : "+ resp.weather[0].description );
-				//console.log("날씨 이미지 : "+ resp.weather[0].icon );
-				//console.log("바람   : "+ resp.wind.speed );
-				//console.log("나라   : "+ resp.sys.country );
-				//console.log("도시이름  : "+ resp.name );
-				//console.log("구름  : "+ (resp.clouds.all) +"%" );
+				// console.log("la : " + latitude)
+				// console.log("long : " + longitude)
+				// console.log("현재온도 : " + resp.main.temp);
+				// console.log("현재습도 : " + resp.main.humidity);
+				// console.log("날씨 : " + resp.weather[0].main );
+				// console.log("상세날씨설명 : " + resp.weather[0].description );
+				// console.log("날씨 이미지 : " + resp.weather[0].icon );
+				// console.log("바람 : " + resp.wind.speed );
+				// console.log("나라 : " + resp.sys.country );
+				// console.log("도시이름 : " + resp.name );
+				// console.log("구름 : " + (resp.clouds.all) + "%" );
+				// console.log("최고온도 : " + resp.main.temp_max );
+				// console.log("최저온도 : " + resp.main.temp_min );
+
 				let imgURL = "../resources/img/wb/" + resp.weather[0].icon + ".png";
 				$("#wicon").attr("src", imgURL);
-
+				
 				let nameURL = resp.weather[0].description;
-				document.querySelector("#wename").textContent = nameURL;
+				 document.querySelector("#wename").textContent = nameURL;
+
+				let todayURL = "../resources/img/wb/" + resp.weather[0].icon + ".png";
+				$("#today_icon").attr("src", todayURL);
+				$("#today_name").append(resp.weather[0].description);
+				$("#ondo").append(resp.main.temp);
+				$("#sdo").append(resp.main.humidity + "%");
+				$("#psok").append(resp.wind.speed + "m/s");
+				$("#dosi").append(resp.name);
+
+				let ct = resp.dt;
+				function convertTime(t){
+					let ot = new Date(t * 1000);
+					let day = ot.getDay();
+					let hr = ot.getHours();
+					let m = ot.getMinutes();
+
+					let arrDayStr = ['일','월','화','수','목','금','토']
+					return "(" + arrDayStr[day] + "요일) " + hr + ":" + m;
+				}
+				let currentTime = convertTime(ct);
+				$("#today_date").append(currentTime);
 			}
 		})
 
+		$.ajax({
+			url : api2URI,
+			dataType : "json",
+			type : "GET",
+			async : "false",
+			success : function(resps) {
+				//console.log(resps.hourly)
+				//console.log(resps.daily)
+				function convertTime(t){
+					let ots = new Date(t * 1000);
+					let day = ots.getDay();
+
+					let arrDayStr = ['일','월','화','수','목','금','토']
+					return arrDayStr[day];
+				}
+				function hTime(dst){
+					let dates = new Date(dst * 1000);
+					let hours = dates.getHours();
+					return hours;
+				}
+
+				$("#pop").append(resps.daily[0].pop + "%");
+
+				let oneURL = "../resources/img/wb/" + resps.daily[0].weather[0].icon + ".png";
+				$("#one #weekIcon").attr("src", oneURL);
+				//let oneWeekdt = resps.daily[0].dt;
+				//let oneTime = convertTime(oneWeekdt);
+				//$("#one #weekDay").append(oneTime);
+				$("#one #weekMax").append(resps.daily[0].temp.max + "<span>°C</span>");
+				$("#one #weekMin").append(resps.daily[0].temp.min + "<span>°C</span>");
+
+				let towURL = "../resources/img/wb/" + resps.daily[1].weather[0].icon + ".png";
+				$("#tow #weekIcon").attr("src", towURL);
+				let towWeekdt = resps.daily[1].dt;
+				let towTime = convertTime(towWeekdt);
+				$("#tow #weekDay").append(towTime);
+				$("#tow #weekMax").append(resps.daily[1].temp.max + "<span>°C</span>");
+				$("#tow #weekMin").append(resps.daily[1].temp.min + "<span>°C</span>");
+
+				let threeURL = "../resources/img/wb/" + resps.daily[2].weather[0].icon + ".png";
+				$("#three #weekIcon").attr("src", threeURL);
+				let threeWeekdt = resps.daily[2].dt;
+				let threeTime = convertTime(threeWeekdt);
+				$("#three #weekDay").append(threeTime);
+				$("#three #weekMax").append(resps.daily[2].temp.max + "<span>°C</span>");
+				$("#three #weekMin").append(resps.daily[2].temp.min + "<span>°C</span>");
+
+				let fourURL = "../resources/img/wb/" + resps.daily[3].weather[0].icon + ".png";
+				$("#four #weekIcon").attr("src", fourURL);
+				let fourWeekdt = resps.daily[3].dt;
+				let fourTime = convertTime(fourWeekdt);
+				$("#four #weekDay").append(fourTime);
+				$("#four #weekMax").append(resps.daily[3].temp.max + "<span>°C</span>");
+				$("#four #weekMin").append(resps.daily[3].temp.min + "<span>°C</span>");
+
+				let fiveURL = "../resources/img/wb/" + resps.daily[4].weather[0].icon + ".png";
+				$("#five #weekIcon").attr("src", fiveURL);
+				let fiveWeekdt = resps.daily[4].dt;
+				let fiveTime = convertTime(fiveWeekdt);
+				$("#five #weekDay").append(fiveTime);
+				$("#five #weekMax").append(resps.daily[4].temp.max + "<span>°C</span>");
+				$("#five #weekMin").append(resps.daily[4].temp.min + "<span>°C</span>");
+
+				let sixURL = "../resources/img/wb/" + resps.daily[5].weather[0].icon + ".png";
+				$("#six #weekIcon").attr("src", sixURL);
+				let sixWeekdt = resps.daily[5].dt;
+				let sixTime = convertTime(sixWeekdt);
+				$("#six #weekDay").append(sixTime);
+				$("#six #weekMax").append(resps.daily[5].temp.max + "<span>°C</span>");
+				$("#six #weekMin").append(resps.daily[5].temp.min + "<span>°C</span>");
+
+				let sevenURL = "../resources/img/wb/" + resps.daily[6].weather[0].icon + ".png";
+				$("#seven #weekIcon").attr("src", sevenURL);
+				let sevenWeekdt = resps.daily[6].dt;
+				let sevenTime = convertTime(sevenWeekdt);
+				$("#seven #weekDay").append(sevenTime);
+				$("#seven #weekMax").append(resps.daily[6].temp.max + "<span>°C</span>");
+				$("#seven #weekMin").append(resps.daily[6].temp.min + "<span>°C</span>");
+
+				let eightURL = "../resources/img/wb/" + resps.daily[7].weather[0].icon + ".png";
+				$("#eight #weekIcon").attr("src", eightURL);
+				let eightWeekdt = resps.daily[7].dt;
+				let eightTime = convertTime(eightWeekdt);
+				$("#eight #weekDay").append(eightTime);
+				$("#eight #weekMax").append(resps.daily[7].temp.max + "<span>°C</span>");
+				$("#eight #weekMin").append(resps.daily[7].temp.min + "<span>°C</span>");
+
+				let h0URL = "../resources/img/wb/" + resps.hourly[0].weather[0].icon + ".png";
+				$("#h0 #timeIcon").attr("src", h0URL);
+				$("#h0 #timeTemp").append(resps.hourly[0].temp + "<span>°C</span>");
+
+				let h1URL = "../resources/img/wb/" + resps.hourly[3].weather[0].icon + ".png";
+				let h1Weekdt = resps.hourly[3].dt;
+				let h1Time = hTime(h1Weekdt);
+				$("#h1 #timeTit").append(h1Time + "<span>시</span>");
+				$("#h1 #timeIcon").attr("src", h1URL);
+				$("#h1 #timeTemp").append(resps.hourly[3].temp + "<span>°C</span>");
+
+				let h2URL = "../resources/img/wb/" + resps.hourly[6].weather[0].icon + ".png";
+				let h2Weekdt = resps.hourly[6].dt;
+				let h2Time = hTime(h2Weekdt);
+				$("#h2 #timeTit").append(h2Time + "<span>시</span>");
+				$("#h2 #timeIcon").attr("src", h2URL);
+				$("#h2 #timeTemp").append(resps.hourly[6].temp + "<span>°C</span>");
+
+				let h3URL = "../resources/img/wb/" + resps.hourly[9].weather[0].icon + ".png";
+				let h3Weekdt = resps.hourly[9].dt;
+				let h3Time = hTime(h3Weekdt);
+				$("#h3 #timeTit").append(h3Time + "<span>시</span>");
+				$("#h3 #timeIcon").attr("src", h3URL);
+				$("#h3 #timeTemp").append(resps.hourly[9].temp + "<span>°C</span>");
+
+				let h4URL = "../resources/img/wb/" + resps.hourly[12].weather[0].icon + ".png";
+				let h4Weekdt = resps.hourly[12].dt;
+				let h4Time = hTime(h4Weekdt);
+				$("#h4 #timeTit").append(h4Time + "<span>시</span>");
+				$("#h4 #timeIcon").attr("src", h4URL);
+				$("#h4 #timeTemp").append(resps.hourly[12].temp + "<span>°C</span>");
+
+				let h5URL = "../resources/img/wb/" + resps.hourly[15].weather[0].icon + ".png";
+				let h5Weekdt = resps.hourly[15].dt;
+				let h5Time = hTime(h5Weekdt);
+				$("#h5 #timeTit").append(h5Time + "<span>시</span>");
+				$("#h5 #timeIcon").attr("src", h5URL);
+				$("#h5 #timeTemp").append(resps.hourly[15].temp + "<span>°C</span>");
+
+				let h6URL = "../resources/img/wb/" + resps.hourly[18].weather[0].icon + ".png";
+				let h6Weekdt = resps.hourly[18].dt;
+				let h6Time = hTime(h6Weekdt);
+				$("#h6 #timeTit").append(h6Time + "<span>시</span>");
+				$("#h6 #timeIcon").attr("src", h6URL);
+				$("#h6 #timeTemp").append(resps.hourly[18].temp + "<span>°C</span>");
+
+				let h7URL = "../resources/img/wb/" + resps.hourly[21].weather[0].icon + ".png";
+				let h7Weekdt = resps.hourly[21].dt;
+				let h7Time = hTime(h7Weekdt);
+				$("#h7 #timeTit").append(h7Time + "<span>시</span>");
+				$("#h7 #timeIcon").attr("src", h7URL);
+				$("#h7 #timeTemp").append(resps.hourly[21].temp + "<span>°C</span>");
+
+				let h8URL = "../resources/img/wb/" + resps.hourly[24].weather[0].icon + ".png";
+				let h8Weekdt = resps.hourly[24].dt;
+				let h8Time = hTime(h8Weekdt);
+				$("#h8 #timeTit").append(h8Time + "<span>시</span>");
+				$("#h8 #timeIcon").attr("src", h8URL);
+				$("#h8 #timeTemp").append(resps.hourly[24].temp + "<span>°C</span>");
+
+				let h9URL = "../resources/img/wb/" + resps.hourly[27].weather[0].icon + ".png";
+				let h9Weekdt = resps.hourly[27].dt;
+				let h9Time = hTime(h9Weekdt);
+				$("#h9 #timeTit").append(h9Time + "<span>시</span>");
+				$("#h9 #timeIcon").attr("src", h9URL);
+				$("#h9 #timeTemp").append(resps.hourly[27].temp + "<span>°C</span>");
+			}
+		})
+	
 	}
-
+	
 	function showError(event) { alert("위치 정보를 얻을 수 없습니다.") }
-
+	
 	window.addEventListener('load', () => {
-		if (window.navigator.geolocation) { window.navigator.geolocation.getCurrentPosition(showLocation, showError) }
+		if(window.navigator.geolocation) {window.navigator.geolocation.getCurrentPosition(showLocation,showError)}
 	})
 
-	$('#myInfo .myInfoIn .tap li').click(function() {
+	$('#myInfo .myInfoIn .tap li').click(function () {
+        var num = $(this).index();
+        $(this).addClass('on').siblings().removeClass('on');
+        $('#myInfo .myInfoIn .tap li').eq(num).addClass('on').siblings().removeClass('on');
+        $('#myInfo .myInfoIn .menutap .tap_in .con').eq(num).show().siblings().hide();
+    });
+    $('#myInfo .myInfoIn .menutap .tap_in .con:gt(0)').hide();
+
+	$(".menu_login .login_in .bottom ul li").click(function(){
 		var num = $(this).index();
-		$(this).addClass('on').siblings().removeClass('on');
+		$("#myInfo, #myInfoCover").addClass("on");
 		$('#myInfo .myInfoIn .tap li').eq(num).addClass('on').siblings().removeClass('on');
-		$('#myInfo .myInfoIn .menutap .tap_in .con').eq(num).show().siblings().hide();
+        $('#myInfo .myInfoIn .menutap .tap_in .con').eq(num).show().siblings().hide();
 	});
-	$('#myInfo .myInfoIn .menutap .tap_in .con:gt(0)').hide();
+
+	$("#myInfoCover").click(function(){
+		$("#myInfo, #myInfoCover").removeClass();
+	});
 
 });

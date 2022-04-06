@@ -40,12 +40,12 @@ public class SearchServiceImpl implements SearchService{
 						String a = clist.get(i);
 						
 						ArrayList<ProductVo> mList = new ArrayList<ProductVo>();
-						/* int b =plist.size(); */
-						
+						int b = plist.size(); 
 						for (int j = 0; j < plist.size(); j++) {
 							if(plist.get(j).getProduct_city().contains(a)) {
 								mList.add(plist.get(j));
-								/* plist.remove(j); */
+								plist.remove(j);
+								j--;
 							}						
 						}
 						/* System.out.println(mList); */
@@ -66,7 +66,8 @@ public class SearchServiceImpl implements SearchService{
 						for (int j = 0; j < plist.size(); j++) {
 							if(plist.get(j).getProduct_city().contains(a)) {
 								mList.add(plist.get(j));
-								
+								plist.remove(j);
+								j--;
 							}						
 						}
 						proS.put(a,mList);
@@ -89,7 +90,8 @@ public class SearchServiceImpl implements SearchService{
 						for (int j = 0; j < plist.size(); j++) {
 							if(plist.get(j).getProduct_category().contains(a)) {
 								mList.add(plist.get(j));
-								
+								plist.remove(j);
+								j--;
 							}						
 						}
 						proS.put(a,mList);
@@ -123,7 +125,8 @@ public class SearchServiceImpl implements SearchService{
 						for (int j = 0; j < plist.size(); j++) {
 							if(plist.get(j).getMgz_city().contains(a)) {
 								mList.add(plist.get(j));
-								
+								plist.remove(j);
+								j--;
 							}						
 						}
 						magS.put(a,mList);
@@ -143,6 +146,7 @@ public class SearchServiceImpl implements SearchService{
 							if(mlist.get(j).getMgz_city().contains(a)) {
 								mList.add(mlist.get(j));
 								mlist.remove(j);
+								j--;
 							}						
 						}
 						magS.put(a,mList);
@@ -164,7 +168,8 @@ public class SearchServiceImpl implements SearchService{
 						for (int j = 0; j < plist.size(); j++) {
 							if(plist.get(j).getMgz_category().contains(a)) {
 								mList.add(plist.get(j));
-								
+								plist.remove(j);
+								j--;
 							}						
 						}
 						magS.put(a,mList);

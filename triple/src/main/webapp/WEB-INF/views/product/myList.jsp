@@ -20,10 +20,10 @@
 		<c:forEach items="${myList}" var="pro">
 			<tr>
 				<td>${pro.product_id}</td>
-				<td>${pro.pro_category}</td>
+				<td>${pro.product_category}</td>
 				<td>${pro.product_address}</td>
 				<td>${pro.product_city}</td>
-				<td>${pro.product_name}</td>
+				<td><a href="/product/${pro.product_id}">${pro.product_name}</a></td>
 				<td><a href="pdr/${pro.product_id}">상품디테일등록</a></td>
 				<!-- 수정필요 -->
 			</tr>

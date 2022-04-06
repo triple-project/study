@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.triple.finalp.review.dao.ReviewDao">
+   <insert id="writeReview">
+      insert into review (comment, star_ranking,r_img1,r_img2,r_img3,product_id,mem_id)
+      values( #{comment},#{star_ranking},#{r_img1},#{r_img2},#{r_img3},#{product_id},#{mem_id})
+   </insert>
+
+   <select id="isSuitable">
+      select count(*) 
+      from myproduct 
+      where mem_id = '11' and product_id = 12 and start_day=#{start_day}
+   </select>
+   <select id="showReview" resultType="ReviewVo">
+      select * 
+      from review
+      where product_id = #{product_id}
+   </select>
+</mapper>

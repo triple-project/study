@@ -3,6 +3,7 @@ package com.triple.finalp.pro.dao;
 import java.util.ArrayList;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import com.triple.finalp.pro.vo.ProductDetailVo;
 import com.triple.finalp.pro.vo.ProductVo;
@@ -22,4 +23,7 @@ public interface ProductDao {
 	public ProductDetailVo findpd(String product_id); 
 
 	public ArrayList<ProductDetailVo> Ddetail(String pd_name);
+	public ArrayList<ProductVo> getAllAProList(String aid);
+	public int getProIdC(String admin_id);
+	public int mypro(@Param("product_id")String product_id,@Param("product_admin_id")String product_admin_id);
 }

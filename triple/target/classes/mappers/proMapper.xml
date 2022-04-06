@@ -11,13 +11,13 @@
 	<!-- 상품등록 (업주) -->
 	<insert id="register">
 		insert into
-		product(product_name,product_category,product_city,product_img1,product_address)
-		values(#{product_name},#{product_category},#{product_city},#{product_img1},#{product_address})
+		product(product_id,product_img1,product_img2,product_img3,product_img4,product_img5,product_category,product_address,product_locationx,product_locationy,product_city,product_name)
+		values(#{product_id},#{product_img1},#{product_img2},#{product_img3},#{product_img4},#{product_img5},#{product_category},#{product_address},#{product_locationx},#{product_locationy},#{product_city},#{product_name})
 	</insert>
 	<!-- 상품디테일등록 (업주) -->
 	<insert id="registerDetail">
-		insert into product_detail(pd_contents,pd_img1,pd_name,pd_price)
-		values(#{pd_contents},#{pd_img1},#{pd_name},#{pd_price})
+		insert into product_detail(product_id,pd_contents,pd_img1,pd_img2,pd_img3,pd_name,pd_price)
+		values(#{product_id},#{pd_contents},#{pd_img1},#{pd_img2},#{pd_img3},#{pd_name},#{pd_price})
 	</insert>
 	<!-- 상품 목록들 (업주) -->
 	<select id="getProId" resultType="ProVo">
@@ -53,4 +53,18 @@
 		from PRODUCT p ,PRODUCT_DETAIL d
 		where d.pd_name= #{pd_name}
 	</select>
+	
+	<select id="getProIdC" resultType="integer">
+		select count(*) 
+		from product
+		where product_admin_id=#{admin_id}
+	</select>
+	
+	<select id="mypro" resultType="integer">
+		select count(*)
+		from product
+		where product_id = #{product_id}
+		and product_admin_id = #{product_admin_id}
+	</select>
+		
 </mapper>

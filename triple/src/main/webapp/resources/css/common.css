@@ -238,13 +238,12 @@ body.on{overflow: hidden;}
 /* 회원가입 폼 끝 */
 
 /* 내여행, 리뷰, 날씨 폼 */
-#myInfo{background: #fff;width:700px;height:550px;position: fixed;left:50%;top:50%;transform: translate(-50%,-50%);z-index: 9999;overflow: hidden;border-radius: 10px;box-shadow: 0 0 15px rgba(0,0,0,.5);display: none;}
+#myInfo{background: #fff;width:850px;height:550px;position: fixed;left:50%;top:50%;transform: translate(-50%,-50%);z-index: 9999;overflow: hidden;border-radius: 10px;box-shadow: 0 0 15px rgba(0,0,0,.5);display: none;}
 #myInfo.on{display: block;}
 #myInfo .myInfoIn{padding-top:30px;height:100%;}
 
-#myInfo .myInfoIn .tap{}
 #myInfo .myInfoIn .tap ul{display: flex;justify-content: center;align-items: center;}
-#myInfo .myInfoIn .tap ul li{width:33.33%;}
+#myInfo .myInfoIn .tap ul li{width:33.33%;border-bottom:4px solid transparent;}
 #myInfo .myInfoIn .tap ul li.on{border-bottom:4px solid #5de4c2}
 #myInfo .myInfoIn .tap ul li a{display: block;padding:20px 0;font-size:14px;color:#333;text-align: center;}
 
@@ -257,9 +256,73 @@ body.on{overflow: hidden;}
 #myInfo .myInfoIn .menutap .tap_in .con .un_login_con .message_box{text-align: center;}
 #myInfo .myInfoIn .menutap .tap_in .con .un_login_con .message_box .icon{font-size:34px;opacity: .25;margin-bottom:30px;}
 
-#myInfo .myInfoIn .menutap .tap_in .con .un_login_con .message_box .txt{}
 #myInfo .myInfoIn .menutap .tap_in .con .un_login_con .message_box .txt h2{font-weight: 500;font-size:22px;margin-bottom:20px;}
 #myInfo .myInfoIn .menutap .tap_in .con .un_login_con .message_box .txt p{font-size:14px;line-height:22px;opacity: .25;}
+
+/* 날씨 폼 */
+#myInfo .myInfoIn .menutap .tap_in .con .con_in{}
+#myInfo .myInfoIn .menutap .tap_in .con .con_in .wb_main{padding:20px;}
+#myInfo .myInfoIn .menutap .tap_in .con .con_in .wb_main .today{margin-bottom:20px;}
+#myInfo .myInfoIn .menutap .tap_in .con .con_in .wb_main .today .today_in{}
+#myInfo .myInfoIn .menutap .tap_in .con .con_in .wb_main .today .today_in:after{content: "";display: block;clear: both;}
+#myInfo .myInfoIn .menutap .tap_in .con .con_in .wb_main .today .today_in .icon{float:left;}
+#myInfo .myInfoIn .menutap .tap_in .con .con_in .wb_main .today .today_in .icon:after{display: block;content: "";clear: both;}
+#myInfo .myInfoIn .menutap .tap_in .con .con_in .wb_main .today .today_in .icon .img{float:left;}
+#myInfo .myInfoIn .menutap .tap_in .con .con_in .wb_main .today .today_in .icon .img img{display: block;width:84px;height:84px;}
+
+#myInfo .myInfoIn .menutap .tap_in .con .con_in .wb_main .today .today_in .icon .txt{float:left;display: flex;margin:0 10px;}
+#myInfo .myInfoIn .menutap .tap_in .con .con_in .wb_main .today .today_in .icon .txt #ondo{font-size:26px;}
+#myInfo .myInfoIn .menutap .tap_in .con .con_in .wb_main .today .today_in .icon .txt h5{font-size:14px;}
+
+#myInfo .myInfoIn .menutap .tap_in .con .con_in .wb_main .today .today_in .icon .todayOption{float:left;font-size:12px;line-height:14px;}
+
+#myInfo .myInfoIn .menutap .tap_in .con .con_in .wb_main .today .today_in .icon .todayDption{float:left;}
+
+#myInfo .myInfoIn .menutap .tap_in .con .con_in .wb_main .today .today_in .name{float:right;text-align: right;}
+#myInfo .myInfoIn .menutap .tap_in .con .con_in .wb_main .today .today_in .name #dosi{font-size:26px;line-height:30px;}
+#myInfo .myInfoIn .menutap .tap_in .con .con_in .wb_main .today .today_in .name #today_date{font-size:14px;line-height: 18px;margin:5px 0 0;}
+#myInfo .myInfoIn .menutap .tap_in .con .con_in .wb_main .today .today_in .name #today_name{font-size:14px;line-height: 18px;}
+
+#myInfo .myInfoIn .menutap .tap_in .con .con_in .wb_main .time .time_in h2{text-align: center;margin:12px 0;font-size:14px;}
+
+#myInfo .myInfoIn .menutap .tap_in .con .con_in .wb_main .time .time_in ul{display: flex;flex-wrap: wrap;justify-content: center;}
+#myInfo .myInfoIn .menutap .tap_in .con .con_in .wb_main .time .time_in ul li{width:10%;display: flex;flex-direction: column;align-items: center;}
+#myInfo .myInfoIn .menutap .tap_in .con .con_in .wb_main .time .time_in ul li .tit{text-align: center;}
+#myInfo .myInfoIn .menutap .tap_in .con .con_in .wb_main .time .time_in ul li .tit h4{font-size: 14px;font-weight: 500;}
+
+#myInfo .myInfoIn .menutap .tap_in .con .con_in .wb_main .time .time_in ul li .icon{margin:10px 0;}
+#myInfo .myInfoIn .menutap .tap_in .con .con_in .wb_main .time .time_in ul li .icon img{display: block;width:50px;height:50px;}
+
+#myInfo .myInfoIn .menutap .tap_in .con .con_in .wb_main .time .time_in ul li .temp{text-align: center;}
+#myInfo .myInfoIn .menutap .tap_in .con .con_in .wb_main .time .time_in ul li .temp h4{font-size: 14px;}
+
+
+#myInfo .myInfoIn .menutap .tap_in .con .con_in .wb_main .week{margin-bottom:10px;}
+#myInfo .myInfoIn .menutap .tap_in .con .con_in .wb_main .week .week_in > h2{text-align: center;margin:20px 0 12px;font-size:14px;}
+#myInfo .myInfoIn .menutap .tap_in .con .con_in .wb_main .week .week_in ul{display: flex;justify-content: center;}
+#myInfo .myInfoIn .menutap .tap_in .con .con_in .wb_main .week .week_in ul li{width:12.5%;display: flex;flex-wrap: wrap;justify-content: center;padding:0 5px;border-right:1px solid rgba(0,0,0,.1);}
+#myInfo .myInfoIn .menutap .tap_in .con .con_in .wb_main .week .week_in ul li:last-child{border-right:0;}
+#myInfo .myInfoIn .menutap .tap_in .con .con_in .wb_main .week .week_in ul li .tit{width:100%;}
+#myInfo .myInfoIn .menutap .tap_in .con .con_in .wb_main .week .week_in ul li .tit h4{text-align: center;font-size: 14px;font-weight: 500;}
+
+#myInfo .myInfoIn .menutap .tap_in .con .con_in .wb_main .week .week_in ul li .icon{margin:10px 0;}
+#myInfo .myInfoIn .menutap .tap_in .con .con_in .wb_main .week .week_in ul li .icon img{display: block;width:60px;height:60px;}
+
+#myInfo .myInfoIn .menutap .tap_in .con .con_in .wb_main .week .week_in ul li .txt{width:100%;}
+#myInfo .myInfoIn .menutap .tap_in .con .con_in .wb_main .week .week_in ul li .txt:after{content: "";display: block;clear: both;}
+#myInfo .myInfoIn .menutap .tap_in .con .con_in .wb_main .week .week_in ul li .txt p{float:left;font-size: 12px;}
+#myInfo .myInfoIn .menutap .tap_in .con .con_in .wb_main .week .week_in ul li .txt p:last-child{float:right;}
+#myInfo .myInfoIn .menutap .tap_in .con .con_in .wb_main .week .week_in ul li .txt p span{font-size:10px;}
+
+#myInfo .myInfoIn .menutap .tap_in .con .con_in .wb_main .dateBtn:after{content: "";display: block;clear: both;}
+#myInfo .myInfoIn .menutap .tap_in .con .con_in .wb_main .dateBtn div button{border:1px solid rgba(0,0,0,.5);border-radius: 5px;background:#fff;height:30px;cursor: pointer;color:#333;}
+#myInfo .myInfoIn .menutap .tap_in .con .con_in .wb_main .dateBtn div button:hover{background: #5de4c2;color:#fff;border:1px solid #5de4c2;}
+#myInfo .myInfoIn .menutap .tap_in .con .con_in .wb_main .dateBtn .left{float:left;}
+#myInfo .myInfoIn .menutap .tap_in .con .con_in .wb_main .dateBtn .right{float:right;display: flex;}
+#myInfo .myInfoIn .menutap .tap_in .con .con_in .wb_main .dateBtn .right #Slocation{border:1px solid rgba(0,0,0,.5);line-height: 18px;outline: none;padding:5px 10px;border-radius: 5px;width:100px;cursor: pointer;margin-right:8px;height:30px;}
+#myInfoCover{position: fixed;width:100%;height:100%;left:0;top:0;right:0;bottom:0;background: #000;opacity: .5;z-index: 999;display: none;}
+#myInfoCover.on{display: block;}
+/* 날씨 폼 끝 */
 
 /* 내여행, 리뷰, 날씨 폼 끝 */
 

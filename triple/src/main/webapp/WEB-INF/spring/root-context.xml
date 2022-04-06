@@ -42,10 +42,12 @@
 	<security:http pattern="/resources/img/*/*" security="none" />
 	<security:http auto-config="true" use-expressions="true">
 	
-		<security:intercept-url pattern="/"
+		<security:intercept-url pattern="/*"
 			access="permitAll" />
 		<security:intercept-url pattern="/user/*"
 			access="hasRole('ROLE_USER')" />
+		<security:intercept-url pattern="/admin/*"
+			access="permitAll" />
 		<security:intercept-url pattern="/padmin/*"
 			access="hasRole('ROLE_PADMIN')" />
 		<security:intercept-url pattern="/sadmin/*"

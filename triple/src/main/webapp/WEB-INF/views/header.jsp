@@ -219,6 +219,417 @@
 		}
 </script>
 
+
+<!-- 날씨위젯 -->
+<script type="text/javascript">
+	function wea() {
+
+		if (window.navigator.geolocation) {
+			window.navigator.geolocation.getCurrentPosition(showLocation4,
+				showError4)
+		}
+
+		function showLocation4(event) {
+			var latitude = event.coords.latitude
+			var longitude = event.coords.longitude
+
+			let apiKey = "059aa9eae2040819bfb97ec8742f408c"
+			var apiURI = "https://api.openweathermap.org/data/2.5/weather?lat=" +
+				latitude + "&lon=" + longitude + "&lang=kr&appid=" +
+				apiKey + "&units=metric";
+			var api2URI = "https://api.openweathermap.org/data/2.5/onecall?lat=" + latitude + "&lon=" + longitude +
+			"&exclude=alerts&lang=kr&appid=" + apiKey + "&units=metric";
+			$.ajax({
+				url: apiURI,
+				dataType: "json",
+				type: "GET",
+				async: "false",
+				success: function (resp) {
+					let todayURL = "../resources/img/wb/" + resp.weather[0].icon + ".png";
+					$("#today_icon").attr("src", todayURL);
+					$("#today_name").html(resp.weather[0].description);
+					$("#ondo").html(resp.main.temp);
+					$("#sdo").html("습도 : " + resp.main.humidity + "%");
+					$("#psok").html("풍속 : " + resp.wind.speed + "m/s");
+					$("#dosi").html(resp.name);
+
+					let ct = resp.dt;
+
+					function convertTime(t) {
+						let ot = new Date(t * 1000);
+						let day = ot.getDay();
+						let hr = ot.getHours();
+						let m = ot.getMinutes();
+
+						let arrDayStr = ['일', '월', '화', '수', '목', '금', '토']
+						return "(" + arrDayStr[day] + "요일) " + hr + ":" + m;
+					}
+					let currentTime = convertTime(ct);
+					$("#today_date").html(currentTime);
+				}
+			})
+
+			$.ajax({
+				url: api2URI,
+				dataType: "json",
+				type: "GET",
+				async: "false",
+				success: function (resps) {
+					function convertTime(t) {
+						let ots = new Date(t * 1000);
+						let day = ots.getDay();
+
+						let arrDayStr = ['일', '월', '화', '수', '목', '금', '토']
+						return arrDayStr[day];
+					}
+
+					function hTime(dst) {
+						let dates = new Date(dst * 1000);
+						let hours = dates.getHours();
+						return hours;
+					}
+
+					$("#pop").html("강수량 : " + resps.daily[0].pop + "%");
+
+					let oneURL = "../resources/img/wb/" + resps.daily[0].weather[0].icon + ".png";
+					$("#one #weekIcon").attr("src", oneURL);
+					$("#one #weekMax").html(resps.daily[0].temp.max + "<span>°C</span>");
+					$("#one #weekMin").html(resps.daily[0].temp.min + "<span>°C</span>");
+
+					let towURL = "../resources/img/wb/" + resps.daily[1].weather[0].icon + ".png";
+					$("#tow #weekIcon").attr("src", towURL);
+					let towWeekdt = resps.daily[1].dt;
+					let towTime = convertTime(towWeekdt);
+					$("#tow #weekDay").html(towTime);
+					$("#tow #weekMax").html(resps.daily[1].temp.max + "<span>°C</span>");
+					$("#tow #weekMin").html(resps.daily[1].temp.min + "<span>°C</span>");
+
+					let threeURL = "../resources/img/wb/" + resps.daily[2].weather[0].icon + ".png";
+					$("#three #weekIcon").attr("src", threeURL);
+					let threeWeekdt = resps.daily[2].dt;
+					let threeTime = convertTime(threeWeekdt);
+					$("#three #weekDay").html(threeTime);
+					$("#three #weekMax").html(resps.daily[2].temp.max + "<span>°C</span>");
+					$("#three #weekMin").html(resps.daily[2].temp.min + "<span>°C</span>");
+
+					let fourURL = "../resources/img/wb/" + resps.daily[3].weather[0].icon + ".png";
+					$("#four #weekIcon").attr("src", fourURL);
+					let fourWeekdt = resps.daily[3].dt;
+					let fourTime = convertTime(fourWeekdt);
+					$("#four #weekDay").html(fourTime);
+					$("#four #weekMax").html(resps.daily[3].temp.max + "<span>°C</span>");
+					$("#four #weekMin").html(resps.daily[3].temp.min + "<span>°C</span>");
+
+					let fiveURL = "../resources/img/wb/" + resps.daily[4].weather[0].icon + ".png";
+					$("#five #weekIcon").attr("src", fiveURL);
+					let fiveWeekdt = resps.daily[4].dt;
+					let fiveTime = convertTime(fiveWeekdt);
+					$("#five #weekDay").html(fiveTime);
+					$("#five #weekMax").html(resps.daily[4].temp.max + "<span>°C</span>");
+					$("#five #weekMin").html(resps.daily[4].temp.min + "<span>°C</span>");
+
+					let sixURL = "../resources/img/wb/" + resps.daily[5].weather[0].icon + ".png";
+					$("#six #weekIcon").attr("src", sixURL);
+					let sixWeekdt = resps.daily[5].dt;
+					let sixTime = convertTime(sixWeekdt);
+					$("#six #weekDay").html(sixTime);
+					$("#six #weekMax").html(resps.daily[5].temp.max + "<span>°C</span>");
+					$("#six #weekMin").html(resps.daily[5].temp.min + "<span>°C</span>");
+
+					let sevenURL = "../resources/img/wb/" + resps.daily[6].weather[0].icon + ".png";
+					$("#seven #weekIcon").attr("src", sevenURL);
+					let sevenWeekdt = resps.daily[6].dt;
+					let sevenTime = convertTime(sevenWeekdt);
+					$("#seven #weekDay").html(sevenTime);
+					$("#seven #weekMax").html(resps.daily[6].temp.max + "<span>°C</span>");
+					$("#seven #weekMin").html(resps.daily[6].temp.min + "<span>°C</span>");
+
+					let eightURL = "../resources/img/wb/" + resps.daily[7].weather[0].icon + ".png";
+					$("#eight #weekIcon").attr("src", eightURL);
+					let eightWeekdt = resps.daily[7].dt;
+					let eightTime = convertTime(eightWeekdt);
+					$("#eight #weekDay").html(eightTime);
+					$("#eight #weekMax").html(resps.daily[7].temp.max + "<span>°C</span>");
+					$("#eight #weekMin").html(resps.daily[7].temp.min + "<span>°C</span>");
+
+					let h0URL = "../resources/img/wb/" + resps.hourly[0].weather[0].icon + ".png";
+					$("#h0 #timeIcon").attr("src", h0URL);
+					$("#h0 #timeTemp").html(resps.hourly[0].temp + "<span>°C</span>");
+
+					let h1URL = "../resources/img/wb/" + resps.hourly[3].weather[0].icon + ".png";
+					let h1Weekdt = resps.hourly[3].dt;
+					let h1Time = hTime(h1Weekdt);
+					$("#h1 #timeTit").html(h1Time + "<span>시</span>");
+					$("#h1 #timeIcon").attr("src", h1URL);
+					$("#h1 #timeTemp").html(resps.hourly[3].temp + "<span>°C</span>");
+
+					let h2URL = "../resources/img/wb/" + resps.hourly[6].weather[0].icon + ".png";
+					let h2Weekdt = resps.hourly[6].dt;
+					let h2Time = hTime(h2Weekdt);
+					$("#h2 #timeTit").html(h2Time + "<span>시</span>");
+					$("#h2 #timeIcon").attr("src", h2URL);
+					$("#h2 #timeTemp").html(resps.hourly[6].temp + "<span>°C</span>");
+
+					let h3URL = "../resources/img/wb/" + resps.hourly[9].weather[0].icon + ".png";
+					let h3Weekdt = resps.hourly[9].dt;
+					let h3Time = hTime(h3Weekdt);
+					$("#h3 #timeTit").html(h3Time + "<span>시</span>");
+					$("#h3 #timeIcon").attr("src", h3URL);
+					$("#h3 #timeTemp").html(resps.hourly[9].temp + "<span>°C</span>");
+
+					let h4URL = "../resources/img/wb/" + resps.hourly[12].weather[0].icon + ".png";
+					let h4Weekdt = resps.hourly[12].dt;
+					let h4Time = hTime(h4Weekdt);
+					$("#h4 #timeTit").html(h4Time + "<span>시</span>");
+					$("#h4 #timeIcon").attr("src", h4URL);
+					$("#h4 #timeTemp").html(resps.hourly[12].temp + "<span>°C</span>");
+
+					let h5URL = "../resources/img/wb/" + resps.hourly[15].weather[0].icon + ".png";
+					let h5Weekdt = resps.hourly[15].dt;
+					let h5Time = hTime(h5Weekdt);
+					$("#h5 #timeTit").html(h5Time + "<span>시</span>");
+					$("#h5 #timeIcon").attr("src", h5URL);
+					$("#h5 #timeTemp").html(resps.hourly[15].temp + "<span>°C</span>");
+
+					let h6URL = "../resources/img/wb/" + resps.hourly[18].weather[0].icon + ".png";
+					let h6Weekdt = resps.hourly[18].dt;
+					let h6Time = hTime(h6Weekdt);
+					$("#h6 #timeTit").html(h6Time + "<span>시</span>");
+					$("#h6 #timeIcon").attr("src", h6URL);
+					$("#h6 #timeTemp").html(resps.hourly[18].temp + "<span>°C</span>");
+
+					let h7URL = "../resources/img/wb/" + resps.hourly[21].weather[0].icon + ".png";
+					let h7Weekdt = resps.hourly[21].dt;
+					let h7Time = hTime(h7Weekdt);
+					$("#h7 #timeTit").html(h7Time + "<span>시</span>");
+					$("#h7 #timeIcon").attr("src", h7URL);
+					$("#h7 #timeTemp").html(resps.hourly[21].temp + "<span>°C</span>");
+
+					let h8URL = "../resources/img/wb/" + resps.hourly[24].weather[0].icon + ".png";
+					let h8Weekdt = resps.hourly[24].dt;
+					let h8Time = hTime(h8Weekdt);
+					$("#h8 #timeTit").html(h8Time + "<span>시</span>");
+					$("#h8 #timeIcon").attr("src", h8URL);
+					$("#h8 #timeTemp").html(resps.hourly[24].temp + "<span>°C</span>");
+
+					let h9URL = "../resources/img/wb/" + resps.hourly[27].weather[0].icon + ".png";
+					let h9Weekdt = resps.hourly[27].dt;
+					let h9Time = hTime(h9Weekdt);
+					$("#h9 #timeTit").html(h9Time + "<span>시</span>");
+					$("#h9 #timeIcon").attr("src", h9URL);
+					$("#h9 #timeTemp").html(resps.hourly[27].temp + "<span>°C</span>");
+				}
+			})
+
+		}
+
+		function showError4(event) {
+			alert("위치 정보를 얻을 수 없습니다.")
+		}
+	}
+</script>
+<script type="text/javascript">
+	function wea2() {
+
+		var sl = $('#Slocation').val().split("::");
+		//console.log(sl);
+
+		var latitude = sl[0];
+		var longitude = sl[1];
+
+		let apiKey = "059aa9eae2040819bfb97ec8742f408c"
+		var apiURI = "https://api.openweathermap.org/data/2.5/weather?lat=" + latitude + "&lon=" + longitude +
+			"&lang=kr&appid=" + apiKey + "&units=metric";
+		var api2URI = "https://api.openweathermap.org/data/2.5/onecall?lat=" + latitude + "&lon=" + longitude +
+			"&exclude=alerts&lang=kr&appid=" + apiKey + "&units=metric";
+		$.ajax({
+			url: apiURI,
+			dataType: "json",
+			type: "GET",
+			async: "false",
+			success: function (resp) {
+				let todayURL = "../resources/img/wb/" + resp.weather[0].icon + ".png";
+				$("#today_icon").attr("src", todayURL);
+				$("#today_name").html(resp.weather[0].description);
+				$("#ondo").html(resp.main.temp);
+				$("#sdo").html("습도 : " + resp.main.humidity + "%");
+				$("#psok").html("풍속 : " + resp.wind.speed + "m/s");
+				$("#dosi").html(resp.name);
+
+				let ct = resp.dt;
+
+				function convertTime(t) {
+					let ot = new Date(t * 1000);
+					let day = ot.getDay();
+					let hr = ot.getHours();
+					let m = ot.getMinutes();
+
+					let arrDayStr = ['일', '월', '화', '수', '목', '금', '토']
+					return "(" + arrDayStr[day] + "요일) " + hr + ":" + m;
+				}
+				let currentTime = convertTime(ct);
+				$("#today_date").html(currentTime);
+			}
+		})
+		$.ajax({
+			url: api2URI,
+			dataType: "json",
+			type: "GET",
+			async: "false",
+			success: function (resps) {
+				function convertTime(t) {
+					let ots = new Date(t * 1000);
+					let day = ots.getDay();
+
+					let arrDayStr = ['일', '월', '화', '수', '목', '금', '토']
+					return arrDayStr[day];
+				}
+
+				function hTime(dst) {
+					let dates = new Date(dst * 1000);
+					let hours = dates.getHours();
+					return hours;
+				}
+
+				$("#pop").html("강수량 : " + resps.daily[0].pop + "%");
+
+				let oneURL = "../resources/img/wb/" + resps.daily[0].weather[0].icon + ".png";
+				$("#one #weekIcon").attr("src", oneURL);
+				$("#one #weekMax").html(resps.daily[0].temp.max + "<span>°C</span>");
+				$("#one #weekMin").html(resps.daily[0].temp.min + "<span>°C</span>");
+
+				let towURL = "../resources/img/wb/" + resps.daily[1].weather[0].icon + ".png";
+				$("#tow #weekIcon").attr("src", towURL);
+				let towWeekdt = resps.daily[1].dt;
+				let towTime = convertTime(towWeekdt);
+				$("#tow #weekDay").html(towTime);
+				$("#tow #weekMax").html(resps.daily[1].temp.max + "<span>°C</span>");
+				$("#tow #weekMin").html(resps.daily[1].temp.min + "<span>°C</span>");
+
+				let threeURL = "../resources/img/wb/" + resps.daily[2].weather[0].icon + ".png";
+				$("#three #weekIcon").attr("src", threeURL);
+				let threeWeekdt = resps.daily[2].dt;
+				let threeTime = convertTime(threeWeekdt);
+				$("#three #weekDay").html(threeTime);
+				$("#three #weekMax").html(resps.daily[2].temp.max + "<span>°C</span>");
+				$("#three #weekMin").html(resps.daily[2].temp.min + "<span>°C</span>");
+
+				let fourURL = "../resources/img/wb/" + resps.daily[3].weather[0].icon + ".png";
+				$("#four #weekIcon").attr("src", fourURL);
+				let fourWeekdt = resps.daily[3].dt;
+				let fourTime = convertTime(fourWeekdt);
+				$("#four #weekDay").html(fourTime);
+				$("#four #weekMax").html(resps.daily[3].temp.max + "<span>°C</span>");
+				$("#four #weekMin").html(resps.daily[3].temp.min + "<span>°C</span>");
+
+				let fiveURL = "../resources/img/wb/" + resps.daily[4].weather[0].icon + ".png";
+				$("#five #weekIcon").attr("src", fiveURL);
+				let fiveWeekdt = resps.daily[4].dt;
+				let fiveTime = convertTime(fiveWeekdt);
+				$("#five #weekDay").html(fiveTime);
+				$("#five #weekMax").html(resps.daily[4].temp.max + "<span>°C</span>");
+				$("#five #weekMin").html(resps.daily[4].temp.min + "<span>°C</span>");
+
+				let sixURL = "../resources/img/wb/" + resps.daily[5].weather[0].icon + ".png";
+				$("#six #weekIcon").attr("src", sixURL);
+				let sixWeekdt = resps.daily[5].dt;
+				let sixTime = convertTime(sixWeekdt);
+				$("#six #weekDay").html(sixTime);
+				$("#six #weekMax").html(resps.daily[5].temp.max + "<span>°C</span>");
+				$("#six #weekMin").html(resps.daily[5].temp.min + "<span>°C</span>");
+
+				let sevenURL = "../resources/img/wb/" + resps.daily[6].weather[0].icon + ".png";
+				$("#seven #weekIcon").attr("src", sevenURL);
+				let sevenWeekdt = resps.daily[6].dt;
+				let sevenTime = convertTime(sevenWeekdt);
+				$("#seven #weekDay").html(sevenTime);
+				$("#seven #weekMax").html(resps.daily[6].temp.max + "<span>°C</span>");
+				$("#seven #weekMin").html(resps.daily[6].temp.min + "<span>°C</span>");
+
+				let eightURL = "../resources/img/wb/" + resps.daily[7].weather[0].icon + ".png";
+				$("#eight #weekIcon").attr("src", eightURL);
+				let eightWeekdt = resps.daily[7].dt;
+				let eightTime = convertTime(eightWeekdt);
+				$("#eight #weekDay").html(eightTime);
+				$("#eight #weekMax").html(resps.daily[7].temp.max + "<span>°C</span>");
+				$("#eight #weekMin").html(resps.daily[7].temp.min + "<span>°C</span>");
+
+				let h0URL = "../resources/img/wb/" + resps.hourly[0].weather[0].icon + ".png";
+				$("#h0 #timeIcon").attr("src", h0URL);
+				$("#h0 #timeTemp").html(resps.hourly[0].temp + "<span>°C</span>");
+
+				let h1URL = "../resources/img/wb/" + resps.hourly[3].weather[0].icon + ".png";
+				let h1Weekdt = resps.hourly[3].dt;
+				let h1Time = hTime(h1Weekdt);
+				$("#h1 #timeTit").html(h1Time + "<span>시</span>");
+				$("#h1 #timeIcon").attr("src", h1URL);
+				$("#h1 #timeTemp").html(resps.hourly[3].temp + "<span>°C</span>");
+
+				let h2URL = "../resources/img/wb/" + resps.hourly[6].weather[0].icon + ".png";
+				let h2Weekdt = resps.hourly[6].dt;
+				let h2Time = hTime(h2Weekdt);
+				$("#h2 #timeTit").html(h2Time + "<span>시</span>");
+				$("#h2 #timeIcon").attr("src", h2URL);
+				$("#h2 #timeTemp").html(resps.hourly[6].temp + "<span>°C</span>");
+
+				let h3URL = "../resources/img/wb/" + resps.hourly[9].weather[0].icon + ".png";
+				let h3Weekdt = resps.hourly[9].dt;
+				let h3Time = hTime(h3Weekdt);
+				$("#h3 #timeTit").html(h3Time + "<span>시</span>");
+				$("#h3 #timeIcon").attr("src", h3URL);
+				$("#h3 #timeTemp").html(resps.hourly[9].temp + "<span>°C</span>");
+
+				let h4URL = "../resources/img/wb/" + resps.hourly[12].weather[0].icon + ".png";
+				let h4Weekdt = resps.hourly[12].dt;
+				let h4Time = hTime(h4Weekdt);
+				$("#h4 #timeTit").html(h4Time + "<span>시</span>");
+				$("#h4 #timeIcon").attr("src", h4URL);
+				$("#h4 #timeTemp").html(resps.hourly[12].temp + "<span>°C</span>");
+
+				let h5URL = "../resources/img/wb/" + resps.hourly[15].weather[0].icon + ".png";
+				let h5Weekdt = resps.hourly[15].dt;
+				let h5Time = hTime(h5Weekdt);
+				$("#h5 #timeTit").html(h5Time + "<span>시</span>");
+				$("#h5 #timeIcon").attr("src", h5URL);
+				$("#h5 #timeTemp").html(resps.hourly[15].temp + "<span>°C</span>");
+
+				let h6URL = "../resources/img/wb/" + resps.hourly[18].weather[0].icon + ".png";
+				let h6Weekdt = resps.hourly[18].dt;
+				let h6Time = hTime(h6Weekdt);
+				$("#h6 #timeTit").html(h6Time + "<span>시</span>");
+				$("#h6 #timeIcon").attr("src", h6URL);
+				$("#h6 #timeTemp").html(resps.hourly[18].temp + "<span>°C</span>");
+
+				let h7URL = "../resources/img/wb/" + resps.hourly[21].weather[0].icon + ".png";
+				let h7Weekdt = resps.hourly[21].dt;
+				let h7Time = hTime(h7Weekdt);
+				$("#h7 #timeTit").html(h7Time + "<span>시</span>");
+				$("#h7 #timeIcon").attr("src", h7URL);
+				$("#h7 #timeTemp").html(resps.hourly[21].temp + "<span>°C</span>");
+
+				let h8URL = "../resources/img/wb/" + resps.hourly[24].weather[0].icon + ".png";
+				let h8Weekdt = resps.hourly[24].dt;
+				let h8Time = hTime(h8Weekdt);
+				$("#h8 #timeTit").html(h8Time + "<span>시</span>");
+				$("#h8 #timeIcon").attr("src", h8URL);
+				$("#h8 #timeTemp").html(resps.hourly[24].temp + "<span>°C</span>");
+
+				let h9URL = "../resources/img/wb/" + resps.hourly[27].weather[0].icon + ".png";
+				let h9Weekdt = resps.hourly[27].dt;
+				let h9Time = hTime(h9Weekdt);
+				$("#h9 #timeTit").html(h9Time + "<span>시</span>");
+				$("#h9 #timeIcon").attr("src", h9URL);
+				$("#h9 #timeTemp").html(resps.hourly[27].temp + "<span>°C</span>");
+			}
+		})
+
+		function showError4(event) {
+			alert("위치 정보를 얻을 수 없습니다.")
+		}
+	}
+</script>
+<!--  날씨위젯 끝  -->
+
 <header id="header">
 	<div class="header_in" id="header_in">
 		<h1><a href="/">TRIPLE</a></h1>
@@ -831,7 +1242,316 @@
 
 				<div class="con">
 					<div class="con_in">
+						<div class="wb_main">
+							<div class="today">
+								<div class="today_in">
+									<div class="icon">
+										<div class="img">
+											<img id="today_icon" src="..">
+										</div>
+										<div class="txt">
+											<h4 id="ondo"></h4>
+											<h5>°C</h5>
+										</div>
+										<div class="todayOption">
+											<h4 id="pop">강수량 : </h4>
+											<h4 id="sdo">습도 : </h4>
+											<h4 id="psok">풍속 : </h4>
+										</div>
+									</div>
+									<div class="name">
+										<h4 id="dosi"></h4>
+										<h4 id="today_date"></h4>
+										<h4 id="today_name"></h4>
+									</div>
+								</div>
+							</div>
 
+							<div class="time">
+								<div class="time_in">
+									<h2>3시간별 일기예보</h2>
+									<ul>
+										<li id="h0">
+											<div class="tit">
+												<h4 id="timeTit">지금</h4>
+											</div>
+
+											<div class="icon">
+												<img id="timeIcon" src="..">
+											</div>
+
+											<div class="temp">
+												<h4 id="timeTemp"></h4>
+											</div>
+										</li>
+
+										<li id="h1">
+											<div class="tit">
+												<h4 id="timeTit"></h4>
+											</div>
+
+											<div class="icon">
+												<img id="timeIcon" src="..">
+											</div>
+
+											<div class="temp">
+												<h4 id="timeTemp"></h4>
+											</div>
+										</li>
+
+										<li id="h2">
+											<div class="tit">
+												<h4 id="timeTit"></h4>
+											</div>
+
+											<div class="icon">
+												<img id="timeIcon" src="..">
+											</div>
+
+											<div class="temp">
+												<h4 id="timeTemp"></h4>
+											</div>
+										</li>
+
+										<li id="h3">
+											<div class="tit">
+												<h4 id="timeTit"></h4>
+											</div>
+
+											<div class="icon">
+												<img id="timeIcon" src="..">
+											</div>
+
+											<div class="temp">
+												<h4 id="timeTemp"></h4>
+											</div>
+										</li>
+
+										<li id="h4">
+											<div class="tit">
+												<h4 id="timeTit"></h4>
+											</div>
+
+											<div class="icon">
+												<img id="timeIcon" src="..">
+											</div>
+
+											<div class="temp">
+												<h4 id="timeTemp"></h4>
+											</div>
+										</li>
+
+										<li id="h5">
+											<div class="tit">
+												<h4 id="timeTit"></h4>
+											</div>
+
+											<div class="icon">
+												<img id="timeIcon" src="..">
+											</div>
+
+											<div class="temp">
+												<h4 id="timeTemp"></h4>
+											</div>
+										</li>
+
+										<li id="h6">
+											<div class="tit">
+												<h4 id="timeTit"></h4>
+											</div>
+
+											<div class="icon">
+												<img id="timeIcon" src="..">
+											</div>
+
+											<div class="temp">
+												<h4 id="timeTemp"></h4>
+											</div>
+										</li>
+
+										<li id="h7">
+											<div class="tit">
+												<h4 id="timeTit"></h4>
+											</div>
+
+											<div class="icon">
+												<img id="timeIcon" src="..">
+											</div>
+
+											<div class="temp">
+												<h4 id="timeTemp"></h4>
+											</div>
+										</li>
+
+										<li id="h8">
+											<div class="tit">
+												<h4 id="timeTit"></h4>
+											</div>
+
+											<div class="icon">
+												<img id="timeIcon" src="..">
+											</div>
+
+											<div class="temp">
+												<h4 id="timeTemp"></h4>
+											</div>
+										</li>
+
+										<li id="h9">
+											<div class="tit">
+												<h4 id="timeTit"></h4>
+											</div>
+
+											<div class="icon">
+												<img id="timeIcon" src="..">
+											</div>
+
+											<div class="temp">
+												<h4 id="timeTemp"></h4>
+											</div>
+										</li>
+
+									</ul>
+								</div>
+							</div>
+
+							<div class="week">
+								<div class="week_in">
+									<h2>8일간의 일기예보</h2>
+									<ul>
+										<li id="one">
+											<div class="tit">
+												<h4 id="weekDay">오늘</h4>
+											</div>
+											<div class="icon">
+												<img id="weekIcon" src="..">
+											</div>
+											<div class="txt">
+												<p id="weekMax"></p>
+												<p id="weekMin"></p>
+											</div>
+										</li>
+
+										<li id="tow">
+											<div class="tit">
+												<h4 id="weekDay"></h4>
+											</div>
+											<div class="icon">
+												<img id="weekIcon" src="..">
+											</div>
+											<div class="txt">
+												<p id="weekMax"></p>
+												<p id="weekMin"></p>
+											</div>
+										</li>
+
+										<li id="three">
+											<div class="tit">
+												<h4 id="weekDay"></h4>
+											</div>
+											<div class="icon">
+												<img id="weekIcon" src="..">
+											</div>
+											<div class="txt">
+												<p id="weekMax"></p>
+												<p id="weekMin"></p>
+											</div>
+										</li>
+
+										<li id="four">
+											<div class="tit">
+												<h4 id="weekDay"></h4>
+											</div>
+											<div class="icon">
+												<img id="weekIcon" src="..">
+											</div>
+											<div class="txt">
+												<p id="weekMax"></p>
+												<p id="weekMin"></p>
+											</div>
+										</li>
+
+										<li id="five">
+											<div class="tit">
+												<h4 id="weekDay"></h4>
+											</div>
+											<div class="icon">
+												<img id="weekIcon" src="..">
+											</div>
+											<div class="txt">
+												<p id="weekMax"></p>
+												<p id="weekMin"></p>
+											</div>
+										</li>
+
+										<li id="six">
+											<div class="tit">
+												<h4 id="weekDay"></h4>
+											</div>
+											<div class="icon">
+												<img id="weekIcon" src="..">
+											</div>
+											<div class="txt">
+												<p id="weekMax"></p>
+												<p id="weekMin"></p>
+											</div>
+										</li>
+
+										<li id="seven">
+											<div class="tit">
+												<h4 id="weekDay"></h4>
+											</div>
+											<div class="icon">
+												<img id="weekIcon" src="..">
+											</div>
+											<div class="txt">
+												<p id="weekMax"></p>
+												<p id="weekMin"></p>
+											</div>
+										</li>
+
+										<li id="eight">
+											<div class="tit">
+												<h4 id="weekDay"></h4>
+											</div>
+											<div class="icon">
+												<img id="weekIcon" src="..">
+											</div>
+											<div class="txt">
+												<p id="weekMax"></p>
+												<p id="weekMin"></p>
+											</div>
+										</li>
+
+									</ul>
+								</div>
+							</div>
+
+							<div class="dateBtn">
+								<div class="left">
+									<button onclick="wea()">현재위치 날씨보기</button>
+								</div>
+								<div class="right">
+									<select id="Slocation">
+										<option value="33.36::126.54" selected="selected" hidden="hidden">지역선택</option>
+										<option value="37.56::126.97">서울</option>
+										<option value="36.35::127.38">대전</option>
+										<option value="35.80::128.58">대구</option>
+										<option value="35.20::129.05">부산</option>
+										<option value="35.52::129.23">울산</option>
+										<option value="37.47::126.57">인천</option>
+										<option value="35.12::126.83">광주</option>
+										<option value="33.36::126.54">제주</option>
+										<option value="37.56::127.20">경기도</option>
+										<option value="37.55::128.20">강원도</option>
+										<option value="36.58::127.35">충청도</option>
+										<option value="35.26::127.02">전라도</option>
+										<option value="35.75::128.66">경상도</option>
+									</select>
+									<button onclick="wea2()">날씨 검색</button>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -839,9 +1559,10 @@
 	</div>
 </div>
 
+<div id="myInfoCover"></div>
+<!-- 회원 리뷰 등 정보 추가 끝 -->
 <div id="top_up">
 	<div class="top_in">
 		<i class="fa-solid fa-angles-up"></i>
 	</div>
 </div>
-<!-- <!— 회원 리뷰 등 정보 추가 끝 —> -->

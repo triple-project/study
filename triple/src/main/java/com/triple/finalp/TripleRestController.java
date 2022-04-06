@@ -23,8 +23,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.triple.finalp.data.service.DataService;
+import com.triple.finalp.data.vo.FlightVo;
 import com.triple.finalp.data.vo.TrainVo;
 import com.triple.finalp.mem.service.MemberService;
+import com.triple.finalp.tag.service.TagService;
 
 
 @RestController
@@ -37,15 +39,24 @@ public class TripleRestController {
 	@Autowired
 	DataService dataService;
 	
+	@Autowired
+	TagService tagService;
+	
 	@RequestMapping("/ci")
 	public void ci(HttpServletRequest request, HttpServletResponse response,TrainVo trainVo) throws IOException {
 		
 		String trainList = dataService.train(trainVo);
 		response.getWriter().print(trainList);
-		response.getWriter().flush();
-
-		 
+		response.getWriter().flush(); 
 	}
+	
+	@RequestMapping("/flightInfo") // 항공권 정보 
+	   public void flightInfo(HttpServletRequest request, HttpServletResponse response,FlightVo flightVo) throws IOException {
+	      
+	      String flightList = dataService.flight(flightVo);
+	      response.getWriter().print(flightList);
+	      response.getWriter().flush();
+	   }
 
 	@RequestMapping("test/img")
 	public void testimg(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -87,6 +98,13 @@ public class TripleRestController {
 		System.out.println("종료일 : " + enddate);
 		
 	}
-	 
+	
+	@RequestMapping(value = "/tagList", method = RequestMethod.POST)
+	public void tagList(@RequestParam("tag_cate") String tag_cate,HttpServletResponse response) throws JsonGenerationException, JsonMappingException, IOException {
+		ObjectMapper mapper = new ObjectMapper();
+		Object tl = tagService.getList(tag_cate);	
+		response.getWriter().print(mapper.writeValueAsString(tl));
+		response.getWriter().flush();		
+	}
 
 }

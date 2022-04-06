@@ -1,0 +1,63 @@
+@charset "UTF-8";
+
+#sec_reg{font-family: 'Noto Sans KR';}
+
+/* 상품등록 */
+#sec_reg .oReg {width: 100%;}
+#sec_reg .oReg {width: 1300px;margin:0 auto;padding:20px 30px;}
+#sec_reg .oReg .oReg_in h3 {font-size:20px;}
+
+
+#sec_reg .oReg .oReg_in .oReg_reg {display: flex;margin: 20px 0;}
+#sec_reg .oReg .oReg_in .oReg_reg .reg_product {width: 100px;height: auto;border-right: 1px solid #999;justify-content: center;align-items: center;}
+#sec_reg .oReg .oReg_in p {width: 100px;text-align: center;line-height: 40px;}
+#sec_reg .oReg .oReg_in .oReg_reg .reg_product .p_com {border-bottom:1px solid #999;height: 40px;}
+#sec_reg .oReg .oReg_in .oReg_reg .reg_product .pname {border-top: 1px solid #999;}
+#sec_reg .oReg .oReg_in .oReg_reg .reg_product .pword {}
+#sec_reg .oReg .oReg_in .oReg_reg .reg_product .pcategory {}
+#sec_reg .oReg .oReg_in .oReg_reg .reg_product .paddr {}
+#sec_reg .oReg .oReg_in .oReg_reg .reg_product .pcity {}
+#sec_reg .oReg .oReg_in .oReg_reg .reg_product .pxy {}
+#sec_reg .oReg .oReg_in .oReg_reg .reg_product .pimg {height: 200px;}
+#sec_reg .oReg .oReg_in .oReg_reg .reg_product .pimg p {}
+/* 상품등록 끝 */
+
+/* 상품등록 폼 */
+#sec_reg .oReg .oReg_in .product_form {width: 100%;height: auto;}
+#sec_reg .oReg .oReg_in .product_form .pf_com {border-bottom:1px solid #999;height: 40px;padding:5px;}
+#sec_reg .oReg .oReg_in .product_form .pfname {border-top: 1px solid #999;}
+#sec_reg .oReg .oReg_in .product_form .pfname input {width: 100%;height: 30px;padding-left:5px;border:none;outline: none;}
+#sec_reg .oReg .oReg_in .product_form .pfword {}
+#sec_reg .oReg .oReg_in .product_form .pfword input {width: 100%;height: 30px;padding-left:5px;border:none;outline: none;}
+#sec_reg .oReg .oReg_in .product_form .pfcategory {}
+#sec_reg .oReg .oReg_in .product_form .pfcategory select {width: 200px;height: 30px;border:1px solid #999;border-radius: 5px;padding-left:5px;}
+#sec_reg .oReg .oReg_in .product_form .pfaddr {}
+#sec_reg .oReg .oReg_in .product_form .pfaddr input {width: 100%;height: 30px;padding-left:5px;border:none;outline: none;}
+#sec_reg .oReg .oReg_in .product_form .pfcity {}
+#sec_reg .oReg .oReg_in .product_form .pfcity select {width: 200px;height: 30px;border:1px solid #999;border-radius: 5px;padding-left:5px;}
+#sec_reg .oReg .oReg_in .product_form .pfxy {}
+#sec_reg .oReg .oReg_in .product_form .pfxy span {font-size: 14px;color: rgba(0,0,0,0.5);}
+#sec_reg .oReg .oReg_in .product_form .pfxy input {width: 40%;height: 30px;padding-left:5px;border:none;outline: none;}
+#sec_reg .oReg .oReg_in .product_form .pfxy .mapbtn {border:1px solid #999;width: 30px;height: 30px;float:left; margin-right: 10px;border-radius: 5px;cursor: pointer;display: flex;justify-content: center;align-items: center;font-size: 20px;color: rgba(0,0,0,.7);}
+#sec_reg .oReg .oReg_in .product_form .pfxy .mapbtn:hover {border:none;background:#5de4c2;color: #fff;}
+#sec_reg .oReg .oReg_in .product_form .pfimgframe {height: 200px;border-bottom:1px solid #999;}
+#sec_reg .oReg .oReg_in .product_form .pfimgframe img {width: 220px;height: 150px;border-radius: 10px;cursor:pointer;box-shadow: 0 0 4px rgb(0,0,0,.6);margin-right: 5px;}
+
+#sec_reg .oReg .oReg_in .product_form .pfimgframe .pfimg {width: 100%;height: 170px;display:flex;justify-content: center;align-items: center;border-bottom:none;}
+#sec_reg .oReg .oReg_in .product_form .pfimgframe .pfimg .pfimg_com {width:20%;height: 150px;float:left;margin-bottom:5px;border-radius: 10px;display: flex;justify-content: flex-start;align-items: center;width: 100%;}
+#sec_reg .oReg .oReg_in .product_form .pfimgframe .pfimg .pfimg1 {}
+#sec_reg .oReg .oReg_in .product_form .pfimgframe .pfimg .pfimg2 {}
+#sec_reg .oReg .oReg_in .product_form .pfimgframe .pfimg .pfimg3 {}
+#sec_reg .oReg .oReg_in .product_form .pfimgframe .pfimg .pfimg4 {}
+#sec_reg .oReg .oReg_in .product_form .pfinputframe input {display: block;padding-left:5px;}
+/* 상품등록 폼 끝 */
+
+/* 하단버튼 */
+#sec_reg .oReg .oReg_in .bottombtn {width: 100%;height: 30px;display: flex;justify-content: flex-end;}
+#sec_reg .oReg .oReg_in .bottombtn span {display: flex;justify-content: center;line-height: 30px;font-size: 14px;}
+
+#sec_reg .oReg .oReg_in .bottombtn .btn_com {width: 100px;height: 30px;border: 1px solid #999;margin-right: 5px;border-radius: 5px;cursor:pointer;}
+#sec_reg .oReg .oReg_in .bottombtn .btn_com:hover {border:none;background: #5de4c2;color:#fff;}
+#sec_reg .oReg .oReg_in .bottombtn .backbtn {margin-right: 5px;}
+#sec_reg .oReg .oReg_in .bottombtn .regbtn {}
+/* 하단버튼 끝 */
