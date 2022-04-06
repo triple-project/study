@@ -108,12 +108,12 @@
 					</div>
 				</div>
 				
-				
+				<c:set var="num" value="${page.pageS+1}"/>
 				<c:forEach items="${myList}" var="ml" begin="${page.pageS}" end="${page.pageE}">
 				<div class="own_list">
 					
 					<div class="list_num .list_com">
-						<p>${ml.product_id}</p>
+						<p>${num}</p>
 					</div>
 					<div class="list_img .list_com">
 						<!-- <td>${pro.product_img1}</td> -->
@@ -147,6 +147,7 @@
 						</div>
 					</div>
 				</div>
+				<c:set var="num" value="${num+1}"/>
 				</c:forEach>
 				
 				<div class="own_bottom">

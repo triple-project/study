@@ -185,6 +185,8 @@ public class TripleController {
 		 * System.out.println(tag_list_h);
 		 */
 		System.out.println(pvo);
+		String pid = principal.getName() + pvo.getProduct_id();
+		pvo.setProduct_id(pid);
 		pvo.setAdmin_id(principal.getName());
 		productService.register(pvo,tag_list_h);
 		fileService.save(mhsr, image_h);

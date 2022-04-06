@@ -170,7 +170,7 @@
 	                    document.querySelector("#rf_img1").appendChild(img);
 	                    
 	                    rfcount++;
-	                    
+	                    if(rfcount <= 2){
 	                    const element2 = document.getElementById('rfimginput');
 	                    const newInput = document.createElement('input');
 	    				newInput.setAttribute("type", "file");
@@ -178,7 +178,7 @@
 	    				newInput.setAttribute("name", "orimage_file_name" + rfcount);
 	    				newInput.setAttribute("onchange", "rfpreview(event);");
 	    				element2.appendChild(newInput);
-	                    
+	                    }
 	                }; 
                     
                 } 

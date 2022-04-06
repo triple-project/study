@@ -51,9 +51,9 @@
                 <h3>상품등록</h3>
                 <div class="oReg_reg">
                     <div class="reg_product">
-                    	<div class="pname p_com">
+                    	<!-- <div class="pname p_com">
                             <p>상품아이디</p>
-                        </div>
+                        </div> -->
                         <div class="pname p_com">
                             <p>상품이름</p>
                         </div>
@@ -83,9 +83,9 @@
                     <!-- 상품등록 폼 -->
                     <div class="product_form">
                         <form action="/proRegister" method="post" id="product" onsubmit="tos()" enctype="multipart/form-data">
-                            <div class="pfname pf_com">
+                            <!-- <div class="pfname pf_com">
                                 <input type="text" placeholder="상품아이디 입력해 주세요." onfocus="this.placeholder=''" onblur="this.placeholder='상품아이디 입력해 주세요.'" name="product_id">
-                            </div>
+                            </div> -->
                             <div class="pfname pf_com">
                                 <input type="text" placeholder="상품이름 입력해 주세요." onfocus="this.placeholder=''" onblur="this.placeholder='상품이름 입력해 주세요.'" name="product_name">
                             </div>
@@ -154,6 +154,7 @@
                                     <input type="file" id="oimage_file_name0"  accept="image/*" onchange="pfpreview(event);" name="oimage_file_name0">
                                 </div>
                             </div>
+                            <input type="hidden" name="product_id" id="product_id">
 							<input type="hidden" name="tag_list_h" id="tag_list_h">
 							<input type="hidden" name="tag_cate_h" id="tag_cate_h">
 							<input type="hidden" name="image_h" id="image_h">
@@ -227,7 +228,7 @@
                     document.querySelector("#pf_img1").appendChild(img);
                     
                     pfcount++;
-                    
+                    if(pfcount <= 4){
                     //document.write(event.target.result);
                     const element2 = document.getElementById('pfinputframe');
                     const newInput = document.createElement('input');
@@ -236,7 +237,7 @@
     				newInput.setAttribute("name", "oimage_file_name" + pfcount);
     				newInput.setAttribute("onchange", "pfpreview(event);");
     				element2.appendChild(newInput);
-    				
+                    }
     				
                 };  
                     
@@ -273,6 +274,9 @@
 			console.log(ttt);
 			//이미지이름
 			var today = new Date();
+			var year = today.getFullYear();
+			var month = ('0' + (today.getMonth() + 1)).slice(-2);
+			var day = ('0' + today.getDate()).slice(-2);
 			var hours = ('0' + today.getHours()).slice(-2);
 			var minutes = ('0' + today.getMinutes()).slice(-2);
 			var seconds = ('0' + today.getSeconds()).slice(-2);
@@ -281,9 +285,11 @@
 				var ti = hours + minutes + seconds;
 				var fnn = i + ti + filename[i];
 				fArray.push(fnn);
-				$('#product_img'+(i+1)).val(fnn);
+				$('#product_img'+(i+1)).val(fnn);				
 				console.log(fArray);
 			}
+			var pid = year + month + day + hours + minutes + seconds
+			$('#product_id').val(pid);
 			$('#image_h').val(fArray);
 			console.log($('#image_h').val());
 		}
