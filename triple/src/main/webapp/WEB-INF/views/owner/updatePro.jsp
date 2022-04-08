@@ -25,33 +25,10 @@
 		}
 	}
 	
-	function prod_readURL(input) {
-		var file = input.files[0] //파일에 대한 정보
-		var dn = input.name;
-		var dn2 = dn.split("pd_img")[1];
-		/*  console.log(file) pd_img*/
-		if (file != '') {
-			var reader = new FileReader();
-			reader.readAsDataURL(file); //파일의 정보를 토대로 파일을 읽고 
-			reader.onload = function(e) { // 파일 로드한 값을 표현한다
-				$('#dpreview'+dn2).attr('src', e.target.result);
-			}
-		}
-	}
-	/* var filename = new Array();
-    var pfcount = 0;
-    var arr = [];
-    var c = 0;
-	var tarr = [];
+
+
 	function ups() {
-		for (var i = 0; i < c; i++) {
-			var tost = $('#tag_s'+i).val();
-			tarr.push(tost);
-			console.log(tarr[i]);
-		}
-		$('#tag_list_h').val(tarr);
-		var ttt = $('#tag_list_h').val();
-		console.log(ttt);
+		
 		//이미지이름
 		var today = new Date();
 		var year = today.getFullYear();
@@ -61,31 +38,51 @@
 		var minutes = ('0' + today.getMinutes()).slice(-2);
 		var seconds = ('0' + today.getSeconds()).slice(-2);
 		var fArray = new Array();
-		for (var i = 0; i < pfcount; i++) {
+		for (var i = 0; i < 5; i++) {
+			var pfile = $('#pro_image_file_name'+(i+1));
 			var ti = hours + minutes + seconds;
-			var fnn = i + ti + filename[i];
-			fArray.push(fnn);
-			$('#product_img'+(i+1)).val(fnn);				
-			console.log(fArray);
+
+			console.log(pfile.val());
+			if (!pfile.val()) {
+				//파일이 없다면
+				
+			}else {
+				//파일이 들어있다면
+				var fileValue = $("#pro_image_file_name"+(i+1)).val().split("\\");
+				var fileName = fileValue[fileValue.length - 1]; // 파일명
+				var fnh = ti+i+fileName;
+				$('#product_img' + (i + 1)).val(fnh);
+				fArray.push(fnh);
+				$("#img_name_up").val(fArray);
+				console.log(fArray);
+			}
+			
+
 		}
-		var pid = year + month + day + hours + minutes + seconds
-		$('#product_id').val(pid);
-		$('#image_h').val(fArray);
-		console.log($('#image_h').val());
-	} */
+
+	}
+	
+	function fd(data) {
+		location.href="/admin/updateProD/"+data.name;
+	}
+	
+	
+
 </script>
 </head>
 <body>
 
 <h1>상품수정</h1>
 
-     <form action="/admin/updatePro" method="post" >
+<!-- <button onclick="ups()">테스트</button> -->
+
+     <form action="/admin/updatePro" method="post" enctype="multipart/form-data" onsubmit="ups()">
      <input type="hidden" name="product_id" value="${pvo.product_id }"> 
        상품이름 <input type="text" name="product_name" value="${pvo.product_name }"><br>
        소제목 <input type="text" name="product_shortword" value="${pvo.product_shortword }"><br>
         짧은소개 <input type="text" name="product_subcontent" value="${pvo.product_subcontent }"><br>
          카테고리 <select name="product_category" id="product_category" onchange="change_tag()" >
-         <option value="" selected="selected" hidden="hidden" value="${pvo.product_category }">${pvo.product_category }</option>
+         <option  selected="selected" hidden="hidden" value="${pvo.product_category }">${pvo.product_category }</option>
          <option value="호텔">호텔</option>
          <option value="리조트">리조트</option>
          <option value="펜션">펜션</option>
@@ -98,7 +95,7 @@
       </select><br>
       주소 <input type="text" name="product_address" value="${pvo.product_address }"><br>
        도시 <select name="product_city" id="product_city">
-            <option value="" selected="selected" hidden="hidden" value= "${pvo.product_city}">${pvo.product_city}</option>
+            <option selected="selected" hidden="hidden" value= "${pvo.product_city}">${pvo.product_city}</option>
             <option value="서울">서울</option>
          <option value="대전">대전</option>
          <option value="대구">대구</option>
@@ -116,11 +113,11 @@
       좌표x <input type="text" name="product_locationx" value="${pvo.product_locationx }"><br>
         좌표y <input type="text" name="product_locationy" value="${pvo.product_locationy }">  <br>
         <div style="display: inline-block;">
-        	        이미지1<input type="file" name="product_img1" id="pro_image_file_name1" onchange="pro_readURL(this);" style="width: 190px"/>
-        			이미지2<input type="file" name="product_img2" id="pro_image_file_name2" onchange="pro_readURL(this);" style="width: 190px"/>
-        			이미지3<input type="file" name="product_img3" id="pro_image_file_name3" onchange="pro_readURL(this);" style="width: 190px"/>
-        			이미지4<input type="file" name="product_img4" id="pro_image_file_name4" onchange="pro_readURL(this);" style="width: 190px"/>
-        			이미지5<input type="file" name="product_img5" id="pro_image_file_name5" onchange="pro_readURL(this);" style="width: 190px"/>
+        	        이미지1<input type="file" name="aproduct_img1" id="pro_image_file_name1" onchange="pro_readURL(this);" style="width: 190px"/>
+        			이미지2<input type="file" name="aproduct_img2" id="pro_image_file_name2" onchange="pro_readURL(this);" style="width: 190px"/>
+        			이미지3<input type="file" name="aproduct_img3" id="pro_image_file_name3" onchange="pro_readURL(this);" style="width: 190px"/>
+        			이미지4<input type="file" name="aproduct_img4" id="pro_image_file_name4" onchange="pro_readURL(this);" style="width: 190px"/>
+        			이미지5<input type="file" name="aproduct_img5" id="pro_image_file_name5" onchange="pro_readURL(this);" style="width: 190px"/>
         
         </div>
         <div style="display: inline-block;">
@@ -141,35 +138,108 @@
 			</div>
 		</div>
 		<br>
+		<input type="hidden" name="product_img1" id="product_img1" value="${pvo.product_img1}">
+		<input type="hidden" name="product_img2" id="product_img2" value="${pvo.product_img2}">
+		<input type="hidden" name="product_img3" id="product_img3" value="${pvo.product_img3}">
+		<input type="hidden" name="product_img4" id="product_img4" value="${pvo.product_img4}">
+		<input type="hidden" name="product_img5" id="product_img5" value="${pvo.product_img5}">
+		<input type="hidden" name="img_name_up" id="img_name_up">
+		
 		<input type="submit" value="상품수정하기"><br>
      </form> 
+   <hr>
+   <h2>태그수정</h2>
+
+	<div class="pftag pf_com">
+		<div id="tag_div">
+			<!-- <button onclick="tag_p()">태그추가</button> -->
+			<div class="tag_box" onclick="tag_p()">
+				<i class="fa-solid fa-tag"></i>
+			</div>
+			<!-- <div class="tag_frame"></div> -->
+			<div id="tag_frame"></div>
+			<div class="tag_del" onclick="tagdelete()">
+				<i class="fa-solid fa-xmark"></i>
+			</div>
+		</div>
+	</div>
+	<c:set var="i" value="0"/>
+	<form action="/admin/updatetag" method="post"  onsubmit="at()">
+		<div id="tf">
+		<c:forEach items="${tList}" var="tl">  		
+   			<select id="utp${i}">
+   				<option value="${tl.tag_tag}" selected="selected">${tl.tag_tag}</option>
+		   		<c:forEach items="${tcl}" var="t">
+		   			<option value="${t.tag_name}">${t.tag_name}</option>
+		   		</c:forEach>
+		   		<option value="삭제하기">삭제하기</option>
+	   		</select>
+	   	<c:set var="i" value="${i+1}"/>
+	   	</c:forEach>
+	   	</div>
+	   	<div onclick="newt()">태그추가</div>
+	   	<input type="hidden" name="utag" id="utag">
+	   	<input type="submit" value="수정하기">
+	   	<input type="hidden" value="${pvo.product_id}" name="tpid">
+   	</form>
+   	<script type="text/javascript">
+   	var ti = '<c:out value="${i}"/>';
+   	const tj = '<c:out value="${i}"/>';
+   	function newt() {
+		
+		console.log(ti);
+		if (ti >= 5) {
+			alert("5개까지 추가가능!");
+		}else{
+			$.ajax({
+				url : "/rest/tagList",
+				dataType : "json",
+				type : "POST",
+				data : {
+					tag_cate : "${stc}"
+				},
+				success : function(data) {
+						//오브젝트값 포문으로 뽑아내기
+						arr = [];
+						$("#tag_cate_h").val(Object.keys(data));
+						for (var i = 0; i < (data[Object.keys(data)]).length; i++) {
+							//console.log(data[Object.keys(data)][i]);
+							arr.push(data[Object.keys(data)][i]);							
+						}
+						console.log(arr);
+						var tdl = $('#tf');
+						tdl.append('<select id="utp'+ti+'">');
+	    				var d = $('#utp'+ti);
+	    				for (var i = 0; i < arr.length; i++) {	    					
+	    					d.append("<option>"+arr[i]+"</option>");
+	    				}
+	    				d.append("<option>삭제하기</option>");
+	    				ti++
+				}
+			})
+			
+		}
+	}
+   	
+   	var tuarr = [];
+   	function at() {
+   		for (var j = 0; j < ti; j++) {
+			var tost = $('#utp'+j).val();
+			tuarr.push(tost);
+			//console.log(tuarr[j]);
+			//console.log(tost);
+		}
+   		console.log(tuarr);
+		$('#utag').val(tuarr);
+	}
+   	</script>
+	<button onclick="at()">테스트</button>
    <!-- 상세 상품 수정 ㄴ -->
    <hr>
    <h2>상품상세</h2>
 	<c:forEach items="${dList}" var="dL">
-		<span>객실이름 : <input type="text" name="pd_name" value="${dL.pd_name}"></span> 
-		<br>
-		 <div style="display: inline-block;">
-        	        이미지1<input type="file" name="pd_img1" id="prod_image_file_name1" onchange="prod_readURL(this);" style="width: 190px"/>
-        			이미지2<input type="file" name="pd_img2" id="prod_image_file_name2" onchange="prod_readURL(this);" style="width: 190px"/>
-        			이미지3<input type="file" name="pd_img3" id="prod_image_file_name3" onchange="prod_readURL(this);" style="width: 190px"/>       
-        </div>
-        <div style="display: inline-block;">
-			<div class="preview" style="display: inline-block;">
-				<img id="dpreview1" src="/resources/img/upload/${dL.pd_img1}" width=250 height=250 alt="선택된 이미지가 없습니다" />
-			</div>
-			<div class="preview" style="display: inline-block;">
-				<img id="dpreview2" src="/resources/img/upload/${dL.pd_img2}" width=250 height=250 alt="선택된 이미지가 없습니다" />
-			</div>
-			<div class="preview" style="display: inline-block;">
-				<img id="dpreview3" src="/resources/img/upload/${dL.pd_img3}" width=250 height=250 alt="선택된 이미지가 없습니다" />
-			</div>
-		</div>
-		<br>
-		<span>객실가격 : <input type="text" name="pd_price" value="${dL.pd_price}"></span>
-		<br>
-		<span>객실설명 : <input type="text" name="pd_contents" value="${dL.pd_contents}"></span>
-		<hr>
+		<span>상세명 : ${dL.pd_name}</span> <button onclick="fd(this)" name="${dL.pd_id}">수정하기</button>
 	</c:forEach>
+	
 </body>
 </html>

@@ -38,10 +38,6 @@
 	<script type="text/javascript">
 		function bcate(data) {
 			var bdata = data.children.item(1).innerText;
-			/* console.log(data);
-			console.log(data.children);
-			console.log(data.children.item(1));
-			console.log(data.children.item(1).innerText); */
 			location.href="/cate_button/"+bdata;
 		}
 	</script>
@@ -128,11 +124,11 @@
 					<div class="kimg2"></div>
 					<p>리조트</p>
 				</div>
-				<div class="swiper-slide">
+				<div class="swiper-slide" onclick="bcate(this)">
 					<div class="kimg3"></div>
 					<p>펜션</p>
 				</div>
-				<div class="swiper-slide">
+				<div class="swiper-slide" onclick="bcate(this)">
 					<div class="kimg4"></div>
 					<p>모텔</p>
 				</div>
@@ -140,19 +136,19 @@
 					<div class="kimg5"></div>
 					<p>게스트하우스</p>
 				</div>
-				<div class="swiper-slide">
+				<div class="swiper-slide" onclick="bcate(this)">
 					<div class="kimg6"></div>
 					<p>캠핑</p>
 				</div>
-				<div class="swiper-slide">
+				<div class="swiper-slide" onclick="bcate(this)">
 					<div class="kimg7"></div>
 					<p>맛집</p>
 				</div>
-				<div class="swiper-slide">
+				<div class="swiper-slide" onclick="bcate(this)">
 					<div class="kimg8"></div>
 					<p>패키지여행</p>
 				</div>
-				<div class="swiper-slide">
+				<div class="swiper-slide" onclick="bcate(this)">
 					<div class="kimg9"></div>
 					<p>티켓</p>
 				</div>

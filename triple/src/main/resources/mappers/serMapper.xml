@@ -4,60 +4,60 @@
 
 	<select id="citylist" resultType="String">
 		select product_city
-		from PRODUCT
+		from product
 		group by product_city
 	</select>
 	
 	<select id="psearch" resultType="ProVo">
 		select *
-		from PRODUCT
+		from product
 	</select>
 	
 	<select id="msearch" resultType="MagVo">
 		select *
-		from MAGAZINE
+		from magazine
 	</select>
 	
 	<select id="pcatesearch" resultType="ProVo">
 		select *
-		from PRODUCT
+		from product
 		where product_city = #{city}	
 	</select>
 	
 	<select id="catelist" resultType="String">
 		select product_category
-		from PRODUCT
+		from product
 		group by product_category
 	</select>
 	
 	<select id="pccsearch" resultType="ProVo">
 		select *
-		from PRODUCT
+		from product
 		where product_city = #{city}
 		and product_category = #{cate}
 	</select>
 	
 	<select id="pcsearch" resultType="ProVo">
 		select *
-		from PRODUCT
+		from product
 		where product_category = #{cate}
 	</select>
 	
 	<select id="mcsearch" resultType="MagVo">
 		select *
-		from MAGAZINE
+		from magazine
 		where mgz_category = #{cate}
 	</select>
 	
 	<select id="mcatesearch" resultType="MagVo">
 		select *
-		from MAGAZINE
+		from magazine
 		where mgz_city = #{city}
 	</select>
 	
 	<select id="mccsearch" resultType="MagVo">
 		select *
-		from MAGAZINE
+		from magazine
 		where mgz_city = #{city}
 		and mgz_category = #{cate}
 	</select>

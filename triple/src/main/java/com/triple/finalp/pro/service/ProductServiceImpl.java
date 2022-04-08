@@ -12,6 +12,8 @@ import com.triple.finalp.pro.dao.ProductDao;
 import com.triple.finalp.pro.vo.ProductDetailVo;
 import com.triple.finalp.pro.vo.ProductVo;
 import com.triple.finalp.tag.dao.TagDao;
+import com.triple.finalp.tag.vo.TagTagVo;
+import com.triple.finalp.tag.vo.TagVo;
 
 @Service("productService")
 public class ProductServiceImpl implements ProductService{
@@ -80,12 +82,7 @@ public class ProductServiceImpl implements ProductService{
 		model.addAttribute("myList", myList);
 		model.addAttribute("page", pageVo);
 	}
-	/*
-	@Override //<!-- 상품디테일 -->
-	public ProductDetailVo getProDId(String product_id) {
-		// TODO Auto-generated method stub
-		return productDao.getProDId(product_id);
-	} */
+	
 	@Override //<!-- 전체상품리스트 - 고객 -->
 	public void getAllProList(Model model) {
 		// TODO Auto-generated method stub
@@ -113,8 +110,13 @@ public class ProductServiceImpl implements ProductService{
 	public void showPro(String product_id, Model model) {
 		ProductVo pvo = productDao.findp(product_id);
 		ArrayList<ProductDetailVo> dList = productDao.goDetail(product_id);
+		ArrayList<TagTagVo> tList = productDao.gettag(product_id);
+		ArrayList<TagVo> tcl = tagDao.getList2(pvo.getProduct_category());
 		model.addAttribute("pvo",pvo);
 		model.addAttribute("dList",dList);
+		model.addAttribute("tList",tList);
+		model.addAttribute("tcl",tcl);
+		model.addAttribute("stc",pvo.getProduct_category());
 	}	
 	
 	@Override
@@ -144,6 +146,19 @@ public class ProductServiceImpl implements ProductService{
 	      // TODO Auto-generated method stub
 	      productDao.updateProduct(pvo);
 	   }
+
+	@Override
+	public void updateProductD(ProductDetailVo pdvo) {
+		// TODO Auto-generated method stub
+		productDao.updateProductD(pdvo);
+	}
+
+	@Override
+	public void getdetail(String pd_id,Model model) {
+		// TODO Auto-generated method stub
+		ProductDetailVo pdvo = productDao.getdetail(pd_id);
+		model.addAttribute("pdvo",pdvo);
+	}
 
 
 }

@@ -66,6 +66,9 @@
                         <div class="pcategory p_com">
                             <p>카테고리</p>
                         </div>
+                        <div class="ptag p_com">
+                            <p>태그</p>
+                        </div>
                         <div class="paddr p_com">
                             <p>주소</p>
                         </div>
@@ -111,9 +114,25 @@
 									<option value="티켓">티켓</option>
 								</select>
 							</div>
+
+                            <div class="pftag pf_com">
+                                <div id="tag_div">
+                                    <!-- <button onclick="tag_p()">태그추가</button> -->
+                                    <div class="tag_box" onclick="tag_p()">
+                                    	<i class="fa-solid fa-tag"></i>
+                                    </div>
+                                    <!-- <div class="tag_frame"></div> -->
+                                    <div id="tag_frame"></div> 
+                                    <div class="tag_del" onclick="tagdelete()">
+                                        <i class="fa-solid fa-xmark"></i>
+                                    </div>                
+                                </div>
+                            </div>
+
 							<div class="pfaddr pf_com">
                                 <input type="text" placeholder="주소를 입력해 주세요." onfocus="this.placeholder=''" onblur="this.placeholder='주소를 입력해 주세요.'" name="product_address">
                             </div>
+
                             <div class="pfcity pf_com">
                                 <select name="product_city" id="">
                                     <option value="" selected="selected" hidden="hidden">도시를 선택해 주세요.</option>
@@ -158,11 +177,11 @@
 							<input type="hidden" name="tag_list_h" id="tag_list_h">
 							<input type="hidden" name="tag_cate_h" id="tag_cate_h">
 							<input type="hidden" name="image_h" id="image_h">
-							<input type="hidden" name="product_img1" id="product_img1" value="defpimg.jpg">
-							<input type="hidden" name="product_img2" id="product_img2" value="defpimg.jpg">
-							<input type="hidden" name="product_img3" id="product_img3" value="defpimg.jpg">
-							<input type="hidden" name="product_img4" id="product_img4" value="defpimg.jpg">
-							<input type="hidden" name="product_img5" id="product_img5" value="defpimg.jpg">
+							<input type="hidden" name="product_img1" id="product_img1" value="def">
+							<input type="hidden" name="product_img2" id="product_img2" value="def">
+							<input type="hidden" name="product_img3" id="product_img3" value="def">
+							<input type="hidden" name="product_img4" id="product_img4" value="def">
+							<input type="hidden" name="product_img5" id="product_img5" value="def">
                         </form>
                     </div>
                     <!-- 상품등록 폼 끝 -->
@@ -170,8 +189,8 @@
                 </div>
                 <!-- 상품등록 끝 -->
 				
-				<hr>
-				<div id="tag_div">
+				
+<%-- 				<div id="tag_div">
 					<button onclick="tag_p()">태그추가</button>
 					
 				</div>
@@ -185,7 +204,7 @@
 						${tk}
 					</c:forEach>
 				</c:forEach>
-				</div>	
+				</div> --%>	
 				
                 <div class="bottombtn">
                     <div class="backbtn btn_com" onclick="location.href='/admin/oL'">
@@ -307,7 +326,8 @@
 	    //태그----------------------------------------------
        
         	function tag_p() {
-        		const a = $('#tag_div');
+        		//const a = $('#tag_div .tag_frame');
+        		const a = $('#tag_frame');
         		var ta = $("#product_category").val();
         		if (ta == "") {
         			alert("카테고리를 선택해주세요")
@@ -324,6 +344,7 @@
 	    				//console.log(c);
 	        		}else{
 	        			alert("그만 눌러주세요 ㅠ");
+	        			c = 4;
 	        		}
 				}		      						
 			}
@@ -337,11 +358,25 @@
 	        		ths.remove();
 	        		c--;
 				}
-        		
 			}
         	
+        	function tagdelete(){
+                var tta = $("#product_category").val();
+                if (tta == "") {
+        			alert("카테고리를 선택해주세요")
+                } else if(c==0){
+                    alert("삭제할 태그가 없습니다.");
+                } else {
+                    var cc = c -1;
+                    $('#tdl' + cc).remove();
+                    c--;
+                }
+
+        		
+        	}
         	
         function change_tag() {
+        	
         	$.ajax({
 				url : "/rest/tagList",
 				dataType : "json",
@@ -357,6 +392,8 @@
 							//console.log(data[Object.keys(data)][i]);
 							arr.push(data[Object.keys(data)][i]);							
 						}
+
+
 						//console.log(arr);
 						//console.log(c);
 						//console.log(Object.keys(data));	//오브젝트의 키
@@ -364,6 +401,8 @@
 				}
 			})
 		}
+        
+        
     </script>
 
 </body>

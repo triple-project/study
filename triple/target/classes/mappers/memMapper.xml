@@ -3,18 +3,18 @@
 <mapper namespace="com.triple.finalp.mem.dao.MemDao">
 
 	<insert id="join">
-		insert into MEMBER (mem_id,mem_pw,e_mail,name,tel,mem_img)
+		insert into member (mem_id,mem_pw,e_mail,name,tel,mem_img)
 		values (#{mem_id},#{mem_pw},#{e_mail},#{name},#{tel},#{mem_img})
 	</insert>
 
 	<select id="c_heart" resultType="String">
 		select count(*)
-		from HEART
+		from heart
 		where mem_id = #{mem_id}
 	</select>
 	<select id="c_plan" resultType="String">
 		select count(*)
-		from MYPLAN
+		from myplan
 		where mem_id = #{mem_id}
 	</select>
 	<update id="updateProfile">

@@ -14,9 +14,20 @@
 		where tag_cate = #{tag_cate}
 	</select>
 	
+	<select id="getList2" resultType="TagVo">
+		select *
+		from taglist
+		where tag_cate = #{product_category}
+	</select>
+	
 	<insert id="insertTag">
 		insert into tag
 		values(#{tag_id},#{tag_tag})
 	</insert>
+	
+	<delete id="deltag">
+		delete from tag
+		where tag_id = #{tag_id}
+	</delete>
 
 </mapper>

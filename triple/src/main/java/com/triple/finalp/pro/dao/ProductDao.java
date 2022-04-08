@@ -7,6 +7,8 @@ import org.apache.ibatis.annotations.Param;
 
 import com.triple.finalp.pro.vo.ProductDetailVo;
 import com.triple.finalp.pro.vo.ProductVo;
+import com.triple.finalp.tag.vo.TagTagVo;
+import com.triple.finalp.tag.vo.TagVo;
 
 @Mapper
 public interface ProductDao {
@@ -27,4 +29,7 @@ public interface ProductDao {
 	public int getProIdC(String admin_id);
 	public int mypro(@Param("product_id")String product_id,@Param("product_admin_id")String product_admin_id);
 	public void updateProduct(ProductVo pvo);
+	public void updateProductD(ProductDetailVo pdvo);
+	public ProductDetailVo getdetail(String pd_id);
+	public ArrayList<TagTagVo> gettag(String product_id);
 }

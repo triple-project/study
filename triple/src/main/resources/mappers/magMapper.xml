@@ -2,12 +2,12 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.triple.finalp.mag.dao.MagDao">
 	<insert id="save">
-      insert into MAGAZINE (MGZ_CONTENT,MGZ_TITLE,MGZ_SMALLTITLE,MGZ_SMALLCONTENT,MGZ_CATEGORY,MGZ_CITY)
+      insert into magazine (MGZ_CONTENT,MGZ_TITLE,MGZ_SMALLTITLE,MGZ_SMALLCONTENT,MGZ_CATEGORY,MGZ_CITY)
       values (#{mgz_content},#{mgz_title},#{mgz_smalltitle},#{mgz_smallcontent},#{mgz_category},#{mgz_city})
    </insert>
 	<select id="view" resultType="MagVo">
 		select *
-		from MAGAZINE
+		from magazine
 	</select>
 	
 </mapper>

@@ -146,9 +146,12 @@ $(function() {
 		}
 	})
 
-	function showLocation(event) {
-		var latitude = event.coords.latitude 
-		var longitude = event.coords.longitude
+	//function showLocation(event) {
+	function showLocation() {
+		//var latitude = event.coords.latitude 
+		//var longitude = event.coords.longitude
+		var latitude = 37.57;
+		var longitude = 126.99;
 	
 		let apiKey = "059aa9eae2040819bfb97ec8742f408c"
 		var apiURI = "https://api.openweathermap.org/data/2.5/weather?lat=" + latitude + "&lon=" + longitude + "&lang=kr&appid=" + apiKey + "&units=metric";
@@ -360,10 +363,14 @@ $(function() {
 	
 	}
 	
-	function showError(event) { alert("위치 정보를 얻을 수 없습니다."); console.log(event)}
+	//function showError(event) { alert("위치 정보를 얻을 수 없습니다."); console.log(event)}
+	
+	/*window.addEventListener('load', () => {
+		if(window.navigator.geolocation) {window.navigator.geolocation.getCurrentPosition(showLocation,showError)}
+	})*/
 	
 	window.addEventListener('load', () => {
-		if(window.navigator.geolocation) {window.navigator.geolocation.getCurrentPosition(showLocation,showError)}
+		showLocation();
 	})
 
 	$('#myInfo .myInfoIn .tap li').click(function () {
@@ -396,5 +403,47 @@ $(function() {
           prevEl: ".kcategorybtn1",
         },
       });
+      
+      $(".tapTop .nameIn ul li, .tapBottom .nameIn ul li").click(function(){
+		let num = $(this).index();
+		$(this).addClass('on').siblings().removeClass('on');
+        $('.tapTop .nameIn ul li').eq(num).addClass('on').siblings().removeClass('on');
+		$('.tapBottom .nameIn ul li').eq(num).addClass('on').siblings().removeClass('on');
+        $('.tapCon .conIn .tapMenu').eq(num).show().siblings().hide();
+    });
+    $('.tapCon .conIn .tapMenu:gt(0)').hide();
+	
+	const detaliled = new Swiper(".mySwiper", {
+        //loop: true,
+        spaceBetween: 15,
+        slidesPerView: 4,
+        freeMode: true,
+        watchSlidesProgress: true,
+      });
+      const detaliled2 = new Swiper(".mySwiper2", {
+        //loop: true,
+        spaceBetween: 0,
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+		pagination: {
+			el: ".swiper-pagination",
+			type: "fraction",
+		},
+        thumbs: {
+          swiper: detaliled,
+        },
+      });
+
+	  $(".tow .plus, .tow .hiddenBtn").click(function(){
+		$(".hiddenText, .down").addClass("on");
+		$(".hiddenBtn, .plus").removeClass("on");
+	  });
+
+	  $(".tow .down").click(function(){
+		$(".hiddenText, .down").removeClass("on");
+		$(".hiddenBtn, .plus").addClass("on");
+	  });
 
 });

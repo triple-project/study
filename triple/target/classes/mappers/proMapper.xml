@@ -34,23 +34,23 @@
 	<!-- 상품클릭시 보여주는 정보 -고객 -->
 	<select id="goDetail" resultType="ProDVo">
 		select *
-		from PRODUCT p ,PRODUCT_DETAIL d
+		from product p ,product_detail d
 		where p.PRODUCT_ID=#{PRODUCT_ID}
 	</select>
 	<select id="findp" resultType="ProVo">
 		select *
-		from PRODUCT
+		from product
 		where PRODUCT_ID = #{PRODUCT_ID}
 	</select>
 	
 	<select id="findpd" resultType="ProDVo">
 		select *
-		from PRODUCT_DETAIL
+		from product_detail
 		where PRODUCT_ID = #{PRODUCT_ID}
 	</select>
 	<select id="Ddetail" resultType="ProDVo">
 		select *
-		from PRODUCT p ,PRODUCT_DETAIL d
+		from product p ,product_detail d
 		where d.pd_name= #{pd_name}
 	</select>
 	
@@ -67,10 +67,28 @@
 		and product_admin_id = #{product_admin_id}
 	</select>
 	
+	<select id="getdetail" resultType="ProDVo">
+		select *
+		from product_detail
+		where pd_id = #{pd_id}
+	</select>
+	
 	<update id="updateProduct">
       update product
       set product_img1=#{product_img1},product_img2=#{product_img2},product_img3=#{product_img3},product_img4=#{product_img4},product_img5=#{product_img5},product_category=#{product_category},product_address=#{product_address},product_locationx=#{product_locationx},product_locationy=#{product_locationy},product_city=#{product_city},product_name=#{product_name}
       where product_id = #{product_id}
    </update>
+   
+   <update id="updateProductD">
+   	  update product_detail
+      set pd_img1=#{pd_img1},pd_img2=#{pd_img2},pd_img3=#{pd_img3},pd_name=#{pd_name},pd_price=#{pd_price},pd_contents=#{pd_contents}
+      where pd_id = #{pd_id}
+   </update>
+   
+   <select id="gettag" resultType="TagTagVo">
+		select *
+		from tag
+		where tag_id = #{product_id}
+   </select>
 		
 </mapper>

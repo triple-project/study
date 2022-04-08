@@ -23,5 +23,7 @@ public interface ProductService {
 	public void getProId2(String aid, Model model, int page);
 	public Boolean mypro(String product_id, String admin_id, Model model);
 	public void updateProduct(ProductVo pvo);
+	public void updateProductD(ProductDetailVo pdvo);
+	public void getdetail(String pd_id, Model model);
 	
 }

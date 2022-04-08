@@ -9,5 +9,7 @@
 		<typeAlias alias="ProDVo" type="com.triple.finalp.pro.vo.ProductDetailVo" />
 		<typeAlias alias="MemVo" type="com.triple.finalp.mem.vo.MemVo" />
 		<typeAlias alias="ReviewVo" type="com.triple.finalp.review.vo.ReviewVo" />
+		<typeAlias alias="TagVo" type="com.triple.finalp.tag.vo.TagVo" />
+		<typeAlias alias="TagTagVo" type="com.triple.finalp.tag.vo.TagTagVo" />
 	</typeAliases>
 </configuration>

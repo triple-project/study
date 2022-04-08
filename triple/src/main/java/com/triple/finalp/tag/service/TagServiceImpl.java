@@ -30,4 +30,17 @@ public class TagServiceImpl implements TagService{
 			return tnList;
 	}
 
+	@Override
+	public void updatet(List<String> utag,String tag_id) {
+		// TODO Auto-generated method stub
+		tagDao.deltag(tag_id);
+		for (int i = 0; i < utag.size(); i++) {
+			if(utag.get(i).equals("삭제하기")) {
+				
+			}else {
+				tagDao.insertTag(tag_id,utag.get(i));
+			}
+		}
+	}
+
 }

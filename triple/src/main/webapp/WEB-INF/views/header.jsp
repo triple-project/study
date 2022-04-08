@@ -223,15 +223,22 @@
 <!-- 날씨위젯 -->
 <script type="text/javascript">
 	function wea() {
-
-		if (window.navigator.geolocation) {
+		
+		//배포시엔 주석
+		/* if (window.navigator.geolocation) {
 			window.navigator.geolocation.getCurrentPosition(showLocation4,
 				showError4)
-		}
+		} */
+		
+		showLocation4();
 
-		function showLocation4(event) {
-			var latitude = event.coords.latitude
-			var longitude = event.coords.longitude
+		function showLocation4() {
+			var latitude = 37.57;
+			var longitude = 126.99;
+			
+			//배포시엔 주석
+			/* var latitude = event.coords.latitude
+			var longitude = event.coords.longitude */
 
 			let apiKey = "059aa9eae2040819bfb97ec8742f408c"
 			var apiURI = "https://api.openweathermap.org/data/2.5/weather?lat=" +
@@ -251,7 +258,7 @@
 					$("#ondo").html(resp.main.temp);
 					$("#sdo").html("습도 : " + resp.main.humidity + "%");
 					$("#psok").html("풍속 : " + resp.wind.speed + "m/s");
-					$("#dosi").html($("#Slocation option:checked").text());
+					$("#dosi").html("현재위치");
 
 					let ct = resp.dt;
 

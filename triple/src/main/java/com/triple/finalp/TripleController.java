@@ -88,7 +88,7 @@ public class TripleController {
 	public String wea() {
 		//인덱스로 보내기
 
-		return "test/wea";
+		return "detailedPage";
 	}
 	
 	@RequestMapping(value = "/join", method = RequestMethod.POST)

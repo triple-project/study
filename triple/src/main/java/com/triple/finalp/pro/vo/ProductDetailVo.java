@@ -11,4 +11,5 @@ public class ProductDetailVo { // 상품상세객체
 	private String pd_img3;
 	private String pd_name; // 상품이름
 	private String pd_price; // 상품가격
+	private String pd_id;
 }
