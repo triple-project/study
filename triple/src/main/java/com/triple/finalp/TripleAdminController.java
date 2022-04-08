@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.triple.finalp.pro.service.ProductService;
+import com.triple.finalp.pro.vo.ProductVo;
 import com.triple.finalp.tag.service.TagService;
 
 
@@ -53,4 +54,20 @@ public class TripleAdminController {
 
 		return "owner/ownerReg";
 	}
+	
+	// 상품수정경로
+    @RequestMapping(value = "/updatePro/{product_id}", method = RequestMethod.GET)
+    public String updatePro(@PathVariable("product_id") String product_id, Model model,Principal principal) {
+       String aid = principal.getName();
+       productService.showPro(product_id,model);
+       return "/owner/updatePro";   //.jsp경로      
+    }
+    
+    @RequestMapping(value = "/updatePro", method = RequestMethod.POST)
+    public String updateProduct(ProductVo pvo) {
+       System.out.println(pvo);
+       productService.updateProduct(pvo);       
+       return "redirect:/admin/oL";
+    }
+
 }

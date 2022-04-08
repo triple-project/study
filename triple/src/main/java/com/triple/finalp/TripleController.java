@@ -71,24 +71,14 @@ public class TripleController {
 	@RequestMapping(value = "/train", method = RequestMethod.GET)
 	public String train() {
 		//인덱스로 보내기
-		
-		/*
-		 * if(authentication==null) { return "index"; }else{ String id =
-		 * authentication.getName(); memberService.info(model,id); }
-		 */
-		
+
 		return "test/train";
 	}
 	
 	   @RequestMapping(value = "/flight", method = RequestMethod.GET)
 	   public String flight() {
 	      //인덱스로 보내기
-	      
-	      /*
-	       * if(authentication==null) { return "index"; }else{ String id =
-	       * authentication.getName(); memberService.info(model,id); }
-	       */
-	      
+     
 	      return "test/flight";
 	   }
 	
@@ -97,12 +87,7 @@ public class TripleController {
 	@RequestMapping(value = "/wea", method = RequestMethod.GET)
 	public String wea() {
 		//인덱스로 보내기
-		
-		/*
-		 * if(authentication==null) { return "index"; }else{ String id =
-		 * authentication.getName(); memberService.info(model,id); }
-		 */
-		
+
 		return "test/wea";
 	}
 	
@@ -133,6 +118,13 @@ public class TripleController {
 		//매거진작성으로 보내기
 
 		return "test/mag/testmagwrite";
+	}
+	
+	@RequestMapping(value = "/trv", method = RequestMethod.GET)
+	public String trav() {
+		//매거진작성으로 보내기
+
+		return "test/member/join";
 	}
 	
 
@@ -241,6 +233,21 @@ public class TripleController {
 				
 		return r;
 	}
+	
+	//상단검색바
+		@GetMapping("/cate_button/{cate}")
+		public String cate_button(@PathVariable("cate") String cate, Model model) {
+
+			System.out.println("카테고리 : " + cate);
+			String main = "여행지 검색";
+			String city = "전체";
+			String r = searchService.search(main,city,cate,model);
+			model.addAttribute("main_search",main);
+			model.addAttribute("city_search",city);
+			model.addAttribute("cate_search",cate);
+					
+			return r;
+		}
 	
 	@RequestMapping(value = "/category/{id}", method = RequestMethod.GET)
 	public String category(@PathVariable("id") String id, Model model) {

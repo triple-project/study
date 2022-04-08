@@ -90,6 +90,7 @@
 </script>
 </HEAD>
 <BODY>
+	
 	<!-- <button onclick="test()">제발</button> -->
 	<table border="1" id="teatable">
 	</table>

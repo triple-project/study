@@ -4,6 +4,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import com.triple.finalp.mem.vo.MemVo;
+import com.triple.finalp.mem.vo.MyPlanVo;
 
 @Mapper
 public interface MemDao {
@@ -14,4 +15,5 @@ public interface MemDao {
 	public MemVo mv(String mem_id);
 	public void updatePw(@Param("mem_id")String mem_id, @Param("mem_pw")String mem_pw);
 	public String pi(String mem_id);
+	public void inplan(MyPlanVo myPlanVo);
 }

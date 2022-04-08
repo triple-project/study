@@ -22,5 +22,6 @@ public interface ProductService {
 	public void showProDetail(String product_id,String pd_name, Model model);
 	public void getProId2(String aid, Model model, int page);
 	public Boolean mypro(String product_id, String admin_id, Model model);
+	public void updateProduct(ProductVo pvo);
 	
 }

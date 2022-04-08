@@ -138,6 +138,12 @@ public class ProductServiceImpl implements ProductService{
 			return false;
 		}
 	}
+	
+	@Override
+	   public void updateProduct( ProductVo pvo) {
+	      // TODO Auto-generated method stub
+	      productDao.updateProduct(pvo);
+	   }
 
 
 }

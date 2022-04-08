@@ -158,11 +158,11 @@
 							<input type="hidden" name="tag_list_h" id="tag_list_h">
 							<input type="hidden" name="tag_cate_h" id="tag_cate_h">
 							<input type="hidden" name="image_h" id="image_h">
-							<input type="hidden" name="product_img1" id="product_img1" value="def">
-							<input type="hidden" name="product_img2" id="product_img2" value="def">
-							<input type="hidden" name="product_img3" id="product_img3" value="def">
-							<input type="hidden" name="product_img4" id="product_img4" value="def">
-							<input type="hidden" name="product_img5" id="product_img5" value="def">
+							<input type="hidden" name="product_img1" id="product_img1" value="defpimg.jpg">
+							<input type="hidden" name="product_img2" id="product_img2" value="defpimg.jpg">
+							<input type="hidden" name="product_img3" id="product_img3" value="defpimg.jpg">
+							<input type="hidden" name="product_img4" id="product_img4" value="defpimg.jpg">
+							<input type="hidden" name="product_img5" id="product_img5" value="defpimg.jpg">
                         </form>
                     </div>
                     <!-- 상품등록 폼 끝 -->

@@ -36,7 +36,7 @@
 </head>
 <body>
 
-	<jsp:include page="../header.jsp" flush="true"/>
+	<jsp:include page="/WEB-INF/views/header.jsp" flush="true"/>
 
 
     <section id="sec_owner">
@@ -117,7 +117,7 @@
 					</div>
 					<div class="list_img .list_com">
 						<!-- <td>${pro.product_img1}</td> -->
-						<img src="../../resources/img/testimg.jpg">
+						<img src="/resources/img/upload/${ml.product_img1}">
 					</div>
 					<div class="list_name">
 						<!-- <td>${pro.product_name}</td> -->
@@ -137,7 +137,7 @@
 					</div>
 					<div class="list_mod .list_com">
 						<div class="mod_btn">
-							수정하기
+							<a href="/admin/updatePro/${ml.product_id}">수정하기</a>
 						</div>
 						<div class="mod_btn">
 							확인하기

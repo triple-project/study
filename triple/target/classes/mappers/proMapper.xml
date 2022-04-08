@@ -48,7 +48,7 @@
 		from PRODUCT_DETAIL
 		where PRODUCT_ID = #{PRODUCT_ID}
 	</select>
-		<select id="Ddetail" resultType="ProDVo">
+	<select id="Ddetail" resultType="ProDVo">
 		select *
 		from PRODUCT p ,PRODUCT_DETAIL d
 		where d.pd_name= #{pd_name}
@@ -66,5 +66,11 @@
 		where product_id = #{product_id}
 		and product_admin_id = #{product_admin_id}
 	</select>
+	
+	<update id="updateProduct">
+      update product
+      set product_img1=#{product_img1},product_img2=#{product_img2},product_img3=#{product_img3},product_img4=#{product_img4},product_img5=#{product_img5},product_category=#{product_category},product_address=#{product_address},product_locationx=#{product_locationx},product_locationy=#{product_locationy},product_city=#{product_city},product_name=#{product_name}
+      where product_id = #{product_id}
+   </update>
 		
 </mapper>

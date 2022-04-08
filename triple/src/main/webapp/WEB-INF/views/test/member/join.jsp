@@ -62,7 +62,25 @@
 				});
 		}
 		
-		
+		function ftravel() {
+			$.ajax({
+				type : "GET",
+				url : "/rest/travel",
+					dataType : "json",
+					data : {
+						mem_id : $("#sat").text(),
+					},
+					success : function(data) {
+		           		 // C에서 받아온 데이터로 새로 뿌려주기
+						console.log(data);
+						/* $("#heart_num").html(data.heart)
+						$("#plan_num").html(data.plan) */
+					},
+					error : function(a){
+						console.log(a);
+		            }
+				});
+		}
 	</script>
 	<script type="text/javascript">
 		function d_test() {
@@ -132,8 +150,9 @@
 	여행기간	<input type="text" id="t_date" name="t_date" readonly="readonly"/><br>
 	
 	</form>
-	<button onclick="travel()">일정만들기</button>
+	<button onclick="travel()">여행만들기</button>
 	<button onclick="d_test()">날짜값조회</button>
-	<button onclick="select()">상단검색테스트</button>
+	<!-- <button onclick="select()">상단검색테스트</button> -->
+	<button onclick="ftravel()">여행조회</button>
 </body>
 </html>

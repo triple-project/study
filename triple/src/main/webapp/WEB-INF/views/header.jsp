@@ -245,13 +245,13 @@
 				type: "GET",
 				async: "false",
 				success: function (resp) {
-					let todayURL = "../resources/img/wb/" + resp.weather[0].icon + ".png";
+					let todayURL = "/resources/img/wb/" + resp.weather[0].icon + ".png";
 					$("#today_icon").attr("src", todayURL);
 					$("#today_name").html(resp.weather[0].description);
 					$("#ondo").html(resp.main.temp);
 					$("#sdo").html("습도 : " + resp.main.humidity + "%");
 					$("#psok").html("풍속 : " + resp.wind.speed + "m/s");
-					$("#dosi").html(resp.name);
+					$("#dosi").html($("#Slocation option:checked").text());
 
 					let ct = resp.dt;
 
@@ -289,14 +289,14 @@
 						return hours;
 					}
 
-					$("#pop").html("강수량 : " + resps.daily[0].pop + "%");
+					$("#pop").html("강수확률 : " + resps.daily[0].pop*100 + "%");
 
-					let oneURL = "../resources/img/wb/" + resps.daily[0].weather[0].icon + ".png";
+					let oneURL = "/resources/img/wb/" + resps.daily[0].weather[0].icon + ".png";
 					$("#one #weekIcon").attr("src", oneURL);
 					$("#one #weekMax").html(resps.daily[0].temp.max + "<span>°C</span>");
 					$("#one #weekMin").html(resps.daily[0].temp.min + "<span>°C</span>");
 
-					let towURL = "../resources/img/wb/" + resps.daily[1].weather[0].icon + ".png";
+					let towURL = "/resources/img/wb/" + resps.daily[1].weather[0].icon + ".png";
 					$("#tow #weekIcon").attr("src", towURL);
 					let towWeekdt = resps.daily[1].dt;
 					let towTime = convertTime(towWeekdt);
@@ -304,7 +304,7 @@
 					$("#tow #weekMax").html(resps.daily[1].temp.max + "<span>°C</span>");
 					$("#tow #weekMin").html(resps.daily[1].temp.min + "<span>°C</span>");
 
-					let threeURL = "../resources/img/wb/" + resps.daily[2].weather[0].icon + ".png";
+					let threeURL = "/resources/img/wb/" + resps.daily[2].weather[0].icon + ".png";
 					$("#three #weekIcon").attr("src", threeURL);
 					let threeWeekdt = resps.daily[2].dt;
 					let threeTime = convertTime(threeWeekdt);
@@ -312,7 +312,7 @@
 					$("#three #weekMax").html(resps.daily[2].temp.max + "<span>°C</span>");
 					$("#three #weekMin").html(resps.daily[2].temp.min + "<span>°C</span>");
 
-					let fourURL = "../resources/img/wb/" + resps.daily[3].weather[0].icon + ".png";
+					let fourURL = "/resources/img/wb/" + resps.daily[3].weather[0].icon + ".png";
 					$("#four #weekIcon").attr("src", fourURL);
 					let fourWeekdt = resps.daily[3].dt;
 					let fourTime = convertTime(fourWeekdt);
@@ -320,7 +320,7 @@
 					$("#four #weekMax").html(resps.daily[3].temp.max + "<span>°C</span>");
 					$("#four #weekMin").html(resps.daily[3].temp.min + "<span>°C</span>");
 
-					let fiveURL = "../resources/img/wb/" + resps.daily[4].weather[0].icon + ".png";
+					let fiveURL = "/resources/img/wb/" + resps.daily[4].weather[0].icon + ".png";
 					$("#five #weekIcon").attr("src", fiveURL);
 					let fiveWeekdt = resps.daily[4].dt;
 					let fiveTime = convertTime(fiveWeekdt);
@@ -328,7 +328,7 @@
 					$("#five #weekMax").html(resps.daily[4].temp.max + "<span>°C</span>");
 					$("#five #weekMin").html(resps.daily[4].temp.min + "<span>°C</span>");
 
-					let sixURL = "../resources/img/wb/" + resps.daily[5].weather[0].icon + ".png";
+					let sixURL = "/resources/img/wb/" + resps.daily[5].weather[0].icon + ".png";
 					$("#six #weekIcon").attr("src", sixURL);
 					let sixWeekdt = resps.daily[5].dt;
 					let sixTime = convertTime(sixWeekdt);
@@ -336,7 +336,7 @@
 					$("#six #weekMax").html(resps.daily[5].temp.max + "<span>°C</span>");
 					$("#six #weekMin").html(resps.daily[5].temp.min + "<span>°C</span>");
 
-					let sevenURL = "../resources/img/wb/" + resps.daily[6].weather[0].icon + ".png";
+					let sevenURL = "/resources/img/wb/" + resps.daily[6].weather[0].icon + ".png";
 					$("#seven #weekIcon").attr("src", sevenURL);
 					let sevenWeekdt = resps.daily[6].dt;
 					let sevenTime = convertTime(sevenWeekdt);
@@ -344,7 +344,7 @@
 					$("#seven #weekMax").html(resps.daily[6].temp.max + "<span>°C</span>");
 					$("#seven #weekMin").html(resps.daily[6].temp.min + "<span>°C</span>");
 
-					let eightURL = "../resources/img/wb/" + resps.daily[7].weather[0].icon + ".png";
+					let eightURL = "/resources/img/wb/" + resps.daily[7].weather[0].icon + ".png";
 					$("#eight #weekIcon").attr("src", eightURL);
 					let eightWeekdt = resps.daily[7].dt;
 					let eightTime = convertTime(eightWeekdt);
@@ -352,67 +352,67 @@
 					$("#eight #weekMax").html(resps.daily[7].temp.max + "<span>°C</span>");
 					$("#eight #weekMin").html(resps.daily[7].temp.min + "<span>°C</span>");
 
-					let h0URL = "../resources/img/wb/" + resps.hourly[0].weather[0].icon + ".png";
+					let h0URL = "/resources/img/wb/" + resps.hourly[0].weather[0].icon + ".png";
 					$("#h0 #timeIcon").attr("src", h0URL);
 					$("#h0 #timeTemp").html(resps.hourly[0].temp + "<span>°C</span>");
 
-					let h1URL = "../resources/img/wb/" + resps.hourly[3].weather[0].icon + ".png";
+					let h1URL = "/resources/img/wb/" + resps.hourly[3].weather[0].icon + ".png";
 					let h1Weekdt = resps.hourly[3].dt;
 					let h1Time = hTime(h1Weekdt);
 					$("#h1 #timeTit").html(h1Time + "<span>시</span>");
 					$("#h1 #timeIcon").attr("src", h1URL);
 					$("#h1 #timeTemp").html(resps.hourly[3].temp + "<span>°C</span>");
 
-					let h2URL = "../resources/img/wb/" + resps.hourly[6].weather[0].icon + ".png";
+					let h2URL = "/resources/img/wb/" + resps.hourly[6].weather[0].icon + ".png";
 					let h2Weekdt = resps.hourly[6].dt;
 					let h2Time = hTime(h2Weekdt);
 					$("#h2 #timeTit").html(h2Time + "<span>시</span>");
 					$("#h2 #timeIcon").attr("src", h2URL);
 					$("#h2 #timeTemp").html(resps.hourly[6].temp + "<span>°C</span>");
 
-					let h3URL = "../resources/img/wb/" + resps.hourly[9].weather[0].icon + ".png";
+					let h3URL = "/resources/img/wb/" + resps.hourly[9].weather[0].icon + ".png";
 					let h3Weekdt = resps.hourly[9].dt;
 					let h3Time = hTime(h3Weekdt);
 					$("#h3 #timeTit").html(h3Time + "<span>시</span>");
 					$("#h3 #timeIcon").attr("src", h3URL);
 					$("#h3 #timeTemp").html(resps.hourly[9].temp + "<span>°C</span>");
 
-					let h4URL = "../resources/img/wb/" + resps.hourly[12].weather[0].icon + ".png";
+					let h4URL = "/resources/img/wb/" + resps.hourly[12].weather[0].icon + ".png";
 					let h4Weekdt = resps.hourly[12].dt;
 					let h4Time = hTime(h4Weekdt);
 					$("#h4 #timeTit").html(h4Time + "<span>시</span>");
 					$("#h4 #timeIcon").attr("src", h4URL);
 					$("#h4 #timeTemp").html(resps.hourly[12].temp + "<span>°C</span>");
 
-					let h5URL = "../resources/img/wb/" + resps.hourly[15].weather[0].icon + ".png";
+					let h5URL = "/resources/img/wb/" + resps.hourly[15].weather[0].icon + ".png";
 					let h5Weekdt = resps.hourly[15].dt;
 					let h5Time = hTime(h5Weekdt);
 					$("#h5 #timeTit").html(h5Time + "<span>시</span>");
 					$("#h5 #timeIcon").attr("src", h5URL);
 					$("#h5 #timeTemp").html(resps.hourly[15].temp + "<span>°C</span>");
 
-					let h6URL = "../resources/img/wb/" + resps.hourly[18].weather[0].icon + ".png";
+					let h6URL = "/resources/img/wb/" + resps.hourly[18].weather[0].icon + ".png";
 					let h6Weekdt = resps.hourly[18].dt;
 					let h6Time = hTime(h6Weekdt);
 					$("#h6 #timeTit").html(h6Time + "<span>시</span>");
 					$("#h6 #timeIcon").attr("src", h6URL);
 					$("#h6 #timeTemp").html(resps.hourly[18].temp + "<span>°C</span>");
 
-					let h7URL = "../resources/img/wb/" + resps.hourly[21].weather[0].icon + ".png";
+					let h7URL = "/resources/img/wb/" + resps.hourly[21].weather[0].icon + ".png";
 					let h7Weekdt = resps.hourly[21].dt;
 					let h7Time = hTime(h7Weekdt);
 					$("#h7 #timeTit").html(h7Time + "<span>시</span>");
 					$("#h7 #timeIcon").attr("src", h7URL);
 					$("#h7 #timeTemp").html(resps.hourly[21].temp + "<span>°C</span>");
 
-					let h8URL = "../resources/img/wb/" + resps.hourly[24].weather[0].icon + ".png";
+					let h8URL = "/resources/img/wb/" + resps.hourly[24].weather[0].icon + ".png";
 					let h8Weekdt = resps.hourly[24].dt;
 					let h8Time = hTime(h8Weekdt);
 					$("#h8 #timeTit").html(h8Time + "<span>시</span>");
 					$("#h8 #timeIcon").attr("src", h8URL);
 					$("#h8 #timeTemp").html(resps.hourly[24].temp + "<span>°C</span>");
 
-					let h9URL = "../resources/img/wb/" + resps.hourly[27].weather[0].icon + ".png";
+					let h9URL = "/resources/img/wb/" + resps.hourly[27].weather[0].icon + ".png";
 					let h9Weekdt = resps.hourly[27].dt;
 					let h9Time = hTime(h9Weekdt);
 					$("#h9 #timeTit").html(h9Time + "<span>시</span>");
@@ -448,13 +448,13 @@
 			type: "GET",
 			async: "false",
 			success: function (resp) {
-				let todayURL = "../resources/img/wb/" + resp.weather[0].icon + ".png";
+				let todayURL = "/resources/img/wb/" + resp.weather[0].icon + ".png";
 				$("#today_icon").attr("src", todayURL);
 				$("#today_name").html(resp.weather[0].description);
 				$("#ondo").html(resp.main.temp);
 				$("#sdo").html("습도 : " + resp.main.humidity + "%");
 				$("#psok").html("풍속 : " + resp.wind.speed + "m/s");
-				$("#dosi").html(resp.name);
+				$("#dosi").html($("#Slocation option:checked").text());
 
 				let ct = resp.dt;
 
@@ -491,14 +491,14 @@
 					return hours;
 				}
 
-				$("#pop").html("강수량 : " + resps.daily[0].pop + "%");
+				$("#pop").html("강수확률 : " + resps.daily[0].pop*100 + "%");
 
-				let oneURL = "../resources/img/wb/" + resps.daily[0].weather[0].icon + ".png";
+				let oneURL = "/resources/img/wb/" + resps.daily[0].weather[0].icon + ".png";
 				$("#one #weekIcon").attr("src", oneURL);
 				$("#one #weekMax").html(resps.daily[0].temp.max + "<span>°C</span>");
 				$("#one #weekMin").html(resps.daily[0].temp.min + "<span>°C</span>");
 
-				let towURL = "../resources/img/wb/" + resps.daily[1].weather[0].icon + ".png";
+				let towURL = "/resources/img/wb/" + resps.daily[1].weather[0].icon + ".png";
 				$("#tow #weekIcon").attr("src", towURL);
 				let towWeekdt = resps.daily[1].dt;
 				let towTime = convertTime(towWeekdt);
@@ -506,7 +506,7 @@
 				$("#tow #weekMax").html(resps.daily[1].temp.max + "<span>°C</span>");
 				$("#tow #weekMin").html(resps.daily[1].temp.min + "<span>°C</span>");
 
-				let threeURL = "../resources/img/wb/" + resps.daily[2].weather[0].icon + ".png";
+				let threeURL = "/resources/img/wb/" + resps.daily[2].weather[0].icon + ".png";
 				$("#three #weekIcon").attr("src", threeURL);
 				let threeWeekdt = resps.daily[2].dt;
 				let threeTime = convertTime(threeWeekdt);
@@ -514,7 +514,7 @@
 				$("#three #weekMax").html(resps.daily[2].temp.max + "<span>°C</span>");
 				$("#three #weekMin").html(resps.daily[2].temp.min + "<span>°C</span>");
 
-				let fourURL = "../resources/img/wb/" + resps.daily[3].weather[0].icon + ".png";
+				let fourURL = "/resources/img/wb/" + resps.daily[3].weather[0].icon + ".png";
 				$("#four #weekIcon").attr("src", fourURL);
 				let fourWeekdt = resps.daily[3].dt;
 				let fourTime = convertTime(fourWeekdt);
@@ -522,7 +522,7 @@
 				$("#four #weekMax").html(resps.daily[3].temp.max + "<span>°C</span>");
 				$("#four #weekMin").html(resps.daily[3].temp.min + "<span>°C</span>");
 
-				let fiveURL = "../resources/img/wb/" + resps.daily[4].weather[0].icon + ".png";
+				let fiveURL = "/resources/img/wb/" + resps.daily[4].weather[0].icon + ".png";
 				$("#five #weekIcon").attr("src", fiveURL);
 				let fiveWeekdt = resps.daily[4].dt;
 				let fiveTime = convertTime(fiveWeekdt);
@@ -530,7 +530,7 @@
 				$("#five #weekMax").html(resps.daily[4].temp.max + "<span>°C</span>");
 				$("#five #weekMin").html(resps.daily[4].temp.min + "<span>°C</span>");
 
-				let sixURL = "../resources/img/wb/" + resps.daily[5].weather[0].icon + ".png";
+				let sixURL = "/resources/img/wb/" + resps.daily[5].weather[0].icon + ".png";
 				$("#six #weekIcon").attr("src", sixURL);
 				let sixWeekdt = resps.daily[5].dt;
 				let sixTime = convertTime(sixWeekdt);
@@ -538,7 +538,7 @@
 				$("#six #weekMax").html(resps.daily[5].temp.max + "<span>°C</span>");
 				$("#six #weekMin").html(resps.daily[5].temp.min + "<span>°C</span>");
 
-				let sevenURL = "../resources/img/wb/" + resps.daily[6].weather[0].icon + ".png";
+				let sevenURL = "/resources/img/wb/" + resps.daily[6].weather[0].icon + ".png";
 				$("#seven #weekIcon").attr("src", sevenURL);
 				let sevenWeekdt = resps.daily[6].dt;
 				let sevenTime = convertTime(sevenWeekdt);
@@ -546,7 +546,7 @@
 				$("#seven #weekMax").html(resps.daily[6].temp.max + "<span>°C</span>");
 				$("#seven #weekMin").html(resps.daily[6].temp.min + "<span>°C</span>");
 
-				let eightURL = "../resources/img/wb/" + resps.daily[7].weather[0].icon + ".png";
+				let eightURL = "/resources/img/wb/" + resps.daily[7].weather[0].icon + ".png";
 				$("#eight #weekIcon").attr("src", eightURL);
 				let eightWeekdt = resps.daily[7].dt;
 				let eightTime = convertTime(eightWeekdt);
@@ -554,67 +554,67 @@
 				$("#eight #weekMax").html(resps.daily[7].temp.max + "<span>°C</span>");
 				$("#eight #weekMin").html(resps.daily[7].temp.min + "<span>°C</span>");
 
-				let h0URL = "../resources/img/wb/" + resps.hourly[0].weather[0].icon + ".png";
+				let h0URL = "/resources/img/wb/" + resps.hourly[0].weather[0].icon + ".png";
 				$("#h0 #timeIcon").attr("src", h0URL);
 				$("#h0 #timeTemp").html(resps.hourly[0].temp + "<span>°C</span>");
 
-				let h1URL = "../resources/img/wb/" + resps.hourly[3].weather[0].icon + ".png";
+				let h1URL = "/resources/img/wb/" + resps.hourly[3].weather[0].icon + ".png";
 				let h1Weekdt = resps.hourly[3].dt;
 				let h1Time = hTime(h1Weekdt);
 				$("#h1 #timeTit").html(h1Time + "<span>시</span>");
 				$("#h1 #timeIcon").attr("src", h1URL);
 				$("#h1 #timeTemp").html(resps.hourly[3].temp + "<span>°C</span>");
 
-				let h2URL = "../resources/img/wb/" + resps.hourly[6].weather[0].icon + ".png";
+				let h2URL = "/resources/img/wb/" + resps.hourly[6].weather[0].icon + ".png";
 				let h2Weekdt = resps.hourly[6].dt;
 				let h2Time = hTime(h2Weekdt);
 				$("#h2 #timeTit").html(h2Time + "<span>시</span>");
 				$("#h2 #timeIcon").attr("src", h2URL);
 				$("#h2 #timeTemp").html(resps.hourly[6].temp + "<span>°C</span>");
 
-				let h3URL = "../resources/img/wb/" + resps.hourly[9].weather[0].icon + ".png";
+				let h3URL = "/resources/img/wb/" + resps.hourly[9].weather[0].icon + ".png";
 				let h3Weekdt = resps.hourly[9].dt;
 				let h3Time = hTime(h3Weekdt);
 				$("#h3 #timeTit").html(h3Time + "<span>시</span>");
 				$("#h3 #timeIcon").attr("src", h3URL);
 				$("#h3 #timeTemp").html(resps.hourly[9].temp + "<span>°C</span>");
 
-				let h4URL = "../resources/img/wb/" + resps.hourly[12].weather[0].icon + ".png";
+				let h4URL = "/resources/img/wb/" + resps.hourly[12].weather[0].icon + ".png";
 				let h4Weekdt = resps.hourly[12].dt;
 				let h4Time = hTime(h4Weekdt);
 				$("#h4 #timeTit").html(h4Time + "<span>시</span>");
 				$("#h4 #timeIcon").attr("src", h4URL);
 				$("#h4 #timeTemp").html(resps.hourly[12].temp + "<span>°C</span>");
 
-				let h5URL = "../resources/img/wb/" + resps.hourly[15].weather[0].icon + ".png";
+				let h5URL = "/resources/img/wb/" + resps.hourly[15].weather[0].icon + ".png";
 				let h5Weekdt = resps.hourly[15].dt;
 				let h5Time = hTime(h5Weekdt);
 				$("#h5 #timeTit").html(h5Time + "<span>시</span>");
 				$("#h5 #timeIcon").attr("src", h5URL);
 				$("#h5 #timeTemp").html(resps.hourly[15].temp + "<span>°C</span>");
 
-				let h6URL = "../resources/img/wb/" + resps.hourly[18].weather[0].icon + ".png";
+				let h6URL = "/resources/img/wb/" + resps.hourly[18].weather[0].icon + ".png";
 				let h6Weekdt = resps.hourly[18].dt;
 				let h6Time = hTime(h6Weekdt);
 				$("#h6 #timeTit").html(h6Time + "<span>시</span>");
 				$("#h6 #timeIcon").attr("src", h6URL);
 				$("#h6 #timeTemp").html(resps.hourly[18].temp + "<span>°C</span>");
 
-				let h7URL = "../resources/img/wb/" + resps.hourly[21].weather[0].icon + ".png";
+				let h7URL = "/resources/img/wb/" + resps.hourly[21].weather[0].icon + ".png";
 				let h7Weekdt = resps.hourly[21].dt;
 				let h7Time = hTime(h7Weekdt);
 				$("#h7 #timeTit").html(h7Time + "<span>시</span>");
 				$("#h7 #timeIcon").attr("src", h7URL);
 				$("#h7 #timeTemp").html(resps.hourly[21].temp + "<span>°C</span>");
 
-				let h8URL = "../resources/img/wb/" + resps.hourly[24].weather[0].icon + ".png";
+				let h8URL = "/resources/img/wb/" + resps.hourly[24].weather[0].icon + ".png";
 				let h8Weekdt = resps.hourly[24].dt;
 				let h8Time = hTime(h8Weekdt);
 				$("#h8 #timeTit").html(h8Time + "<span>시</span>");
 				$("#h8 #timeIcon").attr("src", h8URL);
 				$("#h8 #timeTemp").html(resps.hourly[24].temp + "<span>°C</span>");
 
-				let h9URL = "../resources/img/wb/" + resps.hourly[27].weather[0].icon + ".png";
+				let h9URL = "/resources/img/wb/" + resps.hourly[27].weather[0].icon + ".png";
 				let h9Weekdt = resps.hourly[27].dt;
 				let h9Time = hTime(h9Weekdt);
 				$("#h9 #timeTit").html(h9Time + "<span>시</span>");
@@ -1201,6 +1201,7 @@
 		<div class="menutap">
 			<div class="tap_in">
 				<div class="con on">
+				<!-- 시큐리티 로그인안함 -->
 					<div class="con_in un_login_con">
 						<div class="message_box">
 							<div class="icon">
@@ -1214,7 +1215,7 @@
 							</div>
 						</div>
 					</div>
-
+				<!-- 시큐리티 로그인함 -->
 					<div class="login_con">
 						<!-- 내용을 넣어주세요 -->
 					</div>
@@ -1247,14 +1248,14 @@
 								<div class="today_in">
 									<div class="icon">
 										<div class="img">
-											<img id="today_icon" src="..">
+											<img id="today_icon">
 										</div>
 										<div class="txt">
 											<h4 id="ondo"></h4>
 											<h5>°C</h5>
 										</div>
 										<div class="todayOption">
-											<h4 id="pop">강수량 : </h4>
+											<h4 id="pop">강수확률 : </h4>
 											<h4 id="sdo">습도 : </h4>
 											<h4 id="psok">풍속 : </h4>
 										</div>
@@ -1277,7 +1278,7 @@
 											</div>
 
 											<div class="icon">
-												<img id="timeIcon" src="..">
+												<img id="timeIcon" >
 											</div>
 
 											<div class="temp">
@@ -1291,7 +1292,7 @@
 											</div>
 
 											<div class="icon">
-												<img id="timeIcon" src="..">
+												<img id="timeIcon" >
 											</div>
 
 											<div class="temp">
@@ -1305,7 +1306,7 @@
 											</div>
 
 											<div class="icon">
-												<img id="timeIcon" src="..">
+												<img id="timeIcon" >
 											</div>
 
 											<div class="temp">
@@ -1319,7 +1320,7 @@
 											</div>
 
 											<div class="icon">
-												<img id="timeIcon" src="..">
+												<img id="timeIcon" >
 											</div>
 
 											<div class="temp">
@@ -1333,7 +1334,7 @@
 											</div>
 
 											<div class="icon">
-												<img id="timeIcon" src="..">
+												<img id="timeIcon" >
 											</div>
 
 											<div class="temp">
@@ -1347,7 +1348,7 @@
 											</div>
 
 											<div class="icon">
-												<img id="timeIcon" src="..">
+												<img id="timeIcon" >
 											</div>
 
 											<div class="temp">
@@ -1361,7 +1362,7 @@
 											</div>
 
 											<div class="icon">
-												<img id="timeIcon" src="..">
+												<img id="timeIcon" >
 											</div>
 
 											<div class="temp">
@@ -1375,7 +1376,7 @@
 											</div>
 
 											<div class="icon">
-												<img id="timeIcon" src="..">
+												<img id="timeIcon" >
 											</div>
 
 											<div class="temp">
@@ -1389,7 +1390,7 @@
 											</div>
 
 											<div class="icon">
-												<img id="timeIcon" src="..">
+												<img id="timeIcon" >
 											</div>
 
 											<div class="temp">
@@ -1403,7 +1404,7 @@
 											</div>
 
 											<div class="icon">
-												<img id="timeIcon" src="..">
+												<img id="timeIcon" >
 											</div>
 
 											<div class="temp">
@@ -1424,7 +1425,7 @@
 												<h4 id="weekDay">오늘</h4>
 											</div>
 											<div class="icon">
-												<img id="weekIcon" src="..">
+												<img id="weekIcon" >
 											</div>
 											<div class="txt">
 												<p id="weekMax"></p>
@@ -1437,7 +1438,7 @@
 												<h4 id="weekDay"></h4>
 											</div>
 											<div class="icon">
-												<img id="weekIcon" src="..">
+												<img id="weekIcon" >
 											</div>
 											<div class="txt">
 												<p id="weekMax"></p>
@@ -1450,7 +1451,7 @@
 												<h4 id="weekDay"></h4>
 											</div>
 											<div class="icon">
-												<img id="weekIcon" src="..">
+												<img id="weekIcon" >
 											</div>
 											<div class="txt">
 												<p id="weekMax"></p>
@@ -1463,7 +1464,7 @@
 												<h4 id="weekDay"></h4>
 											</div>
 											<div class="icon">
-												<img id="weekIcon" src="..">
+												<img id="weekIcon" >
 											</div>
 											<div class="txt">
 												<p id="weekMax"></p>
@@ -1476,7 +1477,7 @@
 												<h4 id="weekDay"></h4>
 											</div>
 											<div class="icon">
-												<img id="weekIcon" src="..">
+												<img id="weekIcon" >
 											</div>
 											<div class="txt">
 												<p id="weekMax"></p>
@@ -1489,7 +1490,7 @@
 												<h4 id="weekDay"></h4>
 											</div>
 											<div class="icon">
-												<img id="weekIcon" src="..">
+												<img id="weekIcon" >
 											</div>
 											<div class="txt">
 												<p id="weekMax"></p>
@@ -1502,7 +1503,7 @@
 												<h4 id="weekDay"></h4>
 											</div>
 											<div class="icon">
-												<img id="weekIcon" src="..">
+												<img id="weekIcon" >
 											</div>
 											<div class="txt">
 												<p id="weekMax"></p>
@@ -1515,7 +1516,7 @@
 												<h4 id="weekDay"></h4>
 											</div>
 											<div class="icon">
-												<img id="weekIcon" src="..">
+												<img id="weekIcon" >
 											</div>
 											<div class="txt">
 												<p id="weekMax"></p>

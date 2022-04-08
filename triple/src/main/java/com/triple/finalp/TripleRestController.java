@@ -1,13 +1,6 @@
 package com.triple.finalp;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.net.URLEncoder;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -26,6 +19,7 @@ import com.triple.finalp.data.service.DataService;
 import com.triple.finalp.data.vo.FlightVo;
 import com.triple.finalp.data.vo.TrainVo;
 import com.triple.finalp.mem.service.MemberService;
+import com.triple.finalp.mem.vo.MyPlanVo;
 import com.triple.finalp.tag.service.TagService;
 
 
@@ -82,21 +76,13 @@ public class TripleRestController {
 	}
 	
 	@RequestMapping(value = "/travel", method = RequestMethod.POST)
-	public void testtravel(@RequestParam("mem_id") String id,@RequestParam("plan_name") String plan_name,
-			@RequestParam("startdate") String startdate,@RequestParam("enddate") String enddate,Model model,HttpServletResponse response) throws JsonGenerationException, JsonMappingException, IOException {
-		
-		/*
-		 * ObjectMapper mapper = new ObjectMapper(); //여행등록 서비스 Object user =
-		 * memberService.info(model, id);
-		 * response.getWriter().print(mapper.writeValueAsString(user));
-		 * response.getWriter().flush();
-		 */
-		 		
-		System.out.println("아이디 : " + id);
-		System.out.println("여행이름 : " + plan_name);
-		System.out.println("시작일 : " + startdate);
-		System.out.println("종료일 : " + enddate);
-		
+	public void testtravel(MyPlanVo myPlanVo, HttpServletResponse response)
+			throws JsonGenerationException, JsonMappingException, IOException {
+		ObjectMapper mapper = new ObjectMapper(); // 여행등록 서비스 Object user =
+		System.out.println(myPlanVo);	
+		memberService.inplan(myPlanVo);
+		// response.getWriter().print(mapper.writeValueAsString(user));
+		// response.getWriter().flush();
 	}
 	
 	@RequestMapping(value = "/tagList", method = RequestMethod.POST)

@@ -35,6 +35,16 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Noto+Serif+KR:wght@200;300;400;500;600;700;900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+	<script type="text/javascript">
+		function bcate(data) {
+			var bdata = data.children.item(1).innerText;
+			/* console.log(data);
+			console.log(data.children);
+			console.log(data.children.item(1));
+			console.log(data.children.item(1).innerText); */
+			location.href="/cate_button/"+bdata;
+		}
+	</script>
 </head>
 <body>
 	
@@ -93,133 +103,6 @@
 			</div>
 		</div>
 
-				<!-- <div class="about_icon">
-					<div class="icon_in">
-						<ul>
-							<li class="icon_t">
-								<a href="javascript:;">
-									<div class="img">
-										<img src="img/icon/1.jpg" alt="이미지">
-									</div>
-									
-									<div class="txt">
-										<h3>제주 여행</h3>
-									</div>
-								</a>
-							</li>
-
-							<li class="icon_t">
-								<a href="javascript:;">
-									<div class="img">
-										<img src="img/icon/3.jpg" alt="이미지">
-									</div>
-									
-									<div class="txt">
-										<h3>항공권</h3>
-									</div>
-								</a>
-							</li>
-
-							<li class="icon_t">
-								<a href="javascript:;">
-									<div class="img">
-										<img src="img/icon/5.jpg" alt="이미지">
-									</div>
-									
-									<div class="txt">
-										<h3>호텔 / 리조트</h3>
-									</div>
-								</a>
-							</li>
-
-							<li class="icon_t">
-								<a href="javascript:;">
-									<div class="img">
-										<img src="img/icon/7.jpg" alt="이미지">
-									</div>
-									
-									<div class="txt">
-										<h3>펜션 / 풀빌라</h3>
-									</div>
-								</a>
-							</li>
-
-							<li class="icon_t">
-								<a href="javascript:;">
-									<div class="img">
-										<img src="img/icon/9.jpg" alt="이미지">
-									</div>
-									
-									<div class="txt">
-										<h3>투어 / 티켓</h3>
-									</div>
-								</a>
-							</li>
-
-							<li>
-								<a href="javascript:;">
-									<div class="img">
-										<img src="img/icon/2.jpg" alt="이미지">
-									</div>
-									
-									<div class="txt">
-										<h3>여행 매거진</h3>
-									</div>
-								</a>
-							</li>
-
-							<li>
-								<a href="javascript:;">
-									<div class="img">
-										<img src="img/icon/4.jpg" alt="이미지">
-									</div>
-									
-									<div class="txt">
-										<h3>혜택 / 렌터카</h3>
-									</div>
-								</a>
-							</li>
-
-							<li>
-								<a href="javascript:;">
-									<div class="img">
-										<img src="img/icon/6.jpg" alt="이미지">
-									</div>
-									
-									<div class="txt">
-										<h3>특가 항공권</h3>
-									</div>
-								</a>
-							</li>
-
-							<li>
-								<a href="javascript:;">
-									<div class="img">
-										<img src="img/icon/8.jpg" alt="이미지">
-									</div>
-									
-									<div class="txt">
-										<h3>부티크 / 모텔</h3>
-									</div>
-								</a>
-							</li>
-
-							<li>
-								<a href="javascript:;">
-									<div class="img">
-										<img src="img/icon/10.jpg" alt="이미지">
-									</div>
-									
-									<div class="txt">
-										<h3>특가 숙소</h3>
-									</div>
-								</a>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div> -->
 
 
 		<div class="swiper kcategory">
@@ -237,11 +120,11 @@
 				</div>
 			</div>
 			<div class="swiper-wrapper">
-				<div class="swiper-slide">
+				<div class="swiper-slide" onclick="bcate(this)">
 					<div class="kimg1"></div>
 					<p>호텔</p>
 				</div>
-				<div class="swiper-slide">
+				<div class="swiper-slide" onclick="bcate(this)">
 					<div class="kimg2"></div>
 					<p>리조트</p>
 				</div>
@@ -253,7 +136,7 @@
 					<div class="kimg4"></div>
 					<p>모텔</p>
 				</div>
-				<div class="swiper-slide">
+				<div class="swiper-slide" onclick="bcate(this)">
 					<div class="kimg5"></div>
 					<p>게스트하우스</p>
 				</div>
@@ -275,131 +158,6 @@
 				</div>
 			</div>
 		</div>
-
-
-
-		<!-- <div class="category">
-			<div class="gory_in">
-				<div class="gory_txt">
-					<h2>국내여행 카테고리</h2>
-				</div>
-
-				<div class="gory_con">
-					<div class="gory_pagebtn">
-						<div class="gory_lbtn"></div>
-						<div class="gory_rbtn"></div>				
-					</div>
-					<div class="con_in">
-						<ul>
-							<li class="li1">
-								<a href="">
-									<div class="img"></div>
-									<div class="cover">
-										<h2>호텔</h2>
-									</div>
-									<h2>호텔</h2>
-								</a>
-							</li>
-
-							<li class="li2"><a href=""><div class="img"></div></a></li>
-							<li class="li3"><a href=""><div class="img"></div></a></li>
-							<li class="li4"><a href=""><div class="img"></div></a></li>
-							<li class="li5"><a href=""><div class="img"></div></a></li>
-							<li class="li6"><a href=""><div class="img"></div></a></li>
-							<li class="li7"><a href=""><div class="img"></div></a></li>
-							<li class="li8"><a href=""><div class="img"></div></a></li>
-							<li class="li9"><a href=""><div class="img"></div></a></li>
-							
-							<li class="li2">
-								<a href="">
-									<div class="img"></div>
-									<div class="cover">
-										<h2>리조트</h2>
-									</div>
-									<h2>리조트</h2>
-								</a>
-							</li>
-
-							<li class="li3">
-								<a href="">
-									<div class="img"></div>
-									<div class="cover">
-										<h2>펜션</h2>
-									</div>
-									<h2>펜션</h2>
-								</a>
-							</li>
-
-							<li class="li4">
-								<a href="">
-									<div class="img"></div>
-									<div class="cover">
-										<h2>모텔</h2>
-									</div>
-									<h2>모텔</h2>
-								</a>
-							</li>
-
-							<li class="li5">
-								<a href="">
-									<div class="img"></div>
-									<div class="cover">
-										<h2>게스트하우스</h2>
-									</div>
-									<h2>게스트하우스</h2>
-								</a>
-							</li>
-							
-							<li class="li6">
-								<a href="">
-									<div class="img"></div>
-									<div class="cover">
-										<h2>캠핑</h2>
-									</div>
-									<h2>캠핑</h2>
-								</a>
-							</li>
-							
-							<li class="li7">
-								<a href="">
-									<div class="img"></div>
-									<div class="cover">
-										<h2>맛집</h2>
-									</div>
-									<h2>맛집</h2>
-								</a>
-							</li>
-							
-							<li class="li8">
-								<a href="">
-									<div class="img"></div>
-									<div class="cover">
-										<h2>패키지여행</h2>
-									</div>
-									<h2>패키지여행</h2>
-								</a>
-							</li>
-							
-							<li class="li9">
-								<a href="">
-									<div class="img"></div>
-									<div class="cover">
-										<h2>티켓</h2>
-									</div>
-									<h2>티켓</h2>
-								</a>
-							</li>
-	
-						</ul>
-						
-						
-						
-						
-					</div>
-				</div>
-			</div>
-		</div> -->
-
 
 
 

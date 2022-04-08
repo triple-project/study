@@ -41,5 +41,9 @@
 		where mem_id = #{mem_id}
 	</select>
 	
+	<insert id="inplan">
+		insert into myplan(startdate,enddate,mem_id,plan_name)
+		values (#{startdate},#{enddate},#{mem_id},#{plan_name})
+	</insert>
 
 </mapper>

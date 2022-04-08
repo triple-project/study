@@ -10,24 +10,20 @@ import org.springframework.ui.Model;
 
 import com.triple.finalp.mem.dao.MemDao;
 import com.triple.finalp.mem.vo.MemVo;
+import com.triple.finalp.mem.vo.MyPlanVo;
 
 @Service
 public class MemberServiceImpl implements MemberService{
 
 	@Autowired
 	MemDao memDao;
-	
-	
+		
 	/*
 	 * @Autowired BCryptPasswordEncoder bCryptPasswordEncoder;
 	 */
 	
 	@Autowired
 	PasswordEncoder passwordEncoder;
-	
-	
-	
-
 
 	@Override
 	public Map<String, String> info(String mem_id) {
@@ -79,6 +75,12 @@ public class MemberServiceImpl implements MemberService{
 	    String mem_id = memVo.getMem_id();
 	      memDao.updatePw(mem_id,mem_pw);
 		
+	}
+
+	@Override
+	public void inplan(MyPlanVo myPlanVo) {
+		// TODO Auto-generated method stub
+		memDao.inplan(myPlanVo);
 	}
 
 }

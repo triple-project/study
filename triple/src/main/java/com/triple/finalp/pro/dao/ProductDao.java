@@ -26,4 +26,5 @@ public interface ProductDao {
 	public ArrayList<ProductVo> getAllAProList(String aid);
 	public int getProIdC(String admin_id);
 	public int mypro(@Param("product_id")String product_id,@Param("product_admin_id")String product_admin_id);
+	public void updateProduct(ProductVo pvo);
 }
