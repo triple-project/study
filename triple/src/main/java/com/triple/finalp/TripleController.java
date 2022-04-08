@@ -250,13 +250,11 @@ public class TripleController {
 		}
 	
 	@RequestMapping(value = "/category/{id}", method = RequestMethod.GET)
-	public String category(@PathVariable("id") String id, Model model) {
+	public String category(@PathVariable("id") String product_id, Model model) {
 		// 카테고리 클릭시 조회페이지
 		// id << jsp 페이지에서 클릭시 보내주는 값
-		System.out.println(id);	//확인
-		model.addAttribute("main",id);	//main에 id값을 삽입
-		productService.find(id, model);	//id값에 대한 조회 > 서비스 > dao > mapper
-		return "category";			//조회결과에 사용할 jsp주소
+		productService.showPro(product_id, model);
+		return "detailedPage";			//조회결과에 사용할 jsp주소
 	}
 	
 	//리뷰등록

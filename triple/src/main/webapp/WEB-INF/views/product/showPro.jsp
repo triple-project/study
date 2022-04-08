@@ -134,7 +134,7 @@
 
 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6325d6dc315ae205e4c0d801d1732810&libraries=services"></script>
-<script type="text/javascript" src="../../resources/js/kakaoMap.js"></script> 
+<script type="text/javascript" src="/resources/js/kakaoMap.js"></script> 
 <script type="text/javascript">
 		window.onload = function real() {
 		var setA = 1;

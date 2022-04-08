@@ -33,12 +33,15 @@
 	
 	<script type="text/javascript">
 		function result3(data) {
-			location.href="/findp3/"+data;
+			//console.log(data.children.item(0).id);
+			var pid = data.children.item(0).id;
+			location.href="/category/"+pid;
 		}
 	</script>
 </head>
 
 <body>
+
 
     <%@ include file="header.jsp"%>
 
@@ -109,9 +112,9 @@
 												
 													<c:forEach items="${ps.value}" var="pv">
 
-														<div class="swiper-slide" onclick="result3(${pv.product_id})">
-															<div class="slide_in">
-																<div class="slide_img" style="background: gray url(../resources/img/??/??.jpg);"></div>
+														<div class="swiper-slide" onclick="result3(this)">
+															<div class="slide_in" id="${pv.product_id}">
+																<div class="slide_img" style="background: gray url(/resources/img/upload/${pv.product_img1});"></div>
 																<div class="slide_cover">
 																	<div class="txt">
 																		<h2 class="cover_txt">${pv.product_name}</h2>

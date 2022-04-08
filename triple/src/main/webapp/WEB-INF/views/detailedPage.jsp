@@ -9,10 +9,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=1300">
     <title>Triple</title>
-    <link rel="stylesheet" href="resources/css/reset.css">
+    <link rel="stylesheet" href="/resources/css/reset.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="resources/css/mobiscroll.jquery.min.css">
+    <link rel="stylesheet" href="/resources/css/mobiscroll.jquery.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css"
         integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -37,27 +37,30 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/v4-shims.min.css"
         integrity="sha512-UtgpaUQPTevIy6walAy8W82eDxOdZJqKS0w2vf0eTItGubnT6TKkbM1GoNyoNvlM4DKhbl45kOK+Z4EhtuK2RA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="resources/css/common.css">
-    <link rel="stylesheet" href="resources/css/detaile.css">
+    <link rel="stylesheet" href="/resources/css/common.css">
+    <link rel="stylesheet" href="/resources/css/detaile.css">
+    <link rel="stylesheet" href="/resources/css/kakaomap.css">
 
 
-    <script src="resources/js/jquery-3.6.0.min.js"></script>
+    <script src="/resources/js/jquery-3.6.0.min.js"></script>
     <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <script src="resources/js/mobiscroll.jquery.min.js"></script>
+    <script src="/resources/js/mobiscroll.jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/8d1d3d3a2e.js" crossorigin="anonymous"></script>
-    <script src="resources/js/main.js"></script>
+    <script src="/resources/js/main.js"></script>
 
     <link rel="shortcut icon" href="#">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Noto+Serif+KR:wght@200;300;400;500;600;700;900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
         rel="stylesheet">
+        
+    
 </head>
 
 <body>
     <jsp:include page="header.jsp" flush="true"/>
-
+<!-- <button onclick="jal()">테스트</button> -->
     <section id="sec">
         <div class="main">
             <div class="main_in">
@@ -83,56 +86,22 @@
                                     <div class="oneIn">
                                         <div class="left">
                                             <div class="tit">
-                                                <h2>숙소이름</h2>
-                                                <h3>소제목</h3>
+                                                <h2>${pvo.product_name}</h2>
+                                                <h3>${pvo.product_shortword}</h3>
                                             </div>
 
                                             <div class="context">
-                                                <ul>
-                                                    <li>
+                                                <ul><!-- 이 아래로 태그 포문으로 꺼내기 -->
+                                                    <c:forEach items="${tList}" var="tl">
+                                                    <li>                     
                                                         <div class="img">
                                                             <img src="" id="icon">
                                                         </div>
                                                         <div class="txt">
-                                                            <h2>제목</h2>
+                                                            <h2>${tl.tag_tag}</h2>
                                                         </div>
                                                     </li>
-
-                                                    <li>
-                                                        <div class="img">
-                                                            <img src="" id="icon">
-                                                        </div>
-                                                        <div class="txt">
-                                                            <h2>제목</h2>
-                                                        </div>
-                                                    </li>
-
-                                                    <li>
-                                                        <div class="img">
-                                                            <img src="" id="icon">
-                                                        </div>
-                                                        <div class="txt">
-                                                            <h2>제목</h2>
-                                                        </div>
-                                                    </li>
-
-                                                    <li>
-                                                        <div class="img">
-                                                            <img src="" id="icon">
-                                                        </div>
-                                                        <div class="txt">
-                                                            <h2>제목</h2>
-                                                        </div>
-                                                    </li>
-
-                                                    <li>
-                                                        <div class="img">
-                                                            <img src="" id="icon">
-                                                        </div>
-                                                        <div class="txt">
-                                                            <h2>제목</h2>
-                                                        </div>
-                                                    </li>
+                                                    </c:forEach>
                                                 </ul>
                                             </div>
                                         </div>
@@ -140,20 +109,21 @@
                                         <div class="right">
                                             <div class="swiper mySwiper2">
                                                 <div class="swiper-wrapper">
+                                                	<!-- 이아래로 이미지5개까지 꺼내기 -->
                                                     <div class="swiper-slide">
-                                                        <div class="img" style="background: blue url(../resources/??/??.jpg) no-repeat 50% 50%;"></div>
+                                                        <div class="img" style="background: blue url(/resources/img/upload/${pvo.product_img1}) no-repeat 50% 50%;"></div>
                                                     </div>
                                                     <div class="swiper-slide">
-                                                        <div class="img" style="background: skyblue url(../resources/??/??.jpg) no-repeat 50% 50%;"></div>
+                                                        <div class="img" style="background: skyblue url(/resources/img/upload/${pvo.product_img2}) no-repeat 50% 50%;"></div>
                                                     </div>
                                                     <div class="swiper-slide">
-                                                        <div class="img" style="background: blue url(../resources/??/??.jpg) no-repeat 50% 50%;"></div>
+                                                        <div class="img" style="background: blue url(/resources/img/upload/${pvo.product_img3}) no-repeat 50% 50%;"></div>
                                                     </div>
                                                     <div class="swiper-slide">
-                                                        <div class="img" style="background: skyblue url(../resources/??/??.jpg) no-repeat 50% 50%;"></div>
+                                                        <div class="img" style="background: skyblue url(/resources/img/upload/${pvo.product_img4}) no-repeat 50% 50%;"></div>
                                                     </div>
                                                     <div class="swiper-slide">
-                                                        <div class="img" style="background: blue url(../resources/??/??.jpg) no-repeat 50% 50%;"></div>
+                                                        <div class="img" style="background: blue url(/resources/img/upload/${pvo.product_img5}) no-repeat 50% 50%;"></div>
                                                     </div>
                                                 </div>
                                                 <div class="btn">
@@ -171,19 +141,19 @@
                                             <div thumbsSlider="" class="swiper mySwiper">
                                                 <div class="swiper-wrapper">
                                                     <div class="swiper-slide">
-                                                        <div class="img" style="background: blue url(../resources/??/??.jpg) no-repeat 50% 50%;"></div>
+                                                        <div class="img" style="background: blue url(/resources/img/upload/${pvo.product_img1}) no-repeat 50% 50%;"></div>
                                                     </div>
                                                     <div class="swiper-slide">
-                                                        <div class="img" style="background: skyblue url(../resources/??/??.jpg) no-repeat 50% 50%;"></div>
+                                                        <div class="img" style="background: skyblue url(/resources/img/upload/${pvo.product_img2}) no-repeat 50% 50%;"></div>
                                                     </div>
                                                     <div class="swiper-slide">
-                                                        <div class="img" style="background: blue url(../resources/??/??.jpg) no-repeat 50% 50%;"></div>
+                                                        <div class="img" style="background: blue url(/resources/img/upload/${pvo.product_img3}) no-repeat 50% 50%;"></div>
                                                     </div>
                                                     <div class="swiper-slide">
-                                                        <div class="img" style="background: skyblue url(../resources/??/??.jpg) no-repeat 50% 50%;"></div>
+                                                        <div class="img" style="background: skyblue url(/resources/img/upload/${pvo.product_img4}) no-repeat 50% 50%;"></div>
                                                     </div>
                                                     <div class="swiper-slide">
-                                                        <div class="img" style="background: blue url(../resources/??/??.jpg) no-repeat 50% 50%;"></div>
+                                                        <div class="img" style="background: blue url(/resources/img/upload/${pvo.product_img5}) no-repeat 50% 50%;"></div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -193,19 +163,23 @@
 
                                 <div class="tow">
                                     <div class="towIn">
-                                        <h2>내용내용내용내용<br>두줄내용두줄내용</h2>
-                                        <h2 class="hiddenText">히든텍스트내용<br>히든두줄히든두줄</h2>
+                                        <h2>${pvo.product_subcontent}</h2>
+                                        <!-- 히든텍스트의 경우 pvo.product_subcontent을 따로 model에 넣고
+                                        글자수로 잘라서 반은 이곳에 반은 히든으로 하면 효과를 볼수있지만
+                                        현재 pvo.product_subcontent의 길이가 적합하지 못합니다 -->
+                                        <!-- <h2 class="hiddenText">히든텍스트내용<br>히든두줄히든두줄</h2>
                                         <div class="hiddenBtn on">
                                             <span></span>
                                             <span></span>
                                             <span></span>
                                         </div>
                                         <div class="plus btnHidden on">더보기<i class="fa-solid fa-angle-right"></i></div>
-                                        <div class="down btnHidden">숨기기<i class="fa-solid fa-xmark"></i></div>
+                                        <div class="down btnHidden">숨기기<i class="fa-solid fa-xmark"></i></div> -->
                                     </div>
                                 </div>
 
-                                <div class="three">
+								<!--2종태그의 경우 현재 주석처리입니다 -->
+                                <div class="three" style="display: none;">
                                     <div class="threeIn">
                                         <div class="tit">
                                             <h2>태그 등록</h2>
@@ -384,11 +358,66 @@
                                             <h2>지도</h2>
                                         </div>
 
-                                        <div class="map">
-                                            
-                                        </div>
+                                        <div class="map_wrap">
+										    <div id="map" style="width:100%;height:100%;position:relative;overflow:hidden;"></div>
+										    <ul id="category">
+										        <li id="BK9" data-order="0"> 
+										            <span class="category_bg bank"></span>
+										            은행
+										        </li>       
+										        <li id="MT1" data-order="1"> 
+										            <span class="category_bg mart"></span>
+										            마트
+										        </li>  
+										        <li id="PM9" data-order="2"> 
+										            <span class="category_bg pharmacy"></span>
+										            약국
+										        </li>  
+										        <li id="OL7" data-order="3"> 
+										            <span class="category_bg oil"></span>
+										            주유소
+										        </li>  
+										        <li id="CE7" data-order="4"> 
+										            <span class="category_bg cafe"></span>
+										            카페
+										        </li>  
+										        <li id="CS2" data-order="5"> 
+										            <span class="category_bg store"></span>
+										            편의점
+										        </li>      
+										    </ul>
+										</div>
                                     </div>
                                 </div>
+                                <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6325d6dc315ae205e4c0d801d1732810&libraries=services"></script>
+								<script type="text/javascript" src="/resources/js/kakaoMap.js"></script> 
+								<script type="text/javascript">
+										window.onload = function real() {
+										var setA = 1;
+										var setB = 2;
+										setA = ${pvo.product_locationx};
+										setB = ${pvo.product_locationy};
+										console.log(setA);
+										console.log(setB); 
+										
+										 // 이동할 위도 경도 위치를 생성합니다 
+									    var moveLatLon = new kakao.maps.LatLng(setA, setB);
+									    
+									    // 지도 중심을 이동 시킵니다
+									    map.setCenter(moveLatLon);
+									    
+									 	// 마커가 표시될 위치입니다 
+									    var markerPosition  = new kakao.maps.LatLng(setA, setB); 
+									    
+										 // 마커를 생성합니다
+									    var marker = new kakao.maps.Marker({
+									        position: markerPosition
+									    });
+									    
+									 	// 마커가 지도 위에 표시되도록 설정합니다
+									    marker.setMap(map);
+									}
+								</script>
 
                                 <div class="six">
                                     <div class="sixIn">
