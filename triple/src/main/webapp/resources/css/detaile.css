@@ -92,7 +92,7 @@
 #sec .main .main_in .tapCon .conIn .tapMenu .menuIn .four .fourIn .fourCon .right .txt h3{line-height:24px;}
 #sec .main .main_in .tapCon .conIn .tapMenu .menuIn .four .fourIn .fourCon .right .table{width:100%;margin-top:20px;}
 #sec .main .main_in .tapCon .conIn .tapMenu .menuIn .four .fourIn .fourCon .right .table table{border:1px solid  #d6d6d6;border-collapse: collapse;width:100%;}
-#sec .main .main_in .tapCon .conIn .tapMenu .menuIn .four .fourIn .fourCon .right .table table tbody tr{font-size:10px;}
+#sec .main .main_in .tapCon .conIn .tapMenu .menuIn .four .fourIn .fourCon .right .table table tbody tr{font-size:12px;}
 #sec .main .main_in .tapCon .conIn .tapMenu .menuIn .four .fourIn .fourCon .right .table table tbody tr th{border:1px solid #d6d6d6;width:10%;line-height:28px;font-weight: 600;}
 #sec .main .main_in .tapCon .conIn .tapMenu .menuIn .four .fourIn .fourCon .right .table table tbody tr td{line-height:40px;border:1px solid #d6d6d6;width:10%;text-align: center;}
 
@@ -110,11 +110,29 @@
 #sec .main .main_in .tapCon .conIn .tapMenu .menuIn .six .sixIn .tit{margin-bottom:20px;}
 #sec .main .main_in .tapCon .conIn .tapMenu .menuIn .six .sixIn .tit h2{font-size:18px;line-height:24px;font-weight: 500;}
 
-#sec .main .main_in .tapCon .conIn .tapMenu .menuIn .six .sixIn .sixCon{border-radius: 10px;border:1px solid red;overflow: hidden;height:500px;width:100%;}
+#sec .main .main_in .tapCon .conIn .tapMenu .menuIn .six .sixIn .sixCon{border-radius: 10px;border:1px solid #b4b4b4;overflow: hidden;height:464px;width:100%;padding:10px;}
+#sec .main .main_in .tapCon .conIn .tapMenu .menuIn .six .sixIn .sixCon ul{}
+#sec .main .main_in .tapCon .conIn .tapMenu .menuIn .six .sixIn .sixCon ul li{position: relative;overflow: hidden;border-bottom:1px solid rgba(0,0,0,.1);padding-bottom:15px;margin-bottom:15px;}
+#sec .main .main_in .tapCon .conIn .tapMenu .menuIn .six .sixIn .sixCon ul li:after{display: block;content: "";clear: both;}
 
+#sec .main .main_in .tapCon .conIn .tapMenu .menuIn .six .sixIn .sixCon ul li .img{float:left;width:180px;height:104px;}
+#sec .main .main_in .tapCon .conIn .tapMenu .menuIn .six .sixIn .sixCon ul li .img img{display: block;width:100%;height:100%;}
 
+#sec .main .main_in .tapCon .conIn .tapMenu .menuIn .six .sixIn .sixCon ul li .info{width:calc(100% - 190px);float:left;margin-right:10px;padding-right:20px;}
+#sec .main .main_in .tapCon .conIn .tapMenu .menuIn .six .sixIn .sixCon ul li .info h2{width:100%;line-height:20px;font-size:14px;overflow: hidden;text-overflow:ellipsis;display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;height:40px;}
 
+#sec .main .main_in .tapCon .conIn .tapMenu .menuIn .six .sixIn .sixCon ul li .user{display: flex;font-size:14px;margin-top:12px;position: relative;}
+#sec .main .main_in .tapCon .conIn .tapMenu .menuIn .six .sixIn .sixCon ul li .user img{width:50px;height:50px;margin-right:10px;border-radius: 50%;overflow: hidden;border:1px solid rgba(0,0,0,.2);}
+#sec .main .main_in .tapCon .conIn .tapMenu .menuIn .six .sixIn .sixCon ul li .user .userIn{}
+#sec .main .main_in .tapCon .conIn .tapMenu .menuIn .six .sixIn .sixCon ul li .user h3{font-size:16px;line-height:30px;font-weight: 500;color:#343434;}
+#sec .main .main_in .tapCon .conIn .tapMenu .menuIn .six .sixIn .sixCon ul li .user h4{line-height:20px;color: #343434;}
 
+#sec .main .main_in .tapCon .conIn .tapMenu .menuIn .six .sixIn .sixCon ul li .close{position: absolute;right:0;bottom:0;width:30px;height:30px;cursor: pointer;display: flex;justify-content: center;align-items: center;}
+#sec .main .main_in .tapCon .conIn .tapMenu .menuIn .six .sixIn .sixCon ul li .close i{font-size:20px;}
+
+#sec .main .main_in .tapCon .conIn .tapMenu .menuIn .six .sixIn .sixCon .plusBtn{border:1px solid rgba(0,0,0,.3);width:200px;height:30px;margin:0 auto;border-radius: 10px;cursor: pointer;}
+#sec .main .main_in .tapCon .conIn .tapMenu .menuIn .six .sixIn .sixCon .plusBtn h2{font-size:14px;line-height:26px;width:100%;text-align: center;}
+#sec .main .main_in .tapCon .conIn .tapMenu .menuIn .six .sixIn .sixCon .plusBtn h2 i{font-size:12px;line-height:26px;margin-left:10px;}
 
 
 

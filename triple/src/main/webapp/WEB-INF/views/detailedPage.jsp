@@ -397,8 +397,78 @@
                                         </div>
 
                                         <div class="sixCon">
-                                            리뷰 넣어주세요
+                                            
+                                            <ul>
+                                                <li>
+                                                    <div class="info">
+                                                        <h2>리뷰내용이들어갈공간입니다.......... 무언가 내용이 얼마나들어갈지 모르니 일단 최대한 두줄과 세줄처리가 가능할 만큼의 내용을 집어넣어보겠습니다. 그러므로 내용은 조금 줄바꿈처리가 어찌 될지 모르고 내용이 얼마나 들어갈지 몰라서 ...그냥 막 써지는대로 써보고 아무렇게나 이어보고 글을 작성해보고 지금 머리를 쥐어짜내는 중입니다. 하지만 아직도 두줄이네요 최소 세줄은 보여줘야할거같은데 .. 어 세줄이 될거같네요 이제 ! 오아아아아아아아 !!! 진짜의미없이 글을 쓰고잇어요 .... 나 대단해 </h2>
+
+                                                        <div class="user">
+                                                            <img src="">
+                                                            <div class="userIn">
+                                                                <h3>닉네임</h3>
+                                                                <h4>작성날짜</h4>
+                                                            </div>
+                                                            <div class="close">
+                                                                <i class="fa-solid fa-xmark"></i>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="img">
+                                                        <img src="">
+                                                    </div>
+                                                </li>
+
+                                                <li>
+                                                    <div class="info">
+                                                        <h2>아버님은 말하셨지 인생을 즐겨라</h2>
+
+                                                        <div class="user">
+                                                            <img src="">
+                                                            <div class="userIn">
+                                                                <h3>닉네임</h3>
+                                                                <h4>작성날짜</h4>
+                                                            </div>
+                                                            <div class="close">
+                                                                <i class="fa-solid fa-xmark"></i>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="img">
+                                                        <img src="">
+                                                    </div>
+                                                </li>
+
+                                                <li>
+                                                    <div class="info">
+                                                        <h2>아모르파티</h2>
+
+                                                        <div class="user">
+                                                            <img src="">
+                                                            <div class="userIn">
+                                                                <h3>닉네임</h3>
+                                                                <h4>작성날짜</h4>
+                                                            </div>
+                                                            <div class="close">
+                                                                <i class="fa-solid fa-xmark"></i>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="img">
+                                                        <img src="">
+                                                    </div>
+                                                </li>
+                                            </ul>
+
+                                            <div class="plusBtn">
+                                                <h2>더보기<i class="fa-solid fa-arrow-down"></i></h2>
+                                                
+                                            </div>
                                         </div>
+
                                     </div>
                                 </div>
 
