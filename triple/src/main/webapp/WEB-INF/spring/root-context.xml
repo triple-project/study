@@ -48,10 +48,10 @@
 			access="hasRole('ROLE_USER')" />
 		<security:intercept-url pattern="/admin/*"
 			access="permitAll" />
-		<security:intercept-url pattern="/padmin/*"
+<!-- 		<security:intercept-url pattern="/padmin/*"
 			access="hasRole('ROLE_PADMIN')" />
 		<security:intercept-url pattern="/sadmin/*"
-			access="hasRole('ROLE_SADMIN')" />
+			access="hasRole('ROLE_SADMIN')" /> -->
 		<!-- 접근 불가능한 곳에 접근시 처리할 페이지 지정 -->
 		<security:access-denied-handler
 			error-page="/403" />
@@ -76,7 +76,7 @@
 			<security:jdbc-user-service
 				data-source-ref="dataSource"
 				users-by-username-query="select mem_id as username, mem_pw as password, enabled  from member where mem_id=?"
-				authorities-by-username-query="select mem_id as username, mem_role as role from member where mem_id=?" />
+				authorities-by-username-query="select mem_id as username, mem_role as authority from member where mem_id=?" />
 		</security:authentication-provider>
 	</security:authentication-manager>
 

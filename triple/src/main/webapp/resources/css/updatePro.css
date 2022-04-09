@@ -1,0 +1,44 @@
+@charset "UTF-8";
+
+#sec{margin-top:50px;}
+#sec .sec_in{width:1300px;padding:0 30px;margin:0 auto;overflow: hidden;}
+#sec .sec_in h1{font-size:24px;line-height:30px;font-weight: 500;margin:50px 0;text-align: center;border-collapse: collapse;}
+
+#sec .sec_in ul{}
+#sec .sec_in ul::after{content: "";display: block;clear: both;}
+#sec .sec_in ul li{display: flex;margin-bottom:10px;line-height:30px;border-bottom:1px solid rgba(0,0,0,.2);padding-bottom:10px;}
+#sec .sec_in ul li h2{font-size:14px;font-weight: 500; padding-right:10px;width:70px;}
+#sec .sec_in ul li input{font-size:14px;outline: none;padding:0 8px;width: calc(100% - 70px);border:none;}
+#sec .sec_in ul li select{font-size:14px;outline: none;padding:0 8px;width: 250px;border:1px solid rgba(0,0,0,.15);border-radius: 10px;}
+
+#sec .sec_in .imgWrap{display: flex;flex-wrap: wrap;padding-bottom:10px;}
+#sec .sec_in .imgWrap .preview{width:18.4%;margin-right:2%;display: flex;flex-wrap: wrap;}
+#sec .sec_in .imgWrap .preview:last-child{margin-right:0;}
+#sec .sec_in .imgWrap .preview img{width:100%;height:150px;display: block;}
+#sec .sec_in .imgWrap .preview h2{line-height:30px;font-size:14px;font-weight: 500;}
+#sec .sec_in .imgWrap .preview input{line-height:30px;font-size:14px;}
+
+#sec .sec_in .submit{padding-bottom:30px;margin-bottom:30px;border-bottom:1px solid rgba(0,0,0,.15);font-size:14px;margin-top:20px;}
+#sec .sec_in .submit:after{content: "";display: block;clear: both;}
+#sec .sec_in .submit input{float:right;border:1px solid rgba(0,0,0,.3);padding:10px 15px;cursor: pointer;font-size: 16px;font-weight: 500;border-radius: 10px;background: #fff;}
+#sec .sec_in .submit input:hover{background: #5de4c2;color:#fff;border:1px solid transparent;}
+
+
+#sec .sec_in .soList{}
+#sec .sec_in .soList .left{width:100%;}
+#sec .sec_in .soList .left h2{line-height:30px;font-size:20px;font-weight: 500;margin-bottom:10px;}
+#sec .sec_in .soList .left .tagName{font-size:16px;line-height:30px;cursor: pointer;}
+#sec .sec_in .soList .left #tf{height:40px;cursor: pointer;}
+#sec .sec_in .soList .left #tf select{font-size:14px;padding:5px 10px;text-align: center;cursor: pointer;border-radius: 10px;outline: none;border:1px solid rgba(0,0,0,.6);margin-right:10px;}
+#sec .sec_in .soList .left #tf select:last-child{margin-right:0;}
+#sec .sec_in .soList .left #tf select:hover{background:#5de4c2;color:#fff;border:1px solid transparent;}
+#sec .sec_in .soList .left .submit{margin-top:0;}
+
+#sec .sec_in .soList .right{width:100%;}
+#sec .sec_in .soList .right h2{line-height:30px;font-size:20px;font-weight: 500;margin-bottom:10px;}
+#sec .sec_in .soList .right > div{font-size:14px;font-weight: 500;margin-bottom:10px;display: flex;flex-wrap: wrap;padding-bottom: 10px;border-bottom:1px solid rgba(0,0,0,.15);}
+#sec .sec_in .soList .right > div:last-child{margin-bottom:0;}
+#sec .sec_in .soList .right > div p{width:calc(100% - 80px);line-height:40px;}
+#sec .sec_in .soList .right > div p span{font-weight: 400;}
+#sec .sec_in .soList .right > div button{width:80px;padding:10px 0px;border-radius: 10px;background: #fff;border:1px solid rgba(0,0,0,.3);cursor: pointer;}
+#sec .sec_in .soList .right > div button:hover{background:#5de4c2;color:#fff;border:1px solid transparent;}

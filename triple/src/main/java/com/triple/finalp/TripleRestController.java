@@ -85,12 +85,32 @@ public class TripleRestController {
 		// response.getWriter().flush();
 	}
 	
+	@RequestMapping(value = "/ftravel", method = RequestMethod.POST)
+	public void ftravel(@RequestParam("mem_id")String mem_id, HttpServletResponse response)
+			throws JsonGenerationException, JsonMappingException, IOException {
+		ObjectMapper mapper = new ObjectMapper(); 
+		System.out.println(mem_id);	
+		Object mpl = memberService.fplan(mem_id);
+		response.getWriter().print(mapper.writeValueAsString(mpl));
+		response.getWriter().flush();
+	}
+	
 	@RequestMapping(value = "/tagList", method = RequestMethod.POST)
 	public void tagList(@RequestParam("tag_cate") String tag_cate,HttpServletResponse response) throws JsonGenerationException, JsonMappingException, IOException {
 		ObjectMapper mapper = new ObjectMapper();
 		Object tl = tagService.getList(tag_cate);	
 		response.getWriter().print(mapper.writeValueAsString(tl));
 		response.getWriter().flush();		
+	}
+	
+	@RequestMapping(value = "/ftravelinfo", method = RequestMethod.POST)
+	public void ftravelinfo(@RequestParam("plan_id")String plan_id, HttpServletResponse response)
+			throws JsonGenerationException, JsonMappingException, IOException {
+		ObjectMapper mapper = new ObjectMapper(); 
+		System.out.println(plan_id);	
+		Object mpl = memberService.fplanc(plan_id);
+		response.getWriter().print(mapper.writeValueAsString(mpl));
+		response.getWriter().flush();
 	}
 
 }

@@ -64,17 +64,21 @@
 		
 		function ftravel() {
 			$.ajax({
-				type : "GET",
-				url : "/rest/travel",
+				type : "POST",
+				url : "/rest/ftravel",
 					dataType : "json",
 					data : {
-						mem_id : $("#sat").text(),
+						mem_id : $("#sat").text()
 					},
 					success : function(data) {
 		           		 // C에서 받아온 데이터로 새로 뿌려주기
 						console.log(data);
-						/* $("#heart_num").html(data.heart)
-						$("#plan_num").html(data.plan) */
+ 						for (var i = 0; i < data.length; i++) {
+ 							//$("#plantable").append("<div>" + data[i].plan_name + data[i].startdate + data[i].enddate + "</div>");
+ 							//$("#plantable").append("<tr>" + "<td>" + data[i].startdate + "</td>" + "</tr>");
+ 							//$("#plantable").append("<tr>" + "<td>" + data[i].enddate + "</td>" + "</tr>");
+						}  
+						
 					},
 					error : function(a){
 						console.log(a);
@@ -130,29 +134,40 @@
 </head>
 <body>
 	<jsp:include page="/WEB-INF/views/header.jsp" flush="true"/>
-	<form action="join" method="post">
+	
+<!-- 	<form action="join" method="post">
 	아이디 : <input type="text" name="mem_id">
 	비밀번호 : <input type="text" name="mem_pw">
 	이름 : <input type="text" name="name">
 	<input type="submit" value="가입">
 	</form>
-	<a href="aa">test</a>
+	<a href="aa">test</a>  -->
 	<hr>
 	<p style="font-size: 5em;">일정 혹은 여행</p>
 	
 	
 	<div id="travel_c">
-		<div>일정이름</div>
-		<div>일정날짜</div>
+		<table border="1" id="plantable">
+			<thead>
+				<tr>
+					<td>여행이름</td>
+					<td>여행시작</td>
+					<td>여행종료</td>
+				</tr>
+			</thead>
+		</table>
 	</div>
+	<hr>
 	<form action="">
 	여행이름	<input type="text" name="t_name" id="t_name"><br>
-	여행기간	<input type="text" id="t_date" name="t_date" readonly="readonly"/><br>
-	
+	여행기간	<input type="text" id="t_date" name="t_date" readonly="readonly"/><br>	
 	</form>
-	<button onclick="travel()">여행만들기</button>
+	
 	<button onclick="d_test()">날짜값조회</button>
 	<!-- <button onclick="select()">상단검색테스트</button> -->
+	<button onclick="travel()">여행만들기</button>
 	<button onclick="ftravel()">여행조회</button>
+	<div style="display: none;" onclick=""></div>
+	<img src="" width="100" height="100"/>
 </body>
 </html>

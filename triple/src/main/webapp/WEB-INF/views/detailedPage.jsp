@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix='security' uri='http://www.springframework.org/security/tags'%>
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -55,7 +56,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Noto+Serif+KR:wght@200;300;400;500;600;700;900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
         rel="stylesheet">
         
-    
+<script type="text/javascript">
+	function heart() {
+		var h = '${pvo.product_id}';
+		console.log(h);
+	}
+</script>    
 </head>
 
 <body>
@@ -89,6 +95,16 @@
                                                 <h2>${pvo.product_name}</h2>
                                                 <h3>${pvo.product_shortword}</h3>
                                             </div>
+                                            <security:authorize access="isAuthenticated()">
+                                            <div>
+                                            	<div onclick="heart()">
+                                            	하트
+                                            	</div>
+                                            	<div class="onePlusBtn">
+                                            	여행에추가
+                                            	</div>
+                                            </div>
+                                            </security:authorize>
 
                                             <div class="context">
                                                 <ul><!-- 이 아래로 태그 포문으로 꺼내기 -->
@@ -505,7 +521,165 @@
                         </div>
 
                         <div class="tapMenu">
-                    
+
+                            <div class="room">
+                                <div class="roomIn">
+                                    <div class="left">
+                                        <div class="swiper detailedSlider">
+                                            <div class="swiper-wrapper">
+                                                <div class="swiper-slide" style="background: skyblue url(??.jpg) no-repeat 50% 50%;"></div>
+                                                <div class="swiper-slide" style="background: pink url(??.jpg) no-repeat 50% 50%;"></div>
+                                                <div class="swiper-slide" style="background: green url(??.jpg) no-repeat 50% 50%;"></div>
+                                            </div>
+                                            <div class="arrowBtn">
+                                                <div class="swiper-button-prev">
+                                                    <i class="fa-solid fa-angle-left"></i>
+                                                </div>
+                                                <div class="swiper-pagination"></div>
+                                                <div class="swiper-button-next">
+                                                    <i class="fa-solid fa-angle-right"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="right">
+                                        <div class="tit">
+                                            <h2>객실이름<span><i class="fa-solid fa-user-group"></i>기준 {??} ~ 최대 {??}</span>
+                                            </h2>
+                                            <h3>침대룸+화장실1 / 27평</h3>
+                                        </div>
+
+                                        <div class="tag">
+                                            <ul>
+                                                <li>
+                                                    <div class="img">
+                                                        <img src="" alt="">
+                                                    </div>
+                                                    <div class="txt">
+                                                        <h3>태그네임</h3>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+
+                                        <div class="money">
+                                            <table>
+                                                <tbody>
+                                                    <tr>
+                                                        <th>시즌</th>
+                                                        <th>주중</th>
+                                                        <th>금요일</th>
+                                                        <th>주말</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>비수기</td>
+                                                        <td>요금</td>
+                                                        <td>요금</td>
+                                                        <td>요금</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>성수기</td>
+                                                        <td>요금</td>
+                                                        <td>요금</td>
+                                                        <td>요금</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>준성수기</td>
+                                                        <td>요금</td>
+                                                        <td>요금</td>
+                                                        <td>요금</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+
+                                        <div class="re">
+                                            <h2>예약하기</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="room">
+                                <div class="roomIn">
+                                    <div class="left">
+                                        <div class="swiper detailedSlider">
+                                            <div class="swiper-wrapper">
+                                                <div class="swiper-slide" style="background: skyblue url(??.jpg) no-repeat 50% 50%;"></div>
+                                                <div class="swiper-slide" style="background: pink url(??.jpg) no-repeat 50% 50%;"></div>
+                                                <div class="swiper-slide" style="background: green url(??.jpg) no-repeat 50% 50%;"></div>
+                                            </div>
+                                            <div class="arrowBtn">
+                                                <div class="swiper-button-prev">
+                                                    <i class="fa-solid fa-angle-left"></i>
+                                                </div>
+                                                <div class="swiper-pagination"></div>
+                                                <div class="swiper-button-next">
+                                                    <i class="fa-solid fa-angle-right"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="right">
+                                        <div class="tit">
+                                            <h2>객실이름<span><i class="fa-solid fa-user-group"></i>기준 {??} ~ 최대 {??}</span>
+                                            </h2>
+                                            <h3>침대룸+화장실1 / 27평</h3>
+                                        </div>
+
+                                        <div class="tag">
+                                            <ul>
+                                                <li>
+                                                    <div class="img">
+                                                        <img src="" alt="">
+                                                    </div>
+                                                    <div class="txt">
+                                                        <h3>태그네임</h3>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+
+                                        <div class="money">
+                                            <table>
+                                                <tbody>
+                                                    <tr>
+                                                        <th>시즌</th>
+                                                        <th>주중</th>
+                                                        <th>금요일</th>
+                                                        <th>주말</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>비수기</td>
+                                                        <td>요금</td>
+                                                        <td>요금</td>
+                                                        <td>요금</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>성수기</td>
+                                                        <td>요금</td>
+                                                        <td>요금</td>
+                                                        <td>요금</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>준성수기</td>
+                                                        <td>요금</td>
+                                                        <td>요금</td>
+                                                        <td>요금</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+
+                                        <div class="re">
+                                            <h2>예약하기</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
 
                     </div>
@@ -526,6 +700,13 @@
             </div>
         </div>
     </section>
+    
+    <div class="plusList">
+        <div class="plusListIn">
+
+        </div>
+    </div>
+    <div class="plusListCover"></div>
 
     <%@ include file="footer.jsp"%>
 </body>

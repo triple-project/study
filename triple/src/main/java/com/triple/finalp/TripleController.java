@@ -88,7 +88,7 @@ public class TripleController {
 	public String wea() {
 		//인덱스로 보내기
 
-		return "detailedPage";
+		return "test/member/join";
 	}
 	
 	@RequestMapping(value = "/join", method = RequestMethod.POST)
@@ -117,7 +117,7 @@ public class TripleController {
 	public String mag(Authentication authentication,Model model) {
 		//매거진작성으로 보내기
 
-		return "test/mag/testmagwrite";
+		return "test/mag/testmagwrite2";
 	}
 	
 	@RequestMapping(value = "/trv", method = RequestMethod.GET)
@@ -130,7 +130,7 @@ public class TripleController {
 
 	
 	@RequestMapping(value = "/writesave", method = RequestMethod.POST)
-	public String testsave(@RequestParam("image_file_name_h") List<String> image_file_name_h,MagVo magVo, MultipartHttpServletRequest mhsr,Model model) throws IllegalStateException, IOException {
+	public String testsave(@RequestParam("mimage_file_name_h") List<String> image_file_name_h,MagVo magVo, MultipartHttpServletRequest mhsr,Model model) throws IllegalStateException, IOException {
 		//작성글 저장
 		//mhsr 사용,이동후 file서비스를 사용하는 방식으로
 		magSerivce.save(magVo);
@@ -179,7 +179,7 @@ public class TripleController {
 		System.out.println(pvo);
 		String pid = principal.getName() + pvo.getProduct_id();
 		pvo.setProduct_id(pid);
-		pvo.setAdmin_id(principal.getName());
+		pvo.setProduct_admin_id(principal.getName());
 		productService.register(pvo,tag_list_h);
 		fileService.save(mhsr, image_h);
 		return "redirect:/admin/oL";

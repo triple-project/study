@@ -11,10 +11,11 @@
 #sec .main .main_in .tapName .nameIn ul li h2{width: 100%;padding:20px 0;cursor: pointer;text-align: center;font-size:14px;border-bottom:4px solid transparent;transition: all .2s ease-in-out;}
 #sec .main .main_in .tapName .nameIn ul li.on h2{border-bottom:4px solid #5de4c2;}
 
-#sec .main .main_in .tapCon{padding:0 40px;}
-#sec .main .main_in .tapCon .conIn{}
-#sec .main .main_in .tapCon .conIn .tapMenu{}
-#sec .main .main_in .tapCon .conIn .tapMenu .menuIn{}
+#sec .main .main_in .tapBottom .nameIn ul{border-top:1px solid rgba(0,0,0,.15);border-bottom:none;}
+#sec .main .main_in .tapBottom .nameIn ul li{margin-bottom:0;margin-top:-1px;}
+#sec .main .main_in .tapBottom .nameIn ul li h2{border-top:4px solid transparent;border-bottom:none}
+#sec .main .main_in .tapBottom .nameIn ul li.on h2{border-top:4px solid #5de4c2;border-bottom:none;}
+
 #sec .main .main_in .tapCon .conIn .tapMenu .menuIn .one{margin:50px 0 0;padding-bottom:50px;border-bottom:1px solid rgba(0,0,0,.15);}
 #sec .main .main_in .tapCon .conIn .tapMenu .menuIn .one .oneIn{display: flex;flex-wrap: wrap;}
 #sec .main .main_in .tapCon .conIn .tapMenu .menuIn .one .oneIn .left{width:43%;padding-right:60px;}
@@ -23,7 +24,6 @@
 #sec .main .main_in .tapCon .conIn .tapMenu .menuIn .one .oneIn .left .tit h3{font-size:12px;opacity: .4;}
 
 #sec .main .main_in .tapCon .conIn .tapMenu .menuIn .one .oneIn .left .context{margin:55px 0 0;}
-#sec .main .main_in .tapCon .conIn .tapMenu .menuIn .one .oneIn .left .context ul{}
 #sec .main .main_in .tapCon .conIn .tapMenu .menuIn .one .oneIn .left .context ul li{height:56px;margin-bottom:12px;display: flex;flex-wrap: wrap;}
 #sec .main .main_in .tapCon .conIn .tapMenu .menuIn .one .oneIn .left .context ul li .img{border:1px solid red;width:50px;height:100%;margin-right:19px;}
 #sec .main .main_in .tapCon .conIn .tapMenu .menuIn .one .oneIn .left .context ul li .img img{display: block;}
@@ -32,7 +32,6 @@
 
 #sec .main .main_in .tapCon .conIn .tapMenu .menuIn .one .oneIn .right{width:57%;}
 #sec .main .main_in .tapCon .conIn .tapMenu .menuIn .one .oneIn .right .mySwiper2{border-radius: 10px;overflow: hidden;}
-#sec .main .main_in .tapCon .conIn .tapMenu .menuIn .one .oneIn .right .mySwiper2 .swiper-slide{}
 #sec .main .main_in .tapCon .conIn .tapMenu .menuIn .one .oneIn .right .mySwiper2 .swiper-slide .img{width:100%;height:366px;}
 
 #sec .main .main_in .tapCon .conIn .tapMenu .menuIn .one .oneIn .right .mySwiper2 .btn{position: absolute;display: flex;flex-wrap: wrap;left:50%;bottom:30px;transform: translateX(-50%);z-index: 1;border-radius: 10px;background: rgba(255,255,255,.5);}
@@ -135,8 +134,48 @@
 #sec .main .main_in .tapCon .conIn .tapMenu .menuIn .six .sixIn .sixCon .plusBtn h2 i{font-size:12px;line-height:26px;margin-left:10px;}
 
 
+#sec .main .main_in .tapCon .conIn .tapMenu .room{width:100%;height:100%;padding:50px 0; border-bottom:1px solid rgba(0,0,0,.2);}
+#sec .main .main_in .tapCon .conIn .tapMenu .room:last-child{border-bottom:none;}
+#sec .main .main_in .tapCon .conIn .tapMenu .room .roomIn{width:100%;height:100%;display: flex;}
+#sec .main .main_in .tapCon .conIn .tapMenu .room .roomIn .left{width:47%;border-radius: 10px;overflow: hidden;}
+#sec .main .main_in .tapCon .conIn .tapMenu .room .roomIn .left .swiper{width:100%;height:100%;}
+#sec .main .main_in .tapCon .conIn .tapMenu .room .roomIn .left .swiper .swiper-slide{width:100%;height:100%;}
 
-#sec .main .main_in .tapBottom .nameIn ul{border-top:1px solid rgba(0,0,0,.15);border-bottom:none;}
-#sec .main .main_in .tapBottom .nameIn ul li{margin-bottom:0;margin-top:-1px;}
-#sec .main .main_in .tapBottom .nameIn ul li h2{border-top:4px solid transparent;border-bottom:none}
-#sec .main .main_in .tapBottom .nameIn ul li.on h2{border-top:4px solid #5de4c2;border-bottom:none;}
+#sec .main .main_in .tapCon .conIn .tapMenu .room .roomIn .left .swiper .arrowBtn{position: absolute;display: flex;flex-wrap: wrap;left:50%;bottom:30px;transform: translateX(-50%);z-index: 1;border-radius: 10px;background: rgba(255,255,255,.5);}
+#sec .main .main_in .tapCon .conIn .tapMenu .room .roomIn .left .swiper .arrowBtn .swiper-button-next{position:static;left:auto;top:auto;right:auto;bottom:auto;margin-top:auto;width:30px;height:30px;color:#343434;}
+#sec .main .main_in .tapCon .conIn .tapMenu .room .roomIn .left .swiper .arrowBtn .swiper-button-next:after{display: none;}
+#sec .main .main_in .tapCon .conIn .tapMenu .room .roomIn .left .swiper .arrowBtn .swiper-pagination{position:static;left:auto;top:auto;right:auto;bottom:auto;margin-top:auto;width:50px;height:30px;font-size:14px;color:#343434;line-height:28px;}
+#sec .main .main_in .tapCon .conIn .tapMenu .room .roomIn .left .swiper .arrowBtn .swiper-button-prev{position:static;left:auto;top:auto;right:auto;bottom:auto;margin-top:auto;width:30px;height:30px;color:#343434;}
+#sec .main .main_in .tapCon .conIn .tapMenu .room .roomIn .left .swiper .arrowBtn .swiper-button-prev::after{display: none;}
+.swiper-button-disabled{opacity: 1;}
+
+
+#sec .main .main_in .tapCon .conIn .tapMenu .room .roomIn .right{width:53%;padding-left:45px;color:#343434;position: relative;padding-top:22px;}
+#sec .main .main_in .tapCon .conIn .tapMenu .room .roomIn .right .tit{position: relative;}
+#sec .main .main_in .tapCon .conIn .tapMenu .room .roomIn .right .tit h2{font-size:24px;font-weight: 500;}
+#sec .main .main_in .tapCon .conIn .tapMenu .room .roomIn .right .tit h2 span{margin-left:5px;font-size:12px;}
+#sec .main .main_in .tapCon .conIn .tapMenu .room .roomIn .right .tit h3{line-height:24px;font-size:14px;font-weight: 500;opacity: .6;margin-bottom:10px;}
+
+#sec .main .main_in .tapCon .conIn .tapMenu .room .roomIn .right .tag ul:after{content: "";display: block;clear: both;}
+#sec .main .main_in .tapCon .conIn .tapMenu .room .roomIn .right .tag ul li{float:left;text-align: center;margin-right:5px;}
+
+#sec .main .main_in .tapCon .conIn .tapMenu .room .roomIn .right .tag ul li .img{width:40px;height:40px;margin:0 auto;}
+#sec .main .main_in .tapCon .conIn .tapMenu .room .roomIn .right .tag ul li .img img{display: block;width:100%;height:100%;}
+
+#sec .main .main_in .tapCon .conIn .tapMenu .room .roomIn .right .tag ul li .txt{margin-top:5px;}
+#sec .main .main_in .tapCon .conIn .tapMenu .room .roomIn .right .tag ul li .txt h3{font-size:12px;font-weight: 500;}
+
+#sec .main .main_in .tapCon .conIn .tapMenu .room .roomIn .right .money{margin:10px 0 34px;width:100%;}
+#sec .main .main_in .tapCon .conIn .tapMenu .room .roomIn .right .money table{border-collapse: collapse;width:100%;}
+#sec .main .main_in .tapCon .conIn .tapMenu .room .roomIn .right .money table tr{font-size:14px;font-weight: 500;color:#808080;}
+#sec .main .main_in .tapCon .conIn .tapMenu .room .roomIn .right .money table tr th{border:1px solid #d6d6d6;padding:16px 0;width:10%;background: #eeeeee;}
+#sec .main .main_in .tapCon .conIn .tapMenu .room .roomIn .right .money table tr th:first-child{width:25%;background: #f8f1e9;}
+#sec .main .main_in .tapCon .conIn .tapMenu .room .roomIn .right .money table tr td{border:1px solid #d6d6d6;padding:12px 0;text-align: center;}
+
+#sec .main .main_in .tapCon .conIn .tapMenu .room .roomIn .right .re{position: absolute;right:0;top:22px;overflow: hidden;border-radius: 10px;background: #5de4c2;line-height:48px;height:48px;width:260px;cursor: pointer;}
+#sec .main .main_in .tapCon .conIn .tapMenu .room .roomIn .right .re h2{color:#fff;text-align: center;}
+.plusList{position: fixed;width:600px;height:600px;overflow: hidden;border-radius: 10px;background: #fff;box-shadow: 0 0 15px rgba(0,0,0,.15);left:50%;top:50%;transform: translate(-50%, -50%);z-index: 1000;display: none;}
+.plusList .plusListIn{padding:30px;}
+.plusListCover{position: fixed;width: 100%;height: 100%;left:0;top:0;right:0;bottom:0;background: rgba(0,0,0,.2);z-index: 999;display: none;}
+.plusList.on{display: block;}
+.plusListCover.on{display: block;}

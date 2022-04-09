@@ -62,9 +62,10 @@
 #sec_owner .own .own_in .own_list .list_cate {height: 100%;width: 150px;float: left;}
 #sec_owner .own .own_in .own_list .list_cate p {padding:none; text-align: center;}
 #sec_owner .own .own_in .own_list .list_mod {height: 100%;width: 150px;display: flex;flex-direction: column;justify-content:center;align-items: center;}
-#sec_owner .own .own_in .own_list .list_mod .mod_btn {height:30%;width: 100px;border: 1px solid #999;border-radius: 10px;margin: 1px;text-align: center;line-height: 30px;cursor: pointer;}
-#sec_owner .own .own_in .own_list .list_mod .mod_btn:hover {background: #5de4c2;border:none;}
-/* 리스트 내용 끝 */
+#sec_owner .own .own_in .own_list .list_mod .mod_btn {width: 100px;border: 1px solid #999;border-radius: 10px;margin: 1px;text-align: center;padding:5px;}
+#sec_owner .own .own_in .own_list .list_mod .mod_btn a{color:#343434;}
+#sec_owner .own .own_in .own_list .list_mod .mod_btn:hover {background: #5de4c2;border:1px solid transparent;color:#fff}
+#sec_owner .own .own_in .own_list .list_mod .mod_btn:hover a{color:#fff;}
 
 /* 리스트 아래 */
 #sec_owner .own_bottom {top:886px;width: 1240px;height: 50px;display:flex;}

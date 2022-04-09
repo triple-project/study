@@ -637,6 +637,121 @@
 </script>
 <!--  날씨위젯 끝  -->
 
+<script type="text/javascript">
+		function travel() {
+			var t_date = $("#t_date").val();
+			t_date = t_date.split("~");
+			var t_dateb = t_date[0].trim();
+			var t_datec = t_date[1].trim();
+			$.ajax({
+				type : "POST",
+				url : "/rest/travel",
+					dataType : "json",
+					data : {
+						mem_id : $("#sat").text(),
+						plan_name : $("#t_name").val(),
+						startdate : t_dateb,
+						enddate : t_datec
+					},
+					success : function(data) {
+		           		 // C에서 받아온 데이터로 새로 뿌려주기
+						console.log(data);
+						/* $("#heart_num").html(data.heart)
+						$("#plan_num").html(data.plan) */
+					},
+					error : function(a){
+						console.log(a);
+		            }
+				});
+		}
+		
+		function ftravel() {
+			$.ajax({
+				type : "POST",
+				url : "/rest/ftravel",
+					dataType : "json",
+					data : {
+						mem_id : $("#sat").text()
+					},
+					success : function(data) {
+		           		 // C에서 받아온 데이터로 새로 뿌려주기
+						console.log(data);
+						$("#travel_c").html("");
+						$(".right").html("");
+ 						for (var i = 0; i < data.length; i++) {
+ 							$("#travel_c").append("<div onclick='ftravel_info(this)'>" + data[i].plan_name + data[i].startdate + data[i].enddate + '<div style="display: none;">' + data[i].plan_id + "</div>" + "</div>");
+ 							//$("#plantable").append("<tr>" + "<td>" + data[i].plan_name + "</td>" + "<td>" + data[i].startdate + "</td>" + "<td>" + data[i].enddate + "</td>" + "</tr>");
+ 							//$("#plantable").append("<tr>" + "<td>" + data[i].startdate + "</td>" + "</tr>");
+ 							//$("#plantable").append("<tr>" + "<td>" + data[i].enddate + "</td>" + "</tr>");
+						}  
+						
+					},
+					error : function(a){
+						console.log(a);
+		            }
+				});
+		}
+		
+		function ftravel_info(tdata) {
+			console.log(tdata.children.item(0).innerText);
+			var pli = tdata.children.item(0).innerText;
+			$.ajax({
+				type : "POST",
+				url : "/rest/ftravelinfo",
+					dataType : "json",
+					data : {
+						plan_id : pli
+					},
+					success : function(data) {
+						$(".right").html("");
+						for (var i = 0; i < data.length; i++) {						
+ 							$(".right").append("<div onclick='ftravel_goto(this)'>" + '<img src="/resources/img/upload/'+data[i].product_img1+'" width="100" height="100"/>' + data[i].product_name + data[i].product_shortword+ data[i].product_address + '<div style="display: none;">' + data[i].product_id + "</div>" + "</div>");
+						}					
+					},
+					error : function(a){
+						console.log(a);
+		            }
+				});
+		}
+		
+		function ftravel_goto(gdata) {
+			console.log(gdata.children.item(1).innerText);
+			location.href="/category/"+gdata.children.item(1).innerText;
+		}
+		
+	</script>
+
+	
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+	<script type="text/javascript">
+	$(function () {
+        $('#t_date').daterangepicker({
+            "locale": {
+                "format": "YYYY-MM-DD",
+                "separator": " ~ ",
+                "applyLabel": "확인",
+                "cancelLabel": "취소",
+                "fromLabel": "From",
+                "toLabel": "To",
+                "customRangeLabel": "Custom",
+                "weekLabel": "W",
+                "daysOfWeek": ["월", "화", "수", "목", "금", "토", "일"],
+                "monthNames": ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"],
+                
+            },
+            "startDate": new Date(),
+            "endDate": new Date(),
+            "drops": "down",
+            "opens": "center"
+        }, function (start, end, label) {
+            console.log('New date range selected: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD') + ' (predefined range: ' + label + ')');
+        });
+    });
+	
+	</script>
+
 <header id="header">
 	<div class="header_in" id="header_in">
 		<h1><a href="/">TRIPLE</a></h1>
@@ -759,20 +874,28 @@
 				<div class="bottom">
 					<ul>
 						<li>
+							<security:authorize access="isAnonymous()">
 							<a href="javascript:;">
 								<div class="num">
-									<!-- jsp코드 -->
-									<security:authorize access="isAnonymous()">
-									<p></p>
-									</security:authorize>
-									<security:authorize access="isAuthenticated()">
-									<span id="plan_num"></span>
-									</security:authorize>
+									<!-- jsp코드 -->									
+									<p></p>									
 								</div>
 								<div class="txt">
 									<h4>내 여행</h4>
 								</div>
 							</a>
+							</security:authorize>
+							<security:authorize access="isAuthenticated()">
+							<a onclick="ftravel()">
+								<div class="num">
+									<!-- jsp코드 -->									
+									<span id="plan_num"></span>								
+								</div>
+								<div class="txt">
+									<h4>내 여행</h4>
+								</div>
+							</a>
+							</security:authorize>
 						</li>
 
 						<li>
@@ -888,7 +1011,7 @@
 			<div class="tip_in">
 				<ul>
 					<li>
-						<a href="javascript:;">
+						<a href="/qna/noticeList">
 							<div class="img">
 								<i class="fa-solid fa-bullhorn"></i>
 							</div>
@@ -936,7 +1059,7 @@
 					</li>
 
 					<li>
-						<a href="javascript:;">
+						<a href="/qna/">
 							<div class="img">
 								<i class="fa-solid fa-headset"></i>
 							</div>
@@ -1066,7 +1189,7 @@
                <div class="mbs_profile">
                   <div class="profile_frame1">
                      <div class="frame1_1">
-                        <span>프로필</span>
+                        <span>프로필 사진</span>
                         <!-- <input type="text" name="mem_img" placeholder="사진은 꼭 안넣으셔도 됩니다."> -->
                         <input type="file" name="image_file_name" id="image_file_name" onchange="readURL(this);" /> 
                         <input type="hidden" name="mem_img" id="img_h">
@@ -1103,7 +1226,7 @@
    </security:authorize>
    
    	<security:authorize access="isAuthenticated()">
-	 <div id="join_mbs">
+	 <div id="join_mbs" class="joinUpdate">
       <div class="join_mbs_in">
          <h3>회원정보수정</h3>
          
@@ -1150,7 +1273,7 @@
 					<div class="mbs_profile">
 						<div class="profile_frame1">
 							<div class="frame1_1">
-								<span>프로필</span>
+								<span>프로필 사진</span>
 								<!-- <input type="text" name="mem_img" placeholder="사진은 꼭 안넣으셔도 됩니다."> -->
 								<input type="file" name="image_file_name" id="image_file_name"
 									onchange="readURL(this);" /> 
@@ -1192,7 +1315,7 @@
 		<div class="tap">
 			<ul>
 				<li class="on">
-					<a href="javascript:;">내 여행</a>
+					<a onclick="ftravel()">내 여행</a>
 				</li>
 
 				<li>
@@ -1208,7 +1331,8 @@
 		<div class="menutap">
 			<div class="tap_in">
 				<div class="con on">
-				<!-- 시큐리티 로그인안함 -->
+				<!-- 시큐리티 로그인안함 여행시작-->
+					<security:authorize access="isAnonymous()">
 					<div class="con_in un_login_con">
 						<div class="message_box">
 							<div class="icon">
@@ -1222,13 +1346,38 @@
 							</div>
 						</div>
 					</div>
+					</security:authorize>
 				<!-- 시큐리티 로그인함 -->
+					<security:authorize access="isAuthenticated()">
 					<div class="login_con">
-						<!-- 내용을 넣어주세요 -->
+						<!-- <!— 내용을 넣어주세요 —> -->
+						<div class="loginConIn">
+								<div class="left">
+									<div id="travel_c">
+										<span>여행이름</span> <span>여행시작</span> <span>여행종료</span>
+									</div>
+								</div>
+
+								<div class="right">
+<!-- 							아래의 폼은 만들기 여행작성 활성화를 누르면 보이고 
+							여행 만들기를 수행하면 안보이게 사라져야합니다 -->
+								<div>
+									<form action="">
+										여행이름	<input type="text" name="t_name" id="t_name"><br>
+										여행기간	<input type="text" id="t_date" name="t_date" readonly="readonly"/><br>	
+									</form>
+									<button onclick="travel()">여행만들기!</button>
+									<button onclick="ftravel()">여행조회</button>
+								</div>
+								<button>여행작성 활성화</button>
+							</div>
+						</div>
 					</div>
+					</security:authorize>
 				</div>
 
 				<div class="con">
+				<security:authorize access="isAnonymous()">
 					<div class="con_in un_login_con">
 						<div class="message_box">
 							<div class="icon">
@@ -1242,10 +1391,22 @@
 							</div>
 						</div>
 					</div>
+				</security:authorize>
 
+					<security:authorize access="isAuthenticated()">
 					<div class="login_con">
-						<!-- 내용을 넣어주세요 -->
+						<!-- <!— 내용을 넣어주세요 —> -->
+						<div class="loginConIn">
+							<div class="left">
+
+							</div>
+
+							<div class="right">
+
+							</div>
+						</div>
 					</div>
+					</security:authorize>
 				</div>
 
 				<div class="con">

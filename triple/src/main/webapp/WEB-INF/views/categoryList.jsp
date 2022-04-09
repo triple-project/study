@@ -55,7 +55,7 @@
                                 <div class="list_con">
                                     <div class="con_in">
                                         <div class="left">
-                                            <div class="m_img" style="background: gray url(../resources/img/??/??.jpg);"></div>
+                                            <div class="m_img" style="background: gray url(/resources/img/upload/${pv.product_img1}) no-repeat 50% 50%; background-size: cover;"></div>
                                         </div>
 
                                         <div class="right">
@@ -74,15 +74,15 @@
                                                 <div class="slide">
                                                     <div class="list_slider">
                                                         <div class="swiper-wrapper">
-                                                            <div class="swiper-slide"></div>
+                                                            <div class="swiper-slide" style="background: url(/resources/img/upload/${pv.product_img1}) no-repeat 50% 50%; background-size: cover;"></div>
                                                             
-                                                            <div class="swiper-slide"></div>
+                                                            <div class="swiper-slide" style="background: url(/resources/img/upload/${pv.product_img2}) no-repeat 50% 50%; background-size: cover;"></div>
             
-                                                            <div class="swiper-slide"></div>
+                                                            <div class="swiper-slide" style="background: url(/resources/img/upload/${pv.product_img3}) no-repeat 50% 50%; background-size: cover;"></div>
             
-                                                            <div class="swiper-slide"></div>
+                                                            <div class="swiper-slide" style="background: url(/resources/img/upload/${pv.product_img4}) no-repeat 50% 50%; background-size: cover;"></div>
             
-                                                            <div class="swiper-slide"></div>
+                                                            <div class="swiper-slide" style="background: url(/resources/img/upload/${pv.product_img5}) no-repeat 50% 50%; background-size: cover;"></div>
                                                         </div>
 
                                                         <div class="txt">

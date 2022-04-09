@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.triple.finalp.qna.dao.QnaDao">
+
+   <select id="getAllMyQna" resultType="QnaVo">
+      select *
+      from qna
+   </select>
+
+   <insert id="writeQna">
+      insert into
+      qna(q_title,q_content,q_img,mem_id)
+      values(#{q_title},#{q_content},#{q_img},#{mem_id})
+   </insert>
+
+   <select id="noticeList" resultType="NoticeVo">
+      select n_id,n_title,n_content,n_img,date_format(n_date, '%Y-%m-%d') as n_date
+      from notice
+      order by n_id desc
+   </select>
+
+   <insert id="writeNotice">
+      insert into
+      notice(n_title,n_content,n_img)
+      values(#{n_title},#{n_content},#{n_img})
+   </insert>
+
+   <select id="noticeList_5" resultType="NoticeVo">
+      select n_id,n_title,n_content,n_img,date_format(n_date, '%Y-%m-%d') as n_date
+      from notice
+      order by n_id desc
+      limit 0,5
+   </select>
+
+   <select id="showAllQna" resultType="QnaVo">
+      select * 
+      from qna
+   </select>
+   
+   <select id="qnaShow" resultType="QnaVo">
+      select *
+      from qna 
+      where q_id=#{q_id}
+   </select>
+   
+   <insert id="writeRep">
+      insert into
+      qna_rep(q_id,rep)
+      values(#{q_id},#{rep})
+   </insert>
+   
+   <select id="qnaRepShow"  resultType="QnaRepVo">
+      select rep
+        FROM qna_rep
+       WHERE q_id = #{q_id}
+   </select>
+   
+   <select id="qnaCheck">
+   		update qna set q_check = '답변완료'
+   		where q_id = #{q_id}
+   </select>
+   
+   <select id="noticeShow" resultType="NoticeVo">
+   		select *
+   		from notice
+   		where n_id = #{n_id}
+   </select>
+   
+   <delete id="deln">
+		delete from notice
+		where n_id = #{n_id}
+   </delete>
+   
+   <select id="qnawork" resultType="QnaVo">
+   		select *
+   		from qna
+   		where q_check = '처리중'
+   </select>
+   
+   <update id="upno">
+   		update notice set n_title = #{n_title} ,n_content = #{n_content},n_img = #{n_img}
+   		where n_id = #{n_id}
+   </update>
+   
+</mapper>
