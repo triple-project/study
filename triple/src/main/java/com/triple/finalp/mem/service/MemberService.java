@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.springframework.ui.Model;
 
+import com.triple.finalp.mem.vo.HeartVo;
 import com.triple.finalp.mem.vo.MemVo;
 import com.triple.finalp.mem.vo.MyPlanVo;
 import com.triple.finalp.mem.vo.PlanConVo;
@@ -26,4 +27,10 @@ public interface MemberService {
 	public ArrayList<MyPlanVo> fplan(String mem_id);
 
 	public ArrayList<ProductVo> fplanc(String plan_id);
+
+	public void travin(PlanConVo planConVo);
+
+	public void memshowPro(String mem_id, String product_id, Model model);
+
+	public void hearton(HeartVo heartVo, String cheart);
 }

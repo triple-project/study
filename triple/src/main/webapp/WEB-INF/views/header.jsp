@@ -676,10 +676,10 @@
 					success : function(data) {
 		           		 // C에서 받아온 데이터로 새로 뿌려주기
 						console.log(data);
-						$("#travel_c").html("");
-						$(".right").html("");
+						$("#travel_l").html("");
+						$("#travel_r").html("");
  						for (var i = 0; i < data.length; i++) {
- 							$("#travel_c").append("<div onclick='ftravel_info(this)'>" + data[i].plan_name + data[i].startdate + data[i].enddate + '<div style="display: none;">' + data[i].plan_id + "</div>" + "</div>");
+ 							$("#travel_l").append("<div onclick='ftravel_info(this)'>" + data[i].plan_name + data[i].startdate + data[i].enddate + '<div style="display: none;">' + data[i].plan_id + "</div>" + "</div>");
  							//$("#plantable").append("<tr>" + "<td>" + data[i].plan_name + "</td>" + "<td>" + data[i].startdate + "</td>" + "<td>" + data[i].enddate + "</td>" + "</tr>");
  							//$("#plantable").append("<tr>" + "<td>" + data[i].startdate + "</td>" + "</tr>");
  							//$("#plantable").append("<tr>" + "<td>" + data[i].enddate + "</td>" + "</tr>");
@@ -703,9 +703,9 @@
 						plan_id : pli
 					},
 					success : function(data) {
-						$(".right").html("");
+						$("#travel_r").html("");
 						for (var i = 0; i < data.length; i++) {						
- 							$(".right").append("<div onclick='ftravel_goto(this)'>" + '<img src="/resources/img/upload/'+data[i].product_img1+'" width="100" height="100"/>' + data[i].product_name + data[i].product_shortword+ data[i].product_address + '<div style="display: none;">' + data[i].product_id + "</div>" + "</div>");
+ 							$("#travel_r").append("<div onclick='ftravel_goto(this)'>" + '<img src="/resources/img/upload/'+data[i].product_img1+'" width="100" height="100"/>' + data[i].product_name + data[i].product_shortword+ data[i].product_address + '<div style="display: none;">' + data[i].product_id + "</div>" + "</div>");
 						}					
 					},
 					error : function(a){
@@ -1385,7 +1385,7 @@
 						<!-- <!— 내용을 넣어주세요 —> -->
 						<div class="loginConIn">
 								<div class="left">
-									<div id="travel_c">
+									<div id="travel_l">
 										<span>여행이름</span> <span>여행시작</span> <span>여행종료</span>
 									</div>
 								</div>
@@ -1393,6 +1393,8 @@
 								<div class="right">
 <!-- 							아래의 폼은 만들기 여행작성 활성화를 누르면 보이고 
 							여행 만들기를 수행하면 안보이게 사라져야합니다 -->
+								<div id="travel_r">
+								</div>
 								<div>
 									<form action="">
 										여행이름	<input type="text" name="t_name" id="t_name"><br>
@@ -1427,7 +1429,7 @@
 
 					<security:authorize access="isAuthenticated()">
 					<div class="login_con">
-						<!-- <!— 내용을 넣어주세요 —> -->
+						<!-- <!— 리뷰내용을 넣어주세요 —> -->
 						<div class="loginConIn">
 							<div class="left">
 

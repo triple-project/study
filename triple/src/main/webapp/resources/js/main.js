@@ -469,6 +469,53 @@ $(function() {
 	  	$(".plusList, .plusListCover, body").removeClass("on");
 	  });
 	  
-	  
+	if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+		
+		// 쿠키 가져오기
+		var getCookie = function (cname) {
+			var name = cname + "=";
+			var ca = document.cookie.split(';');
+			for(var i=0; i<ca.length; i++) {
+				var c = ca[i];
+				while (c.charAt(0)==' ') c = c.substring(1);
+				if (c.indexOf(name) != -1) return c.substring(name.length,c.length);
+			}
+			return "";
+		}
+
+		// 24시간 기준 쿠키 설정하기  
+		var setCookie = function (cname, cvalue, exdays) {
+			var todayDate = new Date();
+			todayDate.setTime(todayDate.getTime() + (exdays*24*60*60*1000));    
+			var expires = "expires=" + todayDate.toUTCString();
+			document.cookie = cname + "=" + cvalue + "; " + expires;
+		}
+
+		var couponClose = function(){
+			if($("input[name='chkbox']").is(":checked") == true){
+				setCookie("close","Y",1);
+			}
+			$(".mobilApp").hide();
+			$(".mobilAppCover").hide();
+		}
+
+		$(document).ready(function(){
+			var cookiedata = document.cookie;
+			if(cookiedata.indexOf("close=Y")<0){
+				$(".mobilApp").show();
+				$(".mobilAppCover").show();
+			}else{
+				$(".mobilApp").hide();
+				$(".mobilAppCover").hide();
+			}
+			$("#close").click(function(){
+				couponClose();
+			});
+		});
+
+	}else{
+		$(".mobilApp").hide();
+		$(".mobilAppCover").hide();
+	}
 
 });

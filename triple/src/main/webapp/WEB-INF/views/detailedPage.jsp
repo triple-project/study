@@ -59,9 +59,83 @@
 <script type="text/javascript">
 	function heart() {
 		var h = '${pvo.product_id}';
-		console.log(h);
+		var c = '${heart}';
+		$.ajax({
+			type : "POST",
+			url : "/rest/hearton",
+				dataType : "json",
+				async:false,
+				data : {
+					mem_id : $("#sat").text(),
+					heart_id : h,
+					cheart : c
+				},
+				success : function(data) {
+	           		 // C에서 받아온 데이터로 새로 뿌려주기
+	           		//console.log(data);
+	           		 window.location.reload();
+				},
+				error : function(a){
+					console.log(a);
+	            }
+			});
 	}
-</script>    
+	
+	function heart2() {
+		alert("로그인을 해주세요")		
+	}
+</script>
+<script type="text/javascript">
+	function intra() {
+		$.ajax({
+			type : "POST",
+			url : "/rest/ftravel",
+				dataType : "json",
+				data : {
+					mem_id : $("#sat").text()
+				},
+				success : function(data) {
+	           		 // C에서 받아온 데이터로 새로 뿌려주기
+					//console.log(data);
+					$("#plusListIn").html("");
+						for (var i = 0; i < data.length; i++) {
+							$("#plusListIn").append("<div onclick='travel_insert(this)'>" + data[i].plan_name + data[i].startdate + data[i].enddate + '<div style="display: none;">' + data[i].plan_id + "</div>" + "</div>");
+					}  
+					
+				},
+				error : function(a){
+					console.log(a);
+	            }
+			});
+	}
+	
+	function travel_insert(insert) {
+		//console.log(insert.children.item(0).innerText);
+		var tra_in = insert.children.item(0).innerText;
+		var tra_pid = "${pvo.product_id}";
+		//console.log(tra_pid);
+		//location.href="";
+		$.ajax({
+			type : "POST",
+			url : "/rest/travin",
+				dataType : "json",
+				async:false,
+				data : {
+					product_id : tra_pid,
+					plan_id : tra_in
+				},
+				success : function(data) {
+	           		 // C에서 받아온 데이터로 새로 뿌려주기
+	           		//console.log(data);
+					alert("추가완료");
+					$(".plusList, .plusListCover, body").removeClass("on");
+				},
+				error : function(a){
+					console.log(a);
+	            }
+			});
+	}
+</script>
 </head>
 
 <body>
@@ -95,12 +169,27 @@
                                                 <h2>${pvo.product_name}</h2>
                                                 <h3>${pvo.product_shortword}</h3>
                                             </div>
+                                            <!-- 로그인안한경우 -->
+                                            <security:authorize access="isAnonymous()">
+                                            <div>
+                                            	<div onclick="heart2()">
+                                            		<img src="/resources/img/heart.png">
+                                            		<div>
+                                            			${heartcount}
+                                            		</div>
+                                            	</div>
+                                            </div>
+                                            </security:authorize>
+                                            <!-- 로그인한경우 -->
                                             <security:authorize access="isAuthenticated()">
                                             <div>
                                             	<div onclick="heart()">
-                                            	하트
+                                            		<img src="/resources/img/${heart}.png">
+                                            		<div>
+                                            			${heartcount}
+                                            		</div>
                                             	</div>
-                                            	<div class="onePlusBtn">
+                                            	<div class="onePlusBtn" onclick="intra()">
                                             	여행에추가
                                             	</div>
                                             </div>
@@ -702,7 +791,7 @@
     </section>
     
     <div class="plusList">
-        <div class="plusListIn">
+        <div class="plusListIn" id="plusListIn">
 
         </div>
     </div>

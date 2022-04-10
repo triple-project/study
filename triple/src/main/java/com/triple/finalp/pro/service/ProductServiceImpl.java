@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
 import com.triple.finalp.data.vo.PageVo;
+import com.triple.finalp.mem.dao.MemDao;
 import com.triple.finalp.pro.dao.ProductDao;
 import com.triple.finalp.pro.vo.ProductDetailVo;
 import com.triple.finalp.pro.vo.ProductVo;
@@ -23,6 +24,9 @@ public class ProductServiceImpl implements ProductService{
 	
 	@Autowired
 	TagDao tagDao;
+	
+	@Autowired
+	MemDao memDao;
 
 
 	@Override
@@ -112,6 +116,9 @@ public class ProductServiceImpl implements ProductService{
 		ArrayList<ProductDetailVo> dList = productDao.goDetail(product_id);
 		ArrayList<TagTagVo> tList = productDao.gettag(product_id);
 		ArrayList<TagVo> tcl = tagDao.getList2(pvo.getProduct_category());
+		int hc = memDao.heartcount(product_id);
+		
+		model.addAttribute("heartcount",hc);
 		model.addAttribute("pvo",pvo);
 		model.addAttribute("dList",dList);
 		model.addAttribute("tList",tList);

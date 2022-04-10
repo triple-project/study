@@ -64,5 +64,34 @@
 		from product
 		where product_id = #{product_id}
 	</select>
+	
+	<insert id="travin">
+		insert into plan_content
+		values(#{product_id},#{plan_id})
+	</insert>
+	
+	<select id="hc" resultType="int">
+		select count(*)
+		from heart
+		where mem_id = #{mem_id}
+		and heart_id = #{product_id}
+	</select>
+	
+	<insert id="hearton">
+		insert into heart
+		values (#{mem_id},#{heart_id})
+	</insert>
+	
+	<delete id="heartoff">
+		delete from heart
+		where mem_id = #{mem_id}
+		and heart_id = #{heart_id}
+	</delete>
+	
+	<select id="heartcount" resultType="int">
+		select count(*)
+		from heart
+		where heart_id = #{product_id}
+	</select>
 
 </mapper>

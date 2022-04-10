@@ -1,0 +1,38 @@
+@charset "UTF-8";
+
+/* 매거진 뷰페이지 */
+#sec .magviewpg {width: 1240px;margin: 0 auto;padding: 20px 30px;border: 1px solid #999;margin-top: 20px;border-radius: 20px;box-shadow: 1px 1px 4px 0px rgb(0,0,0,.2);}
+
+
+#sec .magviewpg .magtitlebtn {width: 100%;height: auto;display: inline-flex;justify-content: flex-end;}
+#sec .magviewpg .magtitlebtn h2 {}
+#sec .magviewpg .magtitlebtn .magaddbtn {}
+#sec .magviewpg .magtitlebtn .magheartbtn {}
+
+#sec .magviewpg .magtitle {width:100%;height:auto;display: flex; margin-bottom: 20px;}
+#sec .magviewpg .magtitle .magtitleleft {width:50%;height:auto;}
+#sec .magviewpg .magtitle .magtitleleft h2{font-size:20px;margin-bottom:10px;height: 30px;display: inline-flex;}
+#sec .magviewpg .magtitle .magtitleleft h3{font-size:16px;color:rgba(0,0,0,.9);margin-bottom:10px;}
+#sec .magviewpg .magtitle .magtitleleft p{font-size:12px;}
+#sec .magviewpg .magtitle .magtitleleft p:nth-child(1){margin-right: 5px;}
+#sec .magviewpg .magtitle .magtitleleft p:nth-child(2){margin-bottom: 10px;}
+
+#sec .magviewpg .magtitle .magtitleright {width: 50%;height: auto;display: flex;justify-content: flex-end;}
+#sec .magviewpg .magtitle .magtitleright .magbtn_com {width:50px;height:50px;border:1px solid #999;border-radius:5px;cursor:pointer;font-size: 35px;display: flex;justify-content: center;align-items: center;color: rgba(0,0,0,.8);}
+#sec .magviewpg .magtitle .magtitleright .magbtn_com:hover {background:#5de4c2;border:none;color:rgb(255, 255, 255);}
+#sec .magviewpg .magtitle .magtitleright .magaddbtn {margin-right:5px;}
+#sec .magviewpg .magtitle .magtitleright .magheartbtn {}
+
+
+
+#sec .magviewpg .magview_in {width: 100%;height:auto;}
+#sec .magviewpg .magview_in .magviewword {}
+#sec .magviewpg .magview_in .magviewword p {font-size:12px;}
+#sec .magviewpg .magview_in .magviewword img {border-radius:10px;box-shadow: 1px 1px 4px 0px rgb(0,0,0,.2);margin-bottom: 10px;}
+#sec .magviewpg .magview_bottom {width: 100%;height:auto;display:flex;justify-content:flex-end;}
+#sec .magviewpg .magview_bottom .gotomaglistbtn {width: 150px;height: 30px;border:1px solid #999;border-radius:10px;display:flex;justify-content: center;align-items: center;color:rgba(0,0,0,.9);cursor:pointer;}
+#sec .magviewpg .magview_bottom .gotomaglistbtn:hover {}
+/* 매거진 뷰페이지 끝 */
+
+
+

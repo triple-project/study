@@ -205,3 +205,23 @@ height:310px;width:285px;overflow: hidden;border-radius: 15px;margin-bottom:33px
 #sec .kcategory .swiper-wrapper .swiper-slide .kimg9 {background:url('../../resources/img/gory/categoryticket.jpg') no-repeat 50% 50%;background-size:cover;}
 /* 국내여행 카테고리 슬라이드 끝 */
 
+/* 모바일용 */
+.mobilApp{z-index: 999999999;position: fixed;left:50%;top:50%;transform: translate(-50%, -50%);width:80%;background: #fff;box-shadow: 0 0 20px rgba(0,0,0,.3);display: none;}
+.mobilApp.on{display: block;}
+.mobilApp .appIn{padding:60px 30px;text-align: center;}
+.mobilApp .appIn h2{font-size:54px;line-height:64px;}
+.mobilApp .appIn .appDown{display: flex;flex-wrap: wrap;margin-top:80px;}
+.mobilApp .appIn .appDown div{width:49%;border:1px solid rgba(0,0,0,.4);margin-right:1%;border-radius: 15px;}
+.mobilApp .appIn .appDown div:last-child{margin-right:0;margin-left:1%;}
+.mobilApp .appIn .appDown div a{display: block;padding:30px;font-size:38px;width:100%;color:#343434;font-weight: 500;}
+.mobilApp .appIn .appDown div:hover{border:1px solid transparent;}
+.mobilApp .appIn .appDown div:hover a{background: #5de4c2;color:#fff;}
+.mobilApp .appIn .closeBtn{font-size:38px;padding:30px 100px;font-weight: 500;color:#343434;width:100%;border:1px solid rgba(0,0,0,.4);border-radius: 15px;margin-top:30px;}
+.mobilApp .appIn .closeBtn:after{content: "";display: block;clear: both;}
+.mobilApp .appIn .closeBtn input{width:32px;height:32px;}
+.mobilApp .appIn .closeBtn label{margin-left:5px;}
+.mobilApp .appIn .closeBtn #check{float:left;}
+.mobilApp .appIn .closeBtn #close{float:right;}
+
+.mobilAppCover{z-index: 999999998;background: rgba(0,0,0,.6);position: fixed;left:0;top:0;right:0;bottom:0;display: none;}
+.mobilAppCover.on{display: block;}

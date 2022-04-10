@@ -126,7 +126,7 @@ body.on{overflow: hidden;}
 /* 메뉴 끝 */
 
 
-@media screen and (min-height: 740px) {
+@media screen and (min-height: 780px) {
 	#s_menu .menu_in .menu_pop{display: block;}
 }
 

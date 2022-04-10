@@ -12,6 +12,7 @@
 		<typeAlias alias="TagVo" type="com.triple.finalp.tag.vo.TagVo" />
 		<typeAlias alias="TagTagVo" type="com.triple.finalp.tag.vo.TagTagVo" />
 		<typeAlias alias="MyPlanVo" type="com.triple.finalp.mem.vo.MyPlanVo" />
+		<typeAlias alias="PlanConVo" type="com.triple.finalp.mem.vo.PlanConVo" />
 		<typeAlias alias="QnaVo" type="com.triple.finalp.qna.vo.QnaVo" />
       	<typeAlias alias="QnaRepVo" type="com.triple.finalp.qna.vo.QnaRepVo" />
       	<typeAlias alias="NoticeVo" type="com.triple.finalp.qna.vo.NoticeVo" />

@@ -6,8 +6,10 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+import com.triple.finalp.mem.vo.HeartVo;
 import com.triple.finalp.mem.vo.MemVo;
 import com.triple.finalp.mem.vo.MyPlanVo;
+import com.triple.finalp.mem.vo.PlanConVo;
 import com.triple.finalp.pro.vo.ProductVo;
 
 @Mapper
@@ -23,4 +25,9 @@ public interface MemDao {
 	public ArrayList<MyPlanVo> fplan(String mem_id);
 	public List<String> fplanc(String plan_id);
 	public ProductVo pbyp(String product_id);
+	public void travin(PlanConVo planConVo);
+	public int hc(@Param("mem_id")String mem_id,@Param("product_id") String product_id);
+	public void hearton(HeartVo heartVo);
+	public void heartoff(HeartVo heartVo);
+	public int heartcount(String product_id);
 }

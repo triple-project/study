@@ -140,7 +140,7 @@
 							<a href="/admin/updatePro/${ml.product_id}">수정하기</a>
 						</div>
 						<div class="mod_btn">
-							확인하기
+							<a href="/category/${ml.product_id}">확인하기</a>
 						</div>
 						<div class="mod_btn">
 							<a href="/admin/oRm/${ml.product_id}">상세등록</a>

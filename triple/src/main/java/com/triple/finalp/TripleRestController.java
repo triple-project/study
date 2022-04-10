@@ -19,7 +19,9 @@ import com.triple.finalp.data.service.DataService;
 import com.triple.finalp.data.vo.FlightVo;
 import com.triple.finalp.data.vo.TrainVo;
 import com.triple.finalp.mem.service.MemberService;
+import com.triple.finalp.mem.vo.HeartVo;
 import com.triple.finalp.mem.vo.MyPlanVo;
+import com.triple.finalp.mem.vo.PlanConVo;
 import com.triple.finalp.tag.service.TagService;
 
 
@@ -107,10 +109,30 @@ public class TripleRestController {
 	public void ftravelinfo(@RequestParam("plan_id")String plan_id, HttpServletResponse response)
 			throws JsonGenerationException, JsonMappingException, IOException {
 		ObjectMapper mapper = new ObjectMapper(); 
-		System.out.println(plan_id);	
+		//System.out.println(plan_id);	
 		Object mpl = memberService.fplanc(plan_id);
 		response.getWriter().print(mapper.writeValueAsString(mpl));
 		response.getWriter().flush();
+	}
+	
+	@RequestMapping(value = "/travin", method = RequestMethod.POST)
+	public void travin(PlanConVo planConVo, HttpServletResponse response) throws JsonGenerationException, JsonMappingException, IOException {
+		// 여행에 추가하기
+		ObjectMapper mapper = new ObjectMapper();
+		memberService.travin(planConVo);
+		Object wan = "wan";
+		response.getWriter().print(mapper.writeValueAsString(wan));
+		response.getWriter().flush();			
+	}
+	
+	@RequestMapping(value = "/hearton", method = RequestMethod.POST)
+	public void hearton(@RequestParam("cheart")String cheart, HeartVo heartVo, HttpServletResponse response) throws JsonGenerationException, JsonMappingException, IOException {
+		// 여행에 추가하기
+		ObjectMapper mapper = new ObjectMapper();
+		memberService.hearton(heartVo,cheart);
+		Object wan = "hwan";
+		response.getWriter().print(mapper.writeValueAsString(wan));
+		response.getWriter().flush();			
 	}
 
 }

@@ -626,6 +626,31 @@
 			
 	</section>
 	
+	<div class="mobilApp">
+		<div class="appIn">
+			<h2>핸드폰으로 접속하셨네요.</h2>
+			<h2>어플리케이션으로 다운받아보시겠습니까?</h2>
+			<div class="appDown">
+				<div>
+					<a href="https://apps.apple.com/kr/app/%ED%8A%B8%EB%A6%AC%ED%94%8C-%EC%B5%9C%EC%A0%80%EA%B0%80-%EC%98%88%EC%95%BD%EB%B6%80%ED%84%B0-%EC%97%AC%ED%96%89%EA%B3%84%ED%9A%8D%EA%B9%8C%EC%A7%80/id1225499481">
+						IOS 다운로드
+					</a>
+				</div>
+
+				<div>
+					<a href="https://play.google.com/store/apps/details?id=com.titicacacorp.triple">
+						Aandroid
+					</a>
+				</div>
+			</div>
+			<div class="closeBtn">
+				<span id="check"><input type="checkbox" value="checkbox" name="chkbox" id="chkday"/><label for="chkday">오늘하루 보지않기</label></span>
+				<span id="close">닫기</span>
+			</div>			
+		</div>
+	</div>
+	<div class="mobilAppCover"></div>
+	
 	<%@ include file="footer.jsp"%>
 </body>
 </html>
