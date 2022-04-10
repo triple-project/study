@@ -8,7 +8,7 @@ import com.triple.finalp.qna.vo.QnaVo;
 
 public interface QnaService {
 
-	void getAllMyQna(Model model); // 나의 qna리스트
+	void getAllMyQna(String mem_id, Model model); // 나의 qna리스트
 
 	void writeQna(QnaVo qvo); // 문의글 작성
 

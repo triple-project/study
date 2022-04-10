@@ -12,7 +12,7 @@ import com.triple.finalp.qna.vo.QnaVo;
 @Mapper
 public interface QnaDao {
 
-	ArrayList<QnaVo> getAllMyQna(); // 나의 qna 목록
+	ArrayList<QnaVo> getAllMyQna(String mem_id); // 나의 qna 목록
 
 	void writeQna(QnaVo qvo); // 문의글작성
 

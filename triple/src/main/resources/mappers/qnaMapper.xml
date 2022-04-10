@@ -5,6 +5,7 @@
    <select id="getAllMyQna" resultType="QnaVo">
       select *
       from qna
+      where mem_id = #{mem_id}
    </select>
 
    <insert id="writeQna">

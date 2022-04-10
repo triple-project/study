@@ -18,8 +18,8 @@ public class QnaServiceImpl implements QnaService{
    QnaDao qnaDao;
    
    @Override //나의 문의 목록
-   public void getAllMyQna(Model model) {
-      ArrayList<QnaVo> qList = qnaDao.getAllMyQna(); 
+   public void getAllMyQna(String mem_id ,Model model) {
+      ArrayList<QnaVo> qList = qnaDao.getAllMyQna(mem_id);
       model.addAttribute("qList",qList);
    }
 

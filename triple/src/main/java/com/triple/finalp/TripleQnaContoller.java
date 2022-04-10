@@ -37,9 +37,10 @@ public class TripleQnaContoller {
       return "qna/qnaMain";
    }
 
-   @RequestMapping("/myQna") //나의 qna 목록
-   public String myQna(Model model) {
-      qnaService.getAllMyQna(model);
+   @RequestMapping(value = "/myQna",method = RequestMethod.GET) //나의 qna 목록
+   public String myQna(Model model,Principal principal) {
+	   String mem_id = principal.getName();
+      qnaService.getAllMyQna(mem_id,model);
       return "qna/myQna";
    }
 
