@@ -1001,6 +1001,38 @@
 							</div>
 						</a>
 					</li>
+					<security:authorize access="hasRole('ROLE_ADMIN')">
+					<li>
+						<a href="/admin/tm">
+							<h3>매거진 작성하기</h3>
+							<div class="l_wrap">
+								<div class="num">
+									<!-- jsp코드 -->
+									0
+									<span> P</span>
+								</div>
+								<div class="arrow_btn">
+									<i class="fa-solid fa-chevron-right"></i>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="/admin/oL">
+							<h3>상품 목록</h3>
+							<div class="l_wrap">
+								<div class="num">
+									<!-- jsp코드 -->
+									0
+									<span> P</span>
+								</div>
+								<div class="arrow_btn">
+									<i class="fa-solid fa-chevron-right"></i>
+								</div>
+							</div>
+						</a>
+					</li>
+					</security:authorize>
 				</ul>
 			</div>
 		</div>

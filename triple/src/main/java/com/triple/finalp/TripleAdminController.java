@@ -5,6 +5,7 @@ import java.security.Principal;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -32,6 +33,13 @@ public class TripleAdminController {
 	
 	@Autowired
 	FileService fileService;
+	
+	@RequestMapping(value = "/tm", method = RequestMethod.GET)
+	public String mag(Authentication authentication,Model model) {
+		//매거진작성으로 보내기
+
+		return "owner/magwrite2";
+	}
 	
 	@RequestMapping(value = "/oL", method = RequestMethod.GET)
 	public String oL(Model model,Principal principal) {

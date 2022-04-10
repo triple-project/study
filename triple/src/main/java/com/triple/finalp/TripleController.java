@@ -113,12 +113,6 @@ public class TripleController {
 		return "redirect:/logout";
 	}
 	
-	@RequestMapping(value = "/tm", method = RequestMethod.GET)
-	public String mag(Authentication authentication,Model model) {
-		//매거진작성으로 보내기
-
-		return "test/mag/testmagwrite2";
-	}
 	
 	@RequestMapping(value = "/trv", method = RequestMethod.GET)
 	public String trav() {
