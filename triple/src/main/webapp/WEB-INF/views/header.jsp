@@ -773,7 +773,7 @@
 
 	<div class="header_ch" id="header_ch">
 		<div class="ch_in">
-			<form action="/top_search" id="ch_form" method="post">
+			<form action="/top_search" id="ch_form" method="get">
 				<div class="ch_title">
 					<h2>Triple 트리플</h2>
 					<div class="tit_cover"></div>

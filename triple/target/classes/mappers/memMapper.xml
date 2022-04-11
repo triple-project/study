@@ -93,5 +93,18 @@
 		from heart
 		where heart_id = #{product_id}
 	</select>
+	
+	<select id="hc2" resultType="int">
+		select count(*)
+		from heart
+		where mem_id = #{mem_id}
+		and heart_id = #{mgz_id}
+	</select>
+	
+	<select id="heartcount2" resultType="int">
+		select count(*)
+		from heart
+		where heart_id = #{mgz_id}
+	</select>
 
 </mapper>

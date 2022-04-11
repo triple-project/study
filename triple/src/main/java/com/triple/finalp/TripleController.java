@@ -103,7 +103,7 @@ public class TripleController {
 	public String updateProfile(@RequestParam("image_file_name_h") String image_file_name_h, MemVo memVo,
 			MultipartHttpServletRequest mhsr) throws IllegalStateException, IOException {
 		memberService.updateProfile(memVo);
-		System.out.println(memVo);
+		////System.out.println(memVo);
 		fileService.join(mhsr, image_file_name_h);
 		return "redirect:/";
 	}
@@ -117,11 +117,18 @@ public class TripleController {
 
 	@RequestMapping(value = "/writesave", method = RequestMethod.POST)
 	public String testsave(@RequestParam("mimage_file_name_h") List<String> image_file_name_h, MagVo magVo,
-			MultipartHttpServletRequest mhsr, Model model) throws IllegalStateException, IOException {
+			MultipartHttpServletRequest mhsr, Model model,Principal principal) throws IllegalStateException, IOException {
 		// 작성글 저장
 		// mhsr 사용,이동후 file서비스를 사용하는 방식으로
-		magSerivce.save(magVo);
+		String mid = principal.getName() + magVo.getMgz_id();
+		magVo.setMgz_id(mid);
+		//magVo.setMgz_admin_id(principal.getName());
+		
 		fileService.save(mhsr, image_file_name_h);
+		if(image_file_name_h.get(0)!=null) {
+			magVo.setMgz_thub(image_file_name_h.get(0));
+		}
+		magSerivce.save(magVo);
 
 		/* tagService.tagadd(magVo.getMgz_id(),magvo.getTag()); */
 		// magSerivce.view(model);
@@ -147,10 +154,10 @@ public class TripleController {
 			MultipartHttpServletRequest mhsr, @RequestParam("tag_list_h") List<String> tag_list_h, Principal principal)
 			throws IllegalStateException, IOException {
 		/*
-		 * System.out.println(pvo); System.out.println(image_h);
-		 * System.out.println(tag_list_h);
+		 * //System.out.println(pvo); //System.out.println(image_h);
+		 * //System.out.println(tag_list_h);
 		 */
-		System.out.println(pvo);
+		////System.out.println(pvo);
 		String pid = principal.getName() + pvo.getProduct_id();
 		pvo.setProduct_id(pid);
 		pvo.setProduct_admin_id(principal.getName());
@@ -163,7 +170,7 @@ public class TripleController {
 	@RequestMapping(value = "/proDetailRegister", method = RequestMethod.POST)
 	public String registerDetail(@RequestParam("rimage_h") List<String> rimage_h, ProductDetailVo pdvo,
 			MultipartHttpServletRequest mhsr) throws IllegalStateException, IOException {
-		System.out.println(pdvo);
+		////System.out.println(pdvo);
 		productService.registerDetail(pdvo);
 		fileService.save(mhsr, rimage_h);
 		// 리턴을 확인하기페이지로 연결해주기
@@ -171,14 +178,27 @@ public class TripleController {
 	}
 
 	// 상단검색바
-	@PostMapping("/top_search")
+	@GetMapping("/top_search")
 	public String top_search(@RequestParam("main_search") String main, @RequestParam("city_search") String city,
 			@RequestParam("cate_search") String cate, Model model) {
-		System.out.println("종류 : " + main);
-		System.out.println("도시 : " + city);
-		System.out.println("카테고리 : " + cate);
+		/*
+		 * //System.out.println("종류 : " + main); //System.out.println("도시 : " + city);
+		 * //System.out.println("카테고리 : " + cate);
+		 */
 
 		String r = searchService.search(main, city, cate, model);
+		model.addAttribute("main_search", main);
+		model.addAttribute("city_search", city);
+		model.addAttribute("cate_search", cate);
+
+		return r;
+	}
+	
+	@GetMapping("/ds")
+	public String ds(@RequestParam("main_search") String main, @RequestParam("city_search") String city,
+			@RequestParam("cate_search") String cate,@RequestParam("DS") String ds, Model model) {
+
+		String r = searchService.search2(main, city, cate, model,ds);
 		model.addAttribute("main_search", main);
 		model.addAttribute("city_search", city);
 		model.addAttribute("cate_search", cate);
@@ -190,7 +210,7 @@ public class TripleController {
 	@GetMapping("/cate_button/{cate}")
 	public String cate_button(@PathVariable("cate") String cate, Model model) {
 
-		System.out.println("카테고리 : " + cate);
+		//System.out.println("카테고리 : " + cate);
 		String main = "여행지 검색";
 		String city = "전체";
 		String r = searchService.search(main, city, cate, model);
@@ -217,6 +237,22 @@ public class TripleController {
 		}
 		
 	}
+	
+	@RequestMapping(value = "/mv/{mgz_id}", method = RequestMethod.GET)
+	public String mv(@PathVariable("mgz_id") String mgz_id, Model model, Authentication authentication) {
+		// 카테고리 클릭시 조회페이지
+		// id << jsp 페이지에서 클릭시 보내주는 값
+		
+		if (authentication == null) {
+			magSerivce.showmag(mgz_id,model);
+			return "magview";
+		} else {
+			String mem_id = authentication.getName();
+			memberService.memshowmag(mem_id,mgz_id,model);
+			return "magview";
+		}
+		
+	}
 
 	// 리뷰등록
 	@RequestMapping(value = "/review", method = RequestMethod.POST)
@@ -224,7 +260,7 @@ public class TripleController {
 		reviewvo.setMem_id(principal.getName());
 		// reviewService.isSuitable(reviewvo.getMem_id(), reviewvo.getProduct_id());
 		reviewService.review(reviewvo);
-		System.out.println(reviewvo);
+		//System.out.println(reviewvo);
 		/* String r = "product/"+ */
 		return "redirect:product/" + reviewvo.getProduct_id();
 	}

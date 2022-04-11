@@ -13,6 +13,12 @@
 		from product
 	</select>
 	
+	<select id="psearch2" resultType="ProVo">
+		select *
+		from product
+		where product_name like concat('%',#{ds},'%')
+	</select>
+	
 	<select id="msearch" resultType="MagVo">
 		select *
 		from magazine
@@ -22,6 +28,13 @@
 		select *
 		from product
 		where product_city = #{city}	
+	</select>
+	
+	<select id="pcatesearch2" resultType="ProVo">
+		select *
+		from product
+		where product_city = #{city}
+		and product_name like concat('%',#{ds},'%')
 	</select>
 	
 	<select id="catelist" resultType="String">
@@ -37,10 +50,25 @@
 		and product_category = #{cate}
 	</select>
 	
+	<select id="pccsearch2" resultType="ProVo">
+		select *
+		from product
+		where product_city = #{city}
+		and product_category = #{cate}
+		and product_name like concat('%',#{ds},'%')
+	</select>
+	
 	<select id="pcsearch" resultType="ProVo">
 		select *
 		from product
 		where product_category = #{cate}
+	</select>
+	
+	<select id="pcsearch2" resultType="ProVo">
+		select *
+		from product
+		where product_category = #{cate}
+		and product_name like concat('%',#{ds},'%')
 	</select>
 	
 	<select id="mcsearch" resultType="MagVo">

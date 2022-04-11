@@ -30,6 +30,16 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Noto+Serif+KR:wght@200;300;400;500;600;700;900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+	<script type="text/javascript">
+		function ds() {
+			//var d_ser = $('#d_ser')[0];
+			if (!$('#DS').val()) {
+				alert("검색어를 입력해주세요");
+			}else {
+				$('#d_ser').submit();
+			}			
+		}
+	</script>
 </head>
 <body>
 
@@ -41,7 +51,15 @@
                 <div class="txt">
                     <h2>${main_search}</h2>
                 </div>
-
+                <div>
+					<form action="/ds" method="get"  id="d_ser">
+						검색창? : <input type="search" name="DS" id="DS">					
+						<input type="hidden" value="${main_search}" name="main_search">
+						<input type="hidden" value="${city_search}" name="city_search">
+						<input type="hidden" value="${cate_search}" name="cate_search">
+					</form>
+					<input type="submit" value="검색하기" onclick="ds()">
+				</div>
                 <div class="con">
                     <div class="con_in">
                         <div class="list">
@@ -65,10 +83,12 @@
                                                     <h3>${pv.product_shortword}</h3>
                                                    <%--  <c:forEach></c:forEach>
                                                     <h4>${tag.tag_name}</h4><img  src="/resources/icon/${tag.tag_name}"> --%>
-                                                    <h4>태그?</h4>
-                                                    <h4>태그?</h4>
-                                                    <h4>태그?</h4>
-
+                                                    <h4>${pv.tag_tag1}</h4>
+                                                    <h4>${pv.tag_tag2}</h4>
+                                                    <h4>${pv.tag_tag3}</h4>
+                                                    <h4>${pv.tag_tag4}</h4>
+                                                    <h4>${pv.tag_tag5}</h4>
+                                                    <h2><a href="/category/${pv.product_id}">보러가기</a></h2>
                                                 </div>
                                                 <!-- 슬라이드 -->
                                                 <div class="slide">

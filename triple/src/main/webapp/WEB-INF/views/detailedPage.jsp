@@ -148,10 +148,10 @@
                     <div class="nameIn">
                         <ul>
                             <li class="on">
-                                <h2>숙소정보</h2>
+                                <h2>상품정보</h2>
                             </li>
                             <li>
-                                <h2>객실보기</h2>
+                                <h2>상세보기</h2>
                             </li>
                         </ul>
                     </div>
@@ -168,30 +168,32 @@
                                             <div class="tit">
                                                 <h2>${pvo.product_name}</h2>
                                                 <h3>${pvo.product_shortword}</h3>
+                                                <h3>${pvo.product_address}</h3>
                                             </div>
                                             <!-- 로그인안한경우 -->
                                             <security:authorize access="isAnonymous()">
                                             <div>
                                             	<div onclick="heart2()">
-                                            		<img src="/resources/img/heart.png">
-                                            		<div>
+													<i class="fa-regular fa-heart"></i>
+	            								<div>
                                             			${heartcount}
-                                            		</div>
+                                            	</div>
                                             	</div>
                                             </div>
                                             </security:authorize>
                                             <!-- 로그인한경우 -->
                                             <security:authorize access="isAuthenticated()">
                                             <div>
-                                            	<div onclick="heart()">
-                                            		<img src="/resources/img/${heart}.png">
-                                            		<div>
+                                            <div class="proaddbtn probtn_com" onclick="heart()">
+	            								<i class="fa-regular ${heart}"></i>
+	            								<div>
                                             			${heartcount}
-                                            		</div>
                                             	</div>
-                                            	<div class="onePlusBtn" onclick="intra()">
-                                            	여행에추가
-                                            	</div>
+	            							</div>
+
+                                            <div class="proaddbtn probtn_com onePlusBtn" onclick="intra()">
+	            								<i class="fa-regular fa-bookmark"></i>
+	            							</div>
                                             </div>
                                             </security:authorize>
 
@@ -610,15 +612,16 @@
                         </div>
 
                         <div class="tapMenu">
-
+							<!-- 꺼내기시작 -->
+							<c:forEach items="${dList}" var="dl">
                             <div class="room">
                                 <div class="roomIn">
                                     <div class="left">
                                         <div class="swiper detailedSlider">
                                             <div class="swiper-wrapper">
-                                                <div class="swiper-slide" style="background: skyblue url(??.jpg) no-repeat 50% 50%;"></div>
-                                                <div class="swiper-slide" style="background: pink url(??.jpg) no-repeat 50% 50%;"></div>
-                                                <div class="swiper-slide" style="background: green url(??.jpg) no-repeat 50% 50%;"></div>
+                                                <div class="swiper-slide" style="background: skyblue url(/resources/img/upload/${dl.pd_img1}) no-repeat 50% 50%;"></div>
+                                                <div class="swiper-slide" style="background: pink url(/resources/img/upload/${dl.pd_img2} no-repeat 50% 50%;"></div>
+                                                <div class="swiper-slide" style="background: green url(/resources/img/upload/${dl.pd_img3}) no-repeat 50% 50%;"></div>
                                             </div>
                                             <div class="arrowBtn">
                                                 <div class="swiper-button-prev">
@@ -633,13 +636,14 @@
                                     </div>
 
                                     <div class="right">
+                                    	
                                         <div class="tit">
-                                            <h2>객실이름<span><i class="fa-solid fa-user-group"></i>기준 {??} ~ 최대 {??}</span>
+                                            <h2>${dl.pd_name}<span style="display: none;"><i class="fa-solid fa-user-group"></i>기준 {??} ~ 최대 {??}</span>
                                             </h2>
-                                            <h3>침대룸+화장실1 / 27평</h3>
+                                            <h3>${dl.pd_contents}</h3>
                                         </div>
 
-                                        <div class="tag">
+                                        <div class="tag" style="display: none;">
                                             <ul>
                                                 <li>
                                                     <div class="img">
@@ -652,8 +656,11 @@
                                             </ul>
                                         </div>
 
-                                        <div class="money">
-                                            <table>
+                                        <div class="money" >
+                                        	<div>
+                                        		${dl.pd_price}원
+                                        	</div>
+                                            <table style="display: none;">
                                                 <tbody>
                                                     <tr>
                                                         <th>시즌</th>
@@ -682,15 +689,23 @@
                                                 </tbody>
                                             </table>
                                         </div>
-
-                                        <div class="re">
+										<security:authorize access="isAnonymous()">
+                                        <div class="re" onclick="heart2()">
                                             <h2>예약하기</h2>
                                         </div>
+                                        </security:authorize>
+                                        <security:authorize access="isAuthenticated()">
+                                        <div class="re" onclick="">
+                                            <h2>예약하기</h2>
+                                        </div>
+                                        </security:authorize>
                                     </div>
                                 </div>
                             </div>
+                            </c:forEach>
+                            <!-- 꺼내기종료 -->
 
-                            <div class="room">
+                            <div class="room" style="display: none;">
                                 <div class="roomIn">
                                     <div class="left">
                                         <div class="swiper detailedSlider">
@@ -778,10 +793,10 @@
                     <div class="nameIn">
                         <ul>
                             <li class="on">
-                                <h2>숙소정보</h2>
+                                <h2>상품정보</h2>
                             </li>
                             <li>
-                                <h2>객실보기</h2>
+                                <h2>상세보기</h2>
                             </li>
                         </ul>
                     </div>

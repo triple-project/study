@@ -33,6 +33,15 @@ public class MagServiceImpl implements MagSerivce{
 		model.addAttribute("maglist",maglist);
 	}
 
+	@Override
+	public void showmag(String mgz_id, Model model) {
+		// TODO Auto-generated method stub
+		MagVo mVo = magDao.showmag(mgz_id);
+		model.addAttribute("mvo",mVo);
+	}
+
+
+
 	
 
 }

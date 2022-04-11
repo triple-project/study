@@ -81,7 +81,7 @@ public class TripleRestController {
 	public void testtravel(MyPlanVo myPlanVo, HttpServletResponse response)
 			throws JsonGenerationException, JsonMappingException, IOException {
 		ObjectMapper mapper = new ObjectMapper(); // 여행등록 서비스 Object user =
-		System.out.println(myPlanVo);	
+		//System.out.println(myPlanVo);	
 		memberService.inplan(myPlanVo);
 		// response.getWriter().print(mapper.writeValueAsString(user));
 		// response.getWriter().flush();
@@ -91,7 +91,7 @@ public class TripleRestController {
 	public void ftravel(@RequestParam("mem_id")String mem_id, HttpServletResponse response)
 			throws JsonGenerationException, JsonMappingException, IOException {
 		ObjectMapper mapper = new ObjectMapper(); 
-		System.out.println(mem_id);	
+		//System.out.println(mem_id);	
 		Object mpl = memberService.fplan(mem_id);
 		response.getWriter().print(mapper.writeValueAsString(mpl));
 		response.getWriter().flush();
@@ -109,7 +109,7 @@ public class TripleRestController {
 	public void ftravelinfo(@RequestParam("plan_id")String plan_id, HttpServletResponse response)
 			throws JsonGenerationException, JsonMappingException, IOException {
 		ObjectMapper mapper = new ObjectMapper(); 
-		//System.out.println(plan_id);	
+		////System.out.println(plan_id);	
 		Object mpl = memberService.fplanc(plan_id);
 		response.getWriter().print(mapper.writeValueAsString(mpl));
 		response.getWriter().flush();

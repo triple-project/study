@@ -34,8 +34,8 @@
 	<!-- 상품클릭시 보여주는 정보 -고객 -->
 	<select id="goDetail" resultType="ProDVo">
 		select *
-		from product p ,product_detail d
-		where p.PRODUCT_ID=#{PRODUCT_ID}
+		from product_detail
+		where product_id = #{product_id}
 	</select>
 	<select id="findp" resultType="ProVo">
 		select *

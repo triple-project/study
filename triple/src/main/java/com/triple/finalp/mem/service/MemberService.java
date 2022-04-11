@@ -33,4 +33,6 @@ public interface MemberService {
 	public void memshowPro(String mem_id, String product_id, Model model);
 
 	public void hearton(HeartVo heartVo, String cheart);
+
+	public void memshowmag(String mem_id, String mgz_id, Model model);
 }

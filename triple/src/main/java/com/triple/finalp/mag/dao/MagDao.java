@@ -12,4 +12,6 @@ public interface MagDao {
 	public void save(MagVo magVo);
 
 	public ArrayList<MagVo> view();
+
+	public MagVo showmag(String mgz_id);
 }

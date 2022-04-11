@@ -62,7 +62,8 @@
                                                 <div class="txt">
                                                     <h2>${mv.mgz_title}</h2>
                                                     <h4>${mv.mgz_smalltitle}</h4>
-                                                    <h3>${mv.mgz_smallcontent}</h3>
+                                                    
+                                                    <h2><a href="/mv/${mv.mgz_id}">보러가기</a></h2>
                                                 </div>
                                                 <!-- 슬라이드 -->
                                                 <div class="slide">
@@ -98,7 +99,7 @@
                                             <!-- 슬라이드 끝 -->
                                             <div class="bot">
                                                 <!-- 멀 넣어야할지 모르겠어서 임시로 남겨요 -->
-                                                <h2>#태그 #태그 #태그 #태그</h2>
+                                                <h3>${mv.mgz_smallcontent}</h3>
                                             </div>
                                         </div>
                                     </div>

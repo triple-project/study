@@ -54,7 +54,7 @@ public class TripleQnaContoller {
 	  qvo.setMem_id(principal.getName());
       qnaService.writeQna(qvo);
       fileService.join(mhsr, qimage_file_name_h);
-      //System.out.println(qvo);
+      ////System.out.println(qvo);
       return "redirect:/qna/myQna";
    }
 

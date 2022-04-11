@@ -32,8 +32,12 @@ public interface SearchDao {
 
 	ArrayList<MagVo> mccsearch(@Param("city") String city,@Param("cate") String cate);
 
-	
-	
+	ArrayList<ProductVo> pccsearch2(@Param("city")String city, @Param("cate")String cate, @Param("ds")String ds);
 
-	
+	ArrayList<ProductVo> pcatesearch2(@Param("city")String city, @Param("ds")String ds);
+
+	ArrayList<ProductVo> pcsearch2(@Param("cate")String cate, @Param("ds")String ds);
+
+	ArrayList<ProductVo> psearch2(String ds);
+
 }

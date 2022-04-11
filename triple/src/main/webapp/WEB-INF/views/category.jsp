@@ -38,6 +38,16 @@
 			location.href="/category/"+pid;
 		}
 	</script>
+	<script type="text/javascript">
+		function ds() {
+			//var d_ser = $('#d_ser')[0];
+			if (!$('#DS').val()) {
+				alert("검색어를 입력해주세요");
+			}else {
+				$('#d_ser').submit();
+			}			
+		}
+	</script>
 </head>
 
 <body>
@@ -51,6 +61,16 @@
                 <div class="txt">
                     <h2>${main_search}</h2>
                 </div>
+                
+                <div>
+					<form action="/ds" method="get"  id="d_ser">
+						검색창? : <input type="search" name="DS" id="DS">					
+						<input type="hidden" value="${main_search}" name="main_search">
+						<input type="hidden" value="${city_search}" name="city_search">
+						<input type="hidden" value="${cate_search}" name="cate_search">
+					</form>
+					<input type="submit" value="검색하기" onclick="ds()">
+				</div>
 
                 <div class="con">
                     <div class="con_in">
@@ -68,7 +88,7 @@
                                             <div class="swiper-wrapper">
                                                 <div class="swiper-slide">
                                                 	<div class="slide_in">
-                                                        <div class="slide_img" style="background: gray url(../resources/img/??/??.jpg);"></div>
+                                                        <div class="slide_img" style="background: gray url(/resources/img/??/??.jpg);"></div>
                                                 		<div class="slide_cover">
                                                             <div class="txt">
                                                                 <h2 class="cover_txt">제목</h2>

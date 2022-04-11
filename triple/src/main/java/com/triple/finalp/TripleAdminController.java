@@ -82,8 +82,8 @@ public class TripleAdminController {
     
     @RequestMapping(value = "/updatePro", method = RequestMethod.POST)
     public String updateProduct(@RequestParam("img_name_up") List<String> img_name_up,ProductVo pvo,MultipartHttpServletRequest mhsr) throws IllegalStateException, IOException {
-       System.out.println(pvo);
-       System.out.println(img_name_up);
+       //System.out.println(pvo);
+       //System.out.println(img_name_up);
        productService.updateProduct(pvo);       
        fileService.save(mhsr, img_name_up);
        return "redirect:/admin/oL";
@@ -99,7 +99,7 @@ public class TripleAdminController {
     
     @RequestMapping(value = "/updateProD", method = RequestMethod.POST)
     public String updateProductD(@RequestParam("img_name_upd") List<String> img_name_upd,ProductDetailVo pdvo,MultipartHttpServletRequest mhsr) throws IllegalStateException, IOException {
-       System.out.println(pdvo);
+       //System.out.println(pdvo);
        productService.updateProductD(pdvo);
        fileService.save(mhsr, img_name_upd);
        return "redirect:/admin/oL";
@@ -107,7 +107,7 @@ public class TripleAdminController {
     
     @RequestMapping(value = "/updatetag", method = RequestMethod.POST)
     public String updatetag(@RequestParam("utag") List<String> utag,@RequestParam("tpid") String tpid,Principal principal) {
-    	System.out.println(utag);
+    	//System.out.println(utag);
     	tagService.updatet(utag,tpid);
     	return "redirect:/admin/oL";   //.jsp경로      
     }

@@ -26,7 +26,7 @@ public class TagServiceImpl implements TagService{
 		List<String> tcList = tagDao.getCate();
 		HashMap<String,List<String>> tnList = new HashMap<String, List<String>>();
 			tnList.put(tag_cate, tagDao.getList(tag_cate));
-			System.out.println(tnList);
+			//System.out.println(tnList);
 			return tnList;
 	}
 

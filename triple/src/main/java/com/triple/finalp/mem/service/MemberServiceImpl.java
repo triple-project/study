@@ -10,6 +10,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
+import com.triple.finalp.mag.dao.MagDao;
+import com.triple.finalp.mag.vo.MagVo;
 import com.triple.finalp.mem.dao.MemDao;
 import com.triple.finalp.mem.vo.HeartVo;
 import com.triple.finalp.mem.vo.MemVo;
@@ -33,6 +35,9 @@ public class MemberServiceImpl implements MemberService{
 	
 	@Autowired
 	TagDao tagDao;
+	
+	@Autowired
+	MagDao magDao;
 		
 	/*
 	 * @Autowired BCryptPasswordEncoder bCryptPasswordEncoder;
@@ -123,6 +128,21 @@ public class MemberServiceImpl implements MemberService{
 		// TODO Auto-generated method stub
 		memDao.travin(planConVo);
 	}
+	
+	@Override
+	public void memshowmag(String mem_id, String mgz_id, Model model) {
+		// TODO Auto-generated method stub
+		MagVo mVo = magDao.showmag(mgz_id);
+		int h = memDao.hc2(mem_id,mgz_id);
+		int hc = memDao.heartcount2(mgz_id);
+		
+		if(h>0) {
+			model.addAttribute("heart","fa-heart");
+		}else {
+			model.addAttribute("heart","fa-bookmark");			
+		}
+		model.addAttribute("mvo",mVo);
+	}
 
 	@Override
 	public void memshowPro(String mem_id, String product_id, Model model) {
@@ -136,9 +156,9 @@ public class MemberServiceImpl implements MemberService{
 		int hc = memDao.heartcount(product_id);
 		
 		if(h>0) {
-			model.addAttribute("heart","heart");
+			model.addAttribute("heart","fa-heart");
 		}else {
-			model.addAttribute("heart","noheart");			
+			model.addAttribute("heart","fa-bookmark");			
 		}
 		
 		model.addAttribute("heartcount",hc);
@@ -152,13 +172,15 @@ public class MemberServiceImpl implements MemberService{
 	@Override
 	public void hearton(HeartVo heartVo,String cheart) {
 		// TODO Auto-generated method stub
-		if (cheart.equals("heart")) {
+		if (cheart.equals("fa-heart")) {
 			memDao.heartoff(heartVo);
 		}else {
 			memDao.hearton(heartVo);
 		}
 	
 	}
+
+	
 
 
 }

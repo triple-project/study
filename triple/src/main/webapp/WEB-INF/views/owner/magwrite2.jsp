@@ -51,7 +51,7 @@
                                 <input type="text" placeholder="제목을 입력해주세요." name="mgz_title">
                                 <div class="mag_city">
                                     <select name="mgz_city" id="mgz_city">
-                                        <option value="도시 선택" selected="selected" hidden="hidden">도시 선택</option>
+                                        <option value="서울" selected="selected" hidden="hidden">도시 선택</option>
                                         <option value="서울">서울</option>
                                         <option value="대전">대전</option>
                                         <option value="대구">대구</option>
@@ -69,7 +69,7 @@
                                 </div>
                                 <div class="mag_catagory">
                                     <select name="mgz_category" id="mgz_category">
-                                        <option value="카테고리 선택" selected="selected" hidden="hidden">카테고리 선택</option>
+                                        <option value="호텔" selected="selected" hidden="hidden">카테고리 선택</option>
                                         <option value="호텔">호텔</option>
                                         <option value="리조트">리조트</option>
                                         <option value="펜션">펜션</option>
@@ -95,10 +95,14 @@
                             <div class="mag_smalltitle">
                                 <input type="text" placeholder="소제목을 입력해주세요." name="mgz_smalltitle">
                             </div>
+                            <div class="mag_smalltitle">
+                                <input type="text" placeholder="소개를 적어주세요." name="mgz_smallcontent">
+                            </div>
                             <div class="mag_word" contenteditable="true" id="magwrite">
                                 <p>내용을 입력해주세요.</p>
                             </div>
                         </div>
+                        <input type="hidden" name="mgz_id" id="mgz_id">
                         <input type="hidden" name="mgz_content" id="mgz_content">
       					<input type="hidden" name="mimage_file_name_h" id="mimage_file_name_h">
                     </form>
@@ -167,6 +171,9 @@
         function magregsave() {
             const element = document.getElementById('magwrite');
             var today = new Date();
+			var year = today.getFullYear();
+			var month = ('0' + (today.getMonth() + 1)).slice(-2);
+			var day = ('0' + today.getDate()).slice(-2);
             var hours = ('0' + today.getHours()).slice(-2);
             var minutes = ('0' + today.getMinutes()).slice(-2);
             var seconds = ('0' + today.getSeconds()).slice(-2);
@@ -180,8 +187,10 @@
                 img.setAttribute("src", "/resources/img/upload/" + fnn); 
                 fArray.push(fnn);
             }
+            var mid = year + month + day + hours + minutes + seconds
             document.getElementById('mgz_content').value = element.innerHTML;
             $("#mimage_file_name_h").val(fArray);
+            $("#mgz_id").val(mid);
         }
 
     </script>

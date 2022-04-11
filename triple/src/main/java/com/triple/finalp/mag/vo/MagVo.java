@@ -6,7 +6,7 @@ import lombok.Data;
 
 @Data
 public class MagVo {
-	private int mgz_id;
+	private String mgz_id;
 	private String mgz_content;
 	private Date mgz_date;
 	private String mgz_title;
@@ -14,4 +14,5 @@ public class MagVo {
 	private String mgz_category;
 	private String mgz_city;
 	private String mgz_smallcontent;
+	private String mgz_thub;
 }

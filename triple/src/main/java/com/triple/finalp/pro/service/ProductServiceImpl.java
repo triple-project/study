@@ -33,7 +33,7 @@ public class ProductServiceImpl implements ProductService{
 	public void find(String id,Model model) {
 		// TODO Auto-generated method stub
 		ArrayList<ProductVo> findlist = productDao.find(id);
-		System.out.println(findlist);
+		//System.out.println(findlist);
 		model.addAttribute("mainlist",findlist);
 	}
 	
@@ -104,9 +104,9 @@ public class ProductServiceImpl implements ProductService{
 	@Override
 	public void findp(String product_id, Model model) {
 		// TODO Auto-generated method stub
-		System.out.println("product_id"+product_id);
+		//System.out.println("product_id"+product_id);
 		ProductVo pvo = productDao.findp(product_id);
-		System.out.println("pvo"+pvo);
+		//System.out.println("pvo"+pvo);
 		model.addAttribute("fp",pvo);
 	}
 
@@ -128,7 +128,7 @@ public class ProductServiceImpl implements ProductService{
 	
 	@Override
 	public void showProDetail(String product_id,String pd_name,Model model) {
-		System.out.println(product_id+"=====:::"+pd_name+"=====");
+		//System.out.println(product_id+"=====:::"+pd_name+"=====");
 		ProductDetailVo pdvo = productDao.findpd(product_id);
 		ArrayList<ProductDetailVo> pdList = productDao.Ddetail(pd_name);
 		model.addAttribute("pdvo",pdvo);

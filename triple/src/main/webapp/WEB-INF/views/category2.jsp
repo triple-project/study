@@ -33,8 +33,11 @@
 	
 	<script type="text/javascript">
 		function result4(data) {
-			location.href="/findp4/"+data;
+			var mid = data.children.item(0).id;
+			location.href="/mv/"+mid;
 		}
+		
+		
 	</script>
 </head>
 
@@ -58,14 +61,14 @@
                                     <h2>${cate_search}</h2>
                                 </div>
 								<!-- ps에서처리 -->
-                                <div class="list_con">
+                                <div class="list_con" style="display: none;">
                                     <div class="con_txt">추천도, 즐겨찾기 순</div>
                                     <div class="list_con_in">
                                         <div class="hart_list list_slider">
                                             <div class="swiper-wrapper">
                                                 <div class="swiper-slide">
                                                 	<div class="slide_in">
-                                                        <div class="slide_img" style="background: gray url(../resources/img/??/??.jpg);"></div>
+                                                        <div class="slide_img" style="background: gray ;"></div>
                                                 		<div class="slide_cover">
                                                             <div class="txt">
                                                                 <h2 class="cover_txt">제목</h2>
@@ -109,9 +112,9 @@
 												
 													<c:forEach items="${ms.value}" var="mv">
 
-														<div class="swiper-slide" onclick="result4(${mv.mgz_id})">
-															<div class="slide_in">
-																<div class="slide_img" style="background: gray url(../resources/img/??/??.jpg);"></div>
+														<div class="swiper-slide" onclick="result4(this)">
+															<div class="slide_in" id="${mv.mgz_id}">
+																<div class="slide_img" style="background: gray url(/resources/img/upload/${mv.mgz_thub});"></div>
 																<div class="slide_cover">
 																	<div class="txt">
 																		<h2 class="cover_txt">${mv.mgz_title}</h2>

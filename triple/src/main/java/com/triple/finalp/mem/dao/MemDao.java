@@ -30,4 +30,6 @@ public interface MemDao {
 	public void hearton(HeartVo heartVo);
 	public void heartoff(HeartVo heartVo);
 	public int heartcount(String product_id);
+	public int hc2(@Param("mem_id")String mem_id, @Param("mgz_id")String mgz_id);
+	public int heartcount2(String mgz_id);
 }

@@ -35,7 +35,7 @@ public class CustomAuthenticationSuccessHandler2 implements AuthenticationSucces
 							
 				response.sendRedirect(uri);
 				*/
-				System.out.println("자동로그인");
+				//System.out.println("자동로그인");
 				response.sendRedirect("/");
 	}
 

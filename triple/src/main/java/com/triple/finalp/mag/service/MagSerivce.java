@@ -15,5 +15,9 @@ public interface MagSerivce {
 	public void save(MagVo magVo);
 
 	public void view(Model model);
+
+	public void showmag(String mgz_id, Model model);
+
+	//public void memshowmag(String mem_id, String mgz_id, Model model);
 	
 }
