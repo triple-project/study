@@ -81,7 +81,7 @@
                                     <h2>${cate_search}</h2>
                                 </div>
 								<!-- ps에서처리 -->
-                                <div class="list_con">
+                                <div class="list_con" style="display: none;">
                                     <div class="con_txt">추천도, 즐겨찾기 순</div>
                                     <div class="list_con_in">
                                         <div class="hart_list list_slider">

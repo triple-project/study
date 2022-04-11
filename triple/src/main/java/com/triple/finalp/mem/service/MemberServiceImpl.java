@@ -135,13 +135,15 @@ public class MemberServiceImpl implements MemberService{
 		MagVo mVo = magDao.showmag(mgz_id);
 		int h = memDao.hc2(mem_id,mgz_id);
 		int hc = memDao.heartcount2(mgz_id);
-		
+		model.addAttribute("heartcount",hc);
 		if(h>0) {
-			model.addAttribute("heart","fa-heart");
+			model.addAttribute("heart","solid");
 		}else {
-			model.addAttribute("heart","fa-bookmark");			
+			model.addAttribute("heart","regular");			
 		}
 		model.addAttribute("mvo",mVo);
+
+		
 	}
 
 	@Override
@@ -156,9 +158,9 @@ public class MemberServiceImpl implements MemberService{
 		int hc = memDao.heartcount(product_id);
 		
 		if(h>0) {
-			model.addAttribute("heart","fa-heart");
+			model.addAttribute("heart","solid");
 		}else {
-			model.addAttribute("heart","fa-bookmark");			
+			model.addAttribute("heart","regular");			
 		}
 		
 		model.addAttribute("heartcount",hc);
@@ -170,12 +172,16 @@ public class MemberServiceImpl implements MemberService{
 	}
 
 	@Override
-	public void hearton(HeartVo heartVo,String cheart) {
+	public String hearton(HeartVo heartVo,String cheart) {
 		// TODO Auto-generated method stub
-		if (cheart.equals("fa-heart")) {
+		if (cheart.equals("solid")) {
 			memDao.heartoff(heartVo);
+			//System.out.println(cheart);
+			return "heartoff";
 		}else {
 			memDao.hearton(heartVo);
+			//System.out.println(cheart);
+			return "hearton";
 		}
 	
 	}

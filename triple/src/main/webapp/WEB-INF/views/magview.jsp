@@ -38,9 +38,10 @@
 	<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Noto+Serif+KR:wght@200;300;400;500;600;700;900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 </head>
 <script type="text/javascript">
+	var c = '${heart}';
 	function heart() {
 		var h = '${mvo.mgz_id}';
-		var c = '${heart}';
+		
 		$.ajax({
 			type : "POST",
 			url : "/rest/hearton",
@@ -54,7 +55,13 @@
 				success : function(data) {
 	           		 // C에서 받아온 데이터로 새로 뿌려주기
 	           		//console.log(data);
-	           		 window.location.reload();
+	           		 //window.location.reload();
+					if (data=='hearton') {
+						c = 'solid';
+					}else {
+						c = 'regular'
+					}
+	           		$('#ffhd').load(location.href+' #ffhd');
 				},
 				error : function(a){
 					console.log(a);
@@ -90,10 +97,17 @@
 	            	</div>
 	            </security:authorize>
 	            <security:authorize access="isAuthenticated()">
-	            	<div class="magaddbtn magbtn_com" onclick="heart()">
-	            		<i class="fa-regular ${heart}"></i>
-	            	</div>
-	            </security:authorize>
+						<div  onclick="heart()">
+							<div id="ffhd">
+								<div style="display: inline-block;">
+									<i class="fa-${heart} fa-heart magaddbtn magbtn_com" style="color: red;"></i>
+								</div>
+								<div style="display: inline-block;">
+									${heartcount}
+								</div>
+							</div>
+						</div>
+					</security:authorize>
 	            	<div class="magheartbtn magbtn_com" style="display: none;">
 	            		<i class="fa-solid fa-bookmark"></i>
 	            	</div>

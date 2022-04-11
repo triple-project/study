@@ -57,9 +57,12 @@
         rel="stylesheet">
         
 <script type="text/javascript">
+	var c = '${heart}';
 	function heart() {
-		var h = '${pvo.product_id}';
-		var c = '${heart}';
+		var h = '${pvo.product_id}';		
+		var he = $("#ffh");
+		//var c = '${heart}';
+		console.log(c);
 		$.ajax({
 			type : "POST",
 			url : "/rest/hearton",
@@ -73,7 +76,14 @@
 				success : function(data) {
 	           		 // C에서 받아온 데이터로 새로 뿌려주기
 	           		//console.log(data);
-	           		 window.location.reload();
+	           		//window.location.reload();
+	           		if (data=='hearton') {
+						c = 'solid';
+					}else {
+						c = 'regular'
+					}
+	           		$('#ffhd').load(location.href+' #ffhd');
+
 				},
 				error : function(a){
 					console.log(a);
@@ -185,14 +195,19 @@
                                             <security:authorize access="isAuthenticated()">
                                             <div>
                                             <div class="proaddbtn probtn_com" onclick="heart()">
-	            								<i class="fa-regular ${heart}"></i>
-	            								<div>
-                                            			${heartcount}
+                                            	<div id="ffhd">
+	                                            	<div>
+		            									<i class="fa-${heart} fa-heart" style="color:red" id="ffh"></i>
+		            								</div>
+		            								<div>
+	                                            			${heartcount}
+	                                            	</div>
                                             	</div>
 	            							</div>
 
                                             <div class="proaddbtn probtn_com onePlusBtn" onclick="intra()">
 	            								<i class="fa-regular fa-bookmark"></i>
+	            								
 	            							</div>
                                             </div>
                                             </security:authorize>
@@ -218,19 +233,19 @@
                                                 <div class="swiper-wrapper">
                                                 	<!-- 이아래로 이미지5개까지 꺼내기 -->
                                                     <div class="swiper-slide">
-                                                        <div class="img" style="background: blue url(/resources/img/upload/${pvo.product_img1}) no-repeat 50% 50%;"></div>
+                                                        <div class="img" style=" background: blue url(/resources/img/upload/${pvo.product_img1}) no-repeat 50% 50%; background-size:cover;"></div>
                                                     </div>
                                                     <div class="swiper-slide">
-                                                        <div class="img" style="background: skyblue url(/resources/img/upload/${pvo.product_img2}) no-repeat 50% 50%;"></div>
+                                                        <div class="img" style="background: skyblue url(/resources/img/upload/${pvo.product_img2}) no-repeat 50% 50%; background-size:cover;"></div>
                                                     </div>
                                                     <div class="swiper-slide">
-                                                        <div class="img" style="background: blue url(/resources/img/upload/${pvo.product_img3}) no-repeat 50% 50%;"></div>
+                                                        <div class="img" style="background: blue url(/resources/img/upload/${pvo.product_img3}) no-repeat 50% 50%; background-size:cover;"></div>
                                                     </div>
                                                     <div class="swiper-slide">
-                                                        <div class="img" style="background: skyblue url(/resources/img/upload/${pvo.product_img4}) no-repeat 50% 50%;"></div>
+                                                        <div class="img" style="background: skyblue url(/resources/img/upload/${pvo.product_img4}) no-repeat 50% 50%; background-size:cover;"></div>
                                                     </div>
                                                     <div class="swiper-slide">
-                                                        <div class="img" style="background: blue url(/resources/img/upload/${pvo.product_img5}) no-repeat 50% 50%;"></div>
+                                                        <div class="img" style="background: blue url(/resources/img/upload/${pvo.product_img5}) no-repeat 50% 50%; background-size:cover;"></div>
                                                     </div>
                                                 </div>
                                                 <div class="btn">
@@ -619,9 +634,9 @@
                                     <div class="left">
                                         <div class="swiper detailedSlider">
                                             <div class="swiper-wrapper">
-                                                <div class="swiper-slide" style="background: skyblue url(/resources/img/upload/${dl.pd_img1}) no-repeat 50% 50%;"></div>
-                                                <div class="swiper-slide" style="background: pink url(/resources/img/upload/${dl.pd_img2} no-repeat 50% 50%;"></div>
-                                                <div class="swiper-slide" style="background: green url(/resources/img/upload/${dl.pd_img3}) no-repeat 50% 50%;"></div>
+                                                <div class="swiper-slide" style="background: skyblue url(/resources/img/upload/${dl.pd_img1}) no-repeat 50% 50%; background-size:cover;"></div>
+                                                <div class="swiper-slide" style="background: pink url(/resources/img/upload/${dl.pd_img2} no-repeat 50% 50%; background-size:cover;"></div>
+                                                <div class="swiper-slide" style="background: green url(/resources/img/upload/${dl.pd_img3}) no-repeat 50% 50%; background-size:cover;"></div>
                                             </div>
                                             <div class="arrowBtn">
                                                 <div class="swiper-button-prev">
@@ -705,7 +720,7 @@
                             </c:forEach>
                             <!-- 꺼내기종료 -->
 
-                            <div class="room" style="display: none;">
+                            <!-- <div class="room" style="display: none;">
                                 <div class="roomIn">
                                     <div class="left">
                                         <div class="swiper detailedSlider">
@@ -782,7 +797,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
 
                         </div>
 

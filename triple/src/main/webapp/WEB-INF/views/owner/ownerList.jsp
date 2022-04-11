@@ -151,13 +151,13 @@
 				</c:forEach>
 				
 				<div class="own_bottom">
-					<div class="bottom_search">
-						<form id="search" method="" action="">
+					<div class="bottom_search" >
+						<!-- <form id="search" method="" action="">
 							<input type="text" class="search_input" placeholder="상품검색">
 							<div class="search_sub" onclick="$('#search').submit()">
 								<i class="fa-solid fa-magnifying-glass"></i>
 							</div>
-						</form>
+						</form> -->
 					</div>
 
 					<div class="paging">

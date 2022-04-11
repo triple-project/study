@@ -129,8 +129,9 @@ public class TripleRestController {
 	public void hearton(@RequestParam("cheart")String cheart, HeartVo heartVo, HttpServletResponse response) throws JsonGenerationException, JsonMappingException, IOException {
 		// 여행에 추가하기
 		ObjectMapper mapper = new ObjectMapper();
-		memberService.hearton(heartVo,cheart);
-		Object wan = "hwan";
+		String wan = memberService.hearton(heartVo,cheart);
+		//Object wan = "hwan";
+		
 		response.getWriter().print(mapper.writeValueAsString(wan));
 		response.getWriter().flush();			
 	}

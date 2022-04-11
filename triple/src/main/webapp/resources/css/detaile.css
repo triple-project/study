@@ -135,7 +135,7 @@
 
 
 #sec .main .main_in .tapCon .conIn .tapMenu .room{width:100%;height:100%;padding:50px 0; border-bottom:1px solid rgba(0,0,0,.2);}
-#sec .main .main_in .tapCon .conIn .tapMenu .room:last-child{border-bottom:none;}
+#sec .main .main_in .tapCon .conIn .tapMenu .room:last-child{border-bottom:0px;}
 #sec .main .main_in .tapCon .conIn .tapMenu .room .roomIn{width:100%;height:100%;display: flex;}
 #sec .main .main_in .tapCon .conIn .tapMenu .room .roomIn .left{width:47%;border-radius: 10px;overflow: hidden;}
 #sec .main .main_in .tapCon .conIn .tapMenu .room .roomIn .left .swiper{width:100%;height:100%;}
@@ -150,11 +150,12 @@
 .swiper-button-disabled{opacity: 1;}
 
 
-#sec .main .main_in .tapCon .conIn .tapMenu .room .roomIn .right{width:53%;padding-left:45px;color:#343434;position: relative;padding-top:22px;}
+#sec .main .main_in .tapCon .conIn .tapMenu .room .roomIn .right{width:53%;padding-left:45px;color:#343434;position: relative;padding-top:30px;padding-bottom:40px;}
+#sec .main .main_in .tapCon .conIn .tapMenu .room .roomIn .right:after{display: block;content: "";clear: both;}
 #sec .main .main_in .tapCon .conIn .tapMenu .room .roomIn .right .tit{position: relative;}
-#sec .main .main_in .tapCon .conIn .tapMenu .room .roomIn .right .tit h2{font-size:24px;font-weight: 500;}
+#sec .main .main_in .tapCon .conIn .tapMenu .room .roomIn .right .tit h2{font-size:24px;font-weight: 500;line-height:34px;}
 #sec .main .main_in .tapCon .conIn .tapMenu .room .roomIn .right .tit h2 span{margin-left:5px;font-size:12px;}
-#sec .main .main_in .tapCon .conIn .tapMenu .room .roomIn .right .tit h3{line-height:24px;font-size:14px;font-weight: 500;opacity: .6;margin-bottom:10px;}
+#sec .main .main_in .tapCon .conIn .tapMenu .room .roomIn .right .tit h3{line-height:24px;font-size:14px;font-weight: 500;opacity: .6;margin-bottom:20px;margin-top:5px;}
 
 #sec .main .main_in .tapCon .conIn .tapMenu .room .roomIn .right .tag ul:after{content: "";display: block;clear: both;}
 #sec .main .main_in .tapCon .conIn .tapMenu .room .roomIn .right .tag ul li{float:left;text-align: center;margin-right:5px;}
@@ -165,15 +166,15 @@
 #sec .main .main_in .tapCon .conIn .tapMenu .room .roomIn .right .tag ul li .txt{margin-top:5px;}
 #sec .main .main_in .tapCon .conIn .tapMenu .room .roomIn .right .tag ul li .txt h3{font-size:12px;font-weight: 500;}
 
-#sec .main .main_in .tapCon .conIn .tapMenu .room .roomIn .right .money{margin:10px 0 34px;width:100%;}
+#sec .main .main_in .tapCon .conIn .tapMenu .room .roomIn .right .money{margin:10px 0 34px;width:100%;line-height:22px;}
 #sec .main .main_in .tapCon .conIn .tapMenu .room .roomIn .right .money table{border-collapse: collapse;width:100%;}
 #sec .main .main_in .tapCon .conIn .tapMenu .room .roomIn .right .money table tr{font-size:14px;font-weight: 500;color:#808080;}
 #sec .main .main_in .tapCon .conIn .tapMenu .room .roomIn .right .money table tr th{border:1px solid #d6d6d6;padding:16px 0;width:10%;background: #eeeeee;}
 #sec .main .main_in .tapCon .conIn .tapMenu .room .roomIn .right .money table tr th:first-child{width:25%;background: #f8f1e9;}
 #sec .main .main_in .tapCon .conIn .tapMenu .room .roomIn .right .money table tr td{border:1px solid #d6d6d6;padding:12px 0;text-align: center;}
 
-#sec .main .main_in .tapCon .conIn .tapMenu .room .roomIn .right .re{position: absolute;right:0;top:22px;overflow: hidden;border-radius: 10px;background: #5de4c2;line-height:48px;height:48px;width:260px;cursor: pointer;}
-#sec .main .main_in .tapCon .conIn .tapMenu .room .roomIn .right .re h2{color:#fff;text-align: center;}
+#sec .main .main_in .tapCon .conIn .tapMenu .room .roomIn .right .re{overflow: hidden;border-radius: 10px;background: #fff;line-height:22px;width:260px;cursor: pointer;float:right;color:#343434;text-align: center;border:1px solid rgba(0,0,0,.3);padding:16px 0;font-weight: 500;}
+#sec .main .main_in .tapCon .conIn .tapMenu .room .roomIn .right .re:hover{background: #5de4c2;color:#fff;border:1px solid transparent;}
 .plusList{position: fixed;width:600px;height:600px;overflow: hidden;border-radius: 10px;background: #fff;box-shadow: 0 0 15px rgba(0,0,0,.15);left:50%;top:50%;transform: translate(-50%, -50%);z-index: 1000;display: none;}
 .plusList .plusListIn{padding:30px;}
 .plusListCover{position: fixed;width: 100%;height: 100%;left:0;top:0;right:0;bottom:0;background: rgba(0,0,0,.2);z-index: 999;display: none;}
