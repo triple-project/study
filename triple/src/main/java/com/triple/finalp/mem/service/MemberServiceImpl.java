@@ -52,6 +52,7 @@ public class MemberServiceImpl implements MemberService{
 		Map<String, String> info = new HashMap<String, String>();
 		info.put("heart",memDao.c_heart(mem_id));
 		info.put("plan",memDao.c_plan(mem_id));
+		info.put("review",memDao.c_review(mem_id));
 		info.put("pro_mem_img",memDao.pi(mem_id));
 		return info;
 	}
@@ -195,6 +196,20 @@ public class MemberServiceImpl implements MemberService{
 		// TODO Auto-generated method stub
 		memDao.dplan(myPlanVo);
 		return "wan";
+	}
+
+	@Override
+	public ArrayList<ProductVo> freview(String mem_id) {
+		// TODO Auto-generated method stub
+		ArrayList<ProductVo> freview = reviewDao.freview(mem_id);
+		return freview;
+	}
+
+	@Override
+	public ArrayList<ReviewVo> freview_info(String mem_id, String product_id) {
+		// TODO Auto-generated method stub
+		ArrayList<ReviewVo> freview_info = reviewDao.freview_info(mem_id,product_id);
+		return freview_info;
 	}
 
 	

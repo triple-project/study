@@ -17,6 +17,11 @@
 		from myplan
 		where mem_id = #{mem_id}
 	</select>
+	<select id="c_review" resultType="String">
+		select count(*)
+		from review
+		where mem_id = #{mem_id}
+	</select>
 	<update id="updateProfile">
 		update member 
 		set  e_mail = #{e_mail}, tel = #{tel}, mem_img = #{mem_img}

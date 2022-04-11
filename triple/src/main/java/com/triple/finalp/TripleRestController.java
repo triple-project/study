@@ -107,6 +107,26 @@ public class TripleRestController {
 		response.getWriter().flush();
 	}
 	
+	@RequestMapping(value = "/freview", method = RequestMethod.POST)
+	public void freview(@RequestParam("mem_id")String mem_id, HttpServletResponse response)
+			throws JsonGenerationException, JsonMappingException, IOException {
+		ObjectMapper mapper = new ObjectMapper(); 
+		//System.out.println(mem_id);	
+		Object mpl = memberService.freview(mem_id);
+		response.getWriter().print(mapper.writeValueAsString(mpl));
+		response.getWriter().flush();
+	}
+	
+	@RequestMapping(value = "/freview_info", method = RequestMethod.POST)
+	public void freview_info(@RequestParam("mem_id")String mem_id,@RequestParam("product_id")String product_id, HttpServletResponse response)
+			throws JsonGenerationException, JsonMappingException, IOException {
+		ObjectMapper mapper = new ObjectMapper(); 
+		////System.out.println(plan_id);	
+		Object mpl = memberService.freview_info(mem_id,product_id);
+		response.getWriter().print(mapper.writeValueAsString(mpl));
+		response.getWriter().flush();
+	}
+	
 	@RequestMapping(value = "/tagList", method = RequestMethod.POST)
 	public void tagList(@RequestParam("tag_cate") String tag_cate,HttpServletResponse response) throws JsonGenerationException, JsonMappingException, IOException {
 		ObjectMapper mapper = new ObjectMapper();

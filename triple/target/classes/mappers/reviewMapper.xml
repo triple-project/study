@@ -16,4 +16,22 @@
       from review
       where product_id = #{product_id}
    </select>
+   
+   <select id="freview" resultType="ProVo">
+   	  select p.product_id,product_img1,product_name,product_shortword,product_address
+      from review r join product p
+      on r.product_id = p.product_id
+      where mem_id = #{mem_id}
+      group by p.product_id
+      order by r_date desc
+   </select>
+   
+   <select id="freview_info" resultType="ReviewVo">
+   	  select r_comment,r_star,r_img1,r_date,mem_img,mem_id
+      from review r join product p
+      on r.product_id = p.product_id
+      where mem_id = #{mem_id}
+      and r.product_id = #{product_id}
+      order by r_date desc
+   </select>
 </mapper>

@@ -72,7 +72,7 @@
 </script>
 <script type="text/javascript">
 	$(function() {
-		$('#depPlandTime').daterangepicker(
+		$('.depPlandTime').daterangepicker(
 				{
 					"locale" : {
 						"format" : "YYYYMMDD",
@@ -103,7 +103,7 @@
 </script>
 <script type="text/javascript">
 	$(document).ready(
-			function apitest() {
+			function apitra2() {
 				$.ajax({
 					type : "POST",
 					url : "/rest/ci",
@@ -140,16 +140,58 @@
 					}
 				});
 			})
+			function apitra() {
+				$.ajax({
+					type : "POST",
+					url : "/rest/ci",
+					dataType : "json",
+					data : {
+						depPlandTime : $("#depPlandTime").val(),
+						depPlaceId : $("#depPlaceId").val(),
+						arrPlaceId : $("#arrPlaceId").val(),
+						trainGradeCode : $("#trainGradeCode").val()
+					},
+					responseType : 'application/json',
+					success : function(data) {
+						const element2 = $("#teatable");
+						element2.html('');
+						element2.append("<tr>" + "<th>출발시간</th>"
+								+ "<th>출발역</th>" + "<th>도착시간</th>"
+								+ "<th>도착역</th>" + "<th>열차</th>" + "</tr>");
+						var train = data.response.body.items;
+						//console.log(data.response.body.totalCount);
+						if (data.response.body.totalCount==0) {
+							alert("해당 조회에 대한 결과가 없습니다.")
+						}else{
+							for (var i = 0; i < train.item.length; i++) {
+	
+								element2.append("<tr>" + "<td>"
+										+ train.item[i].depplandtime + "</td>"
+										+ "<td>" + train.item[i].depplacename
+										+ "</td>" + "<td>"
+										+ train.item[i].arrplandtime + "</td>"
+										+ "<td>" + train.item[i].arrplacename
+										+ "</td>" + "<td>"
+										+ train.item[i].traingradename + "</td>"
+										+ +"</tr>");
+							}
+						}
+					},
+					error : function(a, b, c) {
+						console.log(a, b, c);
+					}
+				});
+			}
 </script>
 <script type="text/javascript">
 	$(document).ready(
-			function apitest() {
+			function apiair2() {
 				$.ajax({
 					type : "POST",
 					url : "/rest/flightInfo",
 					dataType : "json",
 					data : {
-						depPlandTime : $("#depPlandTime").val(),
+						depPlandTime : $("#depPlandTimea").val(),
 						depAirportId : $("#depAirportId").val(),
 						arrAirporrtId : $("#arrAirporrtId").val(),
 						airlineId : $("#airlineId").val()
@@ -182,6 +224,49 @@
 					}
 				});
 			});
+	function apiair() {
+		$.ajax({
+			type : "POST",
+			url : "/rest/flightInfo",
+			dataType : "json",
+			data : {
+				depPlandTime : $("#depPlandTimea").val(),
+				depAirportId : $("#depAirportId").val(),
+				arrAirporrtId : $("#arrAirporrtId").val(),
+				airlineId : $("#airlineId").val()
+			},
+			responseType : 'application/json',
+			success : function(data) {
+				const element2 = $("#fteatable");
+				element2.html('');
+				element2.append("<tr>" + "<th>출발시간</th>"
+						+ "<th>출발공항</th>" + "<th>도착시간</th>"
+						+ "<th>도착공항</th>" + "<th>항공사</th>" + "</tr>");
+
+				console.log(data);
+				var flight = data.response.body.items;
+				if (data.response.body.totalCount==0) {
+					alert("해당 조회에 대한 결과가 없습니다.")
+				}else{
+					for (var i = 0; i < flight.item.length; i++) {
+	
+						element2.append("<tr>" + "<td>"
+								+ flight.item[i].depPlandTime + "</td>"
+								+ "<td>" + flight.item[i].depAirportNm
+								+ "</td>" + "<td>"
+								+ flight.item[i].arrPlandTime + "</td>"
+								+ "<td>" + flight.item[i].arrAirportNm
+								+ "</td>" + "<td>"
+								+ flight.item[i].airlineNm + "</td>"
+								+ "</tr>");
+					}
+				}
+			},
+			error : function(a, b, c) {
+				console.log(a, b, c);
+			}
+		});
+	}
 </script>
 </head>
 <body>
@@ -247,7 +332,7 @@
 							<div class="box right"
 								style="width: 40%; border: 1px solid red; overflow: auto;">
 								<form action="" method="post" id="teaapi">
-									출발일 <input type="text" id="depPlandTime" name="depPlandTime"
+									출발일 <input type="text" class="depPlandTime" id="depPlandTime" name="depPlandTime"
 										readonly="readonly" /><br> 출발역 <select name="depPlaceId"
 										id="depPlaceId">
 										<option value="NAT010000" selected="selected">서울</option>
@@ -398,7 +483,7 @@
 								</select> -->
 								</form>
 								<!-- <button onclick="d_test()">날짜값조회</button> -->
-								<button onclick="apitest()">조회하기</button>
+								<button onclick="apitra()">조회하기</button>
 							</div>
 
 
@@ -416,7 +501,7 @@
 							<div class="box right"
 								style="width: 40%; border: 1px solid red; overflow: auto;">
 								<form action="" method="post" id="teaapi">
-									출발일 <input type="text" id="depPlandTime" name="depPlandTime"
+									출발일 <input type="text" class="depPlandTime" id="depPlandTimea" name="depPlandTimea"
 										readonly="readonly" /><br> 출발공항 <select
 										name="depAirportId" id="depAirportId">
 										<option value="NAARKJB">무안</option>
@@ -464,7 +549,7 @@
 									</select>
 								</form>
 								<!-- <button onclick="d_test()">날짜값조회</button> -->
-								<button onclick="apitest()">조회하기</button>
+								<button onclick="apiair()">조회하기</button>
 							</div>
 						</div>
 					</div>

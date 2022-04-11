@@ -10,6 +10,7 @@ import com.triple.finalp.mem.vo.MemVo;
 import com.triple.finalp.mem.vo.MyPlanVo;
 import com.triple.finalp.mem.vo.PlanConVo;
 import com.triple.finalp.pro.vo.ProductVo;
+import com.triple.finalp.review.vo.ReviewVo;
 
 public interface MemberService {
 	public void join(MemVo memVo);
@@ -37,4 +38,8 @@ public interface MemberService {
 	public void memshowmag(String mem_id, String mgz_id, Model model);
 
 	public String dplan(MyPlanVo myPlanVo);
+
+	public ArrayList<ProductVo> freview(String mem_id);
+
+	public ArrayList<ReviewVo> freview_info(String mem_id, String product_id);
 }

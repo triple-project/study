@@ -55,45 +55,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Noto+Serif+KR:wght@200;300;400;500;600;700;900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
         rel="stylesheet">
-    <style type="text/css">
-  .star {
-    position: relative;
-    font-size: 2rem;
-    color: #ddd;
-  }
-  
-  .star2 {
-    position: relative;
-    font-size: 2rem;
-    color: #ddd;
-  }
-  
-  .star input {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    left: 0;
-    opacity: 0;
-    cursor: pointer;
-  }
-  
-  .star span {
-    width: 0;
-    position: absolute; 
-    left: 0;
-    color: red;
-    overflow: hidden;
-    pointer-events: none;
-  }
-  
-  .star2 span {
-    position: absolute; 
-    left: 0;
-    color: red;
-    overflow: hidden;
-    pointer-events: none;
-  }
-    </style>
+
 <script type="text/javascript">
 	var c = '${heart}';
 	function heart() {
@@ -192,7 +154,7 @@ function intra() {
 	}
 	
 </script>
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 	 const drawStar = (target) => {
 		var ss = target.value*10;
 		console.log(target.value*10);
@@ -201,10 +163,12 @@ function intra() {
 		
 	  } 
 
-</script>
+</script> -->
 
 <script type="text/javascript">
 	function rs() {
+		var filech = $("#rimage_file_name").val();
+		
 		var r_contentd = document.getElementById('r_contentd')
 		document.getElementById('r_comment').value = r_contentd.innerHTML;
 		var today = new Date();
@@ -212,11 +176,16 @@ function intra() {
 		var minutes = ('0' + today.getMinutes()).slice(-2);
 		var seconds = ('0' + today.getSeconds()).slice(-2);
 		var ti = hours + minutes + seconds;
-		var fileValue = $("#rimage_file_name").val().split("\\");
-		var fileName = fileValue[fileValue.length - 1]; // 파일명
-		/* console.log(fileName); image_file_name_h */
-		const a = $('#rimg_h').val(ti+fileName);
-		const b = $('#rimage_file_name_h').val(ti+fileName);
+		if(!filech){
+			
+		}else {
+			var fileValue = $("#rimage_file_name").val().split("\\");
+			var fileName = fileValue[fileValue.length - 1]; // 파일명
+			/* console.log(fileName); image_file_name_h */
+			const a = $('#rimg_h').val(ti+fileName);
+			const b = $('#rimage_file_name_h').val(ti+fileName);
+		}
+		
 	}
 	
 	function rreadURL(input) {

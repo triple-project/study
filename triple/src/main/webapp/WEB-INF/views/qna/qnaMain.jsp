@@ -10,7 +10,6 @@
 <link rel="stylesheet" href="/resources/css/reset.css">
 <link rel="stylesheet"
 	href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
-<link rel="stylesheet" href="/resources/css/mobiscroll.jquery.min.css">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css"
 	integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw=="
@@ -49,9 +48,7 @@
 
 <script src="/resources/js/jquery-3.6.0.min.js"></script>
 <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
-<script src="/resources/js/mobiscroll.jquery.min.js"></script>
-<script src="https://kit.fontawesome.com/8d1d3d3a2e.js"
-	crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/8d1d3d3a2e.js"crossorigin="anonymous"></script>
 <script src="/resources/js/main.js"></script>
 
 <link rel="shortcut icon" href="#">
@@ -60,7 +57,6 @@
 <link
 	href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Noto+Serif+KR:wght@200;300;400;500;600;700;900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
 	rel="stylesheet">
-<script src="/resources/js/jquery-3.6.0.min.js"></script>
 </head>
 <body>
 

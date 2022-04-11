@@ -6,6 +6,7 @@
       select *
       from qna
       where mem_id = #{mem_id}
+      order by q_id desc
    </select>
 
    <insert id="writeQna">
@@ -42,6 +43,7 @@
       select *
       from qna 
       where q_id=#{q_id}
+      
    </select>
    
    <insert id="writeRep">
@@ -56,15 +58,16 @@
        WHERE q_id = #{q_id}
    </select>
    
-   <select id="qnaCheck">
+   <update id="qnaCheck">
    		update qna set q_check = '답변완료'
    		where q_id = #{q_id}
-   </select>
+   </update>
    
    <select id="noticeShow" resultType="NoticeVo">
    		select *
    		from notice
    		where n_id = #{n_id}
+   		order by n_id desc
    </select>
    
    <delete id="deln">
@@ -76,6 +79,7 @@
    		select *
    		from qna
    		where q_check = '처리중'
+   		order by q_id desc
    </select>
    
    <update id="upno">

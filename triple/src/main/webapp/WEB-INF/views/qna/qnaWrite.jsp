@@ -60,7 +60,6 @@
 <link
 	href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Noto+Serif+KR:wght@200;300;400;500;600;700;900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
 	rel="stylesheet">
-<script src="/resources/js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
 	function qs() {
 		var q_contentd = document.getElementById('q_contentd')

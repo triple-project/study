@@ -258,7 +258,7 @@ public class TripleController {
 	@RequestMapping(value = "/review", method = RequestMethod.POST)
 	public String review(@RequestParam("rimage_file_name_h")String rimage_file_name_h,ReviewVo reviewvo, Principal principal,MultipartHttpServletRequest mhsr) throws IllegalStateException, IOException {
 		reviewvo.setMem_id(principal.getName());
-		System.out.println(reviewvo);
+		//System.out.println(reviewvo);
 		reviewService.review(reviewvo);
 		fileService.join(mhsr, rimage_file_name_h);
 		return "redirect:/category/" + reviewvo.getProduct_id();
