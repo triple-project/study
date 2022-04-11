@@ -81,11 +81,12 @@
                                         <option value="티켓">티켓</option>
                                     </select>
                                 </div>
-                                <div class="magaddimg">
-                                    <label for="image_file_name0">
-                                        <i class="fa-solid fa-image"></i>
-                                    </label>
-                                    <input type="file" id="image_file_name0" name="image_file_name0" onchange="readURL(this);">
+                                <div class="magaddimg" onclick="fileb()">
+                                <i class="fa-solid fa-image"></i>
+                                    <!-- <label for="image_file_name0">
+                                        
+                                    </label> -->
+                                    
                                 </div>
                                 <button class="magreg_submit">
                                     <i class="fa-solid fa-floppy-disk"></i>
@@ -105,6 +106,9 @@
                         <input type="hidden" name="mgz_id" id="mgz_id">
                         <input type="hidden" name="mgz_content" id="mgz_content">
       					<input type="hidden" name="mimage_file_name_h" id="mimage_file_name_h">
+      					<div id="fileinh" style="display: none;">
+      						<input type="file" id="image_file_name0" name="image_file_name0" onchange="readURL(this);">
+      					</div>
                     </form>
                 </div>
             </div>
@@ -116,11 +120,16 @@
     <script type="text/javascript">
         var count = 0;
        var filename = new Array();
+       
+       function fileb() {
+    	   $('#image_file_name' + count).click();
+		}
 
         function readURL(input) {
             var file = input.files[0] //파일에 대한 정보
             filename.push(file.name);
-    
+            //console.log(input.value);
+            //$('#image_file_name' + count).val(file);
             if (file != '') {
                 var reader = new FileReader();
                 //파일의 정보를 토대로 파일을 읽고 
@@ -143,13 +152,14 @@
                     element.appendChild(newImg);
     
                     /* $("#writeform").append("<br>"); */
+                    const fileinh = document.getElementById('fileinh');
                     const newInput = document.createElement('input');
                     //newInput.setAttribute("type", "file");
-                    newInput.setAttribute("type", "hidden");
+                    newInput.setAttribute("type", "file");
                     newInput.setAttribute("id", "image_file_name" + count);
                     newInput.setAttribute("name", "image_file_name" + count);
                     newInput.setAttribute("onchange", "readURL(this);");
-                    element.appendChild(newInput);
+                    fileinh.appendChild(newInput);
     
 
                 }

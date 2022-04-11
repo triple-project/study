@@ -106,5 +106,11 @@
 		from heart
 		where heart_id = #{mgz_id}
 	</select>
+	
+	<delete id="dplan">
+		delete from myplan
+		where mem_id = #{mem_id}
+		and plan_id = #{plan_id}
+	</delete>
 
 </mapper>

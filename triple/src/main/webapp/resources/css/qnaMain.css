@@ -1,0 +1,43 @@
+@charset "UTF-8";
+
+#sec {}
+#sec .qna_in {display: flex;margin: 0 110px;width: 1500px;}
+#sec .qna_in .qna_aside {margin-top: -10px !important;}
+
+/* 공지사항  */
+#sec .qna_in .qna_main {width: 1300px;margin: 0 auto;padding:20px 30px;}
+#sec .qna_in .qna_main h3 {font-size:20px;margin-bottom:5px;}
+#sec .qna_in .qna_main h4{font-size:16px;margin-top:20px;}
+#sec .qna_in .qna_main .qna_more {display: flex;justify-content: flex-end;margin-bottom: 5px;}
+#sec .qna_in .qna_main .qna_more a {font-size: 12px;margin-right: 10px;}
+#sec .qna_in .qna_main .qna_more a:link{color:#000;}
+#sec .qna_in .qna_main .qna_more a:visited{color:#000;}
+#sec .qna_in .qna_main .qna_more a:active{color:#000;}
+#sec .qna_in .qna_main .qna_notice {border: 1px solid #999;border-radius: 10px;width: 1220px;margin-left: 10px;box-shadow: 1px 1px 4px 0px rgb(0 0 0 / 20%);}
+#sec .qna_in .qna_main .qna_notice .qna_title{border:1px solid #999;width: 100%;height: 30px;border-radius: 10px;}
+#sec .qna_in .qna_main .qna_notice .qna_title span{}
+#sec .qna_in .qna_main .qna_notice .qna_noticeword{width:100%;height:30px;margin-left:10px;line-height: 30px;}
+#sec .qna_in .qna_main .qna_notice .qna_noticeword a{}
+#sec .qna_in .qna_main .qna_notice .qna_noticeword a:link{color:#000;}
+#sec .qna_in .qna_main .qna_notice .qna_noticeword a:visited{color:#000;}
+#sec .qna_in .qna_main .qna_notice .qna_noticeword a:active{color:#000;}
+#sec .qna_in .qna_main .qna_notice .qna_noticeword span {font-size:16px;}
+#sec .qna_in .qna_main .qna_notice .qna_noticeword span:nth-child(1) {font-size:14px;color: rgba(0,0,0,.8);margin-right: 10px;}
+#sec .qna_in .qna_main .qna_notice .qna_noticeword span:nth-child(3) {font-size:14px;float:right;margin-right:30px;}
+/* 공지사항 끝 */
+
+/* 자주 묻는 질문 */
+#sec .qna_in .qna_main .qna_faq {display: flex;flex-wrap: wrap;margin-top:10px;justify-content: center;}
+#sec .qna_in .qna_main .qna_faq p{font-size:16px;margin-bottom: 10px;}
+#sec .qna_in .qna_main .qna_faq a{font-size:14px;margin-bottom:5px;letter-spacing: -1px;margin-left:5px;}
+#sec .qna_in .qna_main .qna_faq a:link{color:#000;}
+#sec .qna_in .qna_main .qna_faq a:visited{color:#000;}
+#sec .qna_in .qna_main .qna_faq a:active{color:#000;}
+#sec .qna_in .qna_main .qna_faq .qna_faq_com{border:1px solid #999;width:400px;height:150px;border-radius:10px;margin: 5px;display:flex;flex-direction:column;justify-content:center;padding-left: 10px;box-shadow: 1px 1px 4px 0px rgb(0 0 0 / 20%);}
+#sec .qna_in .qna_main .qna_faq .qna_faq1 {}
+#sec .qna_in .qna_main .qna_faq .qna_faq2 {}
+#sec .qna_in .qna_main .qna_faq .qna_faq3 {}
+#sec .qna_in .qna_main .qna_faq .qna_faq4 {}
+#sec .qna_in .qna_main .qna_faq .qna_faq5 {}
+#sec .qna_in .qna_main .qna_faq .qna_faq6 {}
+/* 자주 묻는 질문 끝 */

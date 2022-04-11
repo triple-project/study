@@ -1,0 +1,26 @@
+@charset "UTF-8";
+
+#sec .noticeWrite_in {display: flex;margin: 0 110px;width: 1500px;}
+#sec .noticeWrite_in .noticeWrite_main {width: 1300px;margin: 0 auto;padding:20px 30px;}
+#sec .noticeWrite_in .noticeWrite_main h3 {font-size:20px;margin-bottom:5px;}
+
+#sec .noticeWrite_in .noticeWrite_main .noticeWrite_title {border-right:1px solid #999;width: 100px;float:left;margin-top: 25px;}
+#sec .noticeWrite_in .noticeWrite_main .noticeWrite_title::before {content: "";display: block;clear: both;}
+#sec .noticeWrite_in .noticeWrite_main .noticeWrite_title .noticewr_title_com{display: flex;justify-content: center;border-bottom:1px solid #999;}
+#sec .noticeWrite_in .noticeWrite_main .noticeWrite_title p{width: 100px;height:40px;display: flex;justify-content: center;align-items: center;}
+#sec .noticeWrite_in .noticeWrite_main .noticeWrite_title .title1{width: 100px;height: 40px;border-top:1px solid #999;}
+#sec .noticeWrite_in .noticeWrite_main .noticeWrite_title .title2{width: 100px;height: 380px;}
+#sec .noticeWrite_in .noticeWrite_main .noticeWrite_title .title3{width: 100px;height: 250px;}
+
+#sec .noticeWrite_in .noticeWrite_main .ntw_form {width: 1140px;float: left;margin-top: 25px;}
+#sec .noticeWrite_in .noticeWrite_main .ntw_form .ntw_com{border-bottom: 1px solid #999;}
+#sec .noticeWrite_in .noticeWrite_main .ntw_form .ntw_title{width: 100%;height: 40px;border-top:1px solid #999;padding:5px;}
+#sec .noticeWrite_in .noticeWrite_main .ntw_form .ntw_title input{width: 100%;height: 100%;border: none;outline: none;font-size:14px;}
+#sec .noticeWrite_in .noticeWrite_main .ntw_form .ntw_content{width: 100%;height: 380px;outline:none;padding:10px 10px 10px 5px;}
+#sec .noticeWrite_in .noticeWrite_main .ntw_form .ntw_content p{font-size: 14px;margin-bottom:5px;}
+#sec .noticeWrite_in .noticeWrite_main .ntw_form .ntw_preview{width: 100%;height: 250px;padding: 10px;}
+#sec .noticeWrite_in .noticeWrite_main .ntw_form .ntw_preview img{width: auto;height: 200px;border:none;display: block;margin-bottom: 5px;border-radius: 10px;}
+
+#sec .noticeWrite_in .noticeWrite_main .ntw_form .ntw_bottom{width: 100%;height: 30px;display: flex; justify-content: flex-end;margin-top: 10px;}
+#sec .noticeWrite_in .noticeWrite_main .ntw_form .ntw_bottom .ntw_btn{width: 100px;height: 30px;border:1px solid #999;border-radius: 10px;display: flex;justify-content: center;align-items: center;color:rgba(0,0,0,.8);cursor:pointer;}
+#sec .noticeWrite_in .noticeWrite_main .ntw_form .ntw_bottom .ntw_btn:hover{background: #5de4c2;border:none;color:rgb(255, 255, 255);}

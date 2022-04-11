@@ -32,4 +32,5 @@ public interface MemDao {
 	public int heartcount(String product_id);
 	public int hc2(@Param("mem_id")String mem_id, @Param("mgz_id")String mgz_id);
 	public int heartcount2(String mgz_id);
+	public void dplan(MyPlanVo myPlanVo);
 }

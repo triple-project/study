@@ -44,7 +44,7 @@
 	integrity="sha512-UtgpaUQPTevIy6walAy8W82eDxOdZJqKS0w2vf0eTItGubnT6TKkbM1GoNyoNvlM4DKhbl45kOK+Z4EhtuK2RA=="
 	crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link rel="stylesheet" href="/resources/css/common.css">
-<link rel="stylesheet" href="/resources/css/ownerList.css">
+<link rel="stylesheet" href="/resources/css/noticeList.css">
 
 
 <script src="/resources/js/jquery-3.6.0.min.js"></script>
@@ -67,43 +67,54 @@
 	}
 </script>
 </head>
-<body style="height: 100%;">
+<body>
 
 	<jsp:include page="/WEB-INF/views/header.jsp" flush="true" />
 
-
-
-	<section style="height: 100%;">
-
-		<aside
-			style="float: left; height: 100%; width: 25%;">
-			<jsp:include page="/WEB-INF/views/qna/qnaAside.jsp" flush="true" />
-		</aside>
-
-		<h1>공지사항목록</h1>
-		
-			<div>
-				<div>
-					<span>번호</span> <span>제목</span> <span>날짜</span>
-				</div>
-				<c:forEach items="${nList}" var="nl">
-					<div>
-						<span>${nl.n_id}</span><span><a href="/qna/nlist/${nl.n_id}">${nl.n_title}</a></span><span>${nl.n_date}</span>
-					</div>
-				</c:forEach>
+	<section id="sec">
+		<div class="noticeList_in">
+			<div class="noticeList_aside">
+				<aside>
+					<jsp:include page="/WEB-INF/views/qna/qnaAside.jsp" flush="true" />
+				</aside>
 			</div>
 
-		<security:authorize access="hasRole('ROLE_ADMIN')">
-			<h1>공지사항 작성하기 관리자만 보임</h1>
-				<button onclick="gj()">공지사항 작성</button>
-		</security:authorize>
-
+			<div class="noticeList_main">
+				<h3>공지사항목록</h3>
+					<div class="noticeList_list">
+						<div class="notice_title">
+							<div class="notice_title1">
+								<p>번호</p>
+							</div>
+							<div class="notice_title2">
+								<p>제목</p>
+							</div>
+							<div class="notice_title3">
+								<p>날짜</p>
+							</div>
+						</div>
+					
+					<c:forEach items="${nList}" var="nl">
+						<div class="noticeList_content">
+							<div class="noticeList_content1">
+								<p>${nl.n_id}</p>
+							</div>
+							<div class="noticeList_content2">
+								<p>
+									<a href="/qna/nlist/${nl.n_id}">${nl.n_title}</a>
+								</p>
+							</div>
+							<div class="noticeList_content3">
+								<p>${nl.n_date}</p>
+							</div>
+						</div>
+					</c:forEach>
+				</div>
+			</div>
+		</div>
 	</section>
-	<div>
-		<%@ include file="../footer.jsp"%>
-	</div>
 
-
+	<%@ include file="../footer.jsp"%>
 
 </body>
 </html>

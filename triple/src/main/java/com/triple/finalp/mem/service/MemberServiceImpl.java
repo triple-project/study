@@ -20,6 +20,8 @@ import com.triple.finalp.mem.vo.PlanConVo;
 import com.triple.finalp.pro.dao.ProductDao;
 import com.triple.finalp.pro.vo.ProductDetailVo;
 import com.triple.finalp.pro.vo.ProductVo;
+import com.triple.finalp.review.dao.ReviewDao;
+import com.triple.finalp.review.vo.ReviewVo;
 import com.triple.finalp.tag.dao.TagDao;
 import com.triple.finalp.tag.vo.TagTagVo;
 import com.triple.finalp.tag.vo.TagVo;
@@ -38,10 +40,9 @@ public class MemberServiceImpl implements MemberService{
 	
 	@Autowired
 	MagDao magDao;
-		
-	/*
-	 * @Autowired BCryptPasswordEncoder bCryptPasswordEncoder;
-	 */
+	
+	@Autowired
+	ReviewDao reviewDao;
 	
 	@Autowired
 	PasswordEncoder passwordEncoder;
@@ -163,6 +164,9 @@ public class MemberServiceImpl implements MemberService{
 			model.addAttribute("heart","regular");			
 		}
 		
+		ArrayList<ReviewVo> reviewList = reviewDao.showReview(product_id);
+	    model.addAttribute("reviewList",reviewList);
+		
 		model.addAttribute("heartcount",hc);
 		model.addAttribute("pvo",pvo);
 		model.addAttribute("dList",dList);
@@ -184,6 +188,13 @@ public class MemberServiceImpl implements MemberService{
 			return "hearton";
 		}
 	
+	}
+
+	@Override
+	public String dplan(MyPlanVo myPlanVo) {
+		// TODO Auto-generated method stub
+		memDao.dplan(myPlanVo);
+		return "wan";
 	}
 
 	

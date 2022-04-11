@@ -44,7 +44,7 @@
 	integrity="sha512-UtgpaUQPTevIy6walAy8W82eDxOdZJqKS0w2vf0eTItGubnT6TKkbM1GoNyoNvlM4DKhbl45kOK+Z4EhtuK2RA=="
 	crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link rel="stylesheet" href="/resources/css/common.css">
-<link rel="stylesheet" href="/resources/css/ownerList.css">
+<link rel="stylesheet" href="/resources/css/noticeWrite.css">
 
 
 <script src="/resources/js/jquery-3.6.0.min.js"></script>
@@ -94,47 +94,75 @@
 	  } 
 </script>
 </head>
-<body style="height: 100%;">
+<body>
 
 	<jsp:include page="/WEB-INF/views/header.jsp" flush="true" />
 
+	<section id="sec">
+		<div class="noticeWrite_in">
 
+			<div class="noticeWrite_aside">
+				<aside>
+					<jsp:include page="/WEB-INF/views/qna/qnaAside.jsp" flush="true" />
+				</aside>
+			</div>
 
-	<section style="height: 100%;">
-
-		<aside
-			style="float: left; height: 100%; width: 25%;">
-			<jsp:include page="/WEB-INF/views/qna/qnaAside.jsp" flush="true" />
-		</aside>
-
-		<div style="width: 75%; float: right;">
-			<h1>공지사항 작성</h1>
-
-			<form action="/qna/noticeWrite" method="post" onclick="ns()" enctype="multipart/form-data">
-				제목<input type="text" id="n_title" name="n_title"> 
-				<div contenteditable="true" id="n_contentd">
-					내용을 입력해주세요!
+			<div class="noticeWrite_main">
+				<h3>공지사항 작성</h3>
+				<div class="noticeWrite_title">
+					<div class="title1 noticewr_title_com">
+						<p>제목</p>
+					</div>
+					<div class="title2 noticewr_title_com">
+						<p>내용</p>
+					</div>
+					<div class="title3 noticewr_title_com">
+						<p>이미지</p>
+					</div>
 				</div>
-				<br>
-				<input type="hidden" id="n_content" name="n_content"> 
-				이미지
-				<div class="preview">
-            		<img id="npreview" src="#" width=200 height=200 alt="선택된 이미지가 없습니다" />
-	            </div>
-				<input type="file" name="nimage_file_name" id="nimage_file_name" onchange="nreadURL(this);" /> 
-	            <input type="hidden" name="n_img" id="nimg_h">
-	            <input type="hidden" name="nimage_file_name_h" id="nimage_file_name_h">
-				<br>
-				<input type="submit" value="작성">
-			</form>
+
+				<div class="ntw_form">
+					<form action="/qna/noticeWrite" method="post" onclick="ns()" enctype="multipart/form-data" id="noticeWriteform">
+						<div class="ntw_title ntw_com">
+							<input type="text" id="n_title" name="n_title" placeholder="제목을 입력해주세요."onfocus="this.placeholder=''" onblur="this.placeholder='제목을 입력해주세요.'"> 
+						</div>
+
+						<div class="ntw_content ntw_com" contenteditable="true" id="n_contentd">
+							<p>내용을 입력해주세요!</p>
+						</div>
+
+						<div class="ntw_preview ntw_com">
+							<img id="npreview" alt="" />
+							<input type="file" name="nimage_file_name" id="nimage_file_name" onchange="nreadURL(this);" /> 
+						</div>
+						
+						<input type="hidden" id="n_content" name="n_content">
+						<input type="hidden" name="n_img" id="nimg_h">
+						<input type="hidden" name="nimage_file_name_h" id="nimage_file_name_h">
+						
+						<div class="ntw_bottom">
+							<div class="ntw_btn" onclick="ntw_submit()">
+								<p>작성하기</p>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
 
 		</div>
 	</section>
-	<div>
-		<%@ include file="../footer.jsp"%>
-	</div>
 
+	<%@ include file="../footer.jsp"%>
 
-
+	<script type="text/javascript">
+		function ntw_submit(){
+			var ntw_title = $('#n_title').val();
+			if(ntw_title == ""){
+				alert("제목을 입력해 주세요.")
+			} else(
+				$('#noticeWriteform').submit()
+			)
+		}
+	</script>
 </body>
 </html>

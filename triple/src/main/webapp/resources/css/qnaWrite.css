@@ -1,0 +1,30 @@
+@charset "UTF-8";
+
+#sec .qnawrite_in {display: flex;margin: 0 110px;width: 1500px;}
+#sec .qnawrite_in .qnawrite_main {width: 1300px;margin: 0 auto;padding:20px 30px;}
+#sec .qnawrite_in .qnawrite_main h3 {font-size:20px;margin-bottom:5px;}
+
+#sec .qnawrite_in .qnawrite_main .qnawrite_title {border-right:1px solid #999;width: 100px;float: left;margin-top: 25px;}
+#sec .qnawrite_in .qnawrite_main .qnawrite_title::before {content: "";display: block;clear: both;}
+#sec .qnawrite_in .qnawrite_main .qnawrite_title p {width: 100px;height:40px;    display: flex;justify-content: center;align-items: center;}
+#sec .qnawrite_in .qnawrite_main .qnawrite_title .qnawr_title_com{display: flex;justify-content: center;border-bottom:1px solid #999;}
+#sec .qnawrite_in .qnawrite_main .qnawrite_title .title1{width: 100px;height: 40px;border-top:1px solid #999;}
+#sec .qnawrite_in .qnawrite_main .qnawrite_title .title2{width: 100px;height: 380px;}
+#sec .qnawrite_in .qnawrite_main .qnawrite_title .title3{width: 100px;height: 250px;}
+
+#sec .qnawrite_in .qnawrite_main .qnawrite_form {width: 1140px;float: left;margin-top: 25px;}
+#sec .qnawrite_in .qnawrite_main .qnawrite_form::before {content: "";display: block;clear: both;}
+#sec .qnawrite_in .qnawrite_main .qnawrite_form .qnawr_com{border-bottom: 1px solid #999;;}
+#sec .qnawrite_in .qnawrite_main .qnawrite_form .qnawr_title{width: 100%;height: 40px;border-top:1px solid #999;padding:5px}
+#sec .qnawrite_in .qnawrite_main .qnawrite_form .qnawr_title input{width: 100%;height: 100%;border: none;outline: none;font-size:14px;}
+#sec .qnawrite_in .qnawrite_main .qnawrite_form .qnawr_content{width: 100%;height: 380px;outline:none;padding:10px 10px 10px 5px;}
+#sec .qnawrite_in .qnawrite_main .qnawrite_form .qnawr_content p{font-size: 14px;margin-bottom:5px;}
+#sec .qnawrite_in .qnawrite_main .qnawrite_form .qnawr_preview{width: 100%;height: 250px;padding: 10px;}
+#sec .qnawrite_in .qnawrite_main .qnawrite_form .qnawr_preview img {width: auto;height: 200px;border:none;display: block;margin-bottom: 5px;border-radius: 10px;}
+
+#sec .qnawrite_in .qnawrite_main .qnawrite_form .qnawr_bottom {width: 100%;height: 30px;display: flex;justify-content: flex-end;}
+#sec .qnawrite_in .qnawrite_main .qnawrite_form .qnawr_bottom .qnawr_btn{width: 100px;height: 30px;border:1px solid #999;border-radius: 5px;margin: 5px;    display: flex;justify-content: center;line-height: 30px; font-size: 14px;cursor:pointer;}
+#sec .qnawrite_in .qnawrite_main .qnawrite_form .qnawr_bottom .qnawr_btn:hover{background: #5de4c2;border:none;color:rgb(255, 255, 255);}
+
+
+

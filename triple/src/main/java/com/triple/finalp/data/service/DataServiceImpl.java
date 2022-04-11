@@ -37,7 +37,7 @@ public class DataServiceImpl implements DataService{
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
         conn.setRequestMethod("GET");
         conn.setRequestProperty("Content-type", "application/json");
-        System.out.println("Response code: " + conn.getResponseCode());
+        //System.out.println("Response code: " + conn.getResponseCode());
         BufferedReader rd;
         if(conn.getResponseCode() >= 200 && conn.getResponseCode() <= 300) {
             rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
@@ -57,7 +57,7 @@ public class DataServiceImpl implements DataService{
         String a = sb.toString();
         JSONObject json = XML.toJSONObject(a);
         String jsonStr = json.toString(4);
-        System.out.println(jsonStr);
+        //System.out.println(jsonStr);
       
         return jsonStr;
 	}
@@ -77,7 +77,7 @@ public class DataServiceImpl implements DataService{
 	        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 	        conn.setRequestMethod("GET");
 	        conn.setRequestProperty("Content-type", "application/json");
-	        System.out.println("Response code: " + conn.getResponseCode());
+	        //System.out.println("Response code: " + conn.getResponseCode());
 	        BufferedReader rd;
 	        if(conn.getResponseCode() >= 200 && conn.getResponseCode() <= 300) {
 	            rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
@@ -95,7 +95,7 @@ public class DataServiceImpl implements DataService{
 	        String a = sb.toString();
 	        JSONObject json = XML.toJSONObject(a);
 	        String jsonStr = json.toString(4);
-	        System.out.println(jsonStr);
+	        //System.out.println(jsonStr);
 	      
 	        return jsonStr;
 	        

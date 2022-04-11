@@ -92,7 +92,7 @@
 <BODY>
 	
 	<!-- <button onclick="test()">제발</button> -->
-	<table border="1" id="teatable">
+	<table border="1" id="fteatable">
 	</table>
 	<hr>
 	<form action="" method="post" id="teaapi">

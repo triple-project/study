@@ -35,4 +35,6 @@ public interface MemberService {
 	public String hearton(HeartVo heartVo, String cheart);
 
 	public void memshowmag(String mem_id, String mgz_id, Model model);
+
+	public String dplan(MyPlanVo myPlanVo);
 }

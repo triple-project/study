@@ -45,7 +45,7 @@
 	integrity="sha512-UtgpaUQPTevIy6walAy8W82eDxOdZJqKS0w2vf0eTItGubnT6TKkbM1GoNyoNvlM4DKhbl45kOK+Z4EhtuK2RA=="
 	crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link rel="stylesheet" href="/resources/css/common.css">
-<link rel="stylesheet" href="/resources/css/ownerList.css">
+<link rel="stylesheet" href="/resources/css/qnaShow.css">
 
 
 <script src="/resources/js/jquery-3.6.0.min.js"></script>
@@ -63,44 +63,59 @@
 	rel="stylesheet">
 <script src="/resources/js/jquery-3.6.0.min.js"></script>
 </head>
-<body style="height: 100%;">
+<body>
 
 	<jsp:include page="/WEB-INF/views/header.jsp" flush="true" />
 
-
-
-	<section style="height: 100%;">
-
-		<aside style="float: left; height: 100%; width: 25%;">
-			<jsp:include page="/WEB-INF/views/qna/qnaAside.jsp" flush="true" />
-		</aside>
-
-		<div style="width: 75%; float: right;">
-			<h1>qna제목 클릭시 보이는 것</h1>
-			<div>문의번호 : ${qvo.q_id} 제목 : ${qvo.q_title} 작성자 : ${qvo.mem_id}
+	<section id="sec">
+		<div class="qnaShow_in">
+			<div class="qnaShow_aside">
+				<aside>
+					<jsp:include page="/WEB-INF/views/qna/qnaAside.jsp" flush="true" />
+				</aside>
 			</div>
-			<hr>
-			<div>${qvo.q_content}</div>
-			<img src="/resources/img/upload/${qvo.q_img}">
+			<div class="qnaShow_main">
+				<div class="qnaShow_title">
+					<p>제목 : ${qvo.q_title}</p>
+					<p>작성자 : ${qvo.mem_id}</p>
+					<p>문의번호 : ${qvo.q_id}</p>
+				</div>
+				<div class="qnaShow_content">
+					<div>${qvo.q_content}</div>
+				</div>
+				<div class="qnaShow_img">
+					<img src="/resources/img/upload/${qvo.q_img}">
+				</div>
 
-			<hr>
-			<h1>문의 답변</h1>
-			<br>
-			<c:forEach items="${qrVoList}" var="rep">
-				<div>${rep.rep}</div>
-			</c:forEach>
-			<br> <br>
-			<security:authorize access="hasRole('ROLE_ADMIN')">
-				<h1>문의글 답변하기=댓글 관리자만 보임</h1>
-				<form method="post" action="/qna/qnaShow">
-					<input type="text" name="rep"> <input type="hidden"
-						name="q_id" value="${qvo.q_id}">
-					<button type="submit">답변 작성</button>
-				</form>
-			</security:authorize>
-			<br>
-			<!-- <button onclick="gh()">고객센터 홈으로</button> -->
+					<h4>문의 답변</h4>
 
+					<c:forEach items="${qrVoList}" var="rep">
+							<div class="qscomment">
+								<p>관리자 : </p> 
+								<p>${rep.rep}</p>
+							</div>
+					</c:forEach>
+
+					<security:authorize access="hasRole('ROLE_ADMIN')">
+						<div class="qsadmin">
+							<h5>문의글 답변하기. 관리자 전용</h5>
+							<form method="post" action="/qna/qnaShow" id="qnacommentwrite">
+								<div class="qsadmin_comment">
+									<input type="text" name="rep">
+									<input type="hidden"
+										name="q_id" value="${qvo.q_id}">
+									<div class="qscommentbtn">
+										<p onclick="$('#qnacommentwrite').submit()">댓글 작성</p>
+									</div>
+								</div>
+							</form>
+						</div>
+					</security:authorize>
+					<br>
+					<!-- <button onclick="gh()">고객센터 홈으로</button> -->
+
+				</div>
+			</div>
 		</div>
 	</section>
 	<div>

@@ -45,7 +45,7 @@
 	integrity="sha512-UtgpaUQPTevIy6walAy8W82eDxOdZJqKS0w2vf0eTItGubnT6TKkbM1GoNyoNvlM4DKhbl45kOK+Z4EhtuK2RA=="
 	crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link rel="stylesheet" href="/resources/css/common.css">
-<link rel="stylesheet" href="/resources/css/ownerList.css">
+<link rel="stylesheet" href="/resources/css/qnawork.css">
 
 
 <script src="/resources/js/jquery-3.6.0.min.js"></script>
@@ -63,36 +63,64 @@
 	rel="stylesheet">
 <script src="/resources/js/jquery-3.6.0.min.js"></script>
 </head>
-<body style="height: 100%;">
+<body>
 
 	<jsp:include page="/WEB-INF/views/header.jsp" flush="true" />
 
+	<section id="sec">
+		<div class="qnawork_in">
+			<div class="qnawork_aside">
+				<aside>
+					<jsp:include page="/WEB-INF/views/qna/qnaAside.jsp" flush="true" />
+				</aside>
+			</div>
+			<div class="qnawork_main">
+				<h3>처리 안된 문의 목록</h3>
+				<div class="qnawork_list">
 
-
-	<section style="height: 100%;">
-
-		<aside style="float: left; height: 100%; width: 25%;">
-			<jsp:include page="/WEB-INF/views/qna/qnaAside.jsp" flush="true" />
-		</aside>
-
-		<div style="width: 75%; float: right;">
-			<h2>처리 안된 문의 목록</h2>
-
-			<div>
-				<div>
-					<span>문의번호</span> <span>제목</span> <span>작성자</span> <span>상태</span> 
-				</div>
-				<c:forEach items="${qList}" var="ql">
-					<div>
-						<span>${ql.q_id}</span><span><a href="/qna/list/${ql.q_id}">${ql.q_title}</a></span><span>${ql.mem_id}</span><span>${ql.q_check}</span>
+					<div class="qnawork_title">
+						<div class="qnawork_title1">
+							<p>문의번호</p> 
+						</div>
+						<div class="qnawork_title2">
+							<p>제목</p> 
+						</div>
+						<div class="qnawork_title3">
+							<p>작성자</p>
+						</div>
+						<div class="qnawork_title4">
+							<p>상태</p>
+						</div>
 					</div>
-				</c:forEach>
+
+					<c:forEach items="${qList}" var="ql">
+						<div class="qnawork_list_content">
+							<div class="qlc1">
+								<p>${ql.q_id}</p>
+							</div>
+							<div class="qlc2">
+								<p>
+									<a href="/qna/list/${ql.q_id}">
+										${ql.q_title}
+									</a>
+								</p>
+							</div>
+							<div class="qlc3">
+								<p>${ql.mem_id}</p>
+							</div>
+							<div class="qlc4">
+								<p>${ql.q_check}</p>
+							</div>
+						</div>
+					</c:forEach>
+
+				</div>
 			</div>
 		</div>
 	</section>
-	<div>
+
 		<%@ include file="../footer.jsp"%>
-	</div>
+
 
 </body>
 </html>

@@ -19,9 +19,15 @@
 #sec .main .main_in .tapCon .conIn .tapMenu .menuIn .one{margin:50px 0 0;padding-bottom:50px;border-bottom:1px solid rgba(0,0,0,.15);}
 #sec .main .main_in .tapCon .conIn .tapMenu .menuIn .one .oneIn{display: flex;flex-wrap: wrap;}
 #sec .main .main_in .tapCon .conIn .tapMenu .menuIn .one .oneIn .left{width:43%;padding-right:60px;}
-#sec .main .main_in .tapCon .conIn .tapMenu .menuIn .one .oneIn .left .tit{padding-bottom:36px;color:#343434;border-bottom:1px solid rgba(0,0,0,.15);}
+#sec .main .main_in .tapCon .conIn .tapMenu .menuIn .one .oneIn .left .tit{padding-bottom:36px;color:#343434;border-bottom:1px solid rgba(0,0,0,.15);position: relative;}
 #sec .main .main_in .tapCon .conIn .tapMenu .menuIn .one .oneIn .left .tit h2{font-size:24px;margin-bottom:8px;font-weight: 500;}
 #sec .main .main_in .tapCon .conIn .tapMenu .menuIn .one .oneIn .left .tit h3{font-size:12px;opacity: .4;}
+
+#sec .main .main_in .tapCon .conIn .tapMenu .menuIn .one .oneIn .left .tit .heartBox{position: absolute;right:0;top:0;padding:5px;display: flex;flex-wrap: wrap;}
+#sec .main .main_in .tapCon .conIn .tapMenu .menuIn .one .oneIn .left .tit .heartBox .heartIcon{display: flex;flex-wrap: wrap;}
+#sec .main .main_in .tapCon .conIn .tapMenu .menuIn .one .oneIn .left .tit .heartBox .heartIcon .heartNum{margin-left:5px;}
+#sec .main .main_in .tapCon .conIn .tapMenu .menuIn .one .oneIn .left .tit .heartBox .heartIcon{cursor: pointer;}
+#sec .main .main_in .tapCon .conIn .tapMenu .menuIn .one .oneIn .left .tit .heartBox .onePlusBtn{margin-left:10px;cursor: pointer;}
 
 #sec .main .main_in .tapCon .conIn .tapMenu .menuIn .one .oneIn .left .context{margin:55px 0 0;}
 #sec .main .main_in .tapCon .conIn .tapMenu .menuIn .one .oneIn .left .context ul li{height:56px;margin-bottom:12px;display: flex;flex-wrap: wrap;}
@@ -176,7 +182,22 @@
 #sec .main .main_in .tapCon .conIn .tapMenu .room .roomIn .right .re{overflow: hidden;border-radius: 10px;background: #fff;line-height:22px;width:260px;cursor: pointer;float:right;color:#343434;text-align: center;border:1px solid rgba(0,0,0,.3);padding:16px 0;font-weight: 500;}
 #sec .main .main_in .tapCon .conIn .tapMenu .room .roomIn .right .re:hover{background: #5de4c2;color:#fff;border:1px solid transparent;}
 .plusList{position: fixed;width:600px;height:600px;overflow: hidden;border-radius: 10px;background: #fff;box-shadow: 0 0 15px rgba(0,0,0,.15);left:50%;top:50%;transform: translate(-50%, -50%);z-index: 1000;display: none;}
-.plusList .plusListIn{padding:30px;}
+.plusList .tit{padding:20px 0 0;height:87px;border-bottom:1px solid rgba(0,0,0,.15);}
+.plusList .tit .travelName{display: flex;flex-wrap: wrap;padding:5px 30px;}
+.plusList .tit .travelName h2{width:100%;text-align: center;font-size:22px;font-weight: 500;line-height:28px;margin-bottom:10px;}
+.plusList .tit .travelName span{width:33.33%;text-align: center;line-height:18px;font-size:14px;}
+.plusList .tit .travelName span:nth-child(2){width:20%;text-align: left;}
+.plusList .tit .travelName span:nth-child(3){width:27%;}
+.plusList .tit .travelName span:last-child{width:42%;}
+.plusList .plusListIn{padding:10px 30px;height:calc(100% - 87px);overflow: auto;}
 .plusListCover{position: fixed;width: 100%;height: 100%;left:0;top:0;right:0;bottom:0;background: rgba(0,0,0,.2);z-index: 999;display: none;}
 .plusList.on{display: block;}
 .plusListCover.on{display: block;}
+
+.plusList .plusListIn > div{display: flex;flex-wrap: wrap;line-height:22px;font-size:14px;padding-bottom:6px;border-bottom:1px solid rgba(0,0,0,.1);padding-top:6px;cursor: pointer;}
+.plusList .plusListIn > div.on{background: #5de4c2;color:#fff;}
+.plusList .plusListIn > div:hover{background: #5de4c2;color:#fff;}
+.plusList .plusListIn > div:last-child{margin-bottom:0;border-bottom:0;padding-bottom:0;}
+.plusList .plusListIn > div p{width:calc(100% - 35% - 25% - 25px);letter-spacing: .5px;}
+.plusList .plusListIn > div p:nth-child(2){width:25%;padding-right:15px;text-overflow: ellipsis;white-space: nowrap;overflow: hidden;}
+.plusList .plusListIn > div h5{width:22px;cursor: pointer;text-align: center;}

@@ -646,7 +646,6 @@
 			$.ajax({
 				type : "POST",
 				url : "/rest/travel",
-					dataType : "json",
 					data : {
 						mem_id : $("#sat").text(),
 						plan_name : $("#t_name").val(),
@@ -656,8 +655,7 @@
 					success : function(data) {
 		           		 // C에서 받아온 데이터로 새로 뿌려주기
 						console.log(data);
-						/* $("#heart_num").html(data.heart)
-						$("#plan_num").html(data.plan) */
+						ftravel();
 					},
 					error : function(a){
 						console.log(a);
@@ -675,11 +673,19 @@
 					},
 					success : function(data) {
 		           		 // C에서 받아온 데이터로 새로 뿌려주기
-						console.log(data);
+						//console.log(data);
 						$("#travel_l").html("");
 						$("#travel_r").html("");
  						for (var i = 0; i < data.length; i++) {
- 							$("#travel_l").append("<div onclick='ftravel_info(this)'>" + data[i].plan_name + data[i].startdate + data[i].enddate + '<div style="display: none;">' + data[i].plan_id + "</div>" + "</div>");
+ 							$("#travel_l").append(
+								"<div class='travel_in pName' onclick='ftravel_info(this)'>" +
+									"<span style='display:none'>" + data[i].plan_id + "</span>" +
+									"<p>" + data[i].plan_name + "</p>" +
+									"<p>" + data[i].startdate + "</p>" +
+									"<p>" + data[i].enddate + "</p>" +
+									'<h5 onclick="travel_del(this)"><i class="fa-solid fa-xmark"></i></h5>' +
+								"</div>"
+							);
  							//$("#plantable").append("<tr>" + "<td>" + data[i].plan_name + "</td>" + "<td>" + data[i].startdate + "</td>" + "<td>" + data[i].enddate + "</td>" + "</tr>");
  							//$("#plantable").append("<tr>" + "<td>" + data[i].startdate + "</td>" + "</tr>");
  							//$("#plantable").append("<tr>" + "<td>" + data[i].enddate + "</td>" + "</tr>");
@@ -693,7 +699,7 @@
 		}
 		
 		function ftravel_info(tdata) {
-			console.log(tdata.children.item(0).innerText);
+			//console.log(tdata.children.item(0).innerText);
 			var pli = tdata.children.item(0).innerText;
 			$.ajax({
 				type : "POST",
@@ -705,8 +711,19 @@
 					success : function(data) {
 						$("#travel_r").html("");
 						for (var i = 0; i < data.length; i++) {						
- 							$("#travel_r").append("<div onclick='ftravel_goto(this)'>" + '<img src="/resources/img/upload/'+data[i].product_img1+'" width="100" height="100"/>' + data[i].product_name + data[i].product_shortword+ data[i].product_address + '<div style="display: none;">' + data[i].product_id + "</div>" + "</div>");
-						}					
+ 							$("#travel_r").append(
+								"<div onclick='ftravel_goto(this)'>" +
+									'<div style="display: none;">' + data[i].product_id + "</div>" +
+									'<img src="/resources/img/upload/' + data[i].product_img1 + '" width="100" height="75"/>' +
+									"<div>" +
+										'<p>' + data[i].product_name + '</p>' +
+										'<p>' + data[i].product_shortword + '</p>' +
+										'<p>' + data[i].product_address + '</p>' +
+										'<h5><i class="fa-solid fa-xmark"></i></h5>' +
+									"</div>" +
+								"</div>"
+							);
+						}
 					},
 					error : function(a){
 						console.log(a);
@@ -717,6 +734,28 @@
 		function ftravel_goto(gdata) {
 			console.log(gdata.children.item(1).innerText);
 			location.href="/category/"+gdata.children.item(1).innerText;
+		}
+		
+		function travel_del(data) {
+			//console.log(data.parentElement.children.item(0).innerText);
+			var dpid = data.parentElement.children.item(0).innerText;
+			$.ajax({
+				type : "POST",
+				url : "/rest/travel_del",
+				async: "false",
+					data : {
+						mem_id : $("#sat").text(),
+						plan_id : dpid
+					},
+					success : function(data) {
+		           		 // C에서 받아온 데이터로 새로 뿌려주기
+		           		 ftravel();
+					},
+					error : function(a){
+						//console.log(a);
+		            }
+				});
+			
 		}
 		
 	</script>
@@ -1289,7 +1328,7 @@
 						<span>이메일</span> 
 						<input type="text" name="e_mail" id="e_mail"> 
 							<select name="e_mail2" id="e_mail2">
-							<option selected="selected" id="e_mail3" hidden="hidden"/>
+							<option selected="selected" id="e_mail3" hidden="hidden">
 							<option value="@naver.com">@naver.com</option>
 							<option value="@daum.net">@daum.net</option>
 							<option value="@google.com">@google.com</option>
@@ -1307,11 +1346,10 @@
 							<div class="frame1_1">
 								<span>프로필 사진</span>
 								<!-- <input type="text" name="mem_img" placeholder="사진은 꼭 안넣으셔도 됩니다."> -->
-								<input type="file" name="image_file_name" id="image_file_name"
-									onchange="readURL(this);" /> 
+								<input type="file" name="image_file_name"  id="image_file_name" onchange="readURL(this);" /> 
 									<input type="hidden" name="mem_img" id="img_h">
 									<input type="hidden" id="img_hs">
-									<input type="hidden" name="image_file_name_h" id="image_file_name_h">
+									<input type="hidden" name="image_file_name_h"  id="image_file_name_h">
 							</div>
 							<!-- <div class="frame1_2">
                         <p>기본 프로필 사용</p>
@@ -1384,27 +1422,39 @@
 					<div class="login_con">
 						<!-- <!— 내용을 넣어주세요 —> -->
 						<div class="loginConIn">
-								<div class="left">
-									<div id="travel_l">
-										<span>여행이름</span> <span>여행시작</span> <span>여행종료</span>
+							<div class="left">
+								<div class="travelTop">
+									<div class="travelTopIn">
+										<form action="">
+											<ul>
+												<li>
+													<h2>여행이름</h2>
+													<input type="text" name="t_name" id="t_name">
+												</li>
+												<li>
+													<h2>여행기간</h2>
+													<input type="text" id="t_date" name="t_date" readonly="readonly"/>
+												</li>
+											</ul>
+										</form>
+										<button onclick="travel()">여행만들기!</button>
 									</div>
 								</div>
-
-								<div class="right">
-<!-- 							아래의 폼은 만들기 여행작성 활성화를 누르면 보이고 
-							여행 만들기를 수행하면 안보이게 사라져야합니다 -->
-								<div id="travel_r">
+								<div class="travelName">
+									<h2>내가만든 여행리스트</h2>
+									<span>여행이름</span>
+									<span>여행시작</span>
+									<span>여행종료</span>
 								</div>
-								<div>
-									<form action="">
-										여행이름	<input type="text" name="t_name" id="t_name"><br>
-										여행기간	<input type="text" id="t_date" name="t_date" readonly="readonly"/><br>	
-									</form>
-									<button onclick="travel()">여행만들기!</button>
-									<button onclick="ftravel()">여행조회</button>
-								</div>
-								<button>여행작성 활성화</button>
+								<div id="travel_l"></div>
 							</div>
+
+							<div class="right">
+							<!-- 아래의 폼은 만들기 여행작성 활성화를 누르면 보이고 
+								여행 만들기를 수행하면 안보이게 사라져야합니다 -->
+								<div id="travel_r"></div>
+							</div>
+
 						</div>
 					</div>
 					</security:authorize>
@@ -1763,7 +1813,7 @@
 </div>
 
 <div id="myInfoCover"></div>
-<!-- 회원 리뷰 등 정보 추가 끝 -->
+<!-- <!— 회원 리뷰 등 정보 추가 끝 —> -->
 <div id="top_up">
 	<div class="top_in">
 		<i class="fa-solid fa-angles-up"></i>

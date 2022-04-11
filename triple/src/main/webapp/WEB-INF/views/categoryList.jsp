@@ -81,8 +81,11 @@
                                                 <div class="txt">
                                                     <h2>${pv.product_name}</h2>
                                                     <h3>${pv.product_shortword}</h3>
-                                                   <%--  <c:forEach></c:forEach>
-                                                    <h4>${tag.tag_name}</h4><img  src="/resources/icon/${tag.tag_name}"> --%>
+                                                    <img  src="/resources/img/tag_final/${pv.tag_tag1}.png">
+                                                    <img  src="/resources/img/tag_final/${pv.tag_tag2}.png">
+                                                    <img  src="/resources/img/tag_final/${pv.tag_tag3}.png">
+                                                    <img  src="/resources/img/tag_final/${pv.tag_tag4}.png">
+                                                    <img  src="/resources/img/tag_final/${pv.tag_tag5}.png">
                                                     <h4>${pv.tag_tag1}</h4>
                                                     <h4>${pv.tag_tag2}</h4>
                                                     <h4>${pv.tag_tag3}</h4>

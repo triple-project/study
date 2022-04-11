@@ -44,7 +44,7 @@
 	integrity="sha512-UtgpaUQPTevIy6walAy8W82eDxOdZJqKS0w2vf0eTItGubnT6TKkbM1GoNyoNvlM4DKhbl45kOK+Z4EhtuK2RA=="
 	crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link rel="stylesheet" href="/resources/css/common.css">
-<link rel="stylesheet" href="/resources/css/ownerList.css">
+<link rel="stylesheet" href="/resources/css/qnaMain.css">
 
 
 <script src="/resources/js/jquery-3.6.0.min.js"></script>
@@ -62,51 +62,86 @@
 	rel="stylesheet">
 <script src="/resources/js/jquery-3.6.0.min.js"></script>
 </head>
-<body style="height: 100%;">
+<body>
 
 	<jsp:include page="/WEB-INF/views/header.jsp" flush="true" />
 
 
 
-	<section style="height: 100%;">
-
-		<aside
-			style="float: left; height: 100%; width: 25%;">
-			<jsp:include page="/WEB-INF/views/qna/qnaAside.jsp" flush="true" />
-		</aside>
-
-		<div style="width: 75%; float: right;">
-			<h1>고객센터 메인사이트입니다.</h1>
-			<hr>
-			<h1>공지사항</h1>
-			<a href="/qna/noticeList">더보기..</a> <br>
-			<div>
-				<div>
-					<span>번호</span> <span>제목</span> <span>날짜</span>
-				</div>
-				<c:forEach items="${nList}" var="nl">
-					<div>
-						<span>${nl.n_id}</span><span><a href="/qna/nlist/${nl.n_id}">${nl.n_title}</a></span><span>${nl.n_date}</span>
-					</div>
-				</c:forEach>
+	<section id="sec">
+		<div class="qna_in">
+			<div class="qna_aside">
+				<aside>
+					<jsp:include page="/WEB-INF/views/qna/qnaAside.jsp" flush="true" />
+				</aside>
 			</div>
-			<hr>
-			<h2>자주묻는질문</h2>
-			<a href="">자주묻는질문1</a> 
-			<br> 
-			<a href="">자주묻는질문2</a> 
-			<br> 
-			<a href="">자주묻는질문3</a> 
-			<br> 
-			<a href="">자주묻는질문4</a>
-
+	
+			<div class="qna_main ">
+				<h3>고객센터</h3>
+				<h4>공지사항</h4>
+				<div class="qna_more">
+					<a href="/qna/noticeList">공지사항 전체보기</a>
+				</div>
+				<div class="qna_notice">
+					<c:forEach items="${nList}" var="nl">
+						<div class="qna_noticeword">
+							<span>공지</span>
+							<span>
+								<a href="/qna/nlist/${nl.n_id}">${nl.n_title}</a>
+							</span>
+							<span>${nl.n_date}</span>
+						</div>
+					</c:forEach>
+				</div>
+				<h4>자주묻는질문</h4>
+				<div class="qna_faq">
+					<div class="qna_faq1 qna_faq_com">
+						<p>BEST</p>
+						<a href="">계정을 잊어버렸어요</a> 
+						<a href="">숙소 예약 내역은 어디서 확인하나요?</a> 
+						<a href="">기상 악화 결항시 국내 항공원 취소 방법 및 취소 수수료가 궁금해요</a> 
+						<a href="">투어/티켓 취소/환불 신청은 어떻게 하나요?</a> 
+					</div>
+					<div class="qna_faq2 qna_faq_com">
+						<p>항공</p>
+						<a href="">네이버/스카이스캐너를 통해 예약했습니다. 어디서 확인하나요?</a> 
+						<a href="">국내 항공 예약을 취소하고 싶어.</a> 
+						<a href="">좌석 배정은 언제 받을 수 있나요?</a> 
+						<a href="">일부 탑승객만 취소하고 싶어요</a>
+					</div>
+					<div class="qna_faq3 qna_faq_com">
+						<p>숙소</p>
+						<a href="">예약을 취소하고 싶어요</a> 
+						<a href="">체크인 하려는데 예약 번호 확인이 안돼요</a> 
+						<a href="">숙박대전 쿠폰은 어떻게 받나요?</a> 
+						<a href="">숙박대전 쿠폰 적용이 안돼요</a> 
+					</div>
+					<div class="qna_faq4 qna_faq_com">
+						<p>투어/티켓</p>
+						<a href="">예약번호는 어디서 확인하나요?</a> 
+						<a href="">바우처/바코드가 안왔어요</a> 
+						<a href="">아직 예약 확정 알림을 받지 못했습니다</a> 
+						<a href="">바우처를 수령까지 얼마나 걸리나요?</a> 
+					</div>
+					<div class="qna_faq5 qna_faq_com">
+						<p>서비스 일반</p>
+						<a href="">새로운 장소를 추가하고 싶어요</a> 
+						<a href="">계정을 잊어버렸어요</a> 
+						<a href="">휴대폰 변경, 재로그인 후 일정이 사라졌어요</a> 
+						<a href="">간편 로그인 계정을 탈퇴한 경우는 어떻게 해야 하나요?</a> 
+					</div>
+					<div class="qna_faq6 qna_faq_com">
+						<p>공통</p>
+						<a href="">예약은 어디서 볼 수 있나요?</a> 
+						<a href="">환불은 언제 되나요?</a> 
+						<a href="">결제 영수증은 어디서 확인할 수 있나요?</a> 
+						<a href="">결제 수단은 어떻게 되나요?</a> 
+					</div>
+				</div>
+			</div>
 		</div>
 	</section>
-	<div>
+
 		<%@ include file="../footer.jsp"%>
-	</div>
-
-
-
 </body>
 </html>

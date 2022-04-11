@@ -21,6 +21,7 @@ public class ReviewServiceImpl implements ReviewService{
       reviewdao.writeReview(reviewvo);
    }
 
+   //리뷰 적합성 검사 ,, 결제 api 연결이후 활성화 시킬것
    @Override
    public void isSuitable(String mem_id, String product_id) {
       reviewdao.isSuitable(mem_id, product_id);

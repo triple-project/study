@@ -2,8 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.triple.finalp.review.dao.ReviewDao">
    <insert id="writeReview">
-      insert into review (comment, star_ranking,r_img1,r_img2,r_img3,product_id,mem_id)
-      values( #{comment},#{star_ranking},#{r_img1},#{r_img2},#{r_img3},#{product_id},#{mem_id})
+      insert into review (r_comment, r_star,r_img1,product_id,mem_id,mem_img)
+      values( #{r_comment},#{r_star},#{r_img1},#{product_id},#{mem_id},(select mem_img from member where mem_id = #{mem_id}))
    </insert>
 
    <select id="isSuitable">

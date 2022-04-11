@@ -88,7 +88,7 @@ public class TripleController {
 	public String wea() {
 		// 인덱스로 보내기
 
-		return "magview";
+		return "/product/review";
 	}
 
 	@RequestMapping(value = "/join", method = RequestMethod.POST)
@@ -126,7 +126,7 @@ public class TripleController {
 		
 		fileService.save(mhsr, image_file_name_h);
 		if(image_file_name_h.get(0)!=null) {
-			magVo.setMgz_thub(image_file_name_h.get(0));
+			magVo.setMgz_thub(image_file_name_h.get(0).toString());
 		}
 		magSerivce.save(magVo);
 
@@ -256,13 +256,12 @@ public class TripleController {
 
 	// 리뷰등록
 	@RequestMapping(value = "/review", method = RequestMethod.POST)
-	public String review(ReviewVo reviewvo, Principal principal) throws IllegalStateException, IOException {
+	public String review(@RequestParam("rimage_file_name_h")String rimage_file_name_h,ReviewVo reviewvo, Principal principal,MultipartHttpServletRequest mhsr) throws IllegalStateException, IOException {
 		reviewvo.setMem_id(principal.getName());
-		// reviewService.isSuitable(reviewvo.getMem_id(), reviewvo.getProduct_id());
+		System.out.println(reviewvo);
 		reviewService.review(reviewvo);
-		//System.out.println(reviewvo);
-		/* String r = "product/"+ */
-		return "redirect:product/" + reviewvo.getProduct_id();
+		fileService.join(mhsr, rimage_file_name_h);
+		return "redirect:/category/" + reviewvo.getProduct_id();
 	}
 
 }

@@ -44,7 +44,7 @@
 	integrity="sha512-UtgpaUQPTevIy6walAy8W82eDxOdZJqKS0w2vf0eTItGubnT6TKkbM1GoNyoNvlM4DKhbl45kOK+Z4EhtuK2RA=="
 	crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link rel="stylesheet" href="/resources/css/common.css">
-<link rel="stylesheet" href="/resources/css/ownerList.css">
+<link rel="stylesheet" href="/resources/css/qnaWrite.css">
 
 
 <script src="/resources/js/jquery-3.6.0.min.js"></script>
@@ -93,47 +93,77 @@
 		  }  
 </script>
 </head>
-<body style="height: 100%;">
+<body>
 
 	<jsp:include page="/WEB-INF/views/header.jsp" flush="true" />
 
-
-
-	<section style="height: 100%;">
-
-		<aside
-			style="float: left; height: 100%; width: 25%;">
-			<jsp:include page="/WEB-INF/views/qna/qnaAside.jsp" flush="true" />
-		</aside>
-
-		<div style="width: 75%; float: right;">
-		
-		<h1>문의 작성</h1>
-		
-		<form action="qnaWrite" method="post" onclick="qs()" enctype="multipart/form-data">
-			제목<input type="text" id="q_title" name="q_title">
-			<div contentEditable="true" id="q_contentd" >
-			내용을 입력해주세요
+	<section id="sec">
+		<div class="qnawrite_in">
+			<div class="qnawrite_aside">
+				<aside>
+					<jsp:include page="/WEB-INF/views/qna/qnaAside.jsp" flush="true" />
+				</aside>
 			</div>
-			<hr>
-			이미지
-			<div class="preview">
-            	<img id="qpreview" src="#" width=200 height=200 alt="선택된 이미지가 없습니다" />
-            </div>
-			<input type="file" name="qimage_file_name" id="qimage_file_name" onchange="qreadURL(this);" /> 
-            <input type="hidden" name="q_img" id="qimg_h">
-            <input type="hidden" name="qimage_file_name_h" id="qimage_file_name_h">
-			<input type="hidden" name="q_content" id="q_content">
-			<input type="submit" value="문의하기">
-		</form>
 
+			<div class="qnawrite_main">
+			
+			<h3>문의 작성</h3>
+				<div class="qnawrite_title">
+					<div class="title1 qnawr_title_com">
+						<p>제목</p>
+					</div>
+					<div class="title2 qnawr_title_com">
+						<p>내용</p>
+					</div>
+					<div class="title3 qnawr_title_com">
+						<p>이미지</p>
+					</div>
+				</div>
+				<div class="qnawrite_form">
+					<form action="qnaWrite" method="post" onclick="qs()" enctype="multipart/form-data" id="qnaform">
+						<div class="qnawr_title qnawr_com">
+							<input type="text" id="q_title" name="q_title" placeholder="제목을 입력해주세요."onfocus="this.placeholder=''" onblur="this.placeholder='제목을 입력해주세요.'">
+						</div>
+
+						<div class="qnawr_content qnawr_com" contentEditable="true" id="q_contentd" >
+							<p>내용을 입력해주세요.</p>
+						</div>
+						
+						<div class="qnawr_preview qnawr_com">
+							<img id="qpreview" alt="" />
+							<input type="file" name="qimage_file_name" id="qimage_file_name" onchange="qreadURL(this);" />
+						</div>
+
+
+						 
+						<input type="hidden" name="q_img" id="qimg_h">
+						<input type="hidden" name="qimage_file_name_h" id="qimage_file_name_h">
+						<input type="hidden" name="q_content" id="q_content">
+						<div class="qnawr_bottom">
+							<div class="qnawr_btn" onclick="qnawr_submit()">
+								<p>문의하기</p>
+							</div>
+						</div>
+					</form>
+				</div>
+
+
+			</div>
 		</div>
 	</section>
-	<div>
-		<%@ include file="../footer.jsp"%>
-	</div>
 
+	<%@ include file="../footer.jsp"%>
 
+	<script type="text/javascript">
+		function qnawr_submit(){
+			var qwr_title = $('#q_title').val();
+			if(qwr_title == ""){
+				alert("제목을 입력해 주세요.")
+			} else(
+				$('#qnaform').submit()
+			)
+		}
 
+	</script>
 </body>
 </html>

@@ -261,10 +261,55 @@ body.on{overflow: hidden;}
 #myInfo .myInfoIn .menutap .tap_in .con .un_login_con .message_box .txt p{font-size:14px;line-height:22px;opacity: .25;}
 
 /* 내여행 로그인 했을때 */
-#myInfo .myInfoIn .menutap .tap_in .con .login_con{border:1px solid red;width:100%;height:100%;}
+#myInfo .myInfoIn .menutap .tap_in .con .login_con{width:100%;height:100%;}
 #myInfo .myInfoIn .menutap .tap_in .con .login_con .loginConIn{width:100%;height:100%;display: flex;}
-#myInfo .myInfoIn .menutap .tap_in .con .login_con .loginConIn .left{width:50%;height:100%;border:1px solid blue;}
-#myInfo .myInfoIn .menutap .tap_in .con .login_con .loginConIn .right{width:50%;height:100%;border:1px solid green;}
+#myInfo .myInfoIn .menutap .tap_in .con .login_con .loginConIn .left{width:50%;height:100%;border-right:1px solid rgba(0,0,0,.15);}
+#myInfo .myInfoIn .menutap .tap_in .con .login_con .loginConIn .left .travelTop{border-bottom:1px solid rgba(0,0,0,.15);padding:10px;}
+#myInfo .myInfoIn .menutap .tap_in .con .login_con .loginConIn .left .travelTop ul li{display: flex;flex-wrap: wrap;font-size:14px;margin-bottom:6px;line-height:26px;border-bottom:1px solid rgba(0,0,0,.15);padding:0px;}
+#myInfo .myInfoIn .menutap .tap_in .con .login_con .loginConIn .left .travelTop ul li:last-child{margin-bottom:0;border:none;}
+#myInfo .myInfoIn .menutap .tap_in .con .login_con .loginConIn .left .travelTop ul li h2{width:70px;text-align: center;}
+#myInfo .myInfoIn .menutap .tap_in .con .login_con .loginConIn .left .travelTop ul li input{width:calc(100% - 70px);border:none;outline: none;}
+#myInfo .myInfoIn .menutap .tap_in .con .login_con .loginConIn .left .travelTop ul li input#t_date{cursor: pointer;}
+.daterangepicker{z-index: 9999 !important;}
+.travelTopIn:after{content: "";display: block;clear: both;}
+#myInfo .myInfoIn .menutap .tap_in .con .login_con .loginConIn .left .travelTop button{border:1px solid rgba(0,0,0,.3);cursor: pointer;background: #fff;font-size:14px;line-height:16px;border-radius: 10px;overflow: hidden;}
+#myInfo .myInfoIn .menutap .tap_in .con .login_con .loginConIn .left .travelTop button:hover{background: #5de4c2;border:1px solid transparent;color:#fff;}
+
+#myInfo .myInfoIn .menutap .tap_in .con .login_con .loginConIn .left .travelTop .travelTopIn{position: relative;}
+#myInfo .myInfoIn .menutap .tap_in .con .login_con .loginConIn .left .travelTop .travelTopIn form{width:calc(100% - 120px);}
+#myInfo .myInfoIn .menutap .tap_in .con .login_con .loginConIn .left .travelTop .travelTopIn button{padding:15px;position: absolute;right:0;top:50%;transform: translateY(-50%);}
+
+#myInfo .myInfoIn .menutap .tap_in .con .login_con .loginConIn .left .travelName{display: flex;flex-wrap: wrap;padding:5px 10px;}
+#myInfo .myInfoIn .menutap .tap_in .con .login_con .loginConIn .left .travelName h2{width:100%;text-align: center;font-size:16px;font-weight: 500;line-height:20px;margin-bottom:10px;}
+#myInfo .myInfoIn .menutap .tap_in .con .login_con .loginConIn .left .travelName span{width:33.33%;text-align: center;line-height:18px;font-size:14px;}
+#myInfo .myInfoIn .menutap .tap_in .con .login_con .loginConIn .left .travelName span:nth-child(2){width:20%;text-align: left;}
+#myInfo .myInfoIn .menutap .tap_in .con .login_con .loginConIn .left .travelName span:nth-child(3){width:27%;}
+#myInfo .myInfoIn .menutap .tap_in .con .login_con .loginConIn .left .travelName span:last-child{width:42%;}
+
+#myInfo .myInfoIn .menutap .tap_in .con .login_con .loginConIn .left #travel_l{width:100%;height:calc(100% - 80px - 58px);padding:10px;overflow: auto;border-top:1px solid rgba(0,0,0,.1);}
+#myInfo .myInfoIn .menutap .tap_in .con .login_con .loginConIn .left #travel_l .travel_in{display: flex;flex-wrap: wrap;line-height:22px;font-size:14px;padding-bottom:6px;border-bottom:1px solid rgba(0,0,0,.1);padding-top:6px;cursor: pointer;}
+#myInfo .myInfoIn .menutap .tap_in .con .login_con .loginConIn .left #travel_l .travel_in.on{background: #5de4c2;color:#fff;}
+#myInfo .myInfoIn .menutap .tap_in .con .login_con .loginConIn .left #travel_l .travel_in:hover{background: #5de4c2;color:#fff;}
+#myInfo .myInfoIn .menutap .tap_in .con .login_con .loginConIn .left #travel_l .travel_in:last-child{margin-bottom:0;border-bottom:0;padding-bottom:0;}
+#myInfo .myInfoIn .menutap .tap_in .con .login_con .loginConIn .left #travel_l .travel_in p{width:calc(100% - 35% - 25% - 22px);letter-spacing: .5px;}
+#myInfo .myInfoIn .menutap .tap_in .con .login_con .loginConIn .left #travel_l .travel_in p:nth-child(2){width:25%;padding-right:15px;text-overflow: ellipsis;white-space: nowrap;overflow: hidden;}
+#myInfo .myInfoIn .menutap .tap_in .con .login_con .loginConIn .left #travel_l .travel_in h5{width:22px;cursor: pointer;text-align: center;}
+
+#myInfo .myInfoIn .menutap .tap_in .con .login_con .loginConIn .right{width:50%;height:100%;}
+#myInfo .myInfoIn .menutap .tap_in .con .login_con .loginConIn .right #travel_r{padding:10px;height:100%;width:100%;}
+#myInfo .myInfoIn .menutap .tap_in .con .login_con .loginConIn .right #travel_r > div{border-bottom:1px solid rgba(0,0,0,.15);display: flex;flex-wrap: wrap;margin-bottom:10px;padding-bottom:10px;}
+#myInfo .myInfoIn .menutap .tap_in .con .login_con .loginConIn .right #travel_r > div:last-child{margin-bottom:0px;padding-bottom:0px;border:0;}
+#myInfo .myInfoIn .menutap .tap_in .con .login_con .loginConIn .right #travel_r > div:after{display: block;content: "";clear: both;}
+#myInfo .myInfoIn .menutap .tap_in .con .login_con .loginConIn .right #travel_r > div img{float:left;}
+#myInfo .myInfoIn .menutap .tap_in .con .login_con .loginConIn .right #travel_r > div > div{position: relative;width:calc(100% - 100px);padding-left:10px;}
+#myInfo .myInfoIn .menutap .tap_in .con .login_con .loginConIn .right #travel_r > div > div:after{content: ""; display: block;clear: both;}
+#myInfo .myInfoIn .menutap .tap_in .con .login_con .loginConIn .right #travel_r > div > div p{float:left;width:100%;}
+#myInfo .myInfoIn .menutap .tap_in .con .login_con .loginConIn .right #travel_r > div > div p:first-child{font-size:18px;line-height:22px;font-weight: 500;}
+#myInfo .myInfoIn .menutap .tap_in .con .login_con .loginConIn .right #travel_r > div > div p:nth-child(2){font-size:14px;color:#666;line-height:18px;}
+#myInfo .myInfoIn .menutap .tap_in .con .login_con .loginConIn .right #travel_r > div > div p:nth-child(3){position: absolute;left:10px;bottom:0;font-size:14px;line-height:18px;}
+#myInfo .myInfoIn .menutap .tap_in .con .login_con .loginConIn .right #travel_r > div > div h5{position: absolute;right:10px;top:10px;border:1px solid rgba(0,0,0,.5);border-radius: 5px;cursor: pointer;width:24px;height:24px;}
+#myInfo .myInfoIn .menutap .tap_in .con .login_con .loginConIn .right #travel_r > div > div h5 i{position: absolute;left:50%;top:50%;transform: translate(-50% , -50%);}
+#myInfo .myInfoIn .menutap .tap_in .con .login_con .loginConIn .right #travel_r > div > div h5:hover{border:1px solid transparent;background: #5de4c2;color:#fff;}
 /* 내여행 로그인 했을때 끝 */
 
 /* 날씨 폼 */

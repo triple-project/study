@@ -45,7 +45,7 @@
 	integrity="sha512-UtgpaUQPTevIy6walAy8W82eDxOdZJqKS0w2vf0eTItGubnT6TKkbM1GoNyoNvlM4DKhbl45kOK+Z4EhtuK2RA=="
 	crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link rel="stylesheet" href="/resources/css/common.css">
-<link rel="stylesheet" href="/resources/css/ownerList.css">
+<link rel="stylesheet" href="/resources/css/noticeShow.css">
 
 
 <script src="/resources/js/jquery-3.6.0.min.js"></script>
@@ -100,59 +100,72 @@
 	  } 
 </script>
 </head>
-<body style="height: 100%;">
+<body>
 
 	<jsp:include page="/WEB-INF/views/header.jsp" flush="true" />
 
-
-
-	<section style="height: 100%;">
-
-		<aside style="float: left; height: 100%; width: 25%;">
-			<jsp:include page="/WEB-INF/views/qna/qnaAside.jsp" flush="true" />
-		</aside>
-
-		<div style="width: 75%; float: right;">
-			<h1>공지사항 내용</h1>
-			<div>문의번호 : ${nvo.n_id} 제목 : ${nvo.n_title} 작성일: ${nvo.n_date} 
+	<section id="sec">
+		<div class="noticeShow_in">
+			<div class="noticeShow_aside">
+				<aside>
+					<jsp:include page="/WEB-INF/views/qna/qnaAside.jsp" flush="true" />
+				</aside>
 			</div>
-			<hr>
-			<div>${nvo.n_content}</div>
-			<img src="/resources/img/upload/${nvo.n_img}">
-
-			<hr>
-
-			<br> <br>
-			<security:authorize access="hasRole('ROLE_ADMIN')">
-				<h1>공지사항수정 관리자만 보임</h1>
-				<form method="post" action="/qna/upno" onsubmit="uns()" enctype="multipart/form-data">
-					제목<input type="text" id="n_title" name="n_title" value="${nvo.n_title}"> 
-				<div contenteditable="true" id="n_contentd">
-					${nvo.n_content}
+			<div class="noticeShow_main">
+				<div class="noticeShow_title">
+					<p>제목 : ${nvo.n_title}</p>
+					<p>작성일 : ${nvo.n_date}</p>
+					<p>문의번호 : ${nvo.n_id}</p>
 				</div>
-				<br>
-				<input type="hidden" id="n_content" name="n_content"> 
-				이미지
-				<div class="preview">
-            		<img id="unpreview" src="/resources/img/upload/${nvo.n_img}" width=200 height=200 alt="선택된 이미지가 없습니다" />
-	            </div>
-				<input type="file" name="unimage_file_name" id="unimage_file_name" onchange="unreadURL(this);" /> 
-	            <input type="hidden" name="n_img" id="unimg_h" value="${nvo.n_img}">
-	            <input type="hidden" name="unimage_file_name_h" id="unimage_file_name_h">
-	            <input type="hidden" name="n_id" id="n_id" value="${nvo.n_id}">
-				<br>
-				<input type="submit" value="수정하기">
-				</form>
-				<button onclick="nd()">삭제하기</button>
-			</security:authorize>
-			<br>
-			<!-- <button onclick="gh()">고객센터 홈으로</button> -->
+				<div class="noticeShow_content">
+					<div>${nvo.n_content}</div>
+				</div>
+				<div class="noticeShow_img">
+					<img src="/resources/img/upload/${nvo.n_img}">
+				</div>
+				<security:authorize access="hasRole('ROLE_ADMIN')">
+					<div class="nsadmin">
+						<h3>공지사항 수정</h3>
+						<h5>관리자에게만 모이는 부분</h5>
 
+						<form method="post" action="/qna/upno" onsubmit="uns()" enctype="multipart/form-data" id="noticemod">
+							<div class="nsadmin_title">
+								<p>제목 : </p>
+								<input type="text" id="n_title" name="n_title" value="${nvo.n_title}"> 
+							</div>
+							<div class="nsadmin_content"
+							contenteditable="true" id="n_contentd">
+								${nvo.n_content}
+							</div>
+						
+						<input type="hidden" id="n_content" name="n_content"> 
+
+						
+						<div class="preview">
+							<img id="unpreview" src="/resources/img/upload/${nvo.n_img}" alt="" />
+							<input type="file" name="unimage_file_name" id="unimage_file_name" onchange="unreadURL(this);" /> 
+						</div>
+						
+							<input type="hidden" name="n_img" id="unimg_h" value="${nvo.n_img}">
+							<input type="hidden" name="unimage_file_name_h" id="unimage_file_name_h">
+							<input type="hidden" name="n_id" id="n_id" value="${nvo.n_id}">
+						</form>
+						<div class="nsadmin_btn">
+							<div class="nsadmin_modbtn nsadmin_btn_com" onclick="$('#noticemod').submit()">
+								<p>수정하기</p>
+							</div>
+							<div class="nsadmin_delbtn nsadmin_btn_com" onclick="nd()">
+								<p>삭제하기</p>
+							</div>
+						</div>
+					</div>
+				</security:authorize>
+
+			</div>
 		</div>
 	</section>
-	<div>
-		<%@ include file="../footer.jsp"%>
-	</div>
+
+	<%@ include file="../footer.jsp"%>
 
 
 

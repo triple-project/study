@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+#sec .noticeList_in {display: flex;margin: 0 110px;width: 1500px;}
+#sec .noticeList_in .noticeList_main {width: 1300px;margin: 0 auto;padding:20px 30px;}
+#sec .noticeList_in .noticeList_main h3 {font-size:20px;margin-bottom:5px;}
+
+#sec .noticeList_in .noticeList_main .noticeList_list {margin-top: 30px;}
+#sec .noticeList_in .noticeList_main .noticeList_list .notice_title{border-top:1px solid #999;border-bottom: 1px solid #999;width: 100%;height: 50px;line-height: 50px;display: flex;}
+#sec .noticeList_in .noticeList_main .noticeList_list .notice_title .notice_title1{width: 70px;text-align: center;}
+#sec .noticeList_in .noticeList_main .noticeList_list .notice_title .notice_title2{width: 1000px;padding-left:10px;padding-left: 20px;}
+#sec .noticeList_in .noticeList_main .noticeList_list .notice_title .notice_title3{width: 170px;text-align: center;}
+
+#sec .noticeList_in .noticeList_main .noticeList_list .noticeList_content {display: flex;height: 40px;line-height: 40px;border-bottom:1px solid #999;font-size: 14px;}
+#sec .noticeList_in .noticeList_main .noticeList_list .noticeList_content:nth-child(2n) {background-color: rgba(0,0,0,.03);}
+#sec .noticeList_in .noticeList_main .noticeList_list .noticeList_content .noticeList_content1{width: 70px;}
+#sec .noticeList_in .noticeList_main .noticeList_list .noticeList_content .noticeList_content1 p {text-align: center;}
+#sec .noticeList_in .noticeList_main .noticeList_list .noticeList_content .noticeList_content2{width: 1000px;padding-left:10px;padding-left: 20px;}
+#sec .noticeList_in .noticeList_main .noticeList_list .noticeList_content .noticeList_content2 a{}
+#sec .noticeList_in .noticeList_main .noticeList_list .noticeList_content .noticeList_content2 a:link{color:#000;}
+#sec .noticeList_in .noticeList_main .noticeList_list .noticeList_content .noticeList_content2 a:visited{color:#000;}
+#sec .noticeList_in .noticeList_main .noticeList_list .noticeList_content .noticeList_content2 a:active{color:#000;}
+#sec .noticeList_in .noticeList_main .noticeList_list .noticeList_content .noticeList_content3{width: 170px;text-align: center;}

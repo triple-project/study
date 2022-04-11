@@ -1,0 +1,15 @@
+@charset "UTF-8";
+
+.aside_main {margin-top: 60px;width:200px;height:auto;padding:10px;display: flex;flex-direction: column;align-items: flex-end;}
+.aside_main a {font-size:16px;}
+.aside_main a:link{color:#000;}
+.aside_main a:visited{color:#000;}
+.aside_main a:active{color:#000;}
+.aside_main .asidediv_com {border:1px solid #999;border-radius: 10px;width:200px;height: 40px;display: flex;justify-content: flex-start;align-items: center;padding-left: 10px;padding-left: 10px;margin-bottom: 5px;cursor:pointer;}
+.aside_main .asidediv_com:hover {background: #5de4c2;border:none;color:rgb(255, 255, 255);}
+.aside_main .aside_customerhome{}
+.aside_main .aside_inquirelist{}
+.aside_main .aside_inquirewrite{}
+.aside_main .aside_notice{}
+.aside_main .aside_offlineguide{}
+.aside_main .processinglist{}

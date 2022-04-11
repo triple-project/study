@@ -43,7 +43,7 @@
 	integrity="sha512-UtgpaUQPTevIy6walAy8W82eDxOdZJqKS0w2vf0eTItGubnT6TKkbM1GoNyoNvlM4DKhbl45kOK+Z4EhtuK2RA=="
 	crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link rel="stylesheet" href="/resources/css/common.css">
-<link rel="stylesheet" href="/resources/css/ownerList.css">
+<link rel="stylesheet" href="/resources/css/myQna.css">
 
 
 <script src="/resources/js/jquery-3.6.0.min.js"></script>
@@ -61,39 +61,54 @@
 	rel="stylesheet">
 <script src="/resources/js/jquery-3.6.0.min.js"></script>
 </head>
-<body style="height: 100%;">
+<body>
 
 	<jsp:include page="/WEB-INF/views/header.jsp" flush="true" />
 
-
-
-	<section style="height: 100%;">
-
-		<aside style="float: left; height: 100%; width: 25%;">
-			<jsp:include page="/WEB-INF/views/qna/qnaAside.jsp" flush="true" />
-		</aside>
-
-		<div style="width: 75%; float: right;">
-			<h2>나의 qna리스트</h2>
-
-			<div>
-				<div>
-					<span>문의번호</span> <span>제목</span> <span>상태</span>
-				</div>
-				<c:forEach items="${qList}" var="ql">
-					<div>
-						<span>${ql.q_id}</span><span><a href="/qna/list/${ql.q_id}">${ql.q_title}</a></span><span>${ql.q_check}</span>
-					</div>
-				</c:forEach>
+	<section id="sec">
+		<div class="myQna_in">
+			<div class="myQna_aside">
+				<aside>
+					<jsp:include page="/WEB-INF/views/qna/qnaAside.jsp" flush="true" />
+				</aside>
 			</div>
+			<div class="myQna_main">
+				<h3>나의 문의리스트</h3>
 
-			<input type="button" value="문의글작성" onclick="location.href='qnaWrite'">
-
+				<div class="myQna_list">
+					<div class="myQna_title">
+						<div class="mqtitle1">
+							<p>번호</p>
+						</div> 
+						<div class="mqtitle2">
+							<p>제목</p>
+						</div> 
+						<div class="mqtitle3">
+							<p>상태</p>
+						</div> 
+					</div>
+					<c:forEach items="${qList}" var="ql">
+						<div class="myQna_content">
+							<div class="mqcontent1">
+								<p>${ql.q_id}</p>
+							</div>
+							<div class="mqcontent2">
+								<p>
+									<a href="/qna/list/${ql.q_id}">${ql.q_title}</a>
+								</p>
+							</div>
+							<div class="mqcontent3">
+								<p>${ql.q_check}</p>
+							</div>
+						</div>
+					</c:forEach>
+				</div>
+			</div>
 		</div>
 	</section>
-	<div>
-		<%@ include file="../footer.jsp"%>
-	</div>
+
+	<%@ include file="../footer.jsp"%>
+
 
 
 

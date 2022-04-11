@@ -97,6 +97,16 @@ public class TripleRestController {
 		response.getWriter().flush();
 	}
 	
+	@RequestMapping(value = "/travel_del", method = RequestMethod.POST)
+	public void ftravel_del(MyPlanVo myPlanVo, HttpServletResponse response)
+			throws JsonGenerationException, JsonMappingException, IOException {
+		ObjectMapper mapper = new ObjectMapper(); 
+		//System.out.println(mem_id);	
+		Object mpl = memberService.dplan(myPlanVo);
+		response.getWriter().print(mapper.writeValueAsString(mpl));
+		response.getWriter().flush();
+	}
+	
 	@RequestMapping(value = "/tagList", method = RequestMethod.POST)
 	public void tagList(@RequestParam("tag_cate") String tag_cate,HttpServletResponse response) throws JsonGenerationException, JsonMappingException, IOException {
 		ObjectMapper mapper = new ObjectMapper();

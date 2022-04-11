@@ -55,7 +55,45 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Noto+Serif+KR:wght@200;300;400;500;600;700;900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
         rel="stylesheet">
-        
+    <style type="text/css">
+  .star {
+    position: relative;
+    font-size: 2rem;
+    color: #ddd;
+  }
+  
+  .star2 {
+    position: relative;
+    font-size: 2rem;
+    color: #ddd;
+  }
+  
+  .star input {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    opacity: 0;
+    cursor: pointer;
+  }
+  
+  .star span {
+    width: 0;
+    position: absolute; 
+    left: 0;
+    color: red;
+    overflow: hidden;
+    pointer-events: none;
+  }
+  
+  .star2 span {
+    position: absolute; 
+    left: 0;
+    color: red;
+    overflow: hidden;
+    pointer-events: none;
+  }
+    </style>
 <script type="text/javascript">
 	var c = '${heart}';
 	function heart() {
@@ -96,28 +134,35 @@
 	}
 </script>
 <script type="text/javascript">
-	function intra() {
-		$.ajax({
-			type : "POST",
-			url : "/rest/ftravel",
-				dataType : "json",
-				data : {
-					mem_id : $("#sat").text()
-				},
-				success : function(data) {
-	           		 // C에서 받아온 데이터로 새로 뿌려주기
-					//console.log(data);
-					$("#plusListIn").html("");
-						for (var i = 0; i < data.length; i++) {
-							$("#plusListIn").append("<div onclick='travel_insert(this)'>" + data[i].plan_name + data[i].startdate + data[i].enddate + '<div style="display: none;">' + data[i].plan_id + "</div>" + "</div>");
-					}  
-					
-				},
-				error : function(a){
-					console.log(a);
-	            }
-			});
-	}
+function intra() {
+	$.ajax({
+		type : "POST",
+		url : "/rest/ftravel",
+		dataType : "json",
+		data : {
+			mem_id : $("#sat").text()
+		},
+		success : function(data) {
+        // C에서 받아온 데이터로 새로 뿌려주기
+		//console.log(data);
+		$("#plusListIn").html("");
+			for (var i = 0; i < data.length; i++) {
+				$("#plusListIn").append(
+                    "<div onclick='travel_insert(this)'>" +
+                        "<span style='display:none'>" + data[i].plan_id + "</span>" +
+                        "<p>" + data[i].plan_name + "</p>" +
+                        "<p>" + data[i].startdate + "</p>" +
+						"<p>" + data[i].enddate + "</p>" +
+						'<h5><i class="fa-solid fa-xmark"></i></h5>' +
+					"</div>"
+                );
+			}  	
+		},
+		error : function(a){
+			console.log(a);
+        }
+	});
+}
 	
 	function travel_insert(insert) {
 		//console.log(insert.children.item(0).innerText);
@@ -145,6 +190,50 @@
 	            }
 			});
 	}
+	
+</script>
+<script type="text/javascript">
+	 const drawStar = (target) => {
+		var ss = target.value*10;
+		console.log(target.value*10);
+		$('#star_r').css('width',ss+'%')
+	    //document.querySelector('.star span').style.width = '${target.value*10}%';
+		
+	  } 
+
+</script>
+
+<script type="text/javascript">
+	function rs() {
+		var r_contentd = document.getElementById('r_contentd')
+		document.getElementById('r_comment').value = r_contentd.innerHTML;
+		var today = new Date();
+		var hours = ('0' + today.getHours()).slice(-2);
+		var minutes = ('0' + today.getMinutes()).slice(-2);
+		var seconds = ('0' + today.getSeconds()).slice(-2);
+		var ti = hours + minutes + seconds;
+		var fileValue = $("#rimage_file_name").val().split("\\");
+		var fileName = fileValue[fileValue.length - 1]; // 파일명
+		/* console.log(fileName); image_file_name_h */
+		const a = $('#rimg_h').val(ti+fileName);
+		const b = $('#rimage_file_name_h').val(ti+fileName);
+	}
+	
+	function rreadURL(input) {
+	      var file = input.files[0] //파일에 대한 정보
+	     /*  console.log(file) */
+	      if (file != '') {
+	         var reader = new FileReader();
+	         reader.readAsDataURL(file); //파일의 정보를 토대로 파일을 읽고 
+	         reader.onload = function (e) { // 파일 로드한 값을 표현한다
+	          //e : 이벤트 안에 result값이 파일의 정보를 가지고 있다.
+	/*             console.log(e)
+	            console.log(e.target)
+	            console.log(e.target.result) */
+	           $('#rpreview').attr('src', e.target.result);
+	          }
+	      }
+	  } 
 </script>
 </head>
 
@@ -179,45 +268,41 @@
                                                 <h2>${pvo.product_name}</h2>
                                                 <h3>${pvo.product_shortword}</h3>
                                                 <h3>${pvo.product_address}</h3>
-                                            </div>
-                                            <!-- 로그인안한경우 -->
-                                            <security:authorize access="isAnonymous()">
-                                            <div>
-                                            	<div onclick="heart2()">
-													<i class="fa-regular fa-heart"></i>
-	            								<div>
-                                            			${heartcount}
-                                            	</div>
-                                            	</div>
-                                            </div>
-                                            </security:authorize>
-                                            <!-- 로그인한경우 -->
-                                            <security:authorize access="isAuthenticated()">
-                                            <div>
-                                            <div class="proaddbtn probtn_com" onclick="heart()">
-                                            	<div id="ffhd">
-	                                            	<div>
-		            									<i class="fa-${heart} fa-heart" style="color:red" id="ffh"></i>
-		            								</div>
-		            								<div>
-	                                            			${heartcount}
-	                                            	</div>
-                                            	</div>
-	            							</div>
 
-                                            <div class="proaddbtn probtn_com onePlusBtn" onclick="intra()">
-	            								<i class="fa-regular fa-bookmark"></i>
-	            								
-	            							</div>
+                                                <!-- 로그인안한경우 -->
+                                                <security:authorize access="isAnonymous()">
+                                                    <div class="heartBox">
+                                                        <div onclick="heart2()" class="heartIcon">
+                                                            <i class="fa-regular fa-heart"></i>
+                                                            <div class="heartNum">${heartcount}</div>
+                                                        </div>
+                                                    </div>
+                                                </security:authorize>
+                                                <!-- 로그인한경우 -->
+                                                <security:authorize access="isAuthenticated()">
+                                                    <div class="heartBox">
+                                                        <div class="proaddbtn probtn_com" onclick="heart()">
+                                                            <div id="ffhd" class="heartIcon">
+                                                                <div>
+                                                                    <i class="fa-${heart} fa-heart" style="color:red" id="ffh"></i>
+                                                                </div>
+                                                                <div class="heartNum">${heartcount}</div>
+                                                            </div>
+                                                        </div>
+        
+                                                        <div class="proaddbtn probtn_com onePlusBtn" onclick="intra()">
+                                                            <i class="fa-regular fa-bookmark"></i>
+                                                        </div>
+                                                    </div>
+                                                </security:authorize>
                                             </div>
-                                            </security:authorize>
 
                                             <div class="context">
                                                 <ul><!-- 이 아래로 태그 포문으로 꺼내기 -->
                                                     <c:forEach items="${tList}" var="tl">
                                                     <li>                     
                                                         <div class="img">
-                                                            <img src="" id="icon">
+                                                            <img src="/resources/img/tag_final/${tl.tag_tag}.png" id="icon">
                                                         </div>
                                                         <div class="txt">
                                                             <h2>${tl.tag_tag}</h2>
@@ -540,17 +625,68 @@
 									    marker.setMap(map);
 									}
 								</script>
-
+								<!-- 리뷰시작 -->
                                 <div class="six">
                                     <div class="sixIn">
                                         <div class="tit">
                                             <h2>리뷰</h2>
                                         </div>
-
+										<div>
+											<form method="post" action="/review" onclick="rs()" enctype="multipart/form-data">
+										       <div contenteditable="true" id="r_contentd">
+													내용을 입력해주세요!
+												</div>
+										      별점 <span class="star">
+												  ★★★★★
+												  <span id="star_r" >★★★★★</span>
+												  <input type="range" oninput="drawStar(this)" value="1" step="1" min="0" max="10" name="r_star">
+												</span>
+										      	
+												<br>
+												<input type="hidden" id="r_comment" name="r_comment"> 
+												이미지
+												<div class="preview">
+								            		<img id="rpreview" src="#" width=200 height=200 alt="선택된 이미지가 없습니다" />
+									            </div>
+												<input type="file" name="rimage_file_name" id="rimage_file_name" onchange="rreadURL(this);" /> 
+									            <input type="hidden" name="r_img1" id="rimg_h">
+									            <input type="hidden" name="rimage_file_name_h" id="rimage_file_name_h">
+										      <input type="hidden" value="${pvo.product_id}" name="product_id">
+										      <input type="submit" value="리뷰등록" >										      
+										   </form>
+										   
+										</div>
                                         <div class="sixCon">
                                             
                                             <ul>
-                                                <li>
+                                            <!-- 리뷰꺼내기 시작 -->
+                                            <c:forEach items="${reviewList}" var="rl">
+                                            	<li>
+                                            		
+                                            		
+                                                    <div class="info">
+                                                        <h2>${rl.r_comment}</h2>
+														
+                                                        <div class="user">
+                                                            <img src="/resources/img/upload/${rl.mem_img}">
+																<div class="userIn">
+																	<h3>${rl.mem_id}</h3>
+																	<h4>${rl.r_date}</h4>
+																	<span class="star2"> ★★★★★ <span id="star_r"
+																		style="width: ${rl.r_star*10}%">★★★★★</span></span>
+																</div>
+																<div class="close" style="display: none;">
+                                                                <i class="fa-solid fa-xmark"></i>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="img">
+                                                        <img src="/resources/img/upload/${rl.r_img1}">
+                                                    </div>
+                                                </li>
+                                                </c:forEach>
+                                                <!-- <li>
                                                     <div class="info">
                                                         <h2>리뷰내용이들어갈공간입니다.......... 무언가 내용이 얼마나들어갈지 모르니 일단 최대한 두줄과 세줄처리가 가능할 만큼의 내용을 집어넣어보겠습니다. 그러므로 내용은 조금 줄바꿈처리가 어찌 될지 모르고 내용이 얼마나 들어갈지 몰라서 ...그냥 막 써지는대로 써보고 아무렇게나 이어보고 글을 작성해보고 지금 머리를 쥐어짜내는 중입니다. 하지만 아직도 두줄이네요 최소 세줄은 보여줘야할거같은데 .. 어 세줄이 될거같네요 이제 ! 오아아아아아아아 !!! 진짜의미없이 글을 쓰고잇어요 .... 나 대단해 </h2>
 
@@ -570,7 +706,7 @@
                                                         <img src="">
                                                     </div>
                                                 </li>
-
+																	
                                                 <li>
                                                     <div class="info">
                                                         <h2>아버님은 말하셨지 인생을 즐겨라</h2>
@@ -611,7 +747,7 @@
                                                     <div class="img">
                                                         <img src="">
                                                     </div>
-                                                </li>
+                                                </li> -->
                                             </ul>
 
                                             <div class="plusBtn">
@@ -821,9 +957,15 @@
     </section>
     
     <div class="plusList">
-        <div class="plusListIn" id="plusListIn">
-
+        <div class="tit">
+            <div class="travelName">
+                <h2>여행리스트를 선택해주세요</h2>
+                <span>여행이름</span>
+                <span>여행시작</span>
+                <span>여행종료</span>
+            </div>
         </div>
+        <div class="plusListIn" id="plusListIn"></div>
     </div>
     <div class="plusListCover"></div>
 
