@@ -10,7 +10,7 @@
 		from magazine
 	</select>
 	<select id="showmag" resultType="MagVo">
-		select *
+		select mgz_id,mgz_content,mgz_title,mgz_smalltitle,mgz_category,mgz_city,mgz_smallcontent,date_format(mgz_date, '%Y-%m-%d') as mgz_date
 		from magazine
 		where mgz_id = #{mgz_id}
 	</select>

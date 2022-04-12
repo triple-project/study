@@ -1,6 +1,7 @@
 package com.triple.finalp;
 
 import java.io.IOException;
+import java.security.Principal;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.triple.finalp.data.service.DataService;
 import com.triple.finalp.data.vo.FlightVo;
+import com.triple.finalp.data.vo.PayVo;
 import com.triple.finalp.data.vo.TrainVo;
 import com.triple.finalp.mem.service.MemberService;
 import com.triple.finalp.mem.vo.HeartVo;
@@ -163,6 +165,17 @@ public class TripleRestController {
 		//Object wan = "hwan";
 		
 		response.getWriter().print(mapper.writeValueAsString(wan));
+		response.getWriter().flush();			
+	}
+	
+	@RequestMapping(value = "/payinfo", method = RequestMethod.POST)
+	public void payinfo(@RequestParam("product_id")String product_id,@RequestParam("pd_id")String pd_id , HttpServletResponse response,Principal principal) throws JsonGenerationException, JsonMappingException, IOException {
+		// 결제정보 가져오기
+		String mem_id = principal.getName();
+		ObjectMapper mapper = new ObjectMapper();
+		PayVo payvo = memberService.payinfo(product_id,pd_id,mem_id);
+		
+		response.getWriter().print(mapper.writeValueAsString(payvo));
 		response.getWriter().flush();			
 	}
 

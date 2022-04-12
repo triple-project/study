@@ -1,0 +1,37 @@
+@charset "UTF-8";
+
+#aaa {width: 100%;height: 173px;}
+#aaa .aaaa{width: 100%;height: 50px;border-bottom:1px solid #999;}
+#aaa .aaaaa{width: 100%;height: 123px;border-bottom:1px solid #999;}
+
+#sec {}
+#sec .poptrip_in{width: 1300px;margin:0 auto;padding:20px 30px;}
+#sec .poptrip_in h3{font-size:50px;text-align: center;margin:20px 0 50px 0;}
+
+/* 인기트립 더보기 */
+
+#sec .poptrip_in .poptrip_main{width: 100%;margin-top:30px;display: flex;justify-content: center;flex-wrap: wrap;}
+#sec .poptrip_in .poptrip_main a{display: block;width:100%;height:100%;}
+#sec .poptrip_in .poptrip_main a:link{color:#000;}
+#sec .poptrip_in .poptrip_main a:visited{color:#000;}
+#sec .poptrip_in .poptrip_main a:active{color:#000;}
+#sec .poptrip_in .poptrip_main .poptripbox {height: 310px;width: 285px;overflow: hidden;border-radius: 15px;margin-bottom: 33px;margin-right: 33px;box-shadow: 2px 2px 15px rgb(0 0 0 / 15%);position: relative;}
+#sec .poptrip_in .poptrip_main .poptripbox:nth-child(4n){margin-right:0;}
+#sec .poptrip_in .poptrip_main .poptripbox a .poptrip_card{width: 100%;height: 100%;}
+#sec .poptrip_in .poptrip_main .poptripbox a .poptrip_card img{width: 100%;height: 100%;}
+#sec .poptrip_in .poptrip_main .poptripbox a .poptrip_card .poptripheadcover{background: linear-gradient(to right, white, transparent);width: 100%;height: 60px;}
+#sec .poptrip_in .poptrip_main .poptripbox a .poptrip_card .poptripheadcover .poptriphead{position: absolute;color:#334;width: 100%;height: 65px;padding: 10px}
+#sec .poptrip_in .poptrip_main .poptripbox a .poptrip_card .poptriphead p{height: auto;width: 250px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;letter-spacing: -0.5px;}
+#sec .poptrip_in .poptrip_main .poptripbox a .poptrip_card .poptriphead p{height: auto;width: 250px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;letter-spacing: -0.5px;}
+#sec .poptrip_in .poptrip_main .poptripbox a .poptrip_card .poptriphead p:nth-child(1) {font-size:20px;margin-bottom:3px;font-weight: 500;}
+#sec .poptrip_in .poptrip_main .poptripbox a .poptrip_card .poptriphead p:nth-child(2) {font-size:12px; color: rgba(0,0,0,.9);}
+
+#sec .poptrip_in .poptrip_main .poptripbox a .poptrip_card .poptripfootercover{position: absolute;bottom: 0;left: 0;background: rgba(255,255,255,.45);;width: 100%;height: 30px;padding: 5px 0 0 10px;}
+#sec .poptrip_in .poptrip_main .poptripbox a .poptrip_card .poptripfootercover:before {content: "";display:block;clear:both;}
+#sec .poptrip_in .poptrip_main .poptripbox a .poptrip_card .poptripfootercover .poptripfooter{width: 100%;display: inline-block;position: absolute;}
+#sec .poptrip_in .poptrip_main .poptripbox a .poptrip_card .poptripfootercover .poptripfooter .poptripheart{float:left;font-size:18px;}
+#sec .poptrip_in .poptrip_main .poptripbox a .poptrip_card .poptripfootercover .poptripfooter .poptripheart p {float:left;}
+#sec .poptrip_in .poptrip_main .poptripbox a .poptrip_card .poptripfootercover .poptripfooter .poptripheart p:nth-child(1) {margin-right:5px;color:red;opacity:0.8;}
+#sec .poptrip_in .poptrip_main .poptripbox a .poptrip_card .poptripfootercover .poptripfooter .poptripheart p:nth-child(2) {font-size: 14px;line-height: 20px;}
+
+/* 인기트립 더보기 끝*/

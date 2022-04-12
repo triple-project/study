@@ -6,6 +6,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+import com.triple.finalp.data.vo.PayVo;
 import com.triple.finalp.mem.vo.HeartVo;
 import com.triple.finalp.mem.vo.MemVo;
 import com.triple.finalp.mem.vo.MyPlanVo;
@@ -34,4 +35,6 @@ public interface MemDao {
 	public int heartcount2(String mgz_id);
 	public void dplan(MyPlanVo myPlanVo);
 	public String c_review(String mem_id);
+	public String pamo(@Param("product_id")String product_id, @Param("pd_id")String pd_id);
+	public PayVo payinfo(@Param("product_id")String product_id, @Param("pd_id")String pd_id, @Param("mem_id")String mem_id);
 }

@@ -10,6 +10,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
+import com.triple.finalp.data.vo.PayVo;
 import com.triple.finalp.mag.dao.MagDao;
 import com.triple.finalp.mag.vo.MagVo;
 import com.triple.finalp.mem.dao.MemDao;
@@ -210,6 +211,12 @@ public class MemberServiceImpl implements MemberService{
 		// TODO Auto-generated method stub
 		ArrayList<ReviewVo> freview_info = reviewDao.freview_info(mem_id,product_id);
 		return freview_info;
+	}
+
+	@Override
+	public PayVo payinfo(String product_id, String pd_id, String mem_id) {
+		PayVo payinfo = memDao.payinfo(product_id,pd_id,mem_id);
+		return payinfo;
 	}
 
 	

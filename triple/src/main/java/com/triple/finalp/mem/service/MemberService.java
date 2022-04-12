@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.springframework.ui.Model;
 
+import com.triple.finalp.data.vo.PayVo;
 import com.triple.finalp.mem.vo.HeartVo;
 import com.triple.finalp.mem.vo.MemVo;
 import com.triple.finalp.mem.vo.MyPlanVo;
@@ -42,4 +43,6 @@ public interface MemberService {
 	public ArrayList<ProductVo> freview(String mem_id);
 
 	public ArrayList<ReviewVo> freview_info(String mem_id, String product_id);
+
+	public PayVo payinfo(String product_id, String pd_id, String mem_id);
 }

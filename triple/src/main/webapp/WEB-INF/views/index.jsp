@@ -153,7 +153,10 @@
 								alert("해당 조회에 대한 결과가 없습니다.")
 							}else{
 								for (var i = 0; i < train.item.length; i++) {
-		
+									/* var jjn = JSON.stringify(train.item[i].depplandtime);
+									
+									var jjn2 = jjn.substring(0,4);
+									console.log(jjn2); */
 									element2.append(
 										"<tr>"
 											+ "<td>" + train.item[i].depplandtime + "</td>"
@@ -658,7 +661,7 @@
 					</ul>
 
 					<div class="hot_btn">
-						<a href="javascript:;">
+						<a href="/popList">
 							<h2>인기트립 더보기</h2>
 						</a>
 					</div>

@@ -8,7 +8,7 @@ import lombok.Data;
 public class MagVo {
 	private String mgz_id;
 	private String mgz_content;
-	private Date mgz_date;
+	private String mgz_date;
 	private String mgz_title;
 	private String mgz_smalltitle;
 	private String mgz_category;

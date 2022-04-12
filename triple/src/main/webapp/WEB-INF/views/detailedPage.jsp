@@ -55,7 +55,81 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Noto+Serif+KR:wght@200;300;400;500;600;700;900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
         rel="stylesheet">
+        
+        <!-- iamport.payment.js -->
+  <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
+	<script type="text/javascript">
+		//일단 결제 정보 가져오는거부터시작
+		function kgkg(paydata) {
+			var pay1 = '${pvo.product_id}';
+			var pay2 = paydata.children.item(1).innerText;
+			
+			$.ajax({
+				type : "POST",
+				url : "/rest/payinfo",
+				async : "false",
+				dataType: 'json',
+				data : {
+					product_id : pay1,
+					pd_id : pay2
+				},
+				success : function(data) {
+					// C에서 받아온 데이터로 새로 뿌려주기
+					//console.log(data.amount);
+					
+					requestPay();
+					
+					//결제시작
+					function requestPay() {
+						var IMP = window.IMP; // 생략 가능
+				    	IMP.init("imp90205064"); // 예: imp00000000
+						// IMP.request_pay(param, callback) 결제창 호출
+						IMP.request_pay({ // param
+							
+							pg : "html5_inicis",
+							pay_method : "card",
+							merchant_uid : 'triple_' + new Date().getTime(),
+							name : data.name,
+							amount : data.amount,
+							buyer_email : data.buyer_email,
+							buyer_name : data.buyer_name,
+							buyer_tel : data.buyer_tel
+			
+						}, function(rsp) { // callback
+							if (rsp.success) { // 결제 성공 시: 결제 승인 또는 가상계좌 발급에 성공한 경우
+								// jQuery로 HTTP 요청
+								jQuery.ajax({
+									url : "{서버의 결제 정보를 받는 endpoint}", // 예: https://www.myservice.com/payments/complete
+									method : "POST",
+									headers : {
+										"Content-Type" : "application/json"
+									},
+									data : {
+										imp_uid : rsp.imp_uid,
+										merchant_uid : rsp.merchant_uid
+									}
+								}).done(function(wdata) {
+									// 가맹점 서버 결제 API 성공시 로직
+									// 결제완료!!
+								})
+							} else {
+								alert("결제에 실패하였습니다. 에러 내용: " + rsp.error_msg);
+							}
+						});
+					}	//결제끝
+					
+					//인포성공끝
+				},
+				error : function(a) {
+					//console.log(a);
+				}
+			}); 
+		}
+	
+		//아임포트 결제 api!
 
+		
+	</script>
 <script type="text/javascript">
 	var c = '${heart}';
 	function heart() {
@@ -214,6 +288,7 @@ function intra() {
         <div class="main">
             <div class="main_in">
                 <div class="tapName tapTop">
+                 
                     <div class="nameIn">
                         <ul>
                             <li class="on">
@@ -769,8 +844,9 @@ function intra() {
                                         </div>
                                         </security:authorize>
                                         <security:authorize access="isAuthenticated()">
-                                        <div class="re" onclick="">
+                                        <div class="re" onclick="kgkg(this)">
                                             <h2>예약하기</h2>
+                                            <span style="display: none;">${dl.pd_id}</span>
                                         </div>
                                         </security:authorize>
                                     </div>

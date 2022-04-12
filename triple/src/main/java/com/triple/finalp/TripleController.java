@@ -103,6 +103,13 @@ public class TripleController {
 
 		return "/product/review";
 	}
+	
+	@RequestMapping(value = "/popList", method = RequestMethod.GET)
+	public String popList() {
+		// 인덱스로 보내기
+
+		return "/poptriplist";
+	}
 
 	@RequestMapping(value = "/join", method = RequestMethod.POST)
 	public String join(@RequestParam("image_file_name_h") String image_file_name_h, MemVo memVo,
@@ -278,5 +285,12 @@ public class TripleController {
 		fileService.join(mhsr, rimage_file_name_h);
 		return "redirect:/category/" + reviewvo.getProduct_id();
 	}
+	
+	/*
+	 * @GetMapping("/error") public String error() {
+	 * 
+	 * return "error"; }
+	 */
+	
 
 }

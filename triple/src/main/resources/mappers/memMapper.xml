@@ -117,5 +117,14 @@
 		where mem_id = #{mem_id}
 		and plan_id = #{plan_id}
 	</delete>
+	
+	<select id="payinfo" resultType="PayVo">
+		select replace(pd_price,',','') as amount, tel as buyer_tel , name as buyer_name, e_mail as buyer_email,concat(product_name," - ",pd_name) as name
+		from product p , product_detail pd , member m
+		where mem_id = #{mem_id}
+		and p.product_id = #{product_id}
+		and pd.product_id = #{product_id}
+		and pd_id = #{pd_id}
+	</select>
 
 </mapper>

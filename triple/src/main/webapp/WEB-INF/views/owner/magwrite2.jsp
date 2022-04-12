@@ -40,11 +40,11 @@
 
     <jsp:include page="/WEB-INF/views/header.jsp" flush="true"/>
     
-    <section id="sec_magr">
+    <section id="sec">
         <div class="magreg_frame">
             <div class="mag_reg">
                 <h3>매거진 등록</h3>
-                <button onclick="magregsave()">테스트</button>
+                
                 <div class="magreg_in">
                     <form action="/writesave" onsubmit="magregsave()" method="post" id="writeform" enctype="multipart/form-data">
                         <div class="magform_in">
@@ -97,21 +97,22 @@
                             <div class="mag_smalltitle">
                                 <input type="text" placeholder="소제목을 입력해주세요." name="mgz_smalltitle" required="required">
                             </div>
-                            <div class="mag_smalltitle">
-                                <textarea placeholder="내용을 입력해주세요"
-                                                            contenteditable="true" id="mgz_smallcontentd"></textarea>
+                            <div class="mag_smallcon" contenteditable="true" id="mgz_smallcontentd">
+                                <p>간단한 설명을 입력해주세요.</p>
                             </div>
+
                             <div class="mag_word" contenteditable="true" id="magwrite">
                                 <p>내용을 입력해주세요.</p>
                             </div>
+                            
                         </div>
                         <input type="hidden" name="mgz_smallcontent" id="mgz_smallcontent">
                         <input type="hidden" name="mgz_id" id="mgz_id">
                         <input type="hidden" name="mgz_content" id="mgz_content">
-      					<input type="hidden" name="mimage_file_name_h" id="mimage_file_name_h">
-      					<div id="fileinh" style="display: none;">
-      						<input type="file" id="image_file_name0" name="image_file_name0" onchange="readURL(this);">
-      					</div>
+                     <input type="hidden" name="mimage_file_name_h" id="mimage_file_name_h">
+                     <div id="fileinh" style="display: none;">
+                        <input type="file" id="image_file_name0" name="image_file_name0" onchange="readURL(this);">
+                     </div>
                     </form>
                 </div>
             </div>
@@ -125,8 +126,8 @@
        var filename = new Array();
        
        function fileb() {
-    	   $('#image_file_name' + count).click();
-		}
+          $('#image_file_name' + count).click();
+      }
 
         function readURL(input) {
             var file = input.files[0] //파일에 대한 정보
@@ -182,34 +183,34 @@
         });
 
         function magregsave() {
-        	mfilech = $('#image_file_name0').val()
-        	var mgz_smallcontentd = document.getElementById('mgz_smallcontentd')
-    		document.getElementById('mgz_smallcontent').value = mgz_smallcontentd.value;
+           mfilech = $('#image_file_name0').val()
+           var mgz_smallcontentd = document.getElementById('mgz_smallcontentd')
+          document.getElementById('mgz_smallcontent').value = mgz_smallcontentd.value;
             const element = document.getElementById('magwrite');
             var today = new Date();
-			var year = today.getFullYear();
-			var month = ('0' + (today.getMonth() + 1)).slice(-2);
-			var day = ('0' + today.getDate()).slice(-2);
+         var year = today.getFullYear();
+         var month = ('0' + (today.getMonth() + 1)).slice(-2);
+         var day = ('0' + today.getDate()).slice(-2);
             var hours = ('0' + today.getHours()).slice(-2);
             var minutes = ('0' + today.getMinutes()).slice(-2);
             var seconds = ('0' + today.getSeconds()).slice(-2);
             
             if(!mfilech){
-    			
-    		}else {
+             
+          }else {
             var fArray = new Array();
-	            for (var i = 0; i < count; i++) {
-	                //위에서 생성된 이미지의 id들         
-	                var img = document.getElementById('img' + i);
-	                var ti = hours + minutes + seconds;
-	                var fnn = i + ti + filename[i];
-	                //id별로 서버에 저장되는 img경로
-	                img.setAttribute("src", "/resources/img/upload/" + fnn); 
-	                fArray.push(fnn);
-	            }
-	            
-	            $("#mimage_file_name_h").val(fArray);
-    		}
+               for (var i = 0; i < count; i++) {
+                   //위에서 생성된 이미지의 id들         
+                   var img = document.getElementById('img' + i);
+                   var ti = hours + minutes + seconds;
+                   var fnn = i + ti + filename[i];
+                   //id별로 서버에 저장되는 img경로
+                   img.setAttribute("src", "/resources/img/upload/" + fnn); 
+                   fArray.push(fnn);
+               }
+               
+               $("#mimage_file_name_h").val(fArray);
+          }
             
             var mid = year + month + day + hours + minutes + seconds
             document.getElementById('mgz_content').value = element.innerHTML;
