@@ -204,7 +204,7 @@
 								+ "<th>출발공항</th>" + "<th>도착시간</th>"
 								+ "<th>도착공항</th>" + "<th>항공사</th>" + "</tr>");
 
-						console.log(data);
+						//console.log(data);
 						var flight = data.response.body.items;
 						for (var i = 0; i < flight.item.length; i++) {
 
@@ -243,7 +243,7 @@
 						+ "<th>출발공항</th>" + "<th>도착시간</th>"
 						+ "<th>도착공항</th>" + "<th>항공사</th>" + "</tr>");
 
-				console.log(data);
+				//console.log(data);
 				var flight = data.response.body.items;
 				if (data.response.body.totalCount==0) {
 					alert("해당 조회에 대한 결과가 없습니다.")

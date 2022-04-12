@@ -32,7 +32,7 @@
 							 location.reload(); 
 					}
 					alogc(); 
-					console.log(response);
+					//console.log(response);
 				} else {
 					alert(response.message);
 				}
@@ -69,7 +69,7 @@
 				},
 				success : function(data) {
 	           		 // C에서 받아온 데이터로 새로 뿌려주기
-					console.log(data);
+					//console.log(data);
 					$("#heart_num").html(data.heart)
 					$("#plan_num").html(data.plan)
 					$("#review_num").html(data.review)
