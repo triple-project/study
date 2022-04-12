@@ -5,8 +5,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>내 예약</title>
-<link rel="stylesheet" href="/resources/css/reset.css">
+<title>내 저장</title>
+<link rel="stylesheet" href="../../resources/css/reset.css">
 <link rel="stylesheet"
    href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
 <link rel="stylesheet"
@@ -42,7 +42,7 @@
    integrity="sha512-UtgpaUQPTevIy6walAy8W82eDxOdZJqKS0w2vf0eTItGubnT6TKkbM1GoNyoNvlM4DKhbl45kOK+Z4EhtuK2RA=="
    crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link rel="stylesheet" href="/resources/css/common.css">
-<link rel="stylesheet" href="/resources/css/myReservation.css">
+<link rel="stylesheet" href="/resources/css/mySave.css">
 
 
 <script src="/resources/js/jquery-3.6.0.min.js"></script>
@@ -58,83 +58,101 @@
    rel="stylesheet">
 </head>
 <body>
-
+   
    <jsp:include page="/WEB-INF/views/header.jsp" flush="true" />
 
    <section id="sec">
-      <div class="myReservation_in">
-         <h3>내 예약</h3>
-         <div class="myrv_main">
-            <div class="myrv_title">
-               <div class="myrn_date">
-                  <p>구매일</p>
+      <div class="mySave_in">
+         <h3>내 저장</h3>
+         <div class="ms_main">
+            <div class="ms_title">
+               <div class="ms_num">
+                  <p>번호</p>
                </div>
-               <div class="myrn_prname">
+               <div class="ms_img">
+                  <p>이미지</p>
+               </div>
+               <div class="ms_name">
                   <p>상품명</p>
                </div>
-               <div class="myrn_rvdate">
-                  <p>예약일</p>
+               <div class="ms_addr">
+                  <p>주소</p>
                </div>
-               <div class="myrn_uniquenum">
-                  <p>고유번호</p>
+               <div class="ms_city">
+                  <p>도시</p>
                </div>
-               <div class="myrn_sellernum">
-                  <p>판매자번호</p>
+               <div class="ms_category">
+                  <p>종류</p>
                </div>
-               <div class="myrn_amount">
-                  <p>결제금액</p>
-               </div>
-               <div class="myrn_approval">
-                  <p>카드승인번호</p>
-               </div>
-               <div class="myrn_btn">
-                  
+               <div class="ms_btn">
+                  <!-- <p>뭐라하지</p> -->
                </div>
             </div>
-
+            
             <!-- for문 시작 -->
-             <c:forEach items="${mpl}" var="ml"> 
-            <div class="myrv_content">
-               <div class="myrv_date">
-                   <p>${ml.flex_day}</p> 
-                  <!-- <p>2022-04-13</p> -->
+            <c:set var="num" value="${page.pageS+1}"/>
+            <c:forEach items="${mhl}" var="ml" begin="${page.pageS}" end="${page.pageE}">
+            <div class="ms_content">
+               <div class="ms_connum">
+                  <p>${num}</p>
                </div>
-               <div class="myrv_prname">
-                   <p>${ml.name}</p> 
-                 <!--  <p>상품이름 - 삼천원</p> -->
+               <div class="ms_conimg">
+                  <img src="/resources/img/upload/${ml.product_img1}">
                </div>
-               <div class="myrv_rvdate">
-                   <p>${ml.start_day}</p> 
-                 <!--  <p>20220413</p> -->
+               <div class="ms_conname">
+                  <p>${ml.product_name}</p>
                </div>
-               <div class="myrv_uniquenum">
-                   <p>${ml.imp_uid}</p> 
-                 <!--  <p>imp_928534763095</p> -->
+               <div class="ms_conaddr">
+                  <p>${ml.product_address}</p>
                </div>
-               <div class="myrv_sellernum">
-                   <p>${ml.merchant_uid}</p> 
-              <!--     <p>triple_1649792534068</p> -->
+               <div class="ms_concity">
+                  <p>${ml.product_city}</p>
                </div>
-               <div class="myrv_amount">
-                   <p>${ml.paid_amount}</p> 
-                 <!--  <p>3000</p> -->
+               <div class="ms_concate">
+                  <p>${ml.product_category}</p>
                </div>
-               <div class="myrv_approval">
-                   <p>${ml.apply_num}</p> 
-                 <!--  <p>44155870</p> -->
-               </div>
-               <div class="myrv_conbtn">
-                  <div class="myrv_viewbtn myrv_btncom" onclick="location.href='/category/${ml.product_id}'">
-                     <p>상품보기</p>
+               <div class="ms_conbtn">
+                  <div class="ms_viewbtn ms_btncom" onclick="location.href='/category/${ml.product_id}'">
+                     <p>보러가기</p>
                   </div>
-                  <!-- <div class="myrv_delbtn myrv_btncom">
-                     <p>예약취소</p>
+                  <!-- <div class="ms_delbtn ms_btncom" onclick="">
+                     <p>삭제하기</p>
                   </div> -->
                </div>
             </div>
-             </c:forEach> 
+            <c:set var="num" value="${num+1}"/>
+            </c:forEach>
             <!-- for문 끝 -->
+            
+            <div class="own_bottom">
+               <div class="bottom_search" >
+                  <!-- <form id="search" method="" action="">
+                     <input type="text" class="search_input" placeholder="상품검색">
+                     <div class="search_sub" onclick="$('#search').submit()">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                     </div>
+                  </form> -->
+               </div>
 
+               <div class="paging">
+                  <div class="leftbtn btn_com hoverbtn">
+                     <i class="fa-solid fa-chevron-left"></i>
+                  </div>
+                  <c:forEach var="i" begin="1" end="${page.pageC}">
+                     <div class="pagenum">
+                   <a href="/mySave/${i}">${i}</a>
+                  </div>
+                  </c:forEach>
+                  <div class="rightbtn btn_com hoverbtn">
+                     <i class="fa-solid fa-chevron-right"></i>
+                  </div>
+               </div>
+
+               <div class="bottom_reg" style="display: none;">
+                  <div class="gotoReg">
+                     상품등록 하러가기
+                  </div>
+               </div>
 
          </div>
       </div>
