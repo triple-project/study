@@ -51,15 +51,22 @@
                 <div class="txt">
                     <h2>${main_search}</h2>
                 </div>
-                <div>
+
+                <div class="shWindow">
 					<form action="/ds" method="get"  id="d_ser">
-						검색창? : <input type="search" name="DS" id="DS">					
-						<input type="hidden" value="${main_search}" name="main_search">
-						<input type="hidden" value="${city_search}" name="city_search">
-						<input type="hidden" value="${cate_search}" name="cate_search">
+                        <ul>
+                            <li>
+                                <h2>여행지 검색</h2>
+                                <input type="search" name="DS" id="DS">
+                                <input type="hidden" value="${main_search}" name="main_search">
+                                <input type="hidden" value="${city_search}" name="city_search">
+                                <input type="hidden" value="${cate_search}" name="cate_search">
+                            </li>
+                        </ul>
 					</form>
-					<input type="submit" value="검색하기" onclick="ds()">
+					<input type="submit" value="검색하기" onclick="ds()" class="shBtn">
 				</div>
+
                 <div class="con">
                     <div class="con_in">
                         <div class="list">
@@ -81,17 +88,48 @@
                                                 <div class="txt">
                                                     <h2>${pv.product_name}</h2>
                                                     <h3>${pv.product_shortword}</h3>
-                                                    <img  src="/resources/img/tag_final/${pv.tag_tag1}.png">
-                                                    <img  src="/resources/img/tag_final/${pv.tag_tag2}.png">
-                                                    <img  src="/resources/img/tag_final/${pv.tag_tag3}.png">
-                                                    <img  src="/resources/img/tag_final/${pv.tag_tag4}.png">
-                                                    <img  src="/resources/img/tag_final/${pv.tag_tag5}.png">
-                                                    <h4>${pv.tag_tag1}</h4>
-                                                    <h4>${pv.tag_tag2}</h4>
-                                                    <h4>${pv.tag_tag3}</h4>
-                                                    <h4>${pv.tag_tag4}</h4>
-                                                    <h4>${pv.tag_tag5}</h4>
-                                                    <h2><a href="/category/${pv.product_id}">보러가기</a></h2>
+
+                                                    <div>
+                                                        <ul>
+                                                            <li>
+                                                                <img  src="/resources/img/tag_final/${pv.tag_tag1}.png">
+                                                            </li>
+                                                            <li>
+                                                                <img  src="/resources/img/tag_final/${pv.tag_tag2}.png">
+                                                            </li>
+                                                            <li>
+                                                                <img  src="/resources/img/tag_final/${pv.tag_tag3}.png">
+                                                            </li>
+                                                            <li>
+                                                                <img  src="/resources/img/tag_final/${pv.tag_tag4}.png">
+                                                            </li>
+                                                            <li>
+                                                                <img  src="/resources/img/tag_final/${pv.tag_tag5}.png">
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+
+                                                    <div>
+                                                        <ul>
+                                                            <li>
+                                                                <h4>${pv.tag_tag1}</h4>
+                                                            </li>
+                                                            <li>
+                                                                <h4>${pv.tag_tag2}</h4>
+                                                            </li>
+                                                            <li>
+                                                                <h4>${pv.tag_tag3}</h4>
+                                                            </li>
+                                                            <li>
+                                                                <h4>${pv.tag_tag4}</h4>
+                                                            </li>
+                                                            <li>
+                                                                <h4>${pv.tag_tag5}</h4>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                    
+                                                    <h2><a href="/category/${pv.product_id}">상품정보보기</a></h2>
                                                 </div>
                                                 <!-- 슬라이드 -->
                                                 <div class="slide">
@@ -124,7 +162,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <!-- 슬라이드 끝 -->
+                                            <!-- <!— 슬라이드 끝 —> -->
                                             <div class="bot">
                                                 ${pv.product_subcontent}
                                             </div>

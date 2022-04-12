@@ -23,6 +23,7 @@ import com.triple.finalp.data.vo.TrainVo;
 import com.triple.finalp.mem.service.MemberService;
 import com.triple.finalp.mem.vo.HeartVo;
 import com.triple.finalp.mem.vo.MyPlanVo;
+import com.triple.finalp.mem.vo.MyproductVo;
 import com.triple.finalp.mem.vo.PlanConVo;
 import com.triple.finalp.tag.service.TagService;
 
@@ -177,6 +178,17 @@ public class TripleRestController {
 		
 		response.getWriter().print(mapper.writeValueAsString(payvo));
 		response.getWriter().flush();			
+	}
+	
+	//결제완료
+	@RequestMapping(value = "/paywan", method = RequestMethod.POST)
+	public void paywan(MyproductVo myproductVo,Principal principal,HttpServletResponse response) throws JsonGenerationException, JsonMappingException, IOException {
+		myproductVo.setMem_id(principal.getName());
+		System.out.println(myproductVo);
+		String wan = memberService.inMy(myproductVo);
+		ObjectMapper mapper = new ObjectMapper();
+		response.getWriter().print(mapper.writeValueAsString(wan));
+		response.getWriter().flush();
 	}
 
 }

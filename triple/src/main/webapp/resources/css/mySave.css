@@ -1,9 +1,5 @@
 @charset "UTF-8";
 
-#hhhh {width: 100%;height: 173px;}
-#hhhh .hhhhhh{width: 100%;height: 50px;border-bottom: 1px solid #999;}
-#hhhh .hhhhhhh{width: 100%;height: 123px;border-bottom: 1px solid #999;}
-
 #sec .mySave_in{width: 1300px;margin:0 auto;padding:20px 30px;}
 #sec .mySave_in h3{font-size:20px;}
 #sec .mySave_in .ms_main{margin-top:30px;}
@@ -35,6 +31,31 @@
 #sec .mySave_in .ms_main .ms_content .ms_conbtn .ms_btncom{width: 100px;height:30px;border:1px solid #999;border-radius: 10px;display: flex;justify-content: center;align-items: center;cursor:pointer;}
 #sec .mySave_in .ms_main .ms_content .ms_conbtn .ms_btncom:hover{background: #5de4c2;border:none;color:rgb(255, 255, 255);}
 
-#sec .mySave_in .ms_main .ms_content .ms_conbtn .ms_viewbtn {margin-bottom:5px;}
-#sec .mySave_in .ms_main .ms_content .ms_conbtn .ms_delbtn {}
+#sec .mySave_in .ms_main .ms_content .ms_conbtn .ms_viewbtn {}
 
+/* 리스트 아래 */
+#sec .own_bottom {top:886px;width: 1240px;height: 50px;display:flex;}
+
+#sec .own_bottom .bottom_search {width: 30%;height: 100%;display:flex;justify-content: left;align-items: center;}
+#sec .own_bottom .bottom_search::before {content:"";display: block;clear: both;}
+#sec .own_bottom .bottom_search .search_input {width: 250px;height: 30px;border-radius:10px; border:1px solid #999;float:left;line-height: 30px;padding-left:10px;margin-right: 5px;}
+#sec .own_bottom .bottom_search .search_sub {width: 30px;
+height: 30px;border:1px solid #999;border-radius: 10px; margin-left:2px;cursor:pointer;font-size:15px;display: flex;justify-content: center;align-items: center;color: #999;margin-left:2px;}
+#sec .own_bottom .bottom_search .search_sub:hover {border:none;background: #5de4c2;color:white;}
+
+#sec .own_bottom .paging {width: 30%;height: 50px;margin: 0 5%;display:flex;justify-content: center;align-items: center;}
+#sec .own_bottom .paging .btn_com {width: 30px;height: 30px;text-align:center;line-height: 30px;cursor: pointer;}
+#sec .own_bottom .paging .hoverbtn:hover {color:white;background: #5de4c2;border:none;}
+#sec .own_bottom .paging .leftbtn {width: 30px;height: 30px;border-radius: 10px;}
+#sec .own_bottom .paging .pagenum {width: 30px;height: 30px;display: flex;justify-content: center;align-items: center;margin: 0 2px;}
+#sec .own_bottom .paging .pagenum a{}
+#sec .own_bottom .paging .pagenum a:link{color:#000;}
+#sec .own_bottom .paging .pagenum a:visited{color:#000;}
+#sec .own_bottom .paging .pagenum a:active{color:#000;}
+#sec .own_bottom .paging .rightbtn {width: 30px;height: 30px;border-radius: 10px;}
+
+#sec .own_bottom .bottom_reg {width: 30%;height: 100%;display:flex;justify-content: right;align-items: center;}
+#sec .own_bottom .bottom_reg::before {content:"";display: block;clear: both;}
+#sec .own_bottom .bottom_reg .gotoReg {width:200px; height: 30px; text-align: center;line-height: 30px; border:1px solid #999;border-radius: 10px;cursor:pointer;float:right;font-size:14px;}
+#sec .own_bottom .bottom_reg .gotoReg:hover{background: #5de4c2;border:none;color: rgb(255, 255, 255);}
+/* 리스트 아래 끝 */

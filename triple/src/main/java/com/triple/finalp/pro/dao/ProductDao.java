@@ -35,4 +35,5 @@ public interface ProductDao {
 	public ArrayList<TagTagVo> gettag(String product_id);
 	public ArrayList<UltiProVo> indexH();
 	public ArrayList<UltiProVo> indexL();
+	public ArrayList<UltiProVo> popList();
 }

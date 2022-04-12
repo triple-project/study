@@ -63,6 +63,8 @@
 		function kgkg(paydata) {
 			var pay1 = '${pvo.product_id}';
 			var pay2 = paydata.children.item(1).innerText;
+			const pay3 = $('#start_date').val();
+			var pay4 = '';
 			
 			$.ajax({
 				type : "POST",
@@ -76,7 +78,7 @@
 				success : function(data) {
 					// C에서 받아온 데이터로 새로 뿌려주기
 					//console.log(data.amount);
-					
+					pay4 = data.name;
 					requestPay();
 					
 					//결제시작
@@ -97,20 +99,31 @@
 			
 						}, function(rsp) { // callback
 							if (rsp.success) { // 결제 성공 시: 결제 승인 또는 가상계좌 발급에 성공한 경우
+															
+									var msg = '결제가 완료되었습니다.';
+									msg += '고유ID : ' + rsp.imp_uid;
+									msg += '상점 거래ID : ' + rsp.merchant_uid;
+									msg += '결제 금액 : ' + rsp.paid_amount;
+									msg += '카드 승인번호 : ' + rsp.apply_num;
+																
 								// jQuery로 HTTP 요청
 								jQuery.ajax({
-									url : "{서버의 결제 정보를 받는 endpoint}", // 예: https://www.myservice.com/payments/complete
+									url : "/rest/paywan", // 예: https://www.myservice.com/payments/complete
 									method : "POST",
-									headers : {
-										"Content-Type" : "application/json"
-									},
+									async : "false",
 									data : {
 										imp_uid : rsp.imp_uid,
-										merchant_uid : rsp.merchant_uid
+										merchant_uid : rsp.merchant_uid,
+										paid_amount : rsp.paid_amount,
+										apply_num : rsp.apply_num,
+										name : pay4,
+										product_id : pay1,
+										start_day : pay3
 									}
 								}).done(function(wdata) {
 									// 가맹점 서버 결제 API 성공시 로직
 									// 결제완료!!
+									alert(msg);
 								})
 							} else {
 								alert("결제에 실패하였습니다. 에러 내용: " + rsp.error_msg);
@@ -279,6 +292,44 @@ function intra() {
 	      }
 	  } 
 </script>
+<script type="text/javascript"
+	src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript"
+	src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+<link rel="stylesheet" type="text/css"
+	href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+<script type="text/javascript">
+	$(function() {
+		$('#start_date').daterangepicker(
+				{
+					"locale" : {
+						"format" : "YYYYMMDD",
+						"separator" : " ~ ",
+						"applyLabel" : "확인",
+						"cancelLabel" : "취소",
+						"fromLabel" : "From",
+						"toLabel" : "To",
+						"customRangeLabel" : "Custom",
+						"weekLabel" : "W",
+						"daysOfWeek" : [ "월", "화", "수", "목", "금", "토", "일" ],
+						"monthNames" : [ "1월", "2월", "3월", "4월", "5월", "6월",
+								"7월", "8월", "9월", "10월", "11월", "12월" ],
+					},
+					"singleDatePicker" : true,
+					"startDate" : new Date(),
+					"endDate" : new Date(),
+					"drops" : "down",
+					"opens" : "center"
+				},
+				function(start, end, label) {
+					console.log('New date range selected: '
+							+ start.format('YYYY-MM-DD') + ' to '
+							+ end.format('YYYY-MM-DD') + ' (predefined range: '
+							+ label + ')');
+				});
+	});
+</script>
+
 </head>
 
 <body>
@@ -761,6 +812,9 @@ function intra() {
                         </div>
 
                         <div class="tapMenu">
+                        	<!-- 달력넣자 -->
+                        	예약하실 날짜 선택 <input id="start_date" name="start_date">
+                        	<button onclick="dttt()">테스트</button>
 							<!-- 꺼내기시작 -->
 							<c:forEach items="${dList}" var="dl">
                             <div class="room">

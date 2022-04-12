@@ -10,6 +10,7 @@ import com.triple.finalp.data.vo.PayVo;
 import com.triple.finalp.mem.vo.HeartVo;
 import com.triple.finalp.mem.vo.MemVo;
 import com.triple.finalp.mem.vo.MyPlanVo;
+import com.triple.finalp.mem.vo.MyproductVo;
 import com.triple.finalp.mem.vo.PlanConVo;
 import com.triple.finalp.pro.vo.ProductVo;
 
@@ -37,4 +38,8 @@ public interface MemDao {
 	public String c_review(String mem_id);
 	public String pamo(@Param("product_id")String product_id, @Param("pd_id")String pd_id);
 	public PayVo payinfo(@Param("product_id")String product_id, @Param("pd_id")String pd_id, @Param("mem_id")String mem_id);
+	public void inMy(MyproductVo myproductVo);
+	public List<String> mySave(String mem_id);
+	public ProductVo fmySave(String string);
+	public ArrayList<MyproductVo> mypro(String mem_id);
 }

@@ -26,5 +26,6 @@ public interface ProductService {
 	public void updateProductD(ProductDetailVo pdvo);
 	public void getdetail(String pd_id, Model model);
 	public void index(Model model);
+	public void popList(Model model);
 	
 }

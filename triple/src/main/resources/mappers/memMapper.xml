@@ -126,5 +126,24 @@
 		and pd.product_id = #{product_id}
 		and pd_id = #{pd_id}
 	</select>
+	
+	<insert id="inMy">
+		insert into myproduct(mem_id,product_id,start_day,imp_uid,merchant_uid,paid_amount,apply_num,name)
+		values(#{mem_id},#{product_id},#{start_day},#{imp_uid},#{merchant_uid},#{paid_amount},#{apply_num},#{name}) 
+	</insert>
+	
+	<select id="mySave" resultType="String">
+		select heart_id
+		from heart
+		where mem_id = #{mem_id}
+	</select>
+	
+	<select id="fmySave" resultType="ProVo">
+		select *
+		from product
+		where product_id = #{product_id}
+	</select>
+	
+	<select id="mypro"></select>
 
 </mapper>

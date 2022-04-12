@@ -39,7 +39,7 @@
 	<jsp:include page="/WEB-INF/views/header.jsp" flush="true"/>
 
 
-    <section id="sec_owner">
+    <section id="sec">
         <div class="own">
 			<div class="own_in">
 				<h3>상품리스트</h3>

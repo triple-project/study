@@ -37,7 +37,7 @@
 
 	<jsp:include page="../header.jsp" flush="true"/>
 
-    <section id="sec_reg">
+    <section id="sec">
         <div class="oReg">
             <div class="oReg_in">
                 <div class="roomhead">

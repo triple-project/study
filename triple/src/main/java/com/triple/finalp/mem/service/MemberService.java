@@ -9,6 +9,7 @@ import com.triple.finalp.data.vo.PayVo;
 import com.triple.finalp.mem.vo.HeartVo;
 import com.triple.finalp.mem.vo.MemVo;
 import com.triple.finalp.mem.vo.MyPlanVo;
+import com.triple.finalp.mem.vo.MyproductVo;
 import com.triple.finalp.mem.vo.PlanConVo;
 import com.triple.finalp.pro.vo.ProductVo;
 import com.triple.finalp.review.vo.ReviewVo;
@@ -45,4 +46,12 @@ public interface MemberService {
 	public ArrayList<ReviewVo> freview_info(String mem_id, String product_id);
 
 	public PayVo payinfo(String product_id, String pd_id, String mem_id);
+
+	public String inMy(MyproductVo myproductVo);
+
+	public void mySave(Model model, String name);
+
+	public void mySave2(Model model, String name, int page);
+
+	public void mypro(Model model, String name);
 }

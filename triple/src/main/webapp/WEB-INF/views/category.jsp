@@ -53,7 +53,7 @@
 <body>
 
 
-    <%@ include file="header.jsp"%>
+    <jsp:include page="header.jsp" flush="true" />
 
     <section id="sec">
         <div class="cate">
@@ -62,14 +62,19 @@
                     <h2>${main_search}</h2>
                 </div>
                 
-                <div>
+                <div class="shWindow">
 					<form action="/ds" method="get"  id="d_ser">
-						검색창? : <input type="search" name="DS" id="DS">					
-						<input type="hidden" value="${main_search}" name="main_search">
-						<input type="hidden" value="${city_search}" name="city_search">
-						<input type="hidden" value="${cate_search}" name="cate_search">
+                        <ul>
+                            <li>
+                                <h2>여행지 검색</h2>
+                                <input type="search" name="DS" id="DS">
+                                <input type="hidden" value="${main_search}" name="main_search">
+                                <input type="hidden" value="${city_search}" name="city_search">
+                                <input type="hidden" value="${cate_search}" name="cate_search">
+                            </li>
+                        </ul>
 					</form>
-					<input type="submit" value="검색하기" onclick="ds()">
+					<input type="submit" value="검색하기" onclick="ds()" class="shBtn">
 				</div>
 
                 <div class="con">
@@ -80,47 +85,7 @@
                                     <h2>${city_search}지역</h2>
                                     <h2>${cate_search}</h2>
                                 </div>
-								<!-- ps에서처리 -->
-                                <div class="list_con" style="display: none;">
-                                    <div class="con_txt">추천도, 즐겨찾기 순</div>
-                                    <div class="list_con_in">
-                                        <div class="hart_list list_slider">
-                                            <div class="swiper-wrapper">
-                                                <div class="swiper-slide">
-                                                	<div class="slide_in">
-                                                        <div class="slide_img" style="background: gray url(/resources/img/??/??.jpg);"></div>
-                                                		<div class="slide_cover">
-                                                            <div class="txt">
-                                                                <h2 class="cover_txt">제목</h2>
-                                                			    <h3 class="cover_txt">소제목</h3>
-                                                            </div>
-                                                		</div>
-                                                        <div class="slide_txt">
-                                                            <h2>제목</h2>
-                                                        </div>
-                                                	</div>
-                                                </div>
-                                                <div class="swiper-slide"> </div>
-                                                <div class="swiper-slide"> </div>
-                                                <div class="swiper-slide"> </div>
-                                                <div class="swiper-slide"> </div>
-                                                <div class="swiper-slide"> </div>
-                                                <div class="swiper-slide"> </div>
-                                            </div>
-
-                                            <div class="swiper-button-prev hart_prev">
-                                                <i class="fa-solid fa-angle-left"></i>
-                                            </div>
-                                            <div class="swiper-button-next hart_next">
-                                                <i class="fa-solid fa-angle-right"></i>
-                                            </div>
-
-                                            <div class="swiper-pagination hart_pagi"></div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- ps에서처리끝 -->
+                                
                                 <!-- 일단 꺼내 보았다 -->
                                 
 								<c:forEach items="${proS}" var="ps">
@@ -134,7 +99,7 @@
 
 														<div class="swiper-slide" onclick="result3(this)">
 															<div class="slide_in" id="${pv.product_id}">
-																<div class="slide_img" style="background: gray url(/resources/img/upload/${pv.product_img1});"></div>
+																<div class="slide_img" style="background: url(/resources/img/upload/${pv.product_img1}) no-repeat 50% 50%;background-size: cover;"></div>
 																<div class="slide_cover">
 																	<div class="txt">
 																		<h2 class="cover_txt">${pv.product_name}</h2>

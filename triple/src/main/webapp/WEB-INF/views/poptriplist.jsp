@@ -67,13 +67,14 @@
             <div class="poptrip_main">
 
                 <!-- for 문 시작 -->
+                <c:forEach items="${ultListH}" var="uH">
                 <div class="poptripbox">
-                    <a href="">
-                        <div class="poptrip_card" style="background: url(../../resources/img/gory/categorycamping.jpg) no-repeat 50% 50%;background-size: cover;">
+                    <a href="/category/${uH.product_id}">
+                        <div class="poptrip_card" style="background: url('/resources/img/upload/${uH.product_img1}') no-repeat 50% 50%;background-size: cover;">
                             <div class="poptripheadcover">
                                 <div class="poptriphead">
-                                    <p>name</p>
-                                    <p>shortword</p>
+                                    <p>${uH.product_name}</p>
+									<p>${uH.product_shortword}</p>
                                 </div>
                             </div>
                             <div class="poptripfootercover">
@@ -82,18 +83,18 @@
                                         <p>
                                             <i class="fa-solid fa-heart"></i>
                                         </p>
-                                        <p>heart_count</p>
-                                        <p>city</p>
-                                        <p>category</p>
+                                        <p>${uH.heart_count}</p>
+										<p>${uH.product_city}</p>
+										<p>${uH.product_category}</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </a>
                 </div>
+                </c:forEach>
                 <!-- for 문 끝 -->
-               
-
+ 
             </div>
         </div>
     </section>

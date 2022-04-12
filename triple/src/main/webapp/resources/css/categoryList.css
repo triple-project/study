@@ -4,6 +4,14 @@
 #sec .cate .cate_in{width:1300px;padding:50px 30px;margin:0 auto;}
 #sec .cate .cate_in > .txt{margin-bottom:20px;font-size:22px;font-weight: 500;color:#333;line-height:50px;}
 
+#sec .cate .cate_in .shWindow{display: flex;flex-wrap: wrap;float:right;}
+#sec .cate .cate_in .shWindow ul li{display: flex;flex-wrap: wrap;line-height:28px;}
+#sec .cate .cate_in .shWindow ul li h2{width:80px;font-size:14px;}
+#sec .cate .cate_in .shWindow ul li input{outline: none;border:1px solid rgba(0,0,0,.3);border-radius: 5px;margin-right:10px;width:200px;}
+#sec .cate .cate_in .shWindow .shBtn{border:1px solid rgba(0,0,0,.3);background: #fff;border-radius: 5px;cursor: pointer;}
+#sec .cate .cate_in .shWindow .shBtn:hover{border:1px solid transparent;color:#fff;background: #5de4c2;}
+
+#sec .cate .cate_in .con{clear: both;}
 #sec .cate .cate_in .con .con_in .list .list_in{position: relative;}
 #sec .cate .cate_in .con .con_in .list .list_in .list_txt{margin-bottom:40px;font-size:18px;font-weight: 500;color:#444;line-height:26px;}
 #sec .cate .cate_in .con .con_in .list .list_in .list_txt h2{line-height:18px;width: 100%;text-align: center;}
@@ -16,24 +24,28 @@
 
 #sec .cate .cate_in .con .con_in .list .list_in .list_con .con_in .right{width:57%;padding:30px;height:100%;}
 #sec .cate .cate_in .con .con_in .list .list_in .list_con .con_in .right .top{display: flex;height:100%;}
-#sec .cate .cate_in .con .con_in .list .list_in .list_con .con_in .right .top > .txt{border:1px solid blue;width:55%;padding-right:30px;}
-#sec .cate .cate_in .con .con_in .list .list_in .list_con .con_in .right .top .txt h2{font-size:22px;line-height:32px;font-weight: 500;}
-#sec .cate .cate_in .con .con_in .list .list_in .list_con .con_in .right .top .txt h3{font-size:14px;color:#555;line-height:18px;width:100%;overflow: hidden;text-overflow:ellipsis;white-space:nowrap;margin-bottom:20px;}
-#sec .cate .cate_in .con .con_in .list .list_in .list_con .con_in .right .top .txt h4{line-height:20px;font-size:14px;}
+#sec .cate .cate_in .con .con_in .list .list_in .list_con .con_in .right .top > .txt{width:55%;padding-right:30px;}
+#sec .cate .cate_in .con .con_in .list .list_in .list_con .con_in .right .top .txt h2{font-size:22px;line-height:32px;font-weight: 500;display: inline-block;}
+#sec .cate .cate_in .con .con_in .list .list_in .list_con .con_in .right .top .txt h2 a{display: block;color:#343434;}
+#sec .cate .cate_in .con .con_in .list .list_in .list_con .con_in .right .top .txt h3{font-size:14px;color:#000;line-height:18px;width:100%;overflow: hidden;text-overflow:ellipsis;white-space:nowrap;margin-bottom:20px;opacity: .4;}
+#sec .cate .cate_in .con .con_in .list .list_in .list_con .con_in .right .top .txt > div > ul{display: flex;flex-wrap: wrap;margin-top:10px;}
+#sec .cate .cate_in .con .con_in .list .list_in .list_con .con_in .right .top .txt > div > ul li{width:40px;height:40px;margin-right:10px;}
+#sec .cate .cate_in .con .con_in .list .list_in .list_con .con_in .right .top .txt > div > ul li img{display: block;width:100%;height:100%;}
+
+#sec .cate .cate_in .con .con_in .list .list_in .list_con .con_in .right .top .txt > div > ul li h4{text-align: center;}
 #sec .cate .cate_in .con .con_in .list .list_in .list_con .con_in .right .top .txt h4:last-child{margin-bottom:0;}
 
 #sec .cate .cate_in .con .con_in .list .list_in .list_con .con_in .right .top .slide{height:100%;width:45%;}
 #sec .cate .cate_in .con .con_in .list .list_in .list_con .con_in .right .top .slide .list_slider{width:100%;height:230px;position: relative;overflow: hidden;}
-#sec .cate .cate_in .con .con_in .list .list_in .list_con .con_in .right .top .slide .list_slider .swiper-slide{width:100%;height:200px;background: #000;}
-#sec .cate .cate_in .con .con_in .list .list_in .list_con .con_in .right .top .slide .list_slider .swiper-slide:nth-child(2n){background: gold;}
+#sec .cate .cate_in .con .con_in .list .list_in .list_con .con_in .right .top .slide .list_slider .swiper-slide{height:200px;border:1px solid rgba(0,0,0,.1);border-radius: 10px;;}
 
 #sec .cate .cate_in .con .con_in .list .list_in .list_con .con_in .right .top .slide .list_slider .txt{width: calc(100% - 95px);bottom:0;left:0;position: absolute;line-height:30px;height:30px;font-size:14px;letter-spacing: -.5px;padding-left:10px;}
 .util{position: absolute;height:30px;width:95px;bottom:0;right:0;}
 .list_pagi{height:30px;top:0 !important;line-height:30px;font-size:14px;z-index: 1;}
-.swiper-button-prev{width:30px;height:30px;left:0;top:0;margin-top:0;z-index: 2;}
+.swiper-button-prev{width:30px;height:30px;left:0;top:0;margin-top:0;z-index: 2;color:#000;opacity: .8;}
 .swiper-button-prev:after{display: none;}
-.swiper-button-next{width:30px;height:30px;right:0;top:0;margin-top:0;z-index: 2;}
+.swiper-button-next{width:30px;height:30px;right:0;top:0;margin-top:0;z-index: 2;color:#000;opacity: .8;}
 .swiper-button-next:after{display: none;}
 
 
-#sec .cate .cate_in .con .con_in .list .list_in .list_con .con_in .right .bot{border:1px solid blue;padding:50px;}
+#sec .cate .cate_in .con .con_in .list .list_in .list_con .con_in .right .bot{padding:25px 50px 0px;border-top:1px solid rgba(0,0,0,.1);margin-top:25px;}

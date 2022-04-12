@@ -671,99 +671,73 @@
 	}
 	function ftravel() {
 		
-				$.ajax({
-					type : "POST",
-					url : "/rest/ftravel",
-					dataType : "json",
-					data : {
-						mem_id : $("#sat").text()
-					},
-					success : function(data) {
-						// C에서 받아온 데이터로 새로 뿌려주기
-						//console.log(data);
-						$("#travel_l").html("");
-						$("#travel_r").html("");
-						for (var i = 0; i < data.length; i++) {
-							$("#travel_l")
-									.append(
-											"<div class='travel_in pName' onclick='ftravel_info(this)'>"
-													+ "<span style='display:none'>"
-													+ data[i].plan_id
-													+ "</span>"
-													+ "<p>"
-													+ data[i].plan_name
-													+ "</p>"
-													+ "<p>"
-													+ data[i].startdate
-													+ "</p>"
-													+ "<p>"
-													+ data[i].enddate
-													+ "</p>"
-													+ '<h5 onclick="travel_del(this)"><i class="fa-solid fa-xmark"></i></h5>'
-													+ "</div>");
-							//$("#plantable").append("<tr>" + "<td>" + data[i].plan_name + "</td>" + "<td>" + data[i].startdate + "</td>" + "<td>" + data[i].enddate + "</td>" + "</tr>");
-							//$("#plantable").append("<tr>" + "<td>" + data[i].startdate + "</td>" + "</tr>");
-							//$("#plantable").append("<tr>" + "<td>" + data[i].enddate + "</td>" + "</tr>");
-						}
-
-					},
-					error : function(a) {
-						console.log(a);
-					}
-				});
+		$.ajax({
+			type : "POST",
+			url : "/rest/ftravel",
+			dataType : "json",
+			data : {
+				mem_id : $("#sat").text()
+			},
+			success : function(data) {
+				// C에서 받아온 데이터로 새로 뿌려주기
+				//console.log(data);
+				$("#travel_l").html("");
+				$("#travel_r").html("");
+				for (var i = 0; i < data.length; i++) {
+					$("#travel_l").append(
+						"<div class='travel_in pName' onclick='ftravel_info(this)'>"
+							+ "<span style='display:none'>" + data[i].plan_id + "</span>"
+							+ "<p>" + data[i].plan_name + "</p>"
+							+ "<p>" + data[i].startdate + "</p>"
+							+ "<p>" + data[i].enddate + "</p>"
+							+ '<h5 onclick="travel_del(this)"><i class="fa-solid fa-xmark"></i></h5>'
+						+ "</div>"
+					);
+				}
+			},
+			error : function(a) {
+				console.log(a);
+			}
+		});
 	}
 
 	function ftravel_info(tdata) {
 		//console.log(tdata.children);
 		var pli = tdata.children.item(0).innerText;
-			
-				$.ajax({
-					type : "POST",
-					url : "/rest/ftravelinfo",
-					dataType : "json",
-					data : {
-						plan_id : pli
-					},
-					success : function(data) {
-						$("#travel_r").html("");
-						$("#travel_r")
-						.append("<div class='travel_in pName'>"
-								+ "<p>"
-								+ tdata.children.item(1).innerText
-								+ "</p>"
-								+ "<p>"
-								+ tdata.children.item(2).innerText
-								+ "</p>"
-								+ "<p>"
-								+ tdata.children.item(3).innerText
-								+ "</p>"
-								+ "</div>");
-						for (var i = 0; i < data.length; i++) {
-							$("#travel_r")
-									.append(
-											"<div onclick='ftravel_goto(this)'>"
-													+ '<div style="display: none;">'
-													+ data[i].product_id
-													+ "</div>"
-													+ '<img src="/resources/img/upload/' + data[i].product_img1 + '" width="100" height="75"/>'
-													+ "<div>"
-													+ '<p>'
-													+ data[i].product_name
-													+ '</p>'
-													+ '<p>'
-													+ data[i].product_shortword
-													+ '</p>'
-													+ '<p>'
-													+ data[i].product_address
-													+ '</p>'
-													+ '<h5><i class="fa-solid fa-xmark"></i></h5>'
-													+ "</div>" + "</div>");
-						}
-					},
-					error : function(a) {
-						console.log(a);
-					}
-				});
+		$.ajax({
+			type : "POST",
+			url : "/rest/ftravelinfo",
+			dataType : "json",
+			data : {
+				plan_id : pli
+			},
+			success : function(data) {
+				$("#travel_r").html("");
+				$("#travel_r").append(
+					"<div class='travel_in pName'>"
+						+ "<p>" + tdata.children.item(1).innerText + "</p>"
+						+ "<p>" + tdata.children.item(2).innerText + "</p>"
+						+ "<p>" + "~" + "</p>"
+						+ "<p>" + tdata.children.item(3).innerText + "</p>"
+					+ "</div>"
+				);
+			for (var i = 0; i < data.length; i++) {
+				$("#travel_r").append(
+					"<div onclick='ftravel_goto(this)'>"
+						+ '<div style="display: none;">' + data[i].product_id + "</div>"
+							+ '<img src="/resources/img/upload/' + data[i].product_img1 + '" width="100" height="75"/>'
+							+ "<div>" + '<p>' + data[i].product_name + '</p>'
+							+ '<p>' + data[i].product_shortword + '</p>'
+							+ '<p>' + data[i].product_address + '</p>'
+							+ '<h5><i class="fa-solid fa-xmark"></i></h5>'
+						+ "</div>"
+					+ "</div>");
+				}
+			},
+			error : function(a) {
+				console.log(a);
+			}
+		});
 	}
 
 	function ftravel_goto(gdata) {
@@ -798,6 +772,7 @@
 	<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
 	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+	
 	<script type="text/javascript">
 	$(function () {
         $('#t_date').daterangepicker({
@@ -824,6 +799,7 @@
     });
 	
 	</script>
+
 	<script type="text/javascript">
 		function freview() {
 			$.ajax({
@@ -839,26 +815,18 @@
 					$("#review_l").html("");
 					$("#review_r").html("");
 					for (var i = 0; i < data.length; i++) {
-						$("#review_l")
-								.append(
-										"<div class='travel_in pName' onclick='freview_info(this)'>"
-												+ "<span style='display:none'>"
-												+ data[i].product_id
-												+ "</span>"
-												+ '<img src="/resources/img/upload/' + data[i].product_img1 + '" width="100" height="75"/>'
-												+ "<p>"
-												+ data[i].product_name
-												+ "</p>"
-												+ "<p>"
-												+ data[i].product_shortword
-												+ "</p>"
-												+ "<p>"
-												+ data[i].product_address
-												+ "</p>"
-												+ "</div>");
-
+						$("#review_l").append(
+							"<div class='travel_in pName' onclick='freview_info(this)'>"
+								+ "<span style='display:none'>" + data[i].product_id + "</span>"
+								+ '<img src="/resources/img/upload/' + data[i].product_img1 + '" width="100" height="75"/>'
+								+ '<div class="txt">'
+								+ "<p>" + data[i].product_name + "</p>"
+								+ "<p>" + data[i].product_shortword + "</p>"
+								+ "<p>" + data[i].product_address + "</p>"
+								+ '</div>'
+							+ "</div>"
+						);
 					}
-
 				},
 				error : function(a) {
 					console.log(a);
@@ -881,47 +849,39 @@
 				success : function(data) {
 					//console.log(rvdata.children.item(1).src);
 					$("#review_r").html("");
-					$("#review_r")
-					.append("<div class='travel_in pName' onclick='freview_goto(this)'>"
-							+ "<span style='display:none'>"
-							+ rvdata.children.item(0).innerText
-							+ "</span>"
-							+ '<img src="' + rvdata.children.item(1).src + '" width="100" height="75"/>'			
-							+ "<p>"
-							+ rvdata.children.item(2).innerText
-							+ "</p>"
-							+ "<p>"
-							+ rvdata.children.item(3).innerText
-							+ "</p>"
-							+ "<p>"
-							+ rvdata.children.item(4).innerText
-							+ "</p>"
-							+ "</div>"); 
+					console.log(rvdata.children.item(2).children.item(0).innerText)
+					$("#review_r").append(
+						"<div class='travel_in pName' onclick='freview_goto(this)'>"
+							+ "<p>리뷰 단 상품 정보</p>"
+							+ "<span style='display:none'>" + rvdata.children.item(0).innerText + "</span>"
+							+ '<img src="' + rvdata.children.item(1).src + '" width="100" height="75"/>'
+							+ "<div class='txt'>"	
+								+ "<p>" + rvdata.children.item(2).children.item(0).innerText + "</p>"
+								+ "<p>" + rvdata.children.item(2).children.item(1).innerText + "</p>"
+								+ "<p>" + rvdata.children.item(2).children.item(2).innerText + "</p>"
+							+ "</div>"
+						+ "</div>"
+						+ "<h2>리뷰 확인</h2>"
+					); 
 					for (var i = 0; i < data.length; i++) {
-						$("#review_r")
-								.append(
-										"<div class='travel_in pName'>"
-												+ '<img src="/resources/img/upload/' + data[i].mem_img + '" width="100" height="75"/>'
-												+ "<p>"
-												+ data[i].mem_id
-												+ "</p>"
-												+ "<p>"
-												+ '<span class="star2"> ★★★★★ <span id="star_r"style="width:'+ data[i].r_star*10+'%">★★★★★</span></span>'
-												+ "</p>"
-												+ "<div>"
-												+ data[i].r_comment
-												+ "</div>"
-												);
-												if(data[i].r_img1!=''){
-													$("#review_r")
-													.append('<img src="/resources/img/upload/' + data[i].r_img1 + '" width="350" height="350"/>')
-												}
-												
-												$("#review_r")
-												.append( "</div>");
-
+						if(data[i].r_img1!=''){
+							$("#review_r").append(
+								'<img src="/resources/img/upload/' + data[i].r_img1 + '" class="reImg">'
+							)
+						}
+						$("#review_r").append(
+							"<div class='travel_in pName'>"
+								+ "<pre-line class='rereview'>" + data[i].r_comment + "</pre-line>"
+								+ "<div class='txtWrap'>"
+									+ "<div class='rTxt'>"
+										+ "<p>" + data[i].mem_id + "</p>"
+										+ "<p>" + '<span class="star2"> ★★★★★ <span id="star_r"style="width:'+ data[i].r_star*10+'%;height:100%;">★★★★★</span></span>' + "</p>"
+									+ "</div>"
+									+ '<img src="/resources/img/upload/' + data[i].mem_img + '" class="rImg"/>'
+								+ "</div>"
+							+ "</div>"
+						);
 					}
-
 				},
 				error : function(a) {
 					console.log(a);
@@ -933,7 +893,7 @@
 	<script type="text/javascript">
 		function freview_goto(rgdata) {
 			console.log(rgdata.children.item(1).innerText);
-			location.href = "/category/" + rgdata.children.item(0).innerText;
+			location.href = "/category/" + rgdata.children.item(1).innerText;
 		}
 	
 	</script>
@@ -1203,11 +1163,6 @@
 						<a href="/admin/tm">
 							<h3>매거진 작성하기</h3>
 							<div class="l_wrap">
-								<div class="num">
-									<!-- jsp코드 -->
-									0
-									<span> P</span>
-								</div>
 								<div class="arrow_btn">
 									<i class="fa-solid fa-chevron-right"></i>
 								</div>
@@ -1218,11 +1173,6 @@
 						<a href="/admin/oL">
 							<h3>상품 목록</h3>
 							<div class="l_wrap">
-								<div class="num">
-									<!-- jsp코드 -->
-									0
-									<span> P</span>
-								</div>
 								<div class="arrow_btn">
 									<i class="fa-solid fa-chevron-right"></i>
 								</div>
@@ -1384,7 +1334,7 @@
             <form id="mbs" method="post" enctype="multipart/form-data" action="/join" onsubmit="amu()">
                <div class="mbs_id mbs_con mbs_id_pw">
                   <span>아이디</span>
-                  <input type="text" name="mem_id" placeholder="아이디 입력">
+                  <input type="text" name="mem_id" placeholder="아이디 입력" maxlength="8">
                </div>
                <div class="mbs_pw1 mbs_con">
                   <span>비밀번호</span>
@@ -1640,10 +1590,18 @@
 						<!-- <!— 리뷰내용을 넣어주세요 —> -->
 						<div class="loginConIn">
 							<div class="left" style="overflow: auto;">
+								<div class="travelReview">
+									<h2>리뷰 단 상품</h2>
+									<span>이미지</span>
+									<span>상품 소개</span>
+								</div>
 								<div id="review_l" ></div>
 							</div>
 								
 							<div class="right" style="overflow: auto;">
+								<div class="travelReview">
+									<h2>내가 작성한 리뷰</h2>
+								</div>
 								<div id="review_r" ></div>
 							</div>
 						</div>
@@ -1971,7 +1929,7 @@
 </div>
 
 <div id="myInfoCover"></div>
-<!-- <!— 회원 리뷰 등 정보 추가 끝 —> -->
+<!-- 회원 리뷰 등 정보 추가 끝 -->
 <div id="top_up">
 	<div class="top_in">
 		<i class="fa-solid fa-angles-up"></i>

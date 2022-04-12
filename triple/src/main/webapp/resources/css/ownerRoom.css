@@ -1,72 +1,70 @@
 @charset "UTF-8";
 
-#sec_reg{font-family: 'Noto Sans KR';}
-
-#sec_reg .oReg {width: 100%;}
-#sec_reg .oReg {width: 1300px;margin:0 auto;padding:20px 30px;}
-#sec_reg .oReg .oReg_in h3 {font-size:20px;}
+#sec .oReg {width: 100%;}
+#sec .oReg {width: 1300px;margin:0 auto;padding:20px 30px;}
+#sec .oReg .oReg_in h3 {font-size:20px;}
 
 /* 객실등록 */
-#sec_reg .oReg .oReg_in .roomhead h3 {display: block;width: 100px;height: 20px;}
-#sec_reg .oReg .oReg_in .roomhead h3::before {content: "";display: block;clear:both;}
+#sec .oReg .oReg_in .roomhead h3 {display: block;width: 100px;height: 20px;}
+#sec .oReg .oReg_in .roomhead h3::before {content: "";display: block;clear:both;}
 
 
-/* #sec_reg .oReg .oReg_in .roomhead .roomadd {margin: 10px 5px;width: 40px;height: 20px;display: flex;justify-content: center;align-items: center;font-size: 10px;cursor: pointer;}
-#sec_reg .oReg .oReg_in .roomhead .roomadd .pm_com {width: 50%;height: 100%;border: 1px solid #999;border-radius: 5px;display:flex;justify-content: center;align-items: center;font-size:14px;color: rgba(0,0,0,.8);}
-#sec_reg .oReg .oReg_in .roomhead .roomadd .pm_com:hover {border:none;background: #5de4c2;color: #fff;}
-#sec_reg .oReg .oReg_in .roomhead .roomadd .roomp {margin-right: 2px;}
-#sec_reg .oReg .oReg_in .roomhead .roomadd .roomm {} */
+/* #sec .oReg .oReg_in .roomhead .roomadd {margin: 10px 5px;width: 40px;height: 20px;display: flex;justify-content: center;align-items: center;font-size: 10px;cursor: pointer;}
+#sec .oReg .oReg_in .roomhead .roomadd .pm_com {width: 50%;height: 100%;border: 1px solid #999;border-radius: 5px;display:flex;justify-content: center;align-items: center;font-size:14px;color: rgba(0,0,0,.8);}
+#sec .oReg .oReg_in .roomhead .roomadd .pm_com:hover {border:none;background: #5de4c2;color: #fff;}
+#sec .oReg .oReg_in .roomhead .roomadd .roomp {margin-right: 2px;}
+#sec .oReg .oReg_in .roomhead .roomadd .roomm {} */
 
 
-#sec_reg .oReg .oReg_in .oReg_room {display: flex;margin: 20px 0;}
-#sec_reg .oReg .oReg_in .oReg_room .reg_room {width: 100px;height: auto;justify-content: center;align-items: center;}
-#sec_reg .oReg .oReg_in .oReg_room .reg_room .r_com {height: 40px;}
-#sec_reg .oReg .oReg_in .oReg_room .reg_room .rname {border-top: 1px solid #999;}
-#sec_reg .oReg .oReg_in .oReg_room .reg_room .rword {}
-#sec_reg .oReg .oReg_in .oReg_room .reg_room .rimg {height: 200px;line-height: 200px;}
-#sec_reg .oReg .oReg_in .oReg_room .reg_room .rimg p {}
-#sec_reg .oReg .oReg_in .oReg_room .reg_room .rprice {}
+#sec .oReg .oReg_in .oReg_room {display: flex;margin: 20px 0;}
+#sec .oReg .oReg_in .oReg_room .reg_room {width: 100px;height: auto;justify-content: center;align-items: center;}
+#sec .oReg .oReg_in .oReg_room .reg_room .r_com {height: 40px;}
+#sec .oReg .oReg_in .oReg_room .reg_room .rname {border-top: 1px solid #999;}
+#sec .oReg .oReg_in .oReg_room .reg_room .rword {}
+#sec .oReg .oReg_in .oReg_room .reg_room .rimg {height: 200px;line-height: 200px;}
+#sec .oReg .oReg_in .oReg_room .reg_room .rimg p {}
+#sec .oReg .oReg_in .oReg_room .reg_room .rprice {}
 /* 객실등록 끝 */
 
 /* 객실등록 폼 */
-#sec_reg .oReg .oReg_in .oReg_room .room_form {width: 100%;height: auto;}
-#sec_reg .oReg .oReg_in .oReg_room .room_form .roomf_com{display: flex;}
-#sec_reg .oReg .oReg_in .oReg_room .room_form .rf_com {padding:5px;}
+#sec .oReg .oReg_in .oReg_room .room_form {width: 100%;height: auto;}
+#sec .oReg .oReg_in .oReg_room .room_form .roomf_com{display: flex;}
+#sec .oReg .oReg_in .oReg_room .room_form .rf_com {padding:5px;}
 
-#sec_reg .oReg .oReg_in .oReg_room .room_form .room_form1 {border-top:1px solid #999;border-bottom: 1px solid #999;}
-#sec_reg .oReg .oReg_in .oReg_room .room_form .room_form1 .rname {width: 100px;height: 40px;}
-#sec_reg .oReg .oReg_in .oReg_room .room_form .room_form1 .rname p {text-align:center;line-height:40px;}
-#sec_reg .oReg .oReg_in .oReg_room .room_form .room_form1 .rfname {}
-#sec_reg .oReg .oReg_in .oReg_room .room_form .room_form1 .rfname input {width: 100%;height: 30px;padding-left:5px;border:none;outline: none;}
+#sec .oReg .oReg_in .oReg_room .room_form .room_form1 {border-top:1px solid #999;border-bottom: 1px solid #999;}
+#sec .oReg .oReg_in .oReg_room .room_form .room_form1 .rname {width: 100px;height: 40px;}
+#sec .oReg .oReg_in .oReg_room .room_form .room_form1 .rname p {text-align:center;line-height:40px;}
+#sec .oReg .oReg_in .oReg_room .room_form .room_form1 .rfname {}
+#sec .oReg .oReg_in .oReg_room .room_form .room_form1 .rfname input {width: 100%;height: 30px;padding-left:5px;border:none;outline: none;}
 
-#sec_reg .oReg .oReg_in .oReg_room .room_form .room_form2 {border-bottom:1px solid #999;}
-#sec_reg .oReg .oReg_in .oReg_room .room_form .room_form2 .rword {width: 100px;}
-#sec_reg .oReg .oReg_in .oReg_room .room_form .room_form2 .rword p {text-align:center;line-height:40px;width: 100px;}
-#sec_reg .oReg .oReg_in .oReg_room .room_form .room_form2 .rfword {width: 100%;height: auto;font-size: 14px;}
-#sec_reg .oReg .oReg_in .oReg_room .room_form .room_form2 .rfword p {margin-top:10px;padding-left: 5px;}
+#sec .oReg .oReg_in .oReg_room .room_form .room_form2 {border-bottom:1px solid #999;}
+#sec .oReg .oReg_in .oReg_room .room_form .room_form2 .rword {width: 100px;}
+#sec .oReg .oReg_in .oReg_room .room_form .room_form2 .rword p {text-align:center;line-height:40px;width: 100px;}
+#sec .oReg .oReg_in .oReg_room .room_form .room_form2 .rfword {width: 100%;height: auto;font-size: 14px;}
+#sec .oReg .oReg_in .oReg_room .room_form .room_form2 .rfword p {margin-top:10px;padding-left: 5px;}
 
-#sec_reg .oReg .oReg_in .oReg_room .room_form .room_form3 {border-bottom:1px solid #999;}
-#sec_reg .oReg .oReg_in .oReg_room .room_form .room_form3 .rimg {height: 200px;line-height: 200px;width: 100px;}
-#sec_reg .oReg .oReg_in .oReg_room .room_form .room_form3 .rimg p {text-align:center;line-height:40px;}
-#sec_reg .oReg .oReg_in .oReg_room .room_form .room_form3 .rfimgframe {width:100%;height: 200px;}
-#sec_reg .oReg .oReg_in .oReg_room .room_form .room_form3 .rfimgframe img {width: 220px;height: 150px;border-radius: 10px;cursor:pointer;box-shadow: 0 0 4px rgb(0,0,0,.6);margin-right: 5px;}
-#sec_reg .oReg .oReg_in .oReg_room .room_form .room_form3 .rfimgframe .rfimg {height: 170px;display:flex;justify-content: flex-start;align-items: center;border-bottom:none;height: 170px;}
-#sec_reg .oReg .oReg_in .oReg_room .room_form .room_form3 .rfimgframe .rfimg .rfimg_com{height: 150px;float:left;margin-bottom:5px;border-radius: 10px;margin-right: 9px;}
-#sec_reg .oReg .oReg_in .oReg_room .room_form .room_form3 .rfimgframe .rfimg1 {display: flex;justify-content: flex-start;align-items: center;}
-#sec_reg .oReg .oReg_in .oReg_room .room_form .room_form3 .rfimgframe .rfinputframe .rfimginput input {display: inline-block; width: 225px; padding-left:5px;}
-#sec_reg .oReg .oReg_in .oReg_room .room_form .room_form4 {border-bottom:1px solid #999;}
-#sec_reg .oReg .oReg_in .oReg_room .room_form .room_form4 .rprice {width: 100px;height: 40px;justify-content: center;align-items: center;}
-#sec_reg .oReg .oReg_in .oReg_room .room_form .room_form4 .rprice p {text-align:center;line-height:40px;}
-#sec_reg .oReg .oReg_in .oReg_room .room_form .room_form4 .rfprice {width: 100px;height: 40px;justify-content: center;align-items: center;}
-#sec_reg .oReg .oReg_in .oReg_room .room_form .room_form4 .rfprice input {width: 200px;height: 30px;padding-left:5px;border:none;outline: none;}
+#sec .oReg .oReg_in .oReg_room .room_form .room_form3 {border-bottom:1px solid #999;}
+#sec .oReg .oReg_in .oReg_room .room_form .room_form3 .rimg {height: 200px;line-height: 200px;width: 100px;}
+#sec .oReg .oReg_in .oReg_room .room_form .room_form3 .rimg p {text-align:center;line-height:40px;}
+#sec .oReg .oReg_in .oReg_room .room_form .room_form3 .rfimgframe {width:100%;height: 200px;}
+#sec .oReg .oReg_in .oReg_room .room_form .room_form3 .rfimgframe img {width: 220px;height: 150px;border-radius: 10px;cursor:pointer;box-shadow: 0 0 4px rgb(0,0,0,.6);margin-right: 5px;}
+#sec .oReg .oReg_in .oReg_room .room_form .room_form3 .rfimgframe .rfimg {height: 170px;display:flex;justify-content: flex-start;align-items: center;border-bottom:none;height: 170px;}
+#sec .oReg .oReg_in .oReg_room .room_form .room_form3 .rfimgframe .rfimg .rfimg_com{height: 150px;float:left;margin-bottom:5px;border-radius: 10px;margin-right: 9px;}
+#sec .oReg .oReg_in .oReg_room .room_form .room_form3 .rfimgframe .rfimg1 {display: flex;justify-content: flex-start;align-items: center;}
+#sec .oReg .oReg_in .oReg_room .room_form .room_form3 .rfimgframe .rfinputframe .rfimginput input {display: inline-block; width: 225px; padding-left:5px;}
+#sec .oReg .oReg_in .oReg_room .room_form .room_form4 {border-bottom:1px solid #999;}
+#sec .oReg .oReg_in .oReg_room .room_form .room_form4 .rprice {width: 100px;height: 40px;justify-content: center;align-items: center;}
+#sec .oReg .oReg_in .oReg_room .room_form .room_form4 .rprice p {text-align:center;line-height:40px;}
+#sec .oReg .oReg_in .oReg_room .room_form .room_form4 .rfprice {width: 100px;height: 40px;justify-content: center;align-items: center;}
+#sec .oReg .oReg_in .oReg_room .room_form .room_form4 .rfprice input {width: 200px;height: 30px;padding-left:5px;border:none;outline: none;}
 /* 객실등록 폼 */
 
 /* 하단버튼 */
-#sec_reg .oReg .oReg_in .bottombtn {width: 100%;height: 30px;display: flex;justify-content: flex-end;}
-#sec_reg .oReg .oReg_in .bottombtn span {display: flex;justify-content: center;line-height: 30px;font-size: 14px;}
+#sec .oReg .oReg_in .bottombtn {width: 100%;height: 30px;display: flex;justify-content: flex-end;}
+#sec .oReg .oReg_in .bottombtn span {display: flex;justify-content: center;line-height: 30px;font-size: 14px;}
 
-#sec_reg .oReg .oReg_in .bottombtn .btn_com {width: 100px;height: 30px;border: 1px solid #999;margin-right: 5px;border-radius: 5px;cursor:pointer;}
-#sec_reg .oReg .oReg_in .bottombtn .btn_com:hover {border:none;background: #5de4c2;color:#fff;}
-#sec_reg .oReg .oReg_in .bottombtn .backbtn {margin-right: 5px;}
-#sec_reg .oReg .oReg_in .bottombtn .regbtn {}
+#sec .oReg .oReg_in .bottombtn .btn_com {width: 100px;height: 30px;border: 1px solid #999;margin-right: 5px;border-radius: 5px;cursor:pointer;}
+#sec .oReg .oReg_in .bottombtn .btn_com:hover {border:none;background: #5de4c2;color:#fff;}
+#sec .oReg .oReg_in .bottombtn .backbtn {margin-right: 5px;}
+#sec .oReg .oReg_in .bottombtn .regbtn {}
 /* 하단버튼 끝 */

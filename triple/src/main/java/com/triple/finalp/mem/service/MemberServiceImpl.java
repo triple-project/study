@@ -10,6 +10,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
+import com.triple.finalp.data.vo.PageVo;
 import com.triple.finalp.data.vo.PayVo;
 import com.triple.finalp.mag.dao.MagDao;
 import com.triple.finalp.mag.vo.MagVo;
@@ -17,6 +18,7 @@ import com.triple.finalp.mem.dao.MemDao;
 import com.triple.finalp.mem.vo.HeartVo;
 import com.triple.finalp.mem.vo.MemVo;
 import com.triple.finalp.mem.vo.MyPlanVo;
+import com.triple.finalp.mem.vo.MyproductVo;
 import com.triple.finalp.mem.vo.PlanConVo;
 import com.triple.finalp.pro.dao.ProductDao;
 import com.triple.finalp.pro.vo.ProductDetailVo;
@@ -219,7 +221,69 @@ public class MemberServiceImpl implements MemberService{
 		return payinfo;
 	}
 
-	
+	@Override
+	public String inMy(MyproductVo myproductVo) {
+		// TODO Auto-generated method stub
+		memDao.inMy(myproductVo);
+		return "wan";
+	}
 
+	@Override
+	public void mySave(Model model, String mem_id) {
+		// TODO Auto-generated method stub
+		List<String> msl = memDao.mySave(mem_id);
+		ArrayList<ProductVo> mhl = new ArrayList<ProductVo>();
+		for (int i = 0; i < msl.size(); i++) {
+			ProductVo productVo = memDao.fmySave(msl.get(i));
+			mhl.add(productVo);
+		}
+		PageVo pageVo = new PageVo();
+		int page = 1;
+		int pageC = mhl.size();
+		if (pageC%10==0) {
+			pageVo.setPageC(pageC/10);
+		}else {
+			pageVo.setPageC((pageC/10)+1);
+		}		
+		pageVo.setPageS((page*10)-10);
+		pageVo.setPageE((page*10)-1);
+		pageVo.setPageO(page);
+		
+		model.addAttribute("page", pageVo);
+		model.addAttribute("mhl",mhl);
+	}
+
+	@Override
+	public void mySave2(Model model, String mem_id, int page) {
+		// TODO Auto-generated method stub
+				List<String> msl = memDao.mySave(mem_id);
+				ArrayList<ProductVo> mhl = new ArrayList<ProductVo>();
+				for (int i = 0; i < msl.size(); i++) {
+					ProductVo productVo = memDao.fmySave(msl.get(i));
+					mhl.add(productVo);
+				}
+				PageVo pageVo = new PageVo();
+				
+				int pageC = mhl.size();
+				if (pageC%10==0) {
+					pageVo.setPageC(pageC/10);
+				}else {
+					pageVo.setPageC((pageC/10)+1);
+				}		
+				pageVo.setPageS((page*10)-10);
+				pageVo.setPageE((page*10)-1);
+				pageVo.setPageO(page);
+				
+				model.addAttribute("page", pageVo);
+				model.addAttribute("mhl",mhl);
+		
+	}
+
+	@Override
+	public void mypro(Model model, String mem_id) {
+		// TODO Auto-generated method stub
+		ArrayList<MyproductVo> mpl = memDao.mypro(mem_id);
+		model.addAttribute("mpl",mpl);
+	}
 
 }

@@ -179,5 +179,12 @@ public class ProductServiceImpl implements ProductService{
 		
 	}
 
+	@Override
+	public void popList(Model model) {
+		// TODO Auto-generated method stub
+		ArrayList<UltiProVo> ultListH = productDao.popList();
+		model.addAttribute("ultListH",ultListH);
+	}
+
 
 }

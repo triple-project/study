@@ -113,15 +113,29 @@
 									+ "<th>도착역</th>" + "<th>열차</th>" + "</tr>");
 							var train = data.response.body.items;
 							for (var i = 0; i < train.item.length; i++) {
-								element2.append("<tr>" + "<td>"
-										+ train.item[i].depplandtime + "</td>"
-										+ "<td>" + train.item[i].depplacename
-										+ "</td>" + "<td>"
-										+ train.item[i].arrplandtime + "</td>"
-										+ "<td>" + train.item[i].arrplacename
-										+ "</td>" + "<td>"
-										+ train.item[i].traingradename + "</td>"
-										+ +"</tr>");
+								let jjn = JSON.stringify(train.item[i].depplandtime);
+								let yy = jjn.substring(0,4);
+								let mm = jjn.substring(4,6);
+								let dd = jjn.substring(6,8);
+								let ss = jjn.substring(8,10);
+								let qq = jjn.substring(10,12);
+
+								let jjn2 = JSON.stringify(train.item[i].arrplandtime);
+								let yy2 = jjn2.substring(0,4);
+								let mm2 = jjn2.substring(4,6);
+								let dd2 = jjn2.substring(6,8);
+								let ss2 = jjn2.substring(8,10);
+								let qq2 = jjn2.substring(10,12);
+
+								element2.append(
+									"<tr>"
+										+ "<td>" + yy + "년" + mm + "월" + dd + "일" + ss + "시" + qq + "분" + "</td>"
+										+ "<td>" + train.item[i].depplacename + "</td>"
+										+ "<td>" + yy2 + "년" + mm2 + "월" + dd2 + "일" + ss2 + "시" + qq2 + "분" + "</td>"
+										+ "<td>" + train.item[i].arrplacename + "</td>"
+										+ "<td>" + train.item[i].traingradename + "</td>"
+									+"</tr>"
+								);
 							}
 						},
 						error : function(a, b, c) {
@@ -153,15 +167,24 @@
 								alert("해당 조회에 대한 결과가 없습니다.")
 							}else{
 								for (var i = 0; i < train.item.length; i++) {
-									/* var jjn = JSON.stringify(train.item[i].depplandtime);
-									
-									var jjn2 = jjn.substring(0,4);
-									console.log(jjn2); */
+									let jjn = JSON.stringify(train.item[i].depplandtime);
+									let yy = jjn.substring(0,4);
+									let mm = jjn.substring(4,6);
+									let dd = jjn.substring(6,8);
+									let ss = jjn.substring(8,10);
+									let qq = jjn.substring(10,12);
+
+									let jjn2 = JSON.stringify(train.item[i].arrplandtime);
+									let yy2 = jjn2.substring(0,4);
+									let mm2 = jjn2.substring(4,6);
+									let dd2 = jjn2.substring(6,8);
+									let ss2 = jjn2.substring(8,10);
+									let qq2 = jjn2.substring(10,12);
 									element2.append(
 										"<tr>"
-											+ "<td>" + train.item[i].depplandtime + "</td>"
+											+ "<td>" + yy + "년" + mm + "월" + dd + "일" + ss + "시" + qq + "분" + "</td>"
 											+ "<td>" + train.item[i].depplacename + "</td>"
-											+ "<td>" + train.item[i].arrplandtime + "</td>"
+											+ "<td>" + yy2 + "년" + mm2 + "월" + dd2 + "일" + ss2 + "시" + qq2 + "분" + "</td>"
 											+ "<td>" + train.item[i].arrplacename + "</td>"
 											+ "<td>" + train.item[i].traingradename + "</td>"
 										+"</tr>"
@@ -198,15 +221,28 @@
 							//console.log(data);
 							var flight = data.response.body.items;
 							for (var i = 0; i < flight.item.length; i++) {
-								element2.append("<tr>" + "<td>"
-										+ flight.item[i].depPlandTime + "</td>"
-										+ "<td>" + flight.item[i].depAirportNm
-										+ "</td>" + "<td>"
-										+ flight.item[i].arrPlandTime + "</td>"
-										+ "<td>" + flight.item[i].arrAirportNm
-										+ "</td>" + "<td>"
-										+ flight.item[i].airlineNm + "</td>"
-										+ "</tr>");
+								let jjn3 = JSON.stringify(flight.item[i].depPlandTime);
+								let yy3 = jjn3.substring(0,4);
+								let mm3 = jjn3.substring(4,6);
+								let dd3 = jjn3.substring(6,8);
+								let ss3 = jjn3.substring(8,10);
+								let qq3 = jjn3.substring(10,12);
+
+								let jjn4 = JSON.stringify(flight.item[i].arrPlandTime);
+								let yy4 = jjn4.substring(0,4);
+								let mm4 = jjn4.substring(4,6);
+								let dd4 = jjn4.substring(6,8);
+								let ss4 = jjn4.substring(8,10);
+								let qq4 = jjn4.substring(10,12);
+								element2.append(
+									"<tr>"
+										+ "<td>" + yy3 + "년" + mm3 + "월" + dd3 + "일" + ss3 + "시" + qq3 + "분" + "</td>"
+										+ "<td>" + flight.item[i].depAirportNm + "</td>"
+										+ "<td>" + yy4 + "년" + mm4 + "월" + dd4 + "일" + ss4 + "시" + qq4 + "분" + "</td>"
+										+ "<td>" + flight.item[i].arrAirportNm + "</td>"
+										+ "<td>" + flight.item[i].airlineNm + "</td>"
+									+ "</tr>"
+								);
 							}
 						},
 						error : function(a, b, c) {
@@ -238,16 +274,29 @@
 						alert("해당 조회에 대한 결과가 없습니다.")
 					}else{
 						for (var i = 0; i < flight.item.length; i++) {
+							let jjn3 = JSON.stringify(flight.item[i].depPlandTime);
+							let yy3 = jjn3.substring(0,4);
+							let mm3 = jjn3.substring(4,6);
+							let dd3 = jjn3.substring(6,8);
+							let ss3 = jjn3.substring(8,10);
+							let qq3 = jjn3.substring(10,12);
+
+							let jjn4 = JSON.stringify(flight.item[i].arrPlandTime);
+							let yy4 = jjn4.substring(0,4);
+							let mm4 = jjn4.substring(4,6);
+							let dd4 = jjn4.substring(6,8);
+							let ss4 = jjn4.substring(8,10);
+							let qq4 = jjn4.substring(10,12);
 		
-							element2.append("<tr>" + "<td>"
-									+ flight.item[i].depPlandTime + "</td>"
-									+ "<td>" + flight.item[i].depAirportNm
-									+ "</td>" + "<td>"
-									+ flight.item[i].arrPlandTime + "</td>"
-									+ "<td>" + flight.item[i].arrAirportNm
-									+ "</td>" + "<td>"
-									+ flight.item[i].airlineNm + "</td>"
-									+ "</tr>");
+							element2.append(
+								"<tr>"
+									+ "<td>" + yy3 + "년" + mm3 + "월" + dd3 + "일" + ss3 + "시" + qq3 + "분" + "</td>"
+									+ "<td>" + flight.item[i].depAirportNm + "</td>"
+									+ "<td>" + yy4 + "년" + mm4 + "월" + dd4 + "일" + ss4 + "시" + qq4 + "분" + "</td>"
+									+ "<td>" + flight.item[i].arrAirportNm + "</td>"
+									+ "<td>" + flight.item[i].airlineNm + "</td>"
+								+ "</tr>"
+							);
 						}
 					}
 				},
@@ -683,36 +732,51 @@
 			</div>
 		</div>
 
-		<div class="con_slide">
-			<div class="con_txt">
-				<h2>트리플 최저가 예약</h2>
-			</div>
+		      <div class="con_slide">
+         <div class="con_txt">
+            <h2>트리플 최저가 예약</h2>
+         </div>
 
-			<div class="lowprice_slider">
-				<div class="swiper-wrapper">
-					<!-- 최저가 꺼내기 시작 -->
-					<c:forEach items="${ultListL}" var="uL">
-					<div class="swiper-slide img1">
-						<a href="1">
-							<div class="lowprice_in">
-								<div class="lowprice_img"
-									style="background: url('/resources/img/upload/${uL.product_img1}') no-repeat 50% 50%; background-size: cover;">
-								</div>
-								<div class="lowprice_text">
-									<p>${uL.product_name}</p>
-									<p>${uL.product_city}</p>
-									<p>${uL.product_category}</p>
-									<p>${uL.product_shortword}</p>
-									<p>${uL.pd_price}</p>
-								</div>
-							</div>
-						</a>
-					</div>
-					</c:forEach>
-					<!-- 최저가 꺼내기 종료 -->
-				</div>
-			</div>
-		</div>
+         <div class="lowprice_slider">
+            <div class="swiper-wrapper">
+               <!-- 최저가 꺼내기 시작 -->
+               <c:forEach items="${ultListL}" var="uL">
+               <div class="swiper-slide img1">
+                  <a href="1">
+                     <div class="lowprice_in">
+                        <div class="lowprice_img"
+                           style="background: url('/resources/img/upload/${uL.product_img1}') no-repeat 50% 50%; background-size: cover;">
+                        
+                        <!-- <div class="lowprice_img"
+                           style="background: url('/resources/img/gory/categorycamping.jpg') no-repeat 50% 50%; background-size: cover;"> -->
+                           <div class="lowprice_imgcover">
+                              <p>${uL.product_name}</p>
+                              <p>${uL.product_shortword}</p>
+                           </div>
+                           
+                        </div>
+                        <div class="lowprice_text">
+                           <div class="lefttext">
+                              <p>${uL.pd_price}원</p>
+                           </div>
+                           <div class="righttext">
+                              <p>${uL.product_city}</p>
+                              <p>${uL.product_category}</p>
+                           </div>
+                           <!-- <p>${uL.product_name}</p>
+                           <p>${uL.product_city}</p>
+                           <p>${uL.product_category}</p>
+                           <p>${uL.product_shortword}</p>
+                           <p>${uL.pd_price}</p> -->
+                        </div>
+                     </div>
+                  </a>
+               </div>
+               </c:forEach>
+               <!-- 최저가 꺼내기 종료 -->
+            </div>
+         </div>
+      </div>
 
 
 

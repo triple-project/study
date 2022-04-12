@@ -109,7 +109,7 @@
 		limit 20
    </select>
    
-   <select id="pppH" resultType="UltiVo">
+   <select id="popList" resultType="UltiVo">
    		select p.product_id , product_img1, product_name , product_city , product_category , product_shortword , min(pd_price) as pd_price , (select count(*) from heart where HEART_ID = p.PRODUCT_ID) as heart_count
 		from product p join product_detail pd
 		on p.product_id = pd.product_id
@@ -117,5 +117,6 @@
 		order by heart_count desc
 		limit 32
    </select>
+   
 		
 </mapper>

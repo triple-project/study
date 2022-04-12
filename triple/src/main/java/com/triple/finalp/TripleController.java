@@ -90,11 +90,26 @@ public class TripleController {
 
 		return "myReservation";
 	}
+	
 	@RequestMapping(value = "/mySave", method = RequestMethod.GET)
-	public String mySave() {
+	public String mySave(Model model,Principal principal) {
 		// 인덱스로 보내기
-
+			memberService.mySave(model,principal.getName());
 		return "mySave";
+	}
+	
+	@RequestMapping(value = "/mySave/{page}", method = RequestMethod.GET)
+	public String mySave2(@PathVariable("page") int page,Model model,Principal principal) {
+		// 인덱스로 보내기
+			memberService.mySave2(model,principal.getName(),page);
+		return "mySave";
+	}
+	
+	@RequestMapping(value = "/mypro", method = RequestMethod.GET)
+	public String mypro(Model model,Principal principal) {
+		// 인덱스로 보내기
+			memberService.mypro(model,principal.getName());
+		return "myReservation";
 	}
 
 	@RequestMapping(value = "/wea", method = RequestMethod.GET)
@@ -105,9 +120,9 @@ public class TripleController {
 	}
 	
 	@RequestMapping(value = "/popList", method = RequestMethod.GET)
-	public String popList() {
+	public String popList(Model model) {
 		// 인덱스로 보내기
-
+		productService.popList(model);
 		return "/poptriplist";
 	}
 
@@ -291,6 +306,9 @@ public class TripleController {
 	 * 
 	 * return "error"; }
 	 */
+	
+	
+	
 	
 
 }
