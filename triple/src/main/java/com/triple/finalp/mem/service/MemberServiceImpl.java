@@ -283,6 +283,7 @@ public class MemberServiceImpl implements MemberService{
 	public void mypro(Model model, String mem_id) {
 		// TODO Auto-generated method stub
 		ArrayList<MyproductVo> mpl = memDao.mypro(mem_id);
+		System.out.println(mpl);
 		model.addAttribute("mpl",mpl);
 	}
 

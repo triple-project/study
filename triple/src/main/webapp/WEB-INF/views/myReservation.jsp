@@ -67,57 +67,65 @@
 			<div class="myrv_main">
 				<div class="myrv_title">
 					<div class="myrn_num">
-						<p>번호</p>
+						<p>구매일</p>
 					</div>
 					<div class="myrn_img">
-						<p>이미지</p>
-					</div>
-					<div class="myrn_name">
 						<p>상품명</p>
 					</div>
+					<div class="myrn_name">
+						<p>예약일</p>
+					</div>
 					<div class="myrn_addr">
-						<p>주소</p>
+						<p>고유번호</p>
 					</div>
 					<div class="myrn_city">
-						<p>도시</p>
+						<p>판매자번호</p>
 					</div>
 					<div class="myrn_category">
-						<p>종류</p>
+						<p>결제금액</p>
 					</div>
 					<div class="myrn_btn">
-						<p>뭐라하지</p>
+						<p>카드승인번호</p>
+					</div>
+					<div class="myrn_btn">
+						
 					</div>
 				</div>
 
 				<!-- for문 시작 -->
+				<c:forEach items="${mpl}" var="ml">
 				<div class="myrv_content">
 					<div class="myrv_connum">
-						<p>1</p>
+						<p>${ml.flex_day}</p>
 					</div>
 					<div class="myrv_conimg">
-						<img src="../../resources/img/gory/categoryhotel.jpg">
+						<p>${ml.name}</p>
 					</div>
 					<div class="myrv_conname">
-						<p>우리집</p>
+						<p>${ml.start_day}</p>
 					</div>
 					<div class="myrv_conaddr">
-						<p>평양남도 함흥</p>
+						<p>${ml.imp_uid}</p>
 					</div>
 					<div class="myrv_concity">
-						<p>평양시</p>
+						<p>${ml.merchant_uid}</p>
 					</div>
 					<div class="myrv_concate">
-						<p>미사일</p>
+						<p>${ml.paid_amount}</p>
+					</div>
+					<div class="myrv_concate">
+						<p>${ml.apply_num}</p>
 					</div>
 					<div class="myrv_conbtn">
-						<div class="myrv_viewbtn myrv_btncom">
+						<div class="myrv_viewbtn myrv_btncom" onclick="location.href='/category/${ml.product_id}'">
 							<p>상품보기</p>
 						</div>
-						<div class="myrv_delbtn myrv_btncom">
+						<!-- <div class="myrv_delbtn myrv_btncom">
 							<p>예약취소</p>
-						</div>
+						</div> -->
 					</div>
 				</div>
+				</c:forEach>
 				<!-- for문 끝 -->
 
 

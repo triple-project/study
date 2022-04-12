@@ -368,7 +368,7 @@ function intra() {
                                                 <!-- 로그인안한경우 -->
                                                 <security:authorize access="isAnonymous()">
                                                     <div class="heartBox">
-                                                        <div onclick="heart2()" class="heartIcon">
+                                                        <div onclick="heart2()" class="heartIcon" style="font-size: 24px">
                                                             <i class="fa-regular fa-heart"></i>
                                                             <div class="heartNum">${heartcount}</div>
                                                         </div>
@@ -379,7 +379,7 @@ function intra() {
                                                     <div class="heartBox">
                                                         <div class="proaddbtn probtn_com" onclick="heart()">
                                                             <div id="ffhd" class="heartIcon">
-                                                                <div>
+                                                                <div style="font-size: 24px">
                                                                     <i class="fa-${heart} fa-heart" style="color:red" id="ffh"></i>
                                                                 </div>
                                                                 <div class="heartNum">${heartcount}</div>
@@ -387,7 +387,7 @@ function intra() {
                                                         </div>
         
                                                         <div class="proaddbtn probtn_com onePlusBtn" onclick="intra()">
-                                                            <i class="fa-regular fa-bookmark"></i>
+                                                            <span>여행에 추가</span>
                                                         </div>
                                                     </div>
                                                 </security:authorize>
@@ -414,19 +414,19 @@ function intra() {
                                                 <div class="swiper-wrapper">
                                                 	<!-- 이아래로 이미지5개까지 꺼내기 -->
                                                     <div class="swiper-slide">
-                                                        <div class="img" style=" background: blue url(/resources/img/upload/${pvo.product_img1}) no-repeat 50% 50%; background-size:cover;"></div>
+                                                        <div class="img" style=" background: url(/resources/img/upload/${pvo.product_img1}) no-repeat 50% 50%; background-size:cover;"></div>
                                                     </div>
                                                     <div class="swiper-slide">
-                                                        <div class="img" style="background: skyblue url(/resources/img/upload/${pvo.product_img2}) no-repeat 50% 50%; background-size:cover;"></div>
+                                                        <div class="img" style="background: url(/resources/img/upload/${pvo.product_img2}) no-repeat 50% 50%; background-size:cover;"></div>
                                                     </div>
                                                     <div class="swiper-slide">
-                                                        <div class="img" style="background: blue url(/resources/img/upload/${pvo.product_img3}) no-repeat 50% 50%; background-size:cover;"></div>
+                                                        <div class="img" style="background: url(/resources/img/upload/${pvo.product_img3}) no-repeat 50% 50%; background-size:cover;"></div>
                                                     </div>
                                                     <div class="swiper-slide">
-                                                        <div class="img" style="background: skyblue url(/resources/img/upload/${pvo.product_img4}) no-repeat 50% 50%; background-size:cover;"></div>
+                                                        <div class="img" style="background: url(/resources/img/upload/${pvo.product_img4}) no-repeat 50% 50%; background-size:cover;"></div>
                                                     </div>
                                                     <div class="swiper-slide">
-                                                        <div class="img" style="background: blue url(/resources/img/upload/${pvo.product_img5}) no-repeat 50% 50%; background-size:cover;"></div>
+                                                        <div class="img" style="background: url(/resources/img/upload/${pvo.product_img5}) no-repeat 50% 50%; background-size:cover;"></div>
                                                     </div>
                                                 </div>
                                                 <div class="btn">
@@ -444,19 +444,19 @@ function intra() {
                                             <div thumbsSlider="" class="swiper mySwiper">
                                                 <div class="swiper-wrapper">
                                                     <div class="swiper-slide">
-                                                        <div class="img" style="background: blue url(/resources/img/upload/${pvo.product_img1}) no-repeat 50% 50%;"></div>
+                                                        <div class="img" style="background: url(/resources/img/upload/${pvo.product_img1}) no-repeat 50% 50%;"></div>
                                                     </div>
                                                     <div class="swiper-slide">
-                                                        <div class="img" style="background: skyblue url(/resources/img/upload/${pvo.product_img2}) no-repeat 50% 50%;"></div>
+                                                        <div class="img" style="background: url(/resources/img/upload/${pvo.product_img2}) no-repeat 50% 50%;"></div>
                                                     </div>
                                                     <div class="swiper-slide">
-                                                        <div class="img" style="background: blue url(/resources/img/upload/${pvo.product_img3}) no-repeat 50% 50%;"></div>
+                                                        <div class="img" style="background: url(/resources/img/upload/${pvo.product_img3}) no-repeat 50% 50%;"></div>
                                                     </div>
                                                     <div class="swiper-slide">
-                                                        <div class="img" style="background: skyblue url(/resources/img/upload/${pvo.product_img4}) no-repeat 50% 50%;"></div>
+                                                        <div class="img" style="background: url(/resources/img/upload/${pvo.product_img4}) no-repeat 50% 50%;"></div>
                                                     </div>
                                                     <div class="swiper-slide">
-                                                        <div class="img" style="background: blue url(/resources/img/upload/${pvo.product_img5}) no-repeat 50% 50%;"></div>
+                                                        <div class="img" style="background: url(/resources/img/upload/${pvo.product_img5}) no-repeat 50% 50%;"></div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -482,7 +482,7 @@ function intra() {
                                 </div>
 
 								<!--2종태그의 경우 현재 주석처리입니다 -->
-                                <div class="three" style="display: none;">
+                                <!-- <div class="three" style="display: none;">
                                     <div class="threeIn">
                                         <div class="tit">
                                             <h2>태그 등록</h2>
@@ -537,7 +537,7 @@ function intra() {
                                             </ul>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
 
                                 <div class="four">
                                     <div class="fourIn">
@@ -813,8 +813,14 @@ function intra() {
 
                         <div class="tapMenu">
                         	<!-- 달력넣자 -->
-                        	예약하실 날짜 선택 <input id="start_date" name="start_date">
-                        	<button onclick="dttt()">테스트</button>
+                            <div class="calendar">
+                                <ul>
+                                    <li>
+                                        <h2>예약하실 날짜 선택</h2>
+                                        <input id="start_date" name="start_date">
+                                    </li>
+                                </ul>
+                            </div>
 							<!-- 꺼내기시작 -->
 							<c:forEach items="${dList}" var="dl">
                             <div class="room">
@@ -822,9 +828,9 @@ function intra() {
                                     <div class="left">
                                         <div class="swiper detailedSlider">
                                             <div class="swiper-wrapper">
-                                                <div class="swiper-slide" style="background: skyblue url(/resources/img/upload/${dl.pd_img1}) no-repeat 50% 50%; background-size:cover;"></div>
-                                                <div class="swiper-slide" style="background: pink url(/resources/img/upload/${dl.pd_img2}) no-repeat 50% 50%; background-size:cover;"></div>
-                                                <div class="swiper-slide" style="background: green url(/resources/img/upload/${dl.pd_img3}) no-repeat 50% 50%; background-size:cover;"></div>
+                                                <div class="swiper-slide" style="background: url(/resources/img/upload/${dl.pd_img1}) no-repeat 50% 50%; background-size:cover;"></div>
+                                                <div class="swiper-slide" style="background: url(/resources/img/upload/${dl.pd_img2}) no-repeat 50% 50%; background-size:cover;"></div>
+                                                <div class="swiper-slide" style="background: url(/resources/img/upload/${dl.pd_img3}) no-repeat 50% 50%; background-size:cover;"></div>
                                             </div>
                                             <div class="arrowBtn">
                                                 <div class="swiper-button-prev">

@@ -84,12 +84,6 @@ public class TripleController {
 
 		return "test/flight";
 	}
-	@RequestMapping(value = "/myReserv", method = RequestMethod.GET)
-	public String myReserv() {
-		// 인덱스로 보내기
-
-		return "myReservation";
-	}
 	
 	@RequestMapping(value = "/mySave", method = RequestMethod.GET)
 	public String mySave(Model model,Principal principal) {
@@ -105,7 +99,7 @@ public class TripleController {
 		return "mySave";
 	}
 	
-	@RequestMapping(value = "/mypro", method = RequestMethod.GET)
+	@RequestMapping(value = "/myReserv", method = RequestMethod.GET)
 	public String mypro(Model model,Principal principal) {
 		// 인덱스로 보내기
 			memberService.mypro(model,principal.getName());

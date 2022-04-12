@@ -21,13 +21,15 @@
 #sec .main .main_in .tapCon .conIn .tapMenu .menuIn .one .oneIn .left{width:43%;padding-right:60px;}
 #sec .main .main_in .tapCon .conIn .tapMenu .menuIn .one .oneIn .left .tit{padding-bottom:36px;color:#343434;border-bottom:1px solid rgba(0,0,0,.15);position: relative;}
 #sec .main .main_in .tapCon .conIn .tapMenu .menuIn .one .oneIn .left .tit h2{font-size:24px;margin-bottom:8px;font-weight: 500;}
-#sec .main .main_in .tapCon .conIn .tapMenu .menuIn .one .oneIn .left .tit h3{font-size:12px;opacity: .4;}
+#sec .main .main_in .tapCon .conIn .tapMenu .menuIn .one .oneIn .left .tit h3{font-size:14px;opacity: .4;line-height:16px;}
 
-#sec .main .main_in .tapCon .conIn .tapMenu .menuIn .one .oneIn .left .tit .heartBox{position: absolute;right:0;top:0;padding:5px;display: flex;flex-wrap: wrap;}
-#sec .main .main_in .tapCon .conIn .tapMenu .menuIn .one .oneIn .left .tit .heartBox .heartIcon{display: flex;flex-wrap: wrap;}
-#sec .main .main_in .tapCon .conIn .tapMenu .menuIn .one .oneIn .left .tit .heartBox .heartIcon .heartNum{margin-left:5px;}
-#sec .main .main_in .tapCon .conIn .tapMenu .menuIn .one .oneIn .left .tit .heartBox .heartIcon{cursor: pointer;}
-#sec .main .main_in .tapCon .conIn .tapMenu .menuIn .one .oneIn .left .tit .heartBox .onePlusBtn{margin-left:10px;cursor: pointer;}
+#sec .main .main_in .tapCon .conIn .tapMenu .menuIn .one .oneIn .left .tit .heartBox{position: absolute;right:0;top:0;padding:5px;}
+#sec .main .main_in .tapCon .conIn .tapMenu .menuIn .one .oneIn .left .tit .heartBox .probtn_com{overflow: hidden;}
+#sec .main .main_in .tapCon .conIn .tapMenu .menuIn .one .oneIn .left .tit .heartBox::after{content: "";display: block;clear: both;}
+#sec .main .main_in .tapCon .conIn .tapMenu .menuIn .one .oneIn .left .tit .heartBox .heartIcon{display: flex;flex-wrap: wrap;cursor: pointer;float: right;}
+#sec .main .main_in .tapCon .conIn .tapMenu .menuIn .one .oneIn .left .tit .heartBox .heartIcon .heartNum{margin-left:5px; font-size: 20px; line-height: 28px;}
+#sec .main .main_in .tapCon .conIn .tapMenu .menuIn .one .oneIn .left .tit .heartBox .onePlusBtn{cursor: pointer;margin-top:10px;}
+#sec .main .main_in .tapCon .conIn .tapMenu .menuIn .one .oneIn .left .tit .heartBox .onePlusBtn span{font-size: 14px; padding: 5px; border: 1px solid rgba(0,0,0,.3); display: block; letter-spacing: -.5px;border-radius: 5px;}
 
 #sec .main .main_in .tapCon .conIn .tapMenu .menuIn .one .oneIn .left .context{margin:55px 0 0;}
 #sec .main .main_in .tapCon .conIn .tapMenu .menuIn .one .oneIn .left .context ul li{height:56px;margin-bottom:12px;display: flex;flex-wrap: wrap;}
@@ -54,7 +56,7 @@
 
 #sec .main .main_in .tapCon .conIn .tapMenu .menuIn .tow{border-bottom:1px solid rgba(0,0,0,.15);}
 #sec .main .main_in .tapCon .conIn .tapMenu .menuIn .tow .towIn{padding:48px 0;position: relative;}
-#sec .main .main_in .tapCon .conIn .tapMenu .menuIn .tow .towIn > h2{font-size:14px;line-height:24px;color:#343434;}
+#sec .main .main_in .tapCon .conIn .tapMenu .menuIn .tow .towIn > h2{font-size:16px;line-height:24px;color:#343434;}
 #sec .main .main_in .tapCon .conIn .tapMenu .menuIn .tow .towIn .hiddenText{display: none;}
 #sec .main .main_in .tapCon .conIn .tapMenu .menuIn .tow .towIn .hiddenText.on{display: block;}
 #sec .main .main_in .tapCon .conIn .tapMenu .menuIn .tow .towIn .hiddenBtn{background: rgba(0,0,0,.4);border-radius: 10px;overflow: hidden;display: flex;justify-content: center;align-items: center;width:48px;height:16px;cursor: pointer;margin-top:8px;display: none;}
@@ -223,3 +225,9 @@
 .plusList .plusListIn > div p{width:calc(100% - 35% - 25% - 25px);letter-spacing: .5px;}
 .plusList .plusListIn > div p:nth-child(2){width:25%;padding-right:15px;text-overflow: ellipsis;white-space: nowrap;overflow: hidden;}
 .plusList .plusListIn > div h5{width:22px;cursor: pointer;text-align: center;}
+
+.calendar{margin-top:20px;text-align: center;}
+.calendar ul{display: inline-block;}
+.calendar ul li{display: flex;flex-wrap: wrap;font-size:14px;line-height:28px;}
+.calendar ul li h2{margin-right:10px;}
+.calendar ul li input{border:1px solid rgba(0,0,0,.3);padding:0 10px;width:86px;border-radius: 5px;letter-spacing: .5px;cursor: pointer;outline:none;}

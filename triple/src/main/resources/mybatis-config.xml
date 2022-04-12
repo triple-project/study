@@ -18,5 +18,6 @@
       	<typeAlias alias="NoticeVo" type="com.triple.finalp.qna.vo.NoticeVo" />
       	<typeAlias alias="UltiVo" type="com.triple.finalp.pro.vo.UltiProVo" />
       	<typeAlias alias="PayVo" type="com.triple.finalp.data.vo.PayVo" />
+      	<typeAlias alias="MyproVo" type="com.triple.finalp.mem.vo.MyproductVo" />
 	</typeAliases>
 </configuration>

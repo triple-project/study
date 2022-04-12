@@ -144,6 +144,10 @@
 		where product_id = #{product_id}
 	</select>
 	
-	<select id="mypro"></select>
+	<select id="mypro" resultType="MyproVo">
+		select *
+		from myproduct
+		where mem_id = #{mem_id}
+	</select>
 
 </mapper>
