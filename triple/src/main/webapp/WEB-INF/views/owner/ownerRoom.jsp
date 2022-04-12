@@ -77,9 +77,12 @@
                                     <input type="text" placeholder="객실이름을 입력해 주세요." onfocus="this.placeholder=''" onblur="this.placeholder='객실이름을 입력해 주세요.'" name="pd_name">
                                 </div>
                                 <div class="rfword rf_com">
-                                    <input type="text" placeholder="객실설명을 입력해 주세요." onfocus="this.placeholder=''" onblur="this.placeholder='객실설명을 입력해 주세요.'" name="pd_contents">
+                                <div contenteditable="true" id="pd_contentsd">
+									<p>내용을 입력해주세요!</p>
+								</div>
+                                    <!-- <input type="text" placeholder="객실설명을 입력해 주세요." onfocus="this.placeholder=''" onblur="this.placeholder='객실설명을 입력해 주세요.'" name="pd_contents"> -->
                                 </div>
-
+								<input type="hidden" name="pd_contents" id="pd_contents">
                                 <div class="rfimgframe">
                                     <div class="rfimg rf_com">
                                         <div class="rfimg1 rfimg_com" id="rf_img1"></div>
@@ -201,6 +204,10 @@
         });
 
         function ros() {
+        	
+        	var pd_contentsd = document.getElementById('pd_contentsd')
+			document.getElementById('pd_contents').value = pd_contentsd.innerHTML;
+	    	
 
 			//이미지이름
 			var today = new Date();

@@ -740,7 +740,7 @@ function intra() {
                                         <div class="swiper detailedSlider">
                                             <div class="swiper-wrapper">
                                                 <div class="swiper-slide" style="background: skyblue url(/resources/img/upload/${dl.pd_img1}) no-repeat 50% 50%; background-size:cover;"></div>
-                                                <div class="swiper-slide" style="background: pink url(/resources/img/upload/${dl.pd_img2} no-repeat 50% 50%; background-size:cover;"></div>
+                                                <div class="swiper-slide" style="background: pink url(/resources/img/upload/${dl.pd_img2}) no-repeat 50% 50%; background-size:cover;"></div>
                                                 <div class="swiper-slide" style="background: green url(/resources/img/upload/${dl.pd_img3}) no-repeat 50% 50%; background-size:cover;"></div>
                                             </div>
                                             <div class="arrowBtn">

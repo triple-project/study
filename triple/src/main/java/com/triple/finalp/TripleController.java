@@ -83,6 +83,18 @@ public class TripleController {
 
 		return "test/flight";
 	}
+	@RequestMapping(value = "/myReserv", method = RequestMethod.GET)
+	public String myReserv() {
+		// 인덱스로 보내기
+
+		return "myReservation";
+	}
+	@RequestMapping(value = "/mySave", method = RequestMethod.GET)
+	public String mySave() {
+		// 인덱스로 보내기
+
+		return "mySave";
+	}
 
 	@RequestMapping(value = "/wea", method = RequestMethod.GET)
 	public String wea() {

@@ -1,0 +1,40 @@
+@charset "UTF-8";
+
+#hhhh {width: 100%;height: 173px;}
+#hhhh .hhhhhh{width: 100%;height: 50px;border-bottom: 1px solid #999;}
+#hhhh .hhhhhhh{width: 100%;height: 123px;border-bottom: 1px solid #999;}
+
+#sec .mySave_in{width: 1300px;margin:0 auto;padding:20px 30px;}
+#sec .mySave_in h3{font-size:20px;}
+#sec .mySave_in .ms_main{margin-top:30px;}
+
+#sec .mySave_in .ms_main .ms_title{width: 100%;height: 50px;border-top:1px solid #999;border-bottom: 1px solid #999;display: flex;align-items: center;}
+#sec .mySave_in .ms_main .ms_title p{text-align: center;}
+#sec .mySave_in .ms_main .ms_title .ms_num{width: 60px;}
+#sec .mySave_in .ms_main .ms_title .ms_img{width: 150px;}
+#sec .mySave_in .ms_main .ms_title .ms_name{width: 260px;}
+#sec .mySave_in .ms_main .ms_title .ms_addr{width: 260px;}
+#sec .mySave_in .ms_main .ms_title .ms_city{width: 210px;}
+#sec .mySave_in .ms_main .ms_title .ms_category{width: 150px;}
+#sec .mySave_in .ms_main .ms_title .ms_btn{width: 150px;}
+
+
+
+#sec .mySave_in .ms_main .ms_content{width: 100%;height: 100px;border-bottom:1px solid #999;display: flex;justify-content: center;align-items: center;}
+#sec .mySave_in .ms_main .ms_content:nth-child(2n){background-color: rgba(0,0,0,.04);}
+#sec .mySave_in .ms_main .ms_content p{text-align: center;font-size:14px;}
+#sec .mySave_in .ms_main .ms_content .ms_connum{width: 60px;}
+#sec .mySave_in .ms_main .ms_content .ms_conimg{width: 150px;height:100%;}
+#sec .mySave_in .ms_main .ms_content .ms_conimg img {height: 100%;width: 100%;padding: 5px;border-radius: 10px;}
+#sec .mySave_in .ms_main .ms_content .ms_conname{width: 260px;}
+#sec .mySave_in .ms_main .ms_content .ms_conaddr{width: 260px;}
+#sec .mySave_in .ms_main .ms_content .ms_concity{width: 210px;}
+#sec .mySave_in .ms_main .ms_content .ms_concate{width: 150px;}
+
+#sec .mySave_in .ms_main .ms_content .ms_conbtn{width: 150px;display: flex;align-items: center;flex-direction: column;}
+#sec .mySave_in .ms_main .ms_content .ms_conbtn .ms_btncom{width: 100px;height:30px;border:1px solid #999;border-radius: 10px;display: flex;justify-content: center;align-items: center;cursor:pointer;}
+#sec .mySave_in .ms_main .ms_content .ms_conbtn .ms_btncom:hover{background: #5de4c2;border:none;color:rgb(255, 255, 255);}
+
+#sec .mySave_in .ms_main .ms_content .ms_conbtn .ms_viewbtn {margin-bottom:5px;}
+#sec .mySave_in .ms_main .ms_content .ms_conbtn .ms_delbtn {}
+

@@ -62,6 +62,8 @@
 	rel="stylesheet">
 <script type="text/javascript">
 	function ns() {
+		var filech = $("#nimage_file_name").val();
+		
 		var n_contentd = document.getElementById('n_contentd')
 		document.getElementById('n_content').value = n_contentd.innerHTML;
 		var today = new Date();
@@ -69,11 +71,16 @@
 		var minutes = ('0' + today.getMinutes()).slice(-2);
 		var seconds = ('0' + today.getSeconds()).slice(-2);
 		var ti = hours + minutes + seconds;
-		var fileValue = $("#nimage_file_name").val().split("\\");
-		var fileName = fileValue[fileValue.length - 1]; // 파일명
-		/* console.log(fileName); image_file_name_h */
-		const a = $('#nimg_h').val(ti+fileName);
-		const b = $('#nimage_file_name_h').val(ti+fileName);
+		
+		if(!filech){
+			
+		}else {
+			var fileValue = $("#nimage_file_name").val().split("\\");
+			var fileName = fileValue[fileValue.length - 1]; // 파일명
+			/* console.log(fileName); image_file_name_h */
+			const a = $('#nimg_h').val(ti+fileName);
+			const b = $('#nimage_file_name_h').val(ti+fileName);
+		}
 	}
 	
 	function nreadURL(input) {

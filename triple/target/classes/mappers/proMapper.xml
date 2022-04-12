@@ -11,8 +11,8 @@
 	<!-- 상품등록 (업주) -->
 	<insert id="register">
 		insert into
-		product(product_id,product_img1,product_img2,product_img3,product_img4,product_img5,product_category,product_address,product_locationx,product_locationy,product_city,product_name)
-		values(#{product_id},#{product_img1},#{product_img2},#{product_img3},#{product_img4},#{product_img5},#{product_category},#{product_address},#{product_locationx},#{product_locationy},#{product_city},#{product_name})
+		product(product_id,product_img1,product_img2,product_img3,product_img4,product_img5,product_category,product_address,product_locationx,product_locationy,product_city,product_name,product_shortword,product_subcontent)
+		values(#{product_id},#{product_img1},#{product_img2},#{product_img3},#{product_img4},#{product_img5},#{product_category},#{product_address},#{product_locationx},#{product_locationy},#{product_city},#{product_name},#{product_shortword},#{product_subcontent})
 	</insert>
 	<!-- 상품디테일등록 (업주) -->
 	<insert id="registerDetail">

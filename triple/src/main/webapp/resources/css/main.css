@@ -46,11 +46,38 @@
 #sec .about .about_in .about_btn > div.on h2 a{color:rgba(0,0,0,1)}
 
 #sec .about .about_in .about_tab{margin-top:20px;}
-#sec .about .about_in .about_tab .tab_in{width:100%;height:300px;overflow: auto;border:1px solid #fff;overflow: hidden;border-radius: 10px;}
-#sec .about .about_in .about_tab .tab_in .wrap{}
+#sec .about .about_in .about_tab .tab_in{width:100%;height:300px;overflow: auto;border:1px solid #fff;overflow: hidden;border-radius: 10px;border:1px solid rgba(0,0,0,.3);}
+#sec .about .about_in .about_tab .tab_in .wrap{display:flex;flex-wrap: wrap;height:100%;}
+#sec .about .about_in .about_tab .tab_in .wrap .box{height:100%;overflow: auto;}
+#sec .about .about_in .about_tab .tab_in .wrap .box.left{width:55%;border-right:1px solid rgba(0,0,0,.3);}
+#sec .about .about_in .about_tab .tab_in .wrap .box.left{-ms-overflow-style: none;scrollbar-width: none;}
+#sec .about .about_in .about_tab .tab_in .wrap .box.left::-webkit-scrollbar {display: none;}
+#sec .about .about_in .about_tab .tab_in .wrap .box.left table{border-collapse: collapse;width:100%;overflow: hidden;}
+#sec .about .about_in .about_tab .tab_in .wrap .box.left table tr{}
+#sec .about .about_in .about_tab .tab_in .wrap .box.left table tr th{border:1px solid rgba(0,0,0,.3);padding:10px;font-weight: 500;font-size:16px;background: rgb(160, 160, 160);border-top:0;color:#fff;width:15%;}
+#sec .about .about_in .about_tab .tab_in .wrap .box.left table tr td{border:1px solid rgba(0,0,0,.3);text-align: center;font-size:14px;padding:5px;}
+#sec .about .about_in .about_tab .tab_in .wrap .box.left table tr th:first-child{border-left:0;width:25%;}
+#sec .about .about_in .about_tab .tab_in .wrap .box.left table tr th:nth-child(3){width:25%;}
+#sec .about .about_in .about_tab .tab_in .wrap .box.left table tr td:first-child{border-left:0;}
+#sec .about .about_in .about_tab .tab_in .wrap .box.left table tr th:last-child{border-right:0;width:20%;}
+#sec .about .about_in .about_tab .tab_in .wrap .box.left table tr td:last-child{border-right:0;}
+#sec .about .about_in .about_tab .tab_in .wrap .box.left table tr:last-child td{border-bottom:0;}
 
-#sec .about .about_in .about_tab .tab_in.tab:nth-child(1){background: black;}
-#sec .about .about_in .about_tab .tab_in.tab:nth-child(2){background: rebeccapurple;}
+#sec .about .about_in .about_tab .tab_in .wrap .box.left table tr:nth-child(2n + 1) td{background: rgba(0,0,0,.1);}
+
+#sec .about .about_in .about_tab .tab_in .wrap .box.right{width:45%;padding:30px;-ms-overflow-style: none;scrollbar-width: none;}
+#sec .about .about_in .about_tab .tab_in .wrap .box.right::-webkit-scrollbar {display: none;}
+#sec .about .about_in .about_tab .tab_in .wrap .box.right ul{}
+#sec .about .about_in .about_tab .tab_in .wrap .box.right ul li{display: flex;line-height:28px;border-bottom:1px solid rgba(0,0,0,.15);padding-bottom:12px;margin-bottom:12px;}
+#sec .about .about_in .about_tab .tab_in .wrap .box.right ul li:last-child{border-bottom:0;margin-bottom:0;padding-bottom:0;}
+#sec .about .about_in .about_tab .tab_in .wrap .box.right ul li h2{width:70px;text-align: center;font-size:14px;}
+#sec .about .about_in .about_tab .tab_in .wrap .box.right ul li input{padding:0 10px;cursor: pointer;width:calc(100% - 70px);border:1px solid rgba(0,0,0,.3);letter-spacing: 1px;}
+#sec .about .about_in .about_tab .tab_in .wrap .box.right ul li select{width:calc(100% - 70px);outline: none;padding:0 10px;cursor: pointer;border:1px solid rgba(0,0,0,.3);letter-spacing: 1px;}
+#sec .about .about_in .about_tab .tab_in .wrap .box.right .txt{margin-top:20px;}
+#sec .about .about_in .about_tab .tab_in .wrap .box.right .txt:after{content: "";display: block;clear: both;}
+#sec .about .about_in .about_tab .tab_in .wrap .box.right .txt h2{float:left;font-size:14px;padding:10px 0 10px 72px;}
+#sec .about .about_in .about_tab .tab_in .wrap .box.right .txt button{border:1px solid rgba(0,0,0,.3);float:right;padding:10px 20px;background: #fff;border-radius: 10px;cursor: pointer;}
+#sec .about .about_in .about_tab .tab_in .wrap .box.right .txt button:hover{background: #5de4c2;border:1px solid transparent;color:#fff;}
 
 #sec .about .about_in .about_icon{width:100%;padding:30px 0;}
 #sec .about .about_in .about_icon .icon_in{}

@@ -38,7 +38,7 @@ public class TripleRestController {
 	@Autowired
 	TagService tagService;
 	
-	@RequestMapping("/ci")
+	@RequestMapping(value =  "/ci",method = RequestMethod.POST)
 	public void ci(HttpServletRequest request, HttpServletResponse response,TrainVo trainVo) throws IOException {
 		
 		String trainList = dataService.train(trainVo);
@@ -46,7 +46,7 @@ public class TripleRestController {
 		response.getWriter().flush(); 
 	}
 	
-	@RequestMapping("/flightInfo") // 항공권 정보 
+	@RequestMapping(value = "/flightInfo", method = RequestMethod.POST) // 항공권 정보 
 	   public void flightInfo(HttpServletRequest request, HttpServletResponse response,FlightVo flightVo) throws IOException {
 	      
 	      String flightList = dataService.flight(flightVo);

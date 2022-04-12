@@ -767,8 +767,8 @@
 	}
 
 	function ftravel_goto(gdata) {
-		console.log(gdata.children.item(1).innerText);
-		location.href = "/category/" + gdata.children.item(1).innerText;
+		//console.log(gdata.children.item(1).innerText);
+		location.href = "/category/" + gdata.children.item(0).innerText;
 	}
 
 	function travel_del(data) {
@@ -882,7 +882,10 @@
 					//console.log(rvdata.children.item(1).src);
 					$("#review_r").html("");
 					$("#review_r")
-					.append("<div class='travel_in pName'>"
+					.append("<div class='travel_in pName' onclick='freview_goto(this)'>"
+							+ "<span style='display:none'>"
+							+ rvdata.children.item(0).innerText
+							+ "</span>"
 							+ '<img src="' + rvdata.children.item(1).src + '" width="100" height="75"/>'			
 							+ "<p>"
 							+ rvdata.children.item(2).innerText
@@ -925,6 +928,14 @@
 				}
 			});
 		}  
+	</script>
+	
+	<script type="text/javascript">
+		function freview_goto(rgdata) {
+			console.log(rgdata.children.item(1).innerText);
+			location.href = "/category/" + rgdata.children.item(0).innerText;
+		}
+	
 	</script>
 	
 	<script type="text/javascript">
@@ -1116,7 +1127,7 @@
 			<div class="l_menu_in">
 				<ul>
 					<li>
-						<a href="javascript:;">
+						<a href="/mySave">
 							<h3>내 저장</h3>
 							<div class="l_wrap">
 								<div class="num" id="heart_num">
@@ -1130,7 +1141,7 @@
 					</li>
 
 					<li>
-						<a href="javascript:;">
+						<a href="/myReserv">
 							<h3>내 예약</h3>
 							<div class="l_wrap">
 								<div class="arrow_btn">

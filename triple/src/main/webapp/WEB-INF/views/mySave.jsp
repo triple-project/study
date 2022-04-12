@@ -1,17 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib prefix='security'
-	uri='http://www.springframework.org/security/tags'%>
 <!DOCTYPE html>
-<html style="height: 100%;">
+<html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<link rel="stylesheet" href="/resources/css/reset.css">
+<title>내 저장</title>
+<link rel="stylesheet" href="../../resources/css/reset.css">
 <link rel="stylesheet"
 	href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
-<link rel="stylesheet" href="/resources/css/mobiscroll.jquery.min.css">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css"
 	integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw=="
@@ -45,14 +42,12 @@
 	integrity="sha512-UtgpaUQPTevIy6walAy8W82eDxOdZJqKS0w2vf0eTItGubnT6TKkbM1GoNyoNvlM4DKhbl45kOK+Z4EhtuK2RA=="
 	crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link rel="stylesheet" href="/resources/css/common.css">
-<link rel="stylesheet" href="/resources/css/qnaShow.css">
+<link rel="stylesheet" href="/resources/css/mySave.css">
 
 
 <script src="/resources/js/jquery-3.6.0.min.js"></script>
 <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
-<script src="/resources/js/mobiscroll.jquery.min.js"></script>
-<script src="https://kit.fontawesome.com/8d1d3d3a2e.js"
-	crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/8d1d3d3a2e.js"crossorigin="anonymous"></script>
 <script src="/resources/js/main.js"></script>
 
 <link rel="shortcut icon" href="#">
@@ -61,76 +56,76 @@
 <link
 	href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Noto+Serif+KR:wght@200;300;400;500;600;700;900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
 	rel="stylesheet">
-	<script type="text/javascript">
-		function qos() {
-			var repd = document.getElementById('repd')
-			document.getElementById('rep').value = repd.innerHTML;
-		}	
-	</script>
 </head>
 <body>
-
+	
 	<jsp:include page="/WEB-INF/views/header.jsp" flush="true" />
 
 	<section id="sec">
-		<div class="qnaShow_in">
-			<div class="qnaShow_aside">
-				<aside>
-					<jsp:include page="/WEB-INF/views/qna/qnaAside.jsp" flush="true" />
-				</aside>
-			</div>
-			<div class="qnaShow_main">
-				<div class="qnaShow_title">
-					<p>제목 : ${qvo.q_title}</p>
-					<p>작성자 : ${qvo.mem_id}</p>
-					<p>문의번호 : ${qvo.q_id}</p>
+		<div class="mySave_in">
+			<h3>내 저장</h3>
+			<div class="ms_main">
+				<div class="ms_title">
+					<div class="ms_num">
+						<p>번호</p>
+					</div>
+					<div class="ms_img">
+						<p>이미지</p>
+					</div>
+					<div class="ms_name">
+						<p>상품명</p>
+					</div>
+					<div class="ms_addr">
+						<p>주소</p>
+					</div>
+					<div class="ms_city">
+						<p>도시</p>
+					</div>
+					<div class="ms_category">
+						<p>종류</p>
+					</div>
+					<div class="ms_btn">
+						<p>뭐라하지</p>
+					</div>
 				</div>
-				<div class="qnaShow_content">
-					<div>${qvo.q_content}</div>
-				</div>
-				<div class="qnaShow_img">
-					<img src="/resources/img/upload/${qvo.q_img}">
-				</div>
-
-					<h4>문의 답변</h4>
-
-					<c:forEach items="${qrVoList}" var="rep">
-							<div class="qscomment">
-								<p>관리자 : </p> 
-								<div>${rep.rep}</div>
-							</div>
-					</c:forEach>
-
-					<security:authorize access="hasRole('ROLE_ADMIN')">
-						<div class="qsadmin">
-							<h5>문의글 답변하기. 관리자 전용</h5>
-							<form method="post" action="/qna/qnaShow" id="qnacommentwrite" onsubmit="qos()">
-								<div class="qsadmin_comment">
-									<div contenteditable="true" id="repd">
-										매크로 답변입니다.
-									</div>
-									<input type="hidden" name="rep" id="rep">
-									<input type="hidden"
-										name="q_id" value="${qvo.q_id}">
-									<div class="qscommentbtn">
-										<p onclick="$('#qnacommentwrite').submit()">댓글 작성</p>
-									</div>
-								</div>
-							</form>
+				
+				<!-- for문 시작 -->
+				<div class="ms_content">
+					<div class="ms_connum">
+						<p>1</p>
+					</div>
+					<div class="ms_conimg">
+						<img src="../../resources/img/gory/categoryhotel.jpg">
+					</div>
+					<div class="ms_conname">
+						<p>우리집</p>
+					</div>
+					<div class="ms_conaddr">
+						<p>평양남도 함흥</p>
+					</div>
+					<div class="ms_concity">
+						<p>평양시</p>
+					</div>
+					<div class="ms_concate">
+						<p>미사일</p>
+					</div>
+					<div class="ms_conbtn">
+						<div class="ms_viewbtn ms_btncom" onclick="">
+							<p>상품보기</p>
 						</div>
-					</security:authorize>
-					<br>
-					<!-- <button onclick="gh()">고객센터 홈으로</button> -->
-
+						<div class="ms_delbtn ms_btncom" onclick="">
+							<p>삭제하기</p>
+						</div>
+					</div>
 				</div>
+				<!-- for문 끝 -->
+
+
 			</div>
 		</div>
 	</section>
-	<div>
-		<%@ include file="../footer.jsp"%>
-	</div>
-
-
+	
+	<%@ include file="footer.jsp"%>
 
 </body>
 </html>

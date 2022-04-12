@@ -60,9 +60,7 @@
                         <div class="pword p_com">
                             <p>한줄소개</p>
                         </div>
-                        <div class="pword p_com">
-                            <p>상품소개</p>
-                        </div>
+                       
                         <div class="pcategory p_com">
                             <p>카테고리</p>
                         </div>
@@ -81,6 +79,9 @@
                         <div class="pimg p_com">
                             <p>이미지</p>
                         </div>
+                         <div class="pword p_com">
+                            <p>상품소개</p>
+                        </div>
                     </div>
 
                     <!-- 상품등록 폼 -->
@@ -95,9 +96,10 @@
                             <div class="pfword pf_com">
                                 <input type="text" placeholder="한줄소개 입력해 주세요." onfocus="this.placeholder=''" onblur="this.placeholder='한줄소개를 입력해 주세요.'" name="product_shortword">
                             </div>
-                            <div class="pfword pf_com">
-                                <input type="text" placeholder="상품소개 입력해 주세요." onfocus="this.placeholder=''" onblur="this.placeholder='한줄소개를 입력해 주세요.'" name="product_subcontent">
-                            </div>
+
+                            	
+                            	<input type="hidden" name="product_subcontent" id="product_subcontent">
+
 							<div class="pfcategory pf_com">
 								<select name="product_category" id="product_category"
 									onchange="change_tag()">
@@ -156,7 +158,7 @@
                                 <input type="text" placeholder="값을 입력해 주세요."onfocus="this.placeholder=''" onblur="this.placeholder='값을 입력해 주세요.'" name="product_locationx">
                                 <span>Y </span>
                                 <input type="text" placeholder="값을 입력해 주세요."onfocus="this.placeholder=''" onblur="this.placeholder='값을 입력해 주세요.'" name="product_locationy">
-                                <div class="mapbtn">
+                                <div class="mapbtn" style="display: none;">
                                     <i class="fa-solid fa-location-dot"></i>
                                 </div>
                             </div>
@@ -182,6 +184,9 @@
 							<input type="hidden" name="product_img3" id="product_img3" value="def">
 							<input type="hidden" name="product_img4" id="product_img4" value="def">
 							<input type="hidden" name="product_img5" id="product_img5" value="def">
+							<div contenteditable="true" id="p_subcontentd">
+									<p>내용을 입력해주세요!</p>
+							</div>
                         </form>
                     </div>
                     <!-- 상품등록 폼 끝 -->
@@ -283,6 +288,10 @@
 	    var tarr = [];
 	    //등록하기 눌렀을떄
 	    function tos() {
+	    	
+	    	var p_subcontentd = document.getElementById('p_subcontentd')
+			document.getElementById('product_subcontent').value = p_subcontentd.innerHTML;
+	    	
 			for (var i = 0; i < c; i++) {
 				var tost = $('#tag_s'+i).val();
 				tarr.push(tost);
@@ -316,12 +325,18 @@
 	    // 이미지 클릭 시 삭제
         $('#pf_img1').click(function(e){
             var pfdel = e.target.getAttribute('id');
-            console.log(pfdel);
-            e.target.remove();
-            var re = pfcount-1;
+            
             $("#oimage_file_name"+re).val("");
-            $("input").remove("#oimage_file_name"+pfcount);
-            pfcount--;
+            if(pfcount==0){
+            	
+            }else{
+            	console.log(pfdel);
+                e.target.remove();
+                var re = pfcount-1;
+            	$("input").remove("#oimage_file_name"+pfcount);
+                pfcount--;
+            }
+            
         });
 	    //태그----------------------------------------------
        
