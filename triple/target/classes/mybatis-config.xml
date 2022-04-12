@@ -16,5 +16,6 @@
 		<typeAlias alias="QnaVo" type="com.triple.finalp.qna.vo.QnaVo" />
       	<typeAlias alias="QnaRepVo" type="com.triple.finalp.qna.vo.QnaRepVo" />
       	<typeAlias alias="NoticeVo" type="com.triple.finalp.qna.vo.NoticeVo" />
+      	<typeAlias alias="UltiVo" type="com.triple.finalp.pro.vo.UltiProVo" />
 	</typeAliases>
 </configuration>

@@ -169,8 +169,9 @@ function intra() {
 	function rs() {
 		var filech = $("#rimage_file_name").val();
 		
-		var r_contentd = document.getElementById('r_contentd')
-		document.getElementById('r_comment').value = r_contentd.innerHTML;
+		var r_contentd2 = document.getElementById('r_contentd2')
+		document.getElementById('r_comment').value = r_contentd2.value;
+		//console.log(r_contentd2.value);
 		var today = new Date();
 		var hours = ('0' + today.getHours()).slice(-2);
 		var minutes = ('0' + today.getMinutes()).slice(-2);
@@ -598,130 +599,83 @@ function intra() {
                                 <div class="six">
                                     <div class="sixIn">
                                         <div class="tit">
-                                            <h2>리뷰</h2>
+                                            <h2>리뷰작성</h2>
                                         </div>
-										<div>
-											<form method="post" action="/review" onclick="rs()" enctype="multipart/form-data">
-										       <div contenteditable="true" id="r_contentd">
-													내용을 입력해주세요!
-												</div>
-										      별점 <span class="star">
-												  ★★★★★
-												  <span id="star_r" >★★★★★</span>
-												  <input type="range" oninput="drawStar(this)" value="1" step="1" min="0" max="10" name="r_star">
-												</span>
-										      	
-												<br>
-												<input type="hidden" id="r_comment" name="r_comment"> 
-												이미지
-												<div class="preview">
-								            		<img id="rpreview" src="#" width=200 height=200 alt="선택된 이미지가 없습니다" />
-									            </div>
-												<input type="file" name="rimage_file_name" id="rimage_file_name" onchange="rreadURL(this);" /> 
-									            <input type="hidden" name="r_img1" id="rimg_h">
-									            <input type="hidden" name="rimage_file_name_h" id="rimage_file_name_h">
-										      <input type="hidden" value="${pvo.product_id}" name="product_id">
-										      <input type="submit" value="리뷰등록" >										      
-										   </form>
-										   
-										</div>
+                                        
+                                        <div class="reviewWrap">
+                                            <form method="post" action="/review" enctype="multipart/form-data"
+                                                onsubmit="rs()">
+                                                <ul>
+                                                    <li>
+                                                        <h2>별점</h2>
+                                                        <span class="star">
+                                                            ★★★★★
+                                                            <span id="star_r">★★★★★</span>
+                                                            <input type="range" oninput="drawStar(this)" value="1"
+                                                                step="1" min="0" max="10" name="r_star">
+                                                        </span>
+                                                    </li>
+
+                                                    <li>
+                                                        <textarea placeholder="내용을 입력해주세요"
+                                                            contenteditable="true" id="r_contentd2"></textarea>
+                                                        <input type="submit" value="리뷰등록" class="reviewBtn">
+                                                    </li>
+
+                                                    <li>
+                                                        <h2>이미지</h2>
+                                                        <div class="preview">
+                                                            <img id="rpreview" src="#" />
+                                                        </div>
+                                                        <input type="file" name="rimage_file_name" id="rimage_file_name"
+                                                            onchange="rreadURL(this);" />
+                                                        <input type="hidden" name="r_img1" id="rimg_h">
+                                                        <input type="hidden" name="rimage_file_name_h"
+                                                            id="rimage_file_name_h">
+                                                        <input type="hidden" value="${pvo.product_id}"
+                                                            name="product_id">
+                                                    </li>
+                                                </ul>
+                                                <input type="hidden" id="r_comment" name="r_comment">
+                                            </form>
+                                        </div>
+                                        <div class="tit">
+                                            <h2>리뷰보기</h2>
+                                        </div>
                                         <div class="sixCon">
-                                            
                                             <ul>
-                                            <!-- 리뷰꺼내기 시작 -->
-                                            <c:forEach items="${reviewList}" var="rl">
-                                            	<li>
-                                            		
-                                            		
-                                                    <div class="info">
-                                                        <h2>${rl.r_comment}</h2>
-														
-                                                        <div class="user">
-                                                            <img src="/resources/img/upload/${rl.mem_img}">
-																<div class="userIn">
-																	<h3>${rl.mem_id}</h3>
-																	<h4>${rl.r_date}</h4>
-																	<span class="star2"> ★★★★★ <span id="star_r"
-																		style="width: ${rl.r_star*10}%">★★★★★</span></span>
-																</div>
-																<div class="close" style="display: none;">
-                                                                <i class="fa-solid fa-xmark"></i>
+                                                <!-- 리뷰꺼내기 시작 -->
+                                                <c:forEach items="${reviewList}" var="rl">
+                                                    <li>
+                                                        <div class="info">
+                                                            <div>
+                                                                <pre>${rl.r_comment}</pre>
+                                                            </div>
+
+                                                            <div class="user">
+                                                                <img src="/resources/img/upload/${rl.mem_img}">
+                                                                <div class="userIn">
+                                                                    <h3>${rl.mem_id}</h3>
+                                                                    <h4>${rl.r_date}</h4>
+                                                                    <span class="star2"> ★★★★★ <span id="star_r"
+                                                                            style="width: ${rl.r_star*10}%">★★★★★</span></span>
+                                                                </div>
+                                                                <div class="close" style="display: none;">
+                                                                    <i class="fa-solid fa-xmark"></i>
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
 
-                                                    <div class="img">
-                                                        <img src="/resources/img/upload/${rl.r_img1}">
-                                                    </div>
-                                                </li>
+                                                        <div class="img">
+                                                            <img src="/resources/img/upload/${rl.r_img1}">
+                                                        </div>
+                                                    </li>
                                                 </c:forEach>
-                                                <!-- <li>
-                                                    <div class="info">
-                                                        <h2>리뷰내용이들어갈공간입니다.......... 무언가 내용이 얼마나들어갈지 모르니 일단 최대한 두줄과 세줄처리가 가능할 만큼의 내용을 집어넣어보겠습니다. 그러므로 내용은 조금 줄바꿈처리가 어찌 될지 모르고 내용이 얼마나 들어갈지 몰라서 ...그냥 막 써지는대로 써보고 아무렇게나 이어보고 글을 작성해보고 지금 머리를 쥐어짜내는 중입니다. 하지만 아직도 두줄이네요 최소 세줄은 보여줘야할거같은데 .. 어 세줄이 될거같네요 이제 ! 오아아아아아아아 !!! 진짜의미없이 글을 쓰고잇어요 .... 나 대단해 </h2>
-
-                                                        <div class="user">
-                                                            <img src="">
-                                                            <div class="userIn">
-                                                                <h3>닉네임</h3>
-                                                                <h4>작성날짜</h4>
-                                                            </div>
-                                                            <div class="close">
-                                                                <i class="fa-solid fa-xmark"></i>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="img">
-                                                        <img src="">
-                                                    </div>
-                                                </li>
-																	
-                                                <li>
-                                                    <div class="info">
-                                                        <h2>아버님은 말하셨지 인생을 즐겨라</h2>
-
-                                                        <div class="user">
-                                                            <img src="">
-                                                            <div class="userIn">
-                                                                <h3>닉네임</h3>
-                                                                <h4>작성날짜</h4>
-                                                            </div>
-                                                            <div class="close">
-                                                                <i class="fa-solid fa-xmark"></i>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="img">
-                                                        <img src="">
-                                                    </div>
-                                                </li>
-
-                                                <li>
-                                                    <div class="info">
-                                                        <h2>아모르파티</h2>
-
-                                                        <div class="user">
-                                                            <img src="">
-                                                            <div class="userIn">
-                                                                <h3>닉네임</h3>
-                                                                <h4>작성날짜</h4>
-                                                            </div>
-                                                            <div class="close">
-                                                                <i class="fa-solid fa-xmark"></i>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="img">
-                                                        <img src="">
-                                                    </div>
-                                                </li> -->
                                             </ul>
 
                                             <div class="plusBtn">
                                                 <h2>더보기<i class="fa-solid fa-arrow-down"></i></h2>
-                                                
+
                                             </div>
                                         </div>
 
@@ -824,86 +778,6 @@ function intra() {
                             </div>
                             </c:forEach>
                             <!-- 꺼내기종료 -->
-
-                            <!-- <div class="room" style="display: none;">
-                                <div class="roomIn">
-                                    <div class="left">
-                                        <div class="swiper detailedSlider">
-                                            <div class="swiper-wrapper">
-                                                <div class="swiper-slide" style="background: skyblue url(??.jpg) no-repeat 50% 50%;"></div>
-                                                <div class="swiper-slide" style="background: pink url(??.jpg) no-repeat 50% 50%;"></div>
-                                                <div class="swiper-slide" style="background: green url(??.jpg) no-repeat 50% 50%;"></div>
-                                            </div>
-                                            <div class="arrowBtn">
-                                                <div class="swiper-button-prev">
-                                                    <i class="fa-solid fa-angle-left"></i>
-                                                </div>
-                                                <div class="swiper-pagination"></div>
-                                                <div class="swiper-button-next">
-                                                    <i class="fa-solid fa-angle-right"></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="right">
-                                        <div class="tit">
-                                            <h2>객실이름<span><i class="fa-solid fa-user-group"></i>기준 {??} ~ 최대 {??}</span>
-                                            </h2>
-                                            <h3>침대룸+화장실1 / 27평</h3>
-                                        </div>
-
-                                        <div class="tag">
-                                            <ul>
-                                                <li>
-                                                    <div class="img">
-                                                        <img src="" alt="">
-                                                    </div>
-                                                    <div class="txt">
-                                                        <h3>태그네임</h3>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </div>
-
-                                        <div class="money">
-                                            <table>
-                                                <tbody>
-                                                    <tr>
-                                                        <th>시즌</th>
-                                                        <th>주중</th>
-                                                        <th>금요일</th>
-                                                        <th>주말</th>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>비수기</td>
-                                                        <td>요금</td>
-                                                        <td>요금</td>
-                                                        <td>요금</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>성수기</td>
-                                                        <td>요금</td>
-                                                        <td>요금</td>
-                                                        <td>요금</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>준성수기</td>
-                                                        <td>요금</td>
-                                                        <td>요금</td>
-                                                        <td>요금</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-
-                                        <div class="re">
-                                            <h2>예약하기</h2>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> -->
-
                         </div>
 
                     </div>

@@ -54,53 +54,63 @@
 
                 <!-- 객실등록 부분 -->
                 <div id="roomregistration">
+
                     <div class="oReg_room">
-                        <div class="reg_room">
-                            <div class="rname r_com">
-                                <p>객실이름</p>
-                            </div>
-                            <div class="rword r_com">
-                                <p>객실설명</p>
-                            </div>
-                            <div class="rimg r_com">
-                                <div class="rimg"><p>이미지</p></div>
-                            </div>
-                            <div class="rprice r_com">
-                                <p>가격</p>
-                            </div>
-                        </div>
+                       
 
                         <!-- 객실 등록 폼-->
                         <div class="room_form">
                             <form action="/proDetailRegister" method="post" id="room" enctype="multipart/form-data" onclick="ros()">
-                                <div class="rfname rf_com">
-                                    <input type="text" placeholder="객실이름을 입력해 주세요." onfocus="this.placeholder=''" onblur="this.placeholder='객실이름을 입력해 주세요.'" name="pd_name">
-                                </div>
-                                <div class="rfword rf_com">
-                                <div contenteditable="true" id="pd_contentsd">
-									<p>내용을 입력해주세요!</p>
-								</div>
-                                    <!-- <input type="text" placeholder="객실설명을 입력해 주세요." onfocus="this.placeholder=''" onblur="this.placeholder='객실설명을 입력해 주세요.'" name="pd_contents"> -->
-                                </div>
-								<input type="hidden" name="pd_contents" id="pd_contents">
-                                <div class="rfimgframe">
-                                    <div class="rfimg rf_com">
-                                        <div class="rfimg1 rfimg_com" id="rf_img1"></div>
-                                        <!-- <div class="rfimg2 rfimg_com" id="rf_img2"></div>
-                                        <div class="rfimg3 rfimg_com" id="rf_img3"></div> -->
+                                <div class="room_form1 roomf_com">
+                                    <div class="rname r_com">
+                                        <p>객실이름</p>
                                     </div>
-                                
-                                    <div class="rfinputframe">
-                                        <div class="rfimginput" id="rfimginput">
-                                            <input type="file" id="orimage_file_name0"  accept="image/*" onchange="rfpreview(event);" name="orimage_file_name0">
+                                    <div class="rfname rf_com">
+                                        <input type="text" placeholder="객실이름을 입력해 주세요." onfocus="this.placeholder=''" onblur="this.placeholder='객실이름을 입력해 주세요.'" name="pd_name">
+                                    </div>
+                                </div>
+
+                                <div class="room_form2 roomf_com">
+                                    <div class="rword">
+                                        <p>객실설명</p>
+                                    </div>
+                                    <div class="rfword rf_com" contenteditable="true" id="pd_contentsd">
+                                        <p>내용을 입력해주세요!</p>
+                                    </div>
+                                        <!-- <input type="text" placeholder="객실설명을 입력해 주세요." onfocus="this.placeholder=''" onblur="this.placeholder='객실설명을 입력해 주세요.'" name="pd_contents"> -->
+                                </div>
+
+                                <div class="room_form3 roomf_com">
+                                    <div class="rimg r_com">
+                                        <div class="rimg">
+                                            <p>이미지</p>
+                                        </div>
+                                    </div>
+                                    <input type="hidden" name="pd_contents" id="pd_contents">
+                                    <div class="rfimgframe">
+                                        <div class="rfimg rf_com">
+                                            <div class="rfimg1 rfimg_com" id="rf_img1"></div>
+                                            <!-- <div class="rfimg2 rfimg_com" id="rf_img2"></div>
+                                            <div class="rfimg3 rfimg_com" id="rf_img3"></div> -->
+                                        </div>
+                                    
+                                        <div class="rfinputframe">
+                                            <div class="rfimginput" id="rfimginput">
+                                                <input type="file" id="orimage_file_name0"  accept="image/*" onchange="rfpreview(event);" name="orimage_file_name0">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div class="rfprice rf_com">
-                                    <input type="text" placeholder="객실가격을 입력해 주세요." onfocus="this.placeholder=''" onblur="this.placeholder='객실가격을 입력해 주세요.'" onkeypress="checkNumber(event);" class="pricecomma" name="pd_price"> 원
+                                <div class="room_form4 roomf_com">
+                                    <div class="rprice r_com">
+                                        <p>가격</p>
+                                    </div>
+
+                                    <div class="rfprice rf_com">
+                                        <input type="text" placeholder="객실가격을 입력해 주세요." onfocus="this.placeholder=''" onblur="this.placeholder='객실가격을 입력해 주세요.'" onkeypress="checkNumber(event);" class="pricecomma" name="pd_price">
+                                    </div>
                                 </div>
-                                
                                 <input type="hidden" name="rimage_h" id="rimage_h">
 								<input type="hidden" name="pd_img1" id="pd_img1" value="def">
 								<input type="hidden" name="pd_img2" id="pd_img2" value="def">
@@ -113,8 +123,6 @@
                     </div>
                 </div>
                 <!-- 객실등록 부분 끝 -->
-
-            
 
                 <div class="bottombtn">
                     <div class="backbtn btn_com" onclick="location.href='ownerList.html'">
@@ -265,6 +273,8 @@
             raddcount--;
         }
     
+        var roomheight = $('#pd_contentsd').height();
+        $('#htest1').css("height",roomheight+"px");
     </script>
 
 </body>

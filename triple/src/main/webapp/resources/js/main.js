@@ -394,7 +394,7 @@ $(function() {
 	
 	var stest = new Swiper(".kcategory", {
         slidesPerView: 6,
-        spaceBetween: 10,
+        spaceBetween: 20,
         slidesPerGroup: 3,
         loop: true,
         loopFillGroupWithBlank: true,
@@ -517,5 +517,9 @@ $(function() {
 		$(".mobilApp").hide();
 		$(".mobilAppCover").hide();
 	}
+	
+	$(".six .sixCon ul li .info > div pre").click(function(){
+		$(this).addClass("on");
+	});
 
 });

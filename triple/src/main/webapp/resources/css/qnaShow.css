@@ -18,9 +18,13 @@
 
 
 /* 문의 답변 */
-#sec .qnaShow_in .qnaShow_main .qscomment{width: 100%;height: 20px;line-height: 10px;padding-left: 10px;margin-top: 10px;display: flex;border-bottom: 1px dotted #999;}
-#sec .qnaShow_in .qnaShow_main .qscomment p:nth-child(1){width:50px;height:20px;font-size:14px;}
-#sec .qnaShow_in .qnaShow_main .qscomment p:nth-child(2){font-size:14px;}
+#sec .qnaShow_in .qnaShow_main .qscomment{width: 100%;height: auto;line-height: 10px;padding: 5px 0 5px 10px;;display: flex;border-bottom: 1px dotted #999;font-size:14px;}
+#sec .qnaShow_in .qnaShow_main .qscomment p{width: 50px;}
+#sec .qnaShow_in .qnaShow_main .qscomment div:nth-child(1){padding:6px 10px 6px 0;}
+#sec .qnaShow_in .qnaShow_main .qscomment div{padding:0 10px 6px 0;}
+#sec .qnaShow_in .qnaShow_main .qscomment div:nth-last-child(1){padding:0 10px 0 0;}
+
+
 /* 문의 답변 끝 */
 
 /* 문의 답변 - 관리자*/
@@ -28,7 +32,10 @@
 #sec .qnaShow_in .qnaShow_main .qsadmin h5{font-size:14px;color: rgba(0,0,0,.8);
 margin-bottom:10px;}
 #sec .qnaShow_in .qnaShow_main .qsadmin .qsadmin_comment{width: 100%;height: auto;display: block;}
-#sec .qnaShow_in .qnaShow_main .qsadmin .qsadmin_comment input{width: 100%;height: 40px;border-radius: 10px;border:1px solid #999;padding-left: 10px;}
+#sec .qnaShow_in .qnaShow_main .qsadmin .qsadmin_comment .qsa_cominput{width: 100%;display: block;border:1px solid #999;border-radius: 10px;font-size:14px;padding: 10px;}
+#sec .qnaShow_in .qnaShow_main .qsadmin .qsadmin_comment .qsa_cominput p{}
+
+
 #sec .qnaShow_in .qnaShow_main .qsadmin .qsadmin_comment .qscommentbtn{width: 100%;display: inline-flex;justify-content:flex-end;}
 #sec .qnaShow_in .qnaShow_main .qsadmin .qsadmin_comment .qscommentbtn p{width: 100px;height: 30px;border: 1px solid #999;margin-top: 5px;border-radius: 10px;display: flex;justify-content: center;align-items: center;cursor:pointer;}
 #sec .qnaShow_in .qnaShow_main .qsadmin .qsadmin_comment .qscommentbtn p:hover{border:none;background:#5de4c2;color: #fff;}

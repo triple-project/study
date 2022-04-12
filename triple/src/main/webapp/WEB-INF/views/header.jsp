@@ -941,7 +941,7 @@
 	<script type="text/javascript">
 	 const drawStar = (target) => {
 		var ss = target.value*10;
-		console.log(target.value*10);
+		//console.log(target.value*10);
 		$('#star_r').css('width',ss+'%')
 	    //document.querySelector('.star span').style.width = '${target.value*10}%';
 		

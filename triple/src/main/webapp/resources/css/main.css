@@ -209,7 +209,7 @@ height:310px;width:285px;overflow: hidden;border-radius: 15px;margin-bottom:33px
 /* 아직 안정해진 곳 끝 */
 
 /* 국내여행 카테고리 슬라이드 */
-#sec .kcategory {width:1240px;height:300px;margin:0 auto;display:block;}
+#sec .kcategory {width:1240px;height:300px;margin:0 auto;display:block; margin-top: 20px;}
 #sec .kcategory .kcategory_head{font-size:22px;line-height:30px;font-weight: 500;margin: 10px 0 15px 0;}
 #sec .kcategory .kcategory_head .category_text{}
 #sec .kcategory .kcategorybtn {display: flex;justify-content: flex-end;}
@@ -217,10 +217,10 @@ height:310px;width:285px;overflow: hidden;border-radius: 15px;margin-bottom:33px
 #sec .kcategory .kcategorybtn .kcategorybtn_com:hover{background:#5de4c2;border:none;color:rgb(255, 255, 255);}
 #sec .kcategory .kcategorybtn .kcategorybtn1{margin-right:5px;}
 #sec .kcategory .kcategorybtn .kcategorybtn2{}
-#sec .kcategory .swiper-wrapper{height:60%;}
+#sec .kcategory .swiper-wrapper{}
 #sec .kcategory .swiper-wrapper .swiper-slide{height: 210px;display:block;}
-#sec .kcategory .swiper-wrapper .swiper-slide p{font-size:18px;text-align:center;}
-#sec .kcategory .swiper-wrapper .swiper-slide div{width: 100%;height: 198px;;margin-bottom:8px;border-radius:50%;}
+#sec .kcategory .swiper-wrapper .swiper-slide p{font-size:18px;text-align:center; cursor: pointer;}
+#sec .kcategory .swiper-wrapper .swiper-slide div{width: 100%;height: 198px;;margin-bottom:8px;border-radius:50%;cursor: pointer;}
 #sec .kcategory .swiper-wrapper .swiper-slide .kimg1 {background:url('../../resources/img/gory/categoryhotel.jpg') no-repeat 50% 50%;background-size:cover;}
 #sec .kcategory .swiper-wrapper .swiper-slide .kimg2 {background:url('../../resources/img/gory/categoryresort.jpg') no-repeat 50% 50%;background-size:cover;}
 #sec .kcategory .swiper-wrapper .swiper-slide .kimg3 {background:url('../../resources/img/gory/categorypension.jpg') no-repeat 50% 50%;background-size:cover;}

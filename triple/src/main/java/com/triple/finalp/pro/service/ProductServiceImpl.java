@@ -12,6 +12,7 @@ import com.triple.finalp.mem.dao.MemDao;
 import com.triple.finalp.pro.dao.ProductDao;
 import com.triple.finalp.pro.vo.ProductDetailVo;
 import com.triple.finalp.pro.vo.ProductVo;
+import com.triple.finalp.pro.vo.UltiProVo;
 import com.triple.finalp.tag.dao.TagDao;
 import com.triple.finalp.tag.vo.TagTagVo;
 import com.triple.finalp.tag.vo.TagVo;
@@ -165,6 +166,17 @@ public class ProductServiceImpl implements ProductService{
 		// TODO Auto-generated method stub
 		ProductDetailVo pdvo = productDao.getdetail(pd_id);
 		model.addAttribute("pdvo",pdvo);
+	}
+
+	@Override
+	public void index(Model model) {
+		// TODO Auto-generated method stub
+		ArrayList<UltiProVo> ultListH = productDao.indexH();
+		ArrayList<UltiProVo> ultListL = productDao.indexL();
+		
+		model.addAttribute("ultListH",ultListH);
+		model.addAttribute("ultListL",ultListL);
+		
 	}
 
 

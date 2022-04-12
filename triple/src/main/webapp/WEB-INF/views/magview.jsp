@@ -89,6 +89,7 @@
 	            	<p>${mvo.mgz_city}</p>
 	            	<!-- mgz_category -->
 	            	<p>${mvo.mgz_category}</p>
+	            	<p>${mvo.mgz_date}</p>
 	            </div>
 	            <div class="magtitleright">
 	            <security:authorize access="isAnonymous()">

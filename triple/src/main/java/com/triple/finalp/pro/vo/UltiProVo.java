@@ -24,4 +24,6 @@ public class UltiProVo {
 	private String tag_tag4;
 	private String tag_tag5;
 	private int heart_count;
+	private String product_city;
+	private String pd_price;
 }

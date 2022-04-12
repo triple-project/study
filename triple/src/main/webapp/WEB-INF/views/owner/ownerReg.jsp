@@ -44,7 +44,7 @@
 
 	<jsp:include page="../header.jsp" flush="true"/>
 
-    <section id="sec_reg">
+    <section id="sec">
         <div class="oReg">
             <div class="oReg_in">
                 <!-- 상품등록 시작 -->
@@ -79,7 +79,7 @@
                         <div class="pimg p_com">
                             <p>이미지</p>
                         </div>
-                         <div class="pword p_com">
+                         <div class="prword p_com">
                             <p>상품소개</p>
                         </div>
                     </div>
@@ -184,11 +184,15 @@
 							<input type="hidden" name="product_img3" id="product_img3" value="def">
 							<input type="hidden" name="product_img4" id="product_img4" value="def">
 							<input type="hidden" name="product_img5" id="product_img5" value="def">
-							<div contenteditable="true" id="p_subcontentd">
-									<p>내용을 입력해주세요!</p>
+
+                            
+							<div class="pfprword pf_com pf_height" contenteditable="true" id="p_subcontentd">
+								<p>내용을 입력해주세요!</p>
 							</div>
                         </form>
+                        <div class="bottomline"></div>
                     </div>
+                    
                     <!-- 상품등록 폼 끝 -->
                     
                 </div>
@@ -417,7 +421,7 @@
 			})
 		}
         
-        
+
     </script>
 
 </body>

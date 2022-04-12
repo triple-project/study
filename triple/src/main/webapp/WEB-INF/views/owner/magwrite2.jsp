@@ -44,11 +44,12 @@
         <div class="magreg_frame">
             <div class="mag_reg">
                 <h3>매거진 등록</h3>
+                <button onclick="magregsave()">테스트</button>
                 <div class="magreg_in">
                     <form action="/writesave" onsubmit="magregsave()" method="post" id="writeform" enctype="multipart/form-data">
                         <div class="magform_in">
                             <div class="mag_top">
-                                <input type="text" placeholder="제목을 입력해주세요." name="mgz_title">
+                                <input type="text" placeholder="제목을 입력해주세요." name="mgz_title" required="required">
                                 <div class="mag_city">
                                     <select name="mgz_city" id="mgz_city">
                                         <option value="서울" selected="selected" hidden="hidden">도시 선택</option>
@@ -94,15 +95,17 @@
                             </div>
                             
                             <div class="mag_smalltitle">
-                                <input type="text" placeholder="소제목을 입력해주세요." name="mgz_smalltitle">
+                                <input type="text" placeholder="소제목을 입력해주세요." name="mgz_smalltitle" required="required">
                             </div>
                             <div class="mag_smalltitle">
-                                <input type="text" placeholder="소개를 적어주세요." name="mgz_smallcontent">
+                                <textarea placeholder="내용을 입력해주세요"
+                                                            contenteditable="true" id="mgz_smallcontentd"></textarea>
                             </div>
                             <div class="mag_word" contenteditable="true" id="magwrite">
                                 <p>내용을 입력해주세요.</p>
                             </div>
                         </div>
+                        <input type="hidden" name="mgz_smallcontent" id="mgz_smallcontent">
                         <input type="hidden" name="mgz_id" id="mgz_id">
                         <input type="hidden" name="mgz_content" id="mgz_content">
       					<input type="hidden" name="mimage_file_name_h" id="mimage_file_name_h">
@@ -179,6 +182,9 @@
         });
 
         function magregsave() {
+        	mfilech = $('#image_file_name0').val()
+        	var mgz_smallcontentd = document.getElementById('mgz_smallcontentd')
+    		document.getElementById('mgz_smallcontent').value = mgz_smallcontentd.value;
             const element = document.getElementById('magwrite');
             var today = new Date();
 			var year = today.getFullYear();
@@ -187,19 +193,26 @@
             var hours = ('0' + today.getHours()).slice(-2);
             var minutes = ('0' + today.getMinutes()).slice(-2);
             var seconds = ('0' + today.getSeconds()).slice(-2);
+            
+            if(!mfilech){
+    			
+    		}else {
             var fArray = new Array();
-            for (var i = 0; i < count; i++) {
-                //위에서 생성된 이미지의 id들         
-                var img = document.getElementById('img' + i);
-                var ti = hours + minutes + seconds;
-                var fnn = i + ti + filename[i];
-                //id별로 서버에 저장되는 img경로
-                img.setAttribute("src", "/resources/img/upload/" + fnn); 
-                fArray.push(fnn);
-            }
+	            for (var i = 0; i < count; i++) {
+	                //위에서 생성된 이미지의 id들         
+	                var img = document.getElementById('img' + i);
+	                var ti = hours + minutes + seconds;
+	                var fnn = i + ti + filename[i];
+	                //id별로 서버에 저장되는 img경로
+	                img.setAttribute("src", "/resources/img/upload/" + fnn); 
+	                fArray.push(fnn);
+	            }
+	            
+	            $("#mimage_file_name_h").val(fArray);
+    		}
+            
             var mid = year + month + day + hours + minutes + seconds
             document.getElementById('mgz_content').value = element.innerHTML;
-            $("#mimage_file_name_h").val(fArray);
             $("#mgz_id").val(mid);
         }
 

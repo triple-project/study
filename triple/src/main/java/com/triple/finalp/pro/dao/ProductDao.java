@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Param;
 
 import com.triple.finalp.pro.vo.ProductDetailVo;
 import com.triple.finalp.pro.vo.ProductVo;
+import com.triple.finalp.pro.vo.UltiProVo;
 import com.triple.finalp.tag.vo.TagTagVo;
 import com.triple.finalp.tag.vo.TagVo;
 
@@ -32,4 +33,6 @@ public interface ProductDao {
 	public void updateProductD(ProductDetailVo pdvo);
 	public ProductDetailVo getdetail(String pd_id);
 	public ArrayList<TagTagVo> gettag(String product_id);
+	public ArrayList<UltiProVo> indexH();
+	public ArrayList<UltiProVo> indexL();
 }

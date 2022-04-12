@@ -66,6 +66,7 @@ public class TripleController {
 		 * if(authentication==null) { return "index"; }else{ String id =
 		 * authentication.getName(); memberService.info(model,id); }
 		 */
+		productService.index(model);
 
 		return "index";
 	}
@@ -136,8 +137,10 @@ public class TripleController {
 		magVo.setMgz_id(mid);
 		//magVo.setMgz_admin_id(principal.getName());
 		
+		//System.out.println(image_file_name_h);
+		
 		fileService.save(mhsr, image_file_name_h);
-		if(image_file_name_h.get(0)!=null) {
+		if(image_file_name_h.size()!=0) {
 			magVo.setMgz_thub(image_file_name_h.get(0).toString());
 		}
 		magSerivce.save(magVo);

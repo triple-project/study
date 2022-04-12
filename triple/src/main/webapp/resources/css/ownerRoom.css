@@ -19,9 +19,8 @@
 
 
 #sec_reg .oReg .oReg_in .oReg_room {display: flex;margin: 20px 0;}
-#sec_reg .oReg .oReg_in .oReg_room .reg_room {width: 100px;height: auto;justify-content: center;align-items: center;border-right: 1px solid #999;}
-#sec_reg .oReg .oReg_in .oReg_room p {text-align:center;line-height:40px;}
-#sec_reg .oReg .oReg_in .oReg_room .reg_room .r_com {border-bottom:1px solid #999;height: 40px;}
+#sec_reg .oReg .oReg_in .oReg_room .reg_room {width: 100px;height: auto;justify-content: center;align-items: center;}
+#sec_reg .oReg .oReg_in .oReg_room .reg_room .r_com {height: 40px;}
 #sec_reg .oReg .oReg_in .oReg_room .reg_room .rname {border-top: 1px solid #999;}
 #sec_reg .oReg .oReg_in .oReg_room .reg_room .rword {}
 #sec_reg .oReg .oReg_in .oReg_room .reg_room .rimg {height: 200px;line-height: 200px;}
@@ -31,22 +30,35 @@
 
 /* 객실등록 폼 */
 #sec_reg .oReg .oReg_in .oReg_room .room_form {width: 100%;height: auto;}
-#sec_reg .oReg .oReg_in .oReg_room .room_form .rf_com {border-bottom:1px solid #999;height: 40px;padding:5px;}
-#sec_reg .oReg .oReg_in .oReg_room .room_form .rfname {border-top:1px solid #999;}
-#sec_reg .oReg .oReg_in .oReg_room .room_form .rfname input {width: 100%;height: 30px;padding-left:5px;border:none;outline: none;}
-#sec_reg .oReg .oReg_in .oReg_room .room_form .rfword {}
-#sec_reg .oReg .oReg_in .oReg_room .room_form .rfword input {width: 100%;height: 30px;padding-left:5px;border:none;outline: none;}
+#sec_reg .oReg .oReg_in .oReg_room .room_form .roomf_com{display: flex;}
+#sec_reg .oReg .oReg_in .oReg_room .room_form .rf_com {padding:5px;}
 
-#sec_reg .oReg .oReg_in .oReg_room .room_form .rfimgframe {width:100%;height: 200px;border-bottom:1px solid #999;}
-#sec_reg .oReg .oReg_in .oReg_room .room_form .rfimgframe img {width: 220px;height: 150px;border-radius: 10px;cursor:pointer;box-shadow: 0 0 4px rgb(0,0,0,.6);margin-right: 5px;}
-#sec_reg .oReg .oReg_in .oReg_room .room_form .rfimgframe .rfimg {height: 170px;display:flex;justify-content: flex-start;align-items: center;border-bottom:none;height: 170px;}
-#sec_reg .oReg .oReg_in .oReg_room .room_form .rfimgframe .rfimg .rfimg_com{height: 150px;float:left;margin-bottom:5px;border-radius: 10px;margin-right: 9px;}
-#sec_reg .oReg .oReg_in .oReg_room .room_form .rfimgframe .rfimg1 {display: flex;justify-content: flex-start;align-items: center;}
-#sec_reg .oReg .oReg_in .oReg_room .room_form .rfimgframe .rfimg2 {}
-#sec_reg .oReg .oReg_in .oReg_room .room_form .rfimgframe .rfimg3 {}
-#sec_reg .oReg .oReg_in .oReg_room .room_form .rfimgframe .rfinputframe .rfimginput input {display: inline-block; width: 225px; padding-left:5px;}
-#sec_reg .oReg .oReg_in .oReg_room .room_form .rfprice {}
-#sec_reg .oReg .oReg_in .oReg_room .room_form .rfprice input {width: 200px;height: 30px;padding-left:5px;border:none;outline: none;}
+#sec_reg .oReg .oReg_in .oReg_room .room_form .room_form1 {border-top:1px solid #999;border-bottom: 1px solid #999;}
+#sec_reg .oReg .oReg_in .oReg_room .room_form .room_form1 .rname {width: 100px;height: 40px;}
+#sec_reg .oReg .oReg_in .oReg_room .room_form .room_form1 .rname p {text-align:center;line-height:40px;}
+#sec_reg .oReg .oReg_in .oReg_room .room_form .room_form1 .rfname {}
+#sec_reg .oReg .oReg_in .oReg_room .room_form .room_form1 .rfname input {width: 100%;height: 30px;padding-left:5px;border:none;outline: none;}
+
+#sec_reg .oReg .oReg_in .oReg_room .room_form .room_form2 {border-bottom:1px solid #999;}
+#sec_reg .oReg .oReg_in .oReg_room .room_form .room_form2 .rword {width: 100px;}
+#sec_reg .oReg .oReg_in .oReg_room .room_form .room_form2 .rword p {text-align:center;line-height:40px;width: 100px;}
+#sec_reg .oReg .oReg_in .oReg_room .room_form .room_form2 .rfword {width: 100%;height: auto;font-size: 14px;}
+#sec_reg .oReg .oReg_in .oReg_room .room_form .room_form2 .rfword p {margin-top:10px;padding-left: 5px;}
+
+#sec_reg .oReg .oReg_in .oReg_room .room_form .room_form3 {border-bottom:1px solid #999;}
+#sec_reg .oReg .oReg_in .oReg_room .room_form .room_form3 .rimg {height: 200px;line-height: 200px;width: 100px;}
+#sec_reg .oReg .oReg_in .oReg_room .room_form .room_form3 .rimg p {text-align:center;line-height:40px;}
+#sec_reg .oReg .oReg_in .oReg_room .room_form .room_form3 .rfimgframe {width:100%;height: 200px;}
+#sec_reg .oReg .oReg_in .oReg_room .room_form .room_form3 .rfimgframe img {width: 220px;height: 150px;border-radius: 10px;cursor:pointer;box-shadow: 0 0 4px rgb(0,0,0,.6);margin-right: 5px;}
+#sec_reg .oReg .oReg_in .oReg_room .room_form .room_form3 .rfimgframe .rfimg {height: 170px;display:flex;justify-content: flex-start;align-items: center;border-bottom:none;height: 170px;}
+#sec_reg .oReg .oReg_in .oReg_room .room_form .room_form3 .rfimgframe .rfimg .rfimg_com{height: 150px;float:left;margin-bottom:5px;border-radius: 10px;margin-right: 9px;}
+#sec_reg .oReg .oReg_in .oReg_room .room_form .room_form3 .rfimgframe .rfimg1 {display: flex;justify-content: flex-start;align-items: center;}
+#sec_reg .oReg .oReg_in .oReg_room .room_form .room_form3 .rfimgframe .rfinputframe .rfimginput input {display: inline-block; width: 225px; padding-left:5px;}
+#sec_reg .oReg .oReg_in .oReg_room .room_form .room_form4 {border-bottom:1px solid #999;}
+#sec_reg .oReg .oReg_in .oReg_room .room_form .room_form4 .rprice {width: 100px;height: 40px;justify-content: center;align-items: center;}
+#sec_reg .oReg .oReg_in .oReg_room .room_form .room_form4 .rprice p {text-align:center;line-height:40px;}
+#sec_reg .oReg .oReg_in .oReg_room .room_form .room_form4 .rfprice {width: 100px;height: 40px;justify-content: center;align-items: center;}
+#sec_reg .oReg .oReg_in .oReg_room .room_form .room_form4 .rfprice input {width: 200px;height: 30px;padding-left:5px;border:none;outline: none;}
 /* 객실등록 폼 */
 
 /* 하단버튼 */

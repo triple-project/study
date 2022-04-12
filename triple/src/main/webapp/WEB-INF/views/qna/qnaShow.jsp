@@ -97,7 +97,7 @@
 					<c:forEach items="${qrVoList}" var="rep">
 							<div class="qscomment">
 								<p>관리자 : </p> 
-								<div>${rep.rep}</div>
+								<div class="qsdiv">${rep.rep}</div>
 							</div>
 					</c:forEach>
 
@@ -106,12 +106,14 @@
 							<h5>문의글 답변하기. 관리자 전용</h5>
 							<form method="post" action="/qna/qnaShow" id="qnacommentwrite" onsubmit="qos()">
 								<div class="qsadmin_comment">
-									<div contenteditable="true" id="repd">
+									<div class="qsa_cominput" contenteditable="true" id="repd">
 										매크로 답변입니다.
 									</div>
+
 									<input type="hidden" name="rep" id="rep">
 									<input type="hidden"
 										name="q_id" value="${qvo.q_id}">
+
 									<div class="qscommentbtn">
 										<p onclick="$('#qnacommentwrite').submit()">댓글 작성</p>
 									</div>
