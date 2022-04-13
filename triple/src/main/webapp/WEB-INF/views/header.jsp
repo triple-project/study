@@ -70,7 +70,8 @@
 				success : function(data) {
 	           		 // C에서 받아온 데이터로 새로 뿌려주기
 					//console.log(data);
-					$("#heart_num").html(data.heart)
+					$("#heart_num").html(data.heart+'<span> 개</span>')
+					$("#heart_num2").html(data.heart2+'<span> 개</span>')
 					$("#plan_num").html(data.plan)
 					$("#review_num").html(data.review)
 					$("#pi").attr("src","/resources/img/upload/" + data.pro_mem_img);
@@ -1056,6 +1057,18 @@
 						</li>
 
 						<li>
+							<security:authorize access="isAnonymous()">
+							<a>
+								<div class="num">
+									<!-- jsp코드 -->
+									<span id="review_num"><p></p>	</span>	
+								</div>
+								<div class="txt">
+									<h4>리뷰</h4>
+								</div>
+							</a>
+							</security:authorize>
+							<security:authorize access="isAuthenticated()">
 							<a onclick="freview()">
 								<div class="num">
 									<!-- jsp코드 -->
@@ -1065,6 +1078,7 @@
 									<h4>리뷰</h4>
 								</div>
 							</a>
+							</security:authorize>
 						</li>
 
 						<li>
@@ -1087,11 +1101,40 @@
 			<div class="l_menu_in">
 				<ul>
 					<li>
+					<security:authorize access="isAuthenticated()">
 						<a href="/mySave">
-							<h3>내 저장</h3>
+					</security:authorize>
+					<security:authorize access="isAnonymous()">
+						<a >
+					</security:authorize>
+							<h3>내 <i class="fa-solid fa-heart" style="color:red"></i>상품</h3>
 							<div class="l_wrap">
 								<div class="num" id="heart_num">
 									<!-- jsp코드 -->
+									0
+									<span> 개</span>
+								</div>
+								
+								<div class="arrow_btn">
+									<i class="fa-solid fa-chevron-right"></i>
+								</div>
+							</div>
+						</a>
+					</li>
+					
+					<li>
+						<security:authorize access="isAuthenticated()">
+							<a href="/myMSave">
+						</security:authorize> 
+						<security:authorize access="isAnonymous()">
+							<a>
+						</security:authorize>
+						<h3>내 <i class="fa-solid fa-heart" style="color:red"></i>매거진</h3>
+							<div class="l_wrap">
+								<div class="num" id="heart_num2">
+									<!-- jsp코드 -->
+									0
+									<span> 개</span>
 								</div>
 								<div class="arrow_btn">
 									<i class="fa-solid fa-chevron-right"></i>
@@ -1111,21 +1154,7 @@
 						</a>
 					</li>
 
-					<li>
-						<a href="javascript:;">
-							<h3>쿠폰함</h3>
-							<div class="l_wrap">
-								<div class="num">
-									<!-- jsp코드 -->
-									0
-									<span> 개</span>
-								</div>
-								<div class="arrow_btn">
-									<i class="fa-solid fa-chevron-right"></i>
-								</div>
-							</div>
-						</a>
-					</li>
+					
 
 					<!-- <li>
 						<a href="javascript:;">

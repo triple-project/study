@@ -103,7 +103,7 @@
 							<div class="pfcategory pf_com">
 								<select name="product_category" id="product_category"
 									onchange="change_tag()">
-									<option value="" selected="selected" hidden="hidden">카테고리를
+									<option value="호텔" selected="selected" hidden="hidden">카테고리를
 										선택해 주세요.</option>
 									<option value="호텔">호텔</option>
 									<option value="리조트">리조트</option>
@@ -137,7 +137,7 @@
 
                             <div class="pfcity pf_com">
                                 <select name="product_city" id="">
-                                    <option value="" selected="selected" hidden="hidden">도시를 선택해 주세요.</option>
+                                    <option value="서울" selected="selected" hidden="hidden">도시를 선택해 주세요.</option>
                                     <option value="서울">서울</option>
 									<option value="대전">대전</option>
 									<option value="대구">대구</option>

@@ -6,4 +6,5 @@ import lombok.Data;
 public class HeartVo {
 	private String mem_id;
 	private String heart_id;
+	private String heart_cate;
 }

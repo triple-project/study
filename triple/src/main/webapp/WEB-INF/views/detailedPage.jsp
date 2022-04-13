@@ -158,7 +158,8 @@
 				data : {
 					mem_id : $("#sat").text(),
 					heart_id : h,
-					cheart : c
+					cheart : c,
+					heart_cate : '1'
 				},
 				success : function(data) {
 	           		 // C에서 받아온 데이터로 새로 뿌려주기
@@ -367,7 +368,7 @@ function intra() {
 
                                                 <!-- 로그인안한경우 -->
                                                 <security:authorize access="isAnonymous()">
-                                                    <div class="heartBox">
+                                                    <div class="heartBox" style="top:150px ;">
                                                         <div onclick="heart2()" class="heartIcon" style="font-size: 24px">
                                                             <i class="fa-regular fa-heart"></i>
                                                             <div class="heartNum">${heartcount}</div>
@@ -376,7 +377,7 @@ function intra() {
                                                 </security:authorize>
                                                 <!-- 로그인한경우 -->
                                                 <security:authorize access="isAuthenticated()">
-                                                    <div class="heartBox">
+                                                    <div class="heartBox" style="top:150px ;">
                                                         <div class="proaddbtn probtn_com" onclick="heart()">
                                                             <div id="ffhd" class="heartIcon">
                                                                 <div style="font-size: 24px">

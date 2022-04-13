@@ -50,7 +50,8 @@
 				data : {
 					mem_id : $("#sat").text(),
 					heart_id : h,
-					cheart : c
+					cheart : c,
+					heart_cate : '2'
 				},
 				success : function(data) {
 	           		 // C에서 받아온 데이터로 새로 뿌려주기

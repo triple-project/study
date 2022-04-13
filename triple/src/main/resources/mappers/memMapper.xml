@@ -11,7 +11,16 @@
 		select count(*)
 		from heart
 		where mem_id = #{mem_id}
+		and heart_cate = '1'
 	</select>
+	
+	<select id="c_heart2" resultType="String">
+		select count(*)
+		from heart
+		where mem_id = #{mem_id}
+		and heart_cate = '2'
+	</select>
+	
 	<select id="c_plan" resultType="String">
 		select count(*)
 		from myplan
@@ -84,6 +93,11 @@
 	
 	<insert id="hearton">
 		insert into heart
+		values (#{mem_id},#{heart_id},#{heart_cate})
+	</insert>
+	
+	<insert id="hearton2">
+		insert into heart
 		values (#{mem_id},#{heart_id})
 	</insert>
 	
@@ -136,6 +150,7 @@
 		select heart_id
 		from heart
 		where mem_id = #{mem_id}
+		and heart_cate = '1'
 	</select>
 	
 	<select id="fmySave" resultType="ProVo">
@@ -148,6 +163,19 @@
 		select *
 		from myproduct
 		where mem_id = #{mem_id}
+	</select>
+	
+	<select id="myMSave" resultType="String">
+		select heart_id
+		from heart
+		where mem_id = #{mem_id}
+		and heart_cate = '2'
+	</select>
+	
+	<select id="fmyMSave" resultType="MagVo">
+		select *
+		from magazine
+		where mgz_id = #{mgz_id}
 	</select>
 
 </mapper>

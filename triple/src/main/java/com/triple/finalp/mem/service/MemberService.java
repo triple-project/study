@@ -54,4 +54,8 @@ public interface MemberService {
 	public void mySave2(Model model, String name, int page);
 
 	public void mypro(Model model, String name);
+
+	public void myMSave(Model model, String name);
+
+	public void myMSave2(Model model, String name, int page);
 }

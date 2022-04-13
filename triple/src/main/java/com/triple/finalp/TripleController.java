@@ -99,6 +99,20 @@ public class TripleController {
 		return "mySave";
 	}
 	
+	@RequestMapping(value = "/myMSave", method = RequestMethod.GET)
+	public String myMSave(Model model,Principal principal) {
+		// 인덱스로 보내기
+			memberService.myMSave(model,principal.getName());
+		return "mySave2";
+	}
+	
+	@RequestMapping(value = "/myMSave/{page}", method = RequestMethod.GET)
+	public String myMSave2(@PathVariable("page") int page,Model model,Principal principal) {
+		// 인덱스로 보내기
+			//memberService.myMSave2(model,principal.getName(),page);
+		return "mySave2";
+	}
+	
 	@RequestMapping(value = "/myReserv", method = RequestMethod.GET)
 	public String mypro(Model model,Principal principal) {
 		// 인덱스로 보내기

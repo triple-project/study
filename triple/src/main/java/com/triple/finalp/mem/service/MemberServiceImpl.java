@@ -54,6 +54,7 @@ public class MemberServiceImpl implements MemberService{
 	public Map<String, String> info(String mem_id) {
 		Map<String, String> info = new HashMap<String, String>();
 		info.put("heart",memDao.c_heart(mem_id));
+		info.put("heart2",memDao.c_heart2(mem_id));
 		info.put("plan",memDao.c_plan(mem_id));
 		info.put("review",memDao.c_review(mem_id));
 		info.put("pro_mem_img",memDao.pi(mem_id));
@@ -285,6 +286,38 @@ public class MemberServiceImpl implements MemberService{
 		ArrayList<MyproductVo> mpl = memDao.mypro(mem_id);
 		//System.out.println(mpl);
 		model.addAttribute("mpl",mpl);
+	}
+
+	@Override
+	public void myMSave(Model model, String mem_id) {
+		List<String> msl = memDao.myMSave(mem_id);
+		ArrayList<MagVo> mhl = new ArrayList<MagVo>();
+		for (int i = 0; i < msl.size(); i++) {
+			MagVo magVo = memDao.fmyMSave(msl.get(i));
+			mhl.add(magVo);
+		}
+		PageVo pageVo = new PageVo();
+		int page = 1;
+		int pageC = mhl.size();
+		if (pageC%10==0) {
+			pageVo.setPageC(pageC/10);
+		}else {
+			pageVo.setPageC((pageC/10)+1);
+		}		
+		pageVo.setPageS((page*10)-10);
+		pageVo.setPageE((page*10)-1);
+		pageVo.setPageO(page);
+		
+		model.addAttribute("page", pageVo);
+		model.addAttribute("mhl",mhl);
+		
+	}
+	
+	
+	@Override
+	public void myMSave2(Model model, String name, int page) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

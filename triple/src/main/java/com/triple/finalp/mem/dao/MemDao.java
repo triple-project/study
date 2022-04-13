@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import com.triple.finalp.data.vo.PayVo;
+import com.triple.finalp.mag.vo.MagVo;
 import com.triple.finalp.mem.vo.HeartVo;
 import com.triple.finalp.mem.vo.MemVo;
 import com.triple.finalp.mem.vo.MyPlanVo;
@@ -42,4 +43,7 @@ public interface MemDao {
 	public List<String> mySave(String mem_id);
 	public ProductVo fmySave(String string);
 	public ArrayList<MyproductVo> mypro(String mem_id);
+	public List<String> myMSave(String mem_id);
+	public MagVo fmyMSave(String string);
+	public String c_heart2(String mem_id);
 }

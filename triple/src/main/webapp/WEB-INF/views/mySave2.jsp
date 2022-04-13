@@ -97,22 +97,22 @@
                   <p>${num}</p>
                </div>
                <div class="ms_conimg">
-                  <img src="/resources/img/upload/${ml.product_img1}">
+                  <img src="/resources/img/upload/${ml.mgz_thub}">
                </div>
                <div class="ms_conname">
-                  <p>${ml.product_name}</p>
+                  <p>${ml.mgz_title}</p>
                </div>
                <div class="ms_conaddr">
-                  <p>${ml.product_address}</p>
+                  <p>${ml.mgz_date}</p>
                </div>
                <div class="ms_concity">
-                  <p>${ml.product_city}</p>
+                  <p>${ml.mgz_city}</p>
                </div>
                <div class="ms_concate">
-                  <p>${ml.product_category}</p>
+                  <p>${ml.mgz_category}</p>
                </div>
                <div class="ms_conbtn">
-                  <div class="ms_viewbtn ms_btncom" onclick="location.href='/category/${ml.product_id}'">
+                  <div class="ms_viewbtn ms_btncom" onclick="location.href='/mv/${ml.mgz_id}'">
                      <p>보러가기</p>
                   </div>
                   <!-- <div class="ms_delbtn ms_btncom" onclick="">
