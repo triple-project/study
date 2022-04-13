@@ -327,7 +327,7 @@ function intra() {
 							+ end.format('YYYY-MM-DD') + ' (predefined range: '
 							+ label + ')');
 				});
-	});
+	}); 
 </script>
 
 </head>

@@ -151,8 +151,8 @@
         }
 
         // 객실가격 , 찍기
-        const inputcomma = 
-            document.querySelector("#sec_reg .pricecomma");
+         const inputcomma = 
+            document.querySelector("#sec .pricecomma");
             inputcomma.addEventListener('keyup', function(ee){
                 let value = ee.target.value;
                 value = Number(value.replaceAll(',',''));
@@ -162,7 +162,7 @@
                     const formatValue = value.toLocaleString('ko-KR');
                     inputcomma.value = formatValue;
                 }
-            })
+            }); 
 
         // 객실등록 이미지 프리뷰
         var filename = new Array();
@@ -170,7 +170,7 @@
         function rfpreview(event) { 
         	var file = event.target.files[0]; //파일에 대한 정보
     		filename.push(file.name);
-        	console.log(file);
+        	//console.log(file);
         	
             for (var rfimgpreview of event.target.files) { 
 	                var reader = new FileReader(); 
@@ -231,47 +231,11 @@
 				console.log(fArray);
 			}
 			$('#rimage_h').val(fArray);
-			console.log($('#rimage_h').val());
+			//console.log($('#rimage_h').val());
 		}
 
 
-        // 객실등록 개수 늘리기
-        let raddcount = 0;
-        let roomdiv = "";
-        let newdiv = "";
-        let didarray = new Array();
-        function roomclone(){
-            raddcount++;
-            roomdiv = document.getElementById('roomregistration');
-            // 노드복사
-            newdiv = roomdiv.cloneNode(true);
-            document.getElementById('roomregistration').appendChild(newdiv);
-            // 복사된 노드 id 변경
-            newdiv.id = 'roomregistration' + raddcount;   
-                    
-            if(newdiv.id == 'roomregistration1'){
-                didarray[0] = 'roomregistration1';
-            }else {
-                for(var i = 1 ; i < raddcount; i++){
-                    for(var j = i; j < i+1 ; j++){
-                        j++;
-                        didarray[i] = 'roomregistration' + j;
-                    }
-                }
-            }
-
-            // 복사한 노드 붙여넣기
-            roomdiv.after(newdiv);
-        }
-
-        // 객실등록 개수 줄이기
-        function roomdel(){
-            let lastdiv = didarray[didarray.length -1];
-            const arrdel = document.getElementById(lastdiv);
-            arrdel.remove();
-            didarray.pop();
-            raddcount--;
-        }
+        
     
         var roomheight = $('#pd_contentsd').height();
         $('#htest1').css("height",roomheight+"px");

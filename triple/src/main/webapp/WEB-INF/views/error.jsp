@@ -8,7 +8,7 @@
 </head>
 <body>
 	<a href="/">
-   <img src="resources/img/404.png" width="800">
+   <img src="/resources/img/404.png" width="800">
    </a>
 </body>
 </html>
