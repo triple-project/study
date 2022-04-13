@@ -315,8 +315,39 @@ public class MemberServiceImpl implements MemberService{
 	
 	
 	@Override
-	public void myMSave2(Model model, String name, int page) {
+	public void myMSave2(Model model, String mem_id, int page) {
 		// TODO Auto-generated method stub
+		List<String> msl = memDao.myMSave(mem_id);
+		ArrayList<MagVo> mhl = new ArrayList<MagVo>();
+		for (int i = 0; i < msl.size(); i++) {
+			MagVo magVo = memDao.fmyMSave(msl.get(i));
+			mhl.add(magVo);
+		}
+		PageVo pageVo = new PageVo();
+		
+		int pageC = mhl.size();
+		if (pageC%10==0) {
+			pageVo.setPageC(pageC/10);
+		}else {
+			pageVo.setPageC((pageC/10)+1);
+		}		
+		pageVo.setPageS((page*10)-10);
+		pageVo.setPageE((page*10)-1);
+		pageVo.setPageO(page);
+		
+		model.addAttribute("page", pageVo);
+		model.addAttribute("mhl",mhl);
+	}
+
+	@Override
+	public String bimil(MemVo memVo) {
+		// TODO Auto-generated method stub
+		int bimil = memDao.bimil(memVo);
+		if (bimil==1) {
+			return "wan";
+		}else {
+			return "nowan";
+		}
 		
 	}
 

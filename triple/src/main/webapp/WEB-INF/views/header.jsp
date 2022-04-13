@@ -66,6 +66,34 @@
 		location.href="/logout";
 	}
 	
+	function bimil() {
+		$.ajax({
+			type : "POST",
+			url : "/rest/bimil",
+				dataType : "json",
+				data : {
+					mem_id : $("#bimil_id").val(),
+					e_mail : $("#bimil_e_mail").val()
+				},
+				success : function(data) {
+	           		if(data=='wan'){
+	           			console.log(data);
+	           			$("#bimil_id").prop('readonly',true);
+	           			$("#bimil_e_mail").prop('readonly',true);
+	           			$("#fpw_form").css('display','none');
+	           			$("#fpw_form2").css('display','block');
+	           			
+	           			
+	           		 }else {
+						alert('일치하지 않는 정보 입니다.')
+					}
+				},
+				error : function(a){
+					console.log(a);
+	            }
+			});
+	} 
+	
 	function mtest() {
 		$.ajax({
 			type : "POST",
@@ -1352,7 +1380,7 @@
 							<span>자동로그인</span>
 							<input type="checkbox" name="remember_me" id="remember_me" value="off">
 							<div class="join_info">
-								<P><a href="javascript:;">비밀번호 찾기</a></P>
+								<P id="findpw"><a href="javascript:;">비밀번호 찾기</a></P>
 								<P><a href="javascript:;" id="gotombs">회원가입</a></P>
 							</div>
 						</div>
@@ -1971,6 +1999,37 @@
 		</div>
 	</div>
 </div>
+
+   <!-- 비밀번호 찾기  -->
+   <div id="fpw">
+      <div class="fpw_in">
+         <h3>비밀번호 찾기</h3>
+         <div class="fpw_top">
+            <form action="" method="post" id="fpw_form">
+               <div class="fpw_topleft">
+                  <div class="fpw_id">
+                     <p>아이디</p>
+                     <input type="text" placeholder="아이디를 입력해주세요." id="bimil_id" required="required">
+                  </div>
+                  <div class="fpw_email">
+                     <p>이메일</p>
+                     <input type="text" placeholder="이메일을 입력해주세요." id="bimil_e_mail" required="required">
+                  </div>
+               </div>
+               <div class="fpw_topright">
+                  <!-- div class="fpw_top_btn" onclick="$('#fpw_form').submit()"> -->
+                  <div class="fpw_top_btn" onclick="bimil()">
+                     <p>비밀번호 찾기</p>
+                  </div>
+               </div>
+            </form>
+            <form action="" style="display: none;" id="fpw_form2">
+            비밀	<input type="text">
+            </form>
+         </div>
+      </div>
+   </div>
+   <!-- 비밀번호 찾기 끝 -->
 
 <div id="myInfoCover"></div>
 <!-- 회원 리뷰 등 정보 추가 끝 -->

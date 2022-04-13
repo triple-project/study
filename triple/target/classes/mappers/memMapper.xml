@@ -177,5 +177,12 @@
 		from magazine
 		where mgz_id = #{mgz_id}
 	</select>
+	
+	<select id="bimil" resultType="int">
+	 	select count(*)
+	 	from member
+	 	where mem_id = #{mem_id}
+	 	and e_mail = #{e_mail}
+	</select>
 
 </mapper>

@@ -58,4 +58,6 @@ public interface MemberService {
 	public void myMSave(Model model, String name);
 
 	public void myMSave2(Model model, String name, int page);
+
+	public String bimil(MemVo memVo);
 }

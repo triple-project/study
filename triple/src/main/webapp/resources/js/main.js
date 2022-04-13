@@ -521,5 +521,11 @@ $(function() {
 	$(".six .sixCon ul li .info > div pre").click(function(){
 		$(this).addClass("on");
 	});
+	
+	   //로그인 창에서 비밀번호 찾기 눌렀을 시
+   $("#findpw").click(function(){
+      $("#fpw").addClass("on");
+      $("#join").removeClass("on");
+   });
 
 });

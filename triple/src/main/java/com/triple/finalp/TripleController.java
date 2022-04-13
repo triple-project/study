@@ -96,7 +96,7 @@ public class TripleController {
 	@RequestMapping(value = "/myMSave/{page}", method = RequestMethod.GET)
 	public String myMSave2(@PathVariable("page") int page,Model model,Principal principal) {
 		// 인덱스로 보내기
-			//memberService.myMSave2(model,principal.getName(),page);
+			memberService.myMSave2(model,principal.getName(),page);
 		return "mySave2";
 	}
 	

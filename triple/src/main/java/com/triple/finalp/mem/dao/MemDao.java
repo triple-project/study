@@ -46,4 +46,5 @@ public interface MemDao {
 	public List<String> myMSave(String mem_id);
 	public MagVo fmyMSave(String string);
 	public String c_heart2(String mem_id);
+	public int bimil(MemVo memVo);
 }

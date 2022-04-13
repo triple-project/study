@@ -22,6 +22,7 @@ import com.triple.finalp.data.vo.PayVo;
 import com.triple.finalp.data.vo.TrainVo;
 import com.triple.finalp.mem.service.MemberService;
 import com.triple.finalp.mem.vo.HeartVo;
+import com.triple.finalp.mem.vo.MemVo;
 import com.triple.finalp.mem.vo.MyPlanVo;
 import com.triple.finalp.mem.vo.MyproductVo;
 import com.triple.finalp.mem.vo.PlanConVo;
@@ -189,6 +190,18 @@ public class TripleRestController {
 		ObjectMapper mapper = new ObjectMapper();
 		response.getWriter().print(mapper.writeValueAsString(wan));
 		response.getWriter().flush();
+	}
+	
+	@RequestMapping(value = "/bimil", method = RequestMethod.POST)
+	public void hearton(MemVo memVo, HttpServletResponse response) throws JsonGenerationException, JsonMappingException, IOException {
+		// 비밀벊찾기1
+		System.out.println(memVo);
+		ObjectMapper mapper = new ObjectMapper();
+		String wan = memberService.bimil(memVo);
+		//Object wan = "hwan";
+		
+		response.getWriter().print(mapper.writeValueAsString(wan));
+		response.getWriter().flush();			
 	}
 
 }
