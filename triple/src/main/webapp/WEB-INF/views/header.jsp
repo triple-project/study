@@ -730,9 +730,10 @@
 							+ "<div>" + '<p>' + data[i].product_name + '</p>'
 							+ '<p>' + data[i].product_shortword + '</p>'
 							+ '<p>' + data[i].product_address + '</p>'
-							+ '<h5><i class="fa-solid fa-xmark"></i></h5>'
+							
 						+ "</div>"
 					+ "</div>");
+				//'<h5><i class="fa-solid fa-xmark"></i></h5>'
 				}
 			},
 			error : function(a) {
@@ -740,6 +741,8 @@
 			}
 		});
 	}
+	
+	
 
 	function ftravel_goto(gdata) {
 		//console.log(gdata.children.item(1).innerText);
