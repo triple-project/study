@@ -128,9 +128,8 @@
                                                             </li>
                                                         </ul>
                                                     </div>
-                                                    
-                                                    <h2><a href="/category/${pv.product_id}">상품정보보기</a></h2>
-                                                    <h2>${pv.pd_price}</h2>
+                                                    <%-- <h2>최저가 ${pv.pd_price}원</h2> --%>
+                                                    <h2>최저가 ${pv.pd_price}원&nbsp&nbsp&nbsp&nbsp&nbsp<a href="/category/${pv.product_id}">보러가기</a></h2>    
                                                 </div>
                                                 <!-- 슬라이드 -->
                                                 <div class="slide">

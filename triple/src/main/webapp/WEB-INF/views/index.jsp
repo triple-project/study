@@ -689,13 +689,17 @@
 										<div class="contentfootercover">
 											<div class="contentfooter">
 												<div class="contentheart">
-													<p>
-														<i class="fa-solid fa-heart"></i>
-													</p>
-													
-													<p>${uH.heart_count}</p>
+												<div>
 													<p>${uH.product_city}</p>
 													<p>${uH.product_category}</p>
+												</div>
+												<div style="float: right; margin-right: 36px;">
+													<p style="color: red;">
+														<i class="fa-solid fa-heart">
+														</i>
+													</p>
+													<p>${uH.heart_count}</p>
+												</div>
 												</div>
 											</div>
 										</div>

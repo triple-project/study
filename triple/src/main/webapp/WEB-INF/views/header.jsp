@@ -46,6 +46,13 @@
 
 	}
 	
+	  function ent(k) {
+		  //console.log(k.keyCode);
+		if(k.keyCode == 13){
+			login();
+		}
+	}  
+	
 	window.onload = function () {
 		/* var c = sessionStorage.getItem("code2"); */
 		var s = $("#sat").text();
@@ -1323,7 +1330,7 @@
 					
 					</h3>
 					<div class="login_frame1">
-						<form action="login" method="post" id="login">
+						<form action="/login" method="post" id="login" onsubmit="login()">
 							<div class="login_in">
 								<div class="login_id_input id_pw_input">
 									<span>아이디</span>
@@ -1331,7 +1338,7 @@
 								</div>
 								<div class="login_pw_input id_pw_input">
 									<span>비밀번호</span>
-									<input type="password" name="mem_pw" id="mem_pw"  placeholder="패스워드">
+									<input type="password" name="mem_pw" id="mem_pw"  placeholder="패스워드" onkeydown="ent(event)">
 								</div>
 							</div>
 							<div class="login_btn">
@@ -1345,7 +1352,7 @@
 							<span>자동로그인</span>
 							<input type="checkbox" name="remember_me" id="remember_me" value="off">
 							<div class="join_info">
-								<P style="display: none;"><a href="javascript:;">아이디/비밀번호 찾기 깜빡잊음</a></P>
+								<P><a href="javascript:;">비밀번호 찾기</a></P>
 								<P><a href="javascript:;" id="gotombs">회원가입</a></P>
 							</div>
 						</div>

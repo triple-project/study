@@ -80,12 +80,16 @@
                             <div class="poptripfootercover">
                                 <div class="poptripfooter">
                                     <div class="poptripheart">
-                                        <p>
+                                    <div>
+                                    	<p>${uH.product_city}</p>
+										<p>${uH.product_category}</p>
+                                    </div>
+                                    <div style="float: right; margin-right: 36px;">
+                                        <p style="color: red;">
                                             <i class="fa-solid fa-heart"></i>
                                         </p>
                                         <p>${uH.heart_count}</p>
-										<p>${uH.product_city}</p>
-										<p>${uH.product_category}</p>
+									</div>	
                                     </div>
                                 </div>
                             </div>
