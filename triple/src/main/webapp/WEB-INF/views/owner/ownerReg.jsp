@@ -7,7 +7,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=1300">
-        <title>owner Detail page</title>
+        <title>Triple</title>
         <link rel="stylesheet" href="/resources/css/reset.css">
         <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
         <link rel="stylesheet" href="/resources/css/mobiscroll.jquery.min.css">
@@ -91,7 +91,7 @@
                                 <input type="text" placeholder="상품아이디 입력해 주세요." onfocus="this.placeholder=''" onblur="this.placeholder='상품아이디 입력해 주세요.'" name="product_id">
                             </div> -->
                             <div class="pfname pf_com">
-                                <input type="text" placeholder="상품이름 입력해 주세요." onfocus="this.placeholder=''" onblur="this.placeholder='상품이름 입력해 주세요.'" name="product_name">
+                                <input type="text" placeholder="상품이름 입력해 주세요." onfocus="this.placeholder=''" onblur="this.placeholder='상품이름 입력해 주세요.'" name="product_name" required="required">
                             </div>
                             <div class="pfword pf_com">
                                 <input type="text" placeholder="한줄소개 입력해 주세요." onfocus="this.placeholder=''" onblur="this.placeholder='한줄소개를 입력해 주세요.'" name="product_shortword">
@@ -155,9 +155,9 @@
                             </div>
                             <div class="pfxy pf_com">
                                 <span>X </span>
-                                <input type="text" placeholder="값을 입력해 주세요."onfocus="this.placeholder=''" onblur="this.placeholder='값을 입력해 주세요.'" name="product_locationx">
+                                <input type="text" placeholder="값을 입력해 주세요."onfocus="this.placeholder=''" onblur="this.placeholder='값을 입력해 주세요.'" name="product_locationx" required="required">
                                 <span>Y </span>
-                                <input type="text" placeholder="값을 입력해 주세요."onfocus="this.placeholder=''" onblur="this.placeholder='값을 입력해 주세요.'" name="product_locationy">
+                                <input type="text" placeholder="값을 입력해 주세요."onfocus="this.placeholder=''" onblur="this.placeholder='값을 입력해 주세요.'" name="product_locationy" required="required">
                                 <div class="mapbtn" style="display: none;">
                                     <i class="fa-solid fa-location-dot"></i>
                                 </div>

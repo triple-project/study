@@ -92,19 +92,19 @@
                                                     <div>
                                                         <ul>
                                                             <li>
-                                                                <img  src="/resources/img/tag_final/${pv.tag_tag1}.png">
+                                                                <div style="border: none; background: url('/resources/img/tag_final/${pv.tag_tag1}.png') no-repeat 50% 50%; background-size: cover;width: 100%;height: 100%;"></div>
                                                             </li>
                                                             <li>
-                                                                <img  src="/resources/img/tag_final/${pv.tag_tag2}.png">
+                                                                <div style="border: none; background: url('/resources/img/tag_final/${pv.tag_tag2}.png') no-repeat 50% 50%; background-size: cover;width: 100%;height: 100%;"></div>
                                                             </li>
                                                             <li>
-                                                                <img  src="/resources/img/tag_final/${pv.tag_tag3}.png">
+                                                                <div style="border: none; background: url('/resources/img/tag_final/${pv.tag_tag3}.png') no-repeat 50% 50%; background-size: cover;width: 100%;height: 100%;"></div>
                                                             </li>
                                                             <li>
-                                                                <img  src="/resources/img/tag_final/${pv.tag_tag4}.png">
+                                                                <div style="border: none; background: url('/resources/img/tag_final/${pv.tag_tag4}.png') no-repeat 50% 50%; background-size: cover;width: 100%;height: 100%;"></div>
                                                             </li>
                                                             <li>
-                                                                <img  src="/resources/img/tag_final/${pv.tag_tag5}.png">
+                                                                <div style="border: none; background: url('/resources/img/tag_final/${pv.tag_tag5}.png') no-repeat 50% 50%; background-size: cover;width: 100%;height: 100%;"></div>
                                                             </li>
                                                         </ul>
                                                     </div>
@@ -130,6 +130,7 @@
                                                     </div>
                                                     
                                                     <h2><a href="/category/${pv.product_id}">상품정보보기</a></h2>
+                                                    <h2>${pv.pd_price}</h2>
                                                 </div>
                                                 <!-- 슬라이드 -->
                                                 <div class="slide">

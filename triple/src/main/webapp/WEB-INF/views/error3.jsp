@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>공사중입니다</title>
 </head>
 <body>
 <a href="/">

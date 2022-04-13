@@ -6,7 +6,7 @@
 <html style="height: 100%;">
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Triple</title>
 <link rel="stylesheet" href="/resources/css/reset.css">
 <link rel="stylesheet"
 	href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
@@ -62,6 +62,8 @@
 	rel="stylesheet">
 <script type="text/javascript">
 	function qs() {
+		var filech = $("#qimage_file_name").val();
+		
 		var q_contentd = document.getElementById('q_contentd')
 		document.getElementById('q_content').value = q_contentd.innerHTML;
 		var today = new Date();
@@ -69,11 +71,17 @@
 		var minutes = ('0' + today.getMinutes()).slice(-2);
 		var seconds = ('0' + today.getSeconds()).slice(-2);
 		var ti = hours + minutes + seconds;
-		var fileValue = $("#qimage_file_name").val().split("\\");
-		var fileName = fileValue[fileValue.length - 1]; // 파일명
-		/* console.log(fileName); image_file_name_h */
-		const a = $('#qimg_h').val(ti+fileName);
-		const b = $('#qimage_file_name_h').val(ti+fileName);
+		
+		if(!filech){
+			$('#qimg_h').val('문의.JPG');
+		}else {
+			var fileValue = $("#qimage_file_name").val().split("\\");
+			var fileName = fileValue[fileValue.length - 1]; // 파일명
+			/* console.log(fileName); image_file_name_h */
+			$('#qimg_h').val(ti+fileName);
+			$('#qimage_file_name_h').val(ti+fileName);
+			
+		}
 	}
 	   function qreadURL(input) {
 		      var file = input.files[0] //파일에 대한 정보

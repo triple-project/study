@@ -8,7 +8,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=1300">
-	<title>Document</title>
+	<title>Triple</title>
 	<link rel="stylesheet" href="resources/css/reset.css">
 	<link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
 	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
@@ -320,16 +320,16 @@
 				<div class="main_slider">
 					<div class="swiper-wrapper">
 						<div class="swiper-slide img1">
-							<a href="1"></a>
+							<a href="/category/admin120220413201506"></a>
 						</div>
 						<div class="swiper-slide img2">
-							<a href="2"></a>
+							<a href="/category/admin120220413193113"></a>
 						</div>
 						<div class="swiper-slide img3">
-							<a href="3"></a>
+							<a href="/category/"></a>
 						</div>
 						<div class="swiper-slide img4">
-							<a href="4"></a>
+							<a href="/category/"></a>
 						</div>
 					</div>
 					<div class="swiper-pagination main_pagi"></div>

@@ -71,19 +71,6 @@ public class TripleController {
 		return "index";
 	}
 
-	@RequestMapping(value = "/train", method = RequestMethod.GET)
-	public String train() {
-		// 인덱스로 보내기
-
-		return "test/train";
-	}
-
-	@RequestMapping(value = "/flight", method = RequestMethod.GET)
-	public String flight() {
-		// 인덱스로 보내기
-
-		return "test/flight";
-	}
 	
 	@RequestMapping(value = "/mySave", method = RequestMethod.GET)
 	public String mySave(Model model,Principal principal) {

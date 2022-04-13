@@ -128,6 +128,7 @@ public class SearchServiceImpl implements SearchService{
 						uProVo.setProduct_name(pList.get(i).getProduct_name());
 						uProVo.setProduct_shortword(pList.get(i).getProduct_shortword());
 						uProVo.setProduct_subcontent(pList.get(i).getProduct_subcontent());
+						uProVo.setPd_price(productDao.getpdp(pList.get(i).getProduct_id()));
 						tList = productDao.gettag(pList.get(i).getProduct_id());
 						//uProVo = new UltiProVo((pList.get(i)),tList.get(i));
 						for (int j = 0; j < tList.size(); j++) {

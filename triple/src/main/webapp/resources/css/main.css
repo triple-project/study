@@ -8,20 +8,20 @@
 #sec .main .main_slide .main_slider .swiper-slide{width:100%;height:100%;display: block;background: #000;}
 #sec .main .main_slide .main_slider .swiper-slide a{width: 100%;height: 100%;display: block;}
 
-#sec .main .main_slide .main_slider .swiper-slide.img1{background: url(../img/1.jpeg) no-repeat 50% 50%;background-size: cover;}
-#sec .main .main_slide .main_slider .swiper-slide.img2{background: url(../img/2.jpeg) no-repeat 50% 50%;background-size: cover;}
-#sec .main .main_slide .main_slider .swiper-slide.img3{background: url(../img/3.jpeg) no-repeat 50% 50%;background-size: cover;}
-#sec .main .main_slide .main_slider .swiper-slide.img4{background: url(../img/4.jpeg) no-repeat 50% 50%;background-size: cover;}
+#sec .main .main_slide .main_slider .swiper-slide.img1{background: url(../img/대문1.jpg) no-repeat 50% 50%;background-size: cover;}
+#sec .main .main_slide .main_slider .swiper-slide.img2{background: url(../img/대문2.jpg) no-repeat 50% 50%;background-size: cover;}
+#sec .main .main_slide .main_slider .swiper-slide.img3{background: url(../img/대문3.jpg) no-repeat 50% 50%;background-size: cover;}
+#sec .main .main_slide .main_slider .swiper-slide.img4{background: url(../img/대문4.jpg) no-repeat 50% 50%;background-size: cover;}
 
 #sec .main .main_slide .main_slider .main_pagi{height:61px;bottom:35px;z-index: 3;}
 #sec .main .main_slide .main_slider .main_pagi span{margin:0;padding:15px 0 40px;border-radius: 0;background: none;border-top:1px solid rgba(255,255,255,.5);position: relative;width:162.5px;opacity: 1;font-family: 'Noto Sans KR';font-size: 13px;overflow: hidden;}
 #sec .main .main_slide .main_slider .main_pagi span:after{width:97.5px;display: inline-block;text-align: left;margin-left:15px;color:#fff;height:36px;letter-spacing: -1px;}
 #sec .main .main_slide .main_slider .main_pagi span:before{content: "";border:2px solid #fff;width:4px;height:4px;display: inline-block;border-radius: 50%;position: absolute;margin-top:3px;background: #000;}
 
-#sec .main .main_slide .main_slider .main_pagi span:nth-child(1)::after{content: "글램핑/카라반/오토캠핑";width:84.5px;}
-#sec .main .main_slide .main_slider .main_pagi span:nth-child(2)::after{content: "Travel Pick";}
-#sec .main .main_slide .main_slider .main_pagi span:nth-child(3)::after{content: "봄 꽃 여행 BEST";}
-#sec .main .main_slide .main_slider .main_pagi span:nth-child(4)::after{content: "가성비 갑 전국 호텔";}
+#sec .main .main_slide .main_slider .main_pagi span:nth-child(1)::after{content: "[KTX]봄꽃특선! 천년고도 경주 왕벚꽃여행";width:84.5px;}
+#sec .main .main_slide .main_slider .main_pagi span:nth-child(2)::after{content: "청암산 자연속 오토캠핑/캐러번";}
+#sec .main .main_slide .main_slider .main_pagi span:nth-child(3)::after{content: "";}
+#sec .main .main_slide .main_slider .main_pagi span:nth-child(4)::after{content: "";}
 
 #sec .main .main_slide .main_slider .main_pagi span.swiper-pagination-bullet-active::before{border:2px solid #5de4c2;background: #fff;}
 #sec .main .main_slide .main_slider .main_pagi span.swiper-pagination-bullet-active{border-top:4px solid rgba(255,255,255,.7);}

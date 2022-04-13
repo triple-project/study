@@ -1147,7 +1147,12 @@
 					</li>
 
 					<li>
-						<a href="/myReserv">
+						<security:authorize access="isAuthenticated()">
+							<a href="/myReserv">
+						</security:authorize> 
+						<security:authorize access="isAnonymous()">
+						<a>
+						</security:authorize>
 							<h3>내 예약</h3>
 							<div class="l_wrap">
 								<div class="arrow_btn">
@@ -1340,7 +1345,7 @@
 							<span>자동로그인</span>
 							<input type="checkbox" name="remember_me" id="remember_me" value="off">
 							<div class="join_info">
-								<P><a href="javascript:;">아이디/비밀번호 찾기</a></P>
+								<P style="display: none;"><a href="javascript:;">아이디/비밀번호 찾기 깜빡잊음</a></P>
 								<P><a href="javascript:;" id="gotombs">회원가입</a></P>
 							</div>
 						</div>
@@ -1370,18 +1375,18 @@
                </div>
                <div class="mbs_pw1 mbs_con">
                   <span>비밀번호</span>
-                  <input type="password" name="mem_pw" id="pw1" placeholder="비밀번호 입력">
+                  <input type="password" name="mem_pw" id="pw1" placeholder="비밀번호 입력" maxlength="16" required="required">
                </div>
                <div class="mbs_pw2 mbs_con mbs_id_pw">
                   <span>비밀번호 확인</span>
-                  <input type="password" name="mem_pw2" id="pw2" placeholder="비밀번호 확인">
+                  <input type="password" name="mem_pw2" id="pw2" placeholder="비밀번호 확인" maxlength="16" required="required">
                   <p class="pwMsg_ok">비밀번호가 맞습니다.</p>
                   <p class="pwMsg_no">비밀번호가 틀립니다.</p>
                   <p id="pwMsg" class="at">비밀번호 를 입력해주세요.</p>
                </div>
                <div class="email">
                   <span>이메일</span>
-                  <input type="text" name="e_mail" id="e_mail" placeholder="메일주소 클릭해서 맞춰주세요">
+                  <input type="text" name="e_mail" id="e_mail" placeholder="메일주소 클릭해서 맞춰주세요" required="required">
                   <select name="e_mail2" id="e_mail2">
                      <option value="@naver.com">@naver.com</option>
                      <option value="@daum.net">@daum.net</option>
@@ -1391,11 +1396,11 @@
                </div>
                <div class="mbs_name mbs_con">
                   <span>이름</span>
-                  <input type="text" name="name" placeholder="이름 입력">
+                  <input type="text" name="name" placeholder="이름 입력" required="required" maxlength="14">
                </div>
                <div class="mbs_phone mbs_con">
                   <span>전화번호</span>
-                  <input type="text" name="tel" placeholder="전화번호 입력">
+                  <input type="text" name="tel" placeholder="전화번호 입력" required="required" maxlength="13">
                </div>
                <div class="mbs_profile">
                   <div class="profile_frame1">
@@ -1414,7 +1419,7 @@
                   </div>
                   <div class="profile_frame2">
                      <div class="preview">
-                           <img id="preview" src="#" width=100 height=100 alt="선택된 이미지가 없습니다" />
+                           <img id="preview" src="/resources/img/프로필.png" width=100 height=100 />
                      </div>
                   <!--    <span></span> -->
                   </div>

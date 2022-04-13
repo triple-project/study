@@ -725,6 +725,7 @@ function intra() {
 								<!-- 리뷰시작 -->
                                 <div class="six">
                                     <div class="sixIn">
+                                    	<security:authorize access="isAuthenticated()">
                                         <div class="tit">
                                             <h2>리뷰작성</h2>
                                         </div>
@@ -752,7 +753,7 @@ function intra() {
                                                     <li>
                                                         <h2>이미지</h2>
                                                         <div class="preview">
-                                                            <img id="rpreview" src="#" />
+                                                            <img id="rpreview" src="/resources/img/작은하얀이미지.png" />
                                                         </div>
                                                         <input type="file" name="rimage_file_name" id="rimage_file_name"
                                                             onchange="rreadURL(this);" />
@@ -766,6 +767,7 @@ function intra() {
                                                 <input type="hidden" id="r_comment" name="r_comment">
                                             </form>
                                         </div>
+                                        </security:authorize>
                                         <div class="tit">
                                             <h2>리뷰보기</h2>
                                         </div>

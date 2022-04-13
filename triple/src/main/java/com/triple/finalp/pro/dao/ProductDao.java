@@ -36,4 +36,5 @@ public interface ProductDao {
 	public ArrayList<UltiProVo> indexH();
 	public ArrayList<UltiProVo> indexL();
 	public ArrayList<UltiProVo> popList();
+	public String getpdp(String product_id);
 }

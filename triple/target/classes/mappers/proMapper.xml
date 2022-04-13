@@ -101,7 +101,12 @@
    </select>
    
    <select id="indexL" resultType="UltiVo">
-   		select p.product_id , product_img1, product_name , product_city , product_category , product_shortword , min(pd_price) as pd_price , (select count(*) from heart where HEART_ID = p.PRODUCT_ID) as heart_count
+   		select p.product_id , product_img1, product_name , product_city , product_category , product_shortword , 
+        (select pd_price
+   		from product_detail
+        where product_id = p.product_id
+        order by cast(pd_price as unsigned)
+        limit 1) as pd_price , (select count(*) from heart where HEART_ID = p.PRODUCT_ID) as heart_count
 		from product p join product_detail pd
 		on p.product_id = pd.product_id
 		group by product_id
@@ -116,6 +121,14 @@
 		group by product_id
 		order by heart_count desc
 		limit 32
+   </select>
+   
+   <select id="getpdp" resultType="String">
+   		select pd_price
+   		from product_detail
+   		where product_id = #{product_id}
+        order by cast(pd_price as unsigned)
+        limit 1
    </select>
    
 		

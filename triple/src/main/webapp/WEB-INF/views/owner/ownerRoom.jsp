@@ -6,7 +6,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=1300">
-        <title>owner Detail page</title>
+        <title>Triple</title>
         <link rel="stylesheet" href="../../resources/css/reset.css">
         <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
         <link rel="stylesheet" href="/resources/css/mobiscroll.jquery.min.css">
@@ -66,7 +66,7 @@
                                         <p>객실이름</p>
                                     </div>
                                     <div class="rfname rf_com">
-                                        <input type="text" placeholder="객실이름을 입력해 주세요." onfocus="this.placeholder=''" onblur="this.placeholder='객실이름을 입력해 주세요.'" name="pd_name">
+                                        <input type="text" placeholder="객실이름을 입력해 주세요." onfocus="this.placeholder=''" onblur="this.placeholder='객실이름을 입력해 주세요.'" name="pd_name" required="required">
                                     </div>
                                 </div>
 
@@ -162,7 +162,7 @@
                     const formatValue = value.toLocaleString('ko-KR');
                     inputcomma.value = formatValue;
                 }
-            }); 
+            });
 
         // 객실등록 이미지 프리뷰
         var filename = new Array();

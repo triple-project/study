@@ -6,7 +6,7 @@
 <html style="height: 100%;">
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Triple</title>
 <link rel="stylesheet" href="/resources/css/reset.css">
 <link rel="stylesheet"
 	href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
@@ -73,13 +73,13 @@
 		var ti = hours + minutes + seconds;
 		
 		if(!filech){
-			
+			$('#nimg_h').val('공지.JPG');
 		}else {
 			var fileValue = $("#nimage_file_name").val().split("\\");
 			var fileName = fileValue[fileValue.length - 1]; // 파일명
 			/* console.log(fileName); image_file_name_h */
-			const a = $('#nimg_h').val(ti+fileName);
-			const b = $('#nimage_file_name_h').val(ti+fileName);
+			$('#nimg_h').val(ti+fileName);
+			$('#nimage_file_name_h').val(ti+fileName);
 		}
 	}
 	

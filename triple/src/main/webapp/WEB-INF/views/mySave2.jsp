@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>내 저장</title>
+<title>Triple</title>
 <link rel="stylesheet" href="../../resources/css/reset.css">
 <link rel="stylesheet"
    href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />

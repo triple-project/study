@@ -6,7 +6,7 @@
 
 <head>
 	<meta charset="UTF-8">
-	<title>상품수정페이지</title>
+	<title>Triple</title>
 
 	<link rel="stylesheet" href="/resources/css/reset.css">
 
