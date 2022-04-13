@@ -77,22 +77,87 @@
 				},
 				success : function(data) {
 	           		if(data=='wan'){
-	           			console.log(data);
+	           			//console.log(data);
+	           			
+	           			alert('인증에 성공했습니다.');
+	           			
 	           			$("#bimil_id").prop('readonly',true);
 	           			$("#bimil_e_mail").prop('readonly',true);
 	           			$("#fpw_form").css('display','none');
-	           			$("#fpw_form2").css('display','block');
-	           			
-	           			
+	           			$("#fpw_form2").css('display','flex');
+	           				           			
 	           		 }else {
-						alert('일치하지 않는 정보 입니다.')
+						alert('일치하지 않는 정보 입니다.');
 					}
 				},
 				error : function(a){
 					console.log(a);
 	            }
 			});
-	} 
+	}
+	
+	function bimil3() {
+		if($("#newbimil").val()==''){
+			alert('변경할 비밀번호를 입력하세요');
+		}else{
+			if($("#newbimil2").val()===$("#newbimil").val()){
+				bimil2();
+			}else {
+				alert('비밀번호가 일치하지 않습니다');
+			}
+		}
+		
+	}
+	
+	function bimil2() {
+		$.ajax({
+			type : "POST",
+			url : "/rest/bimil2",
+				dataType : "json",
+				data : {
+					mem_id : $("#bimil_id").val(),
+					mem_pw : $("#newbimil2").val()
+				},
+				success : function(data) {
+	           		if(data=='wan'){
+	           			alert('비밀번호가 변경 되었습니다.');
+	           			/* console.log(data);
+	           			$("#bimil_id").prop('readonly',true);
+	           			$("#bimil_e_mail").prop('readonly',true);
+	           			$("#fpw_form2").css('display','none'); 
+	           			$("#fpw_form").css('display','block'); */	
+	           			location.reload();
+	           		 }else {
+						alert('실패했다ㅠ.');
+					}
+				},
+				error : function(a){
+					console.log(a);
+	            }
+			});
+	}
+	
+	/* 아이디체크용 ajax입니다 */
+	function idche() {
+		$.ajax({
+			type : "POST",
+			url : "/rest/idche",
+				dataType : "json",
+				data : {
+					mem_id : $("#mem_id").val()
+				},
+				success : function(data) {
+	           		if(data=='wan'){
+	           			alert('사용가능한 아이디 입니다')          			
+	           		 }else {
+						alert('불가능한 아이디 입니다')
+					}
+				},
+				error : function(a){
+					console.log(a);
+	            }
+			});
+	}
 	
 	function mtest() {
 		$.ajax({
@@ -1406,7 +1471,7 @@
             <form id="mbs" method="post" enctype="multipart/form-data" action="/join" onsubmit="amu()">
                <div class="mbs_id mbs_con mbs_id_pw">
                   <span>아이디</span>
-                  <input type="text" name="mem_id" placeholder="아이디 입력" maxlength="8">
+                  <input type="text" name="mem_id" id="mem_id" placeholder="아이디 입력" maxlength="8">
                </div>
                <div class="mbs_pw1 mbs_con">
                   <span>비밀번호</span>
@@ -2000,10 +2065,10 @@
 	</div>
 </div>
 
-   <!-- 비밀번호 찾기  -->
-   <div id="fpw">
-      <div class="fpw_in">
-         <h3>비밀번호 찾기</h3>
+         <!-- 비밀번호 찾기  -->
+      <div id="fpw">
+         <div class="fpw_in">
+        <h3>비밀번호 찾기</h3>
          <div class="fpw_top">
             <form action="" method="post" id="fpw_form">
                <div class="fpw_topleft">
@@ -2018,17 +2083,40 @@
                </div>
                <div class="fpw_topright">
                   <!-- div class="fpw_top_btn" onclick="$('#fpw_form').submit()"> -->
-                  <div class="fpw_top_btn" onclick="bimil()">
-                     <p>비밀번호 찾기</p>
+                  <div class="fpw_top_btn">
+                     <div class="fpw_top_fbtn" onclick="bimil()">
+                        <p>비밀번호</p>
+                        <p>찾기</p>
+                     </div>
                   </div>
                </div>
             </form>
-            <form action="" style="display: none;" id="fpw_form2">
-            비밀	<input type="text">
+            
+            <!-- 비밀번호 찾기 후 비밀번호 변경 -->
+            <form action="" id="fpw_form2">
+               <div class="fpw2_topleft">
+                  <div class="fpw2_pw1">
+                     <p>비밀번호</p>
+                     <input type="password" id="newbimil">
+                  </div>
+                  <div class="fpw2_pw2">
+                     <p>비밀번호 확인</p>
+                     <input type="password" id="newbimil2">
+                  </div>
+               </div>
+               <div class="fpw2_topright">
+                  <div class="fpw2_top_btn">
+                     <div class="fpw2_top_fbtn" onclick="bimil3()">
+                        <p>비밀번호</p>
+                        <p>변경</p>
+                     </div>
+                  </div>
+               </div>
             </form>
+            <!-- 비밀번호 찾기 후 비밀번호 변경 끝-->
          </div>
-      </div>
-   </div>
+        </div>
+    </div>
    <!-- 비밀번호 찾기 끝 -->
 
 <div id="myInfoCover"></div>

@@ -193,11 +193,35 @@ public class TripleRestController {
 	}
 	
 	@RequestMapping(value = "/bimil", method = RequestMethod.POST)
-	public void hearton(MemVo memVo, HttpServletResponse response) throws JsonGenerationException, JsonMappingException, IOException {
+	public void bimil(MemVo memVo, HttpServletResponse response) throws JsonGenerationException, JsonMappingException, IOException {
 		// 비밀벊찾기1
-		System.out.println(memVo);
+		//System.out.println(memVo);
 		ObjectMapper mapper = new ObjectMapper();
 		String wan = memberService.bimil(memVo);
+		//Object wan = "hwan";
+		
+		response.getWriter().print(mapper.writeValueAsString(wan));
+		response.getWriter().flush();			
+	}
+	
+	@RequestMapping(value = "/bimil2", method = RequestMethod.POST)
+	public void bimil2(MemVo memVo, HttpServletResponse response) throws JsonGenerationException, JsonMappingException, IOException {
+		// 비밀벊찾기1
+		//System.out.println(memVo);
+		ObjectMapper mapper = new ObjectMapper();
+		String wan = memberService.bimil2(memVo);
+		//Object wan = "hwan";
+		
+		response.getWriter().print(mapper.writeValueAsString(wan));
+		response.getWriter().flush();			
+	}
+	
+	@RequestMapping(value = "/idche", method = RequestMethod.POST)
+	public void idche(MemVo memVo, HttpServletResponse response) throws JsonGenerationException, JsonMappingException, IOException {
+		// 비밀벊찾기1
+		//System.out.println(memVo);
+		ObjectMapper mapper = new ObjectMapper();
+		String wan = memberService.idche(memVo);
 		//Object wan = "hwan";
 		
 		response.getWriter().print(mapper.writeValueAsString(wan));

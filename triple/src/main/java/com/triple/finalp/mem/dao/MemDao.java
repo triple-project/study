@@ -47,4 +47,5 @@ public interface MemDao {
 	public MagVo fmyMSave(String string);
 	public String c_heart2(String mem_id);
 	public int bimil(MemVo memVo);
+	public int idche(MemVo memVo);
 }

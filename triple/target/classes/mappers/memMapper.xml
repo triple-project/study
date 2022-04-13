@@ -184,5 +184,11 @@
 	 	where mem_id = #{mem_id}
 	 	and e_mail = #{e_mail}
 	</select>
+	
+	<select id="idche" resultType="int">
+		select count(*)
+	 	from member
+	 	where mem_id = #{mem_id}
+	</select>
 
 </mapper>

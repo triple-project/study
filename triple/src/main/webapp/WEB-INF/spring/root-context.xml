@@ -47,7 +47,7 @@
 		<security:intercept-url pattern="/user/*"
 			access="hasRole('ROLE_USER')" />
 		<security:intercept-url pattern="/admin/*"
-			access="permitAll" />
+			access="hasRole('ROLE_ADMIN')"  />
 <!-- 		<security:intercept-url pattern="/padmin/*"
 			access="hasRole('ROLE_PADMIN')" />
 		<security:intercept-url pattern="/sadmin/*"

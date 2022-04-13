@@ -351,4 +351,29 @@ public class MemberServiceImpl implements MemberService{
 		
 	}
 
+	@Override
+	public String bimil2(MemVo memVo) {
+		// TODO Auto-generated method stub
+		String mem_pw = memVo.getMem_pw();
+		mem_pw = "{bcrypt}"+ passwordEncoder.encode(mem_pw);
+	      memVo.setMem_pw(mem_pw);
+	    String mem_id = memVo.getMem_id();
+	      memDao.updatePw(mem_id,mem_pw);
+		return "wan";
+	}
+
+	@Override
+	public String idche(MemVo memVo) {
+		// TODO Auto-generated method stub
+		int idche = memDao.idche(memVo);
+		if (idche==0) {
+			
+			return "wan";
+		}else {
+			
+			return "nowan";
+		}
+	
+	}
+
 }

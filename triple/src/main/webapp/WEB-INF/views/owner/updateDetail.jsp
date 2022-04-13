@@ -109,6 +109,18 @@
          }
 
       }
+      
+   // 객실가격 숫자만 입력되게 하기
+      function checkNumber(event){
+          if(event.key >= 0 && event.key <=9){
+              return true;
+          }
+          return false;
+      }
+      
+   //콤마찍기
+      
+          
    </script>
 </head>
 
@@ -153,7 +165,8 @@
             <ul>
                <li>
                   <h2>객실가격</h2>
-                  <input type="text" name="pd_price" value="${pdvo.pd_price}">
+                  <%-- <input type="text" name="pd_price" value="${pdvo.pd_price}"> --%>
+                  <input type="text" value="${pdvo.pd_price}" onkeypress="checkNumber(event);" class="pricecomma" name="pd_price">
                </li>
                <li>
                   <h2>객실설명</h2>
@@ -172,6 +185,19 @@
 
       </div>
    </section>
+   <script type="text/javascript">
+	   const inputcomma2 = document.querySelector("#sec .pricecomma");
+	   inputcomma2.addEventListener('keyup', function(ee){
+	       let value = ee.target.value;
+	       value = Number(value.replaceAll(',',''));
+	       if(isNaN(value)){
+	           inputcomma2.value = '';
+	       }else {
+	           const formatValue = value.toLocaleString('ko-KR');
+	           inputcomma2.value = formatValue;
+	       }
+	   });
+   </script>
 
    <%@ include file="/WEB-INF/views/footer.jsp"%>
 

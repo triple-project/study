@@ -145,6 +145,8 @@ $(function() {
 			}
 		}
 	})
+	
+	
 
 	//function showLocation(event) {
 	function showLocation() {

@@ -60,4 +60,8 @@ public interface MemberService {
 	public void myMSave2(Model model, String name, int page);
 
 	public String bimil(MemVo memVo);
+
+	public String bimil2(MemVo memVo);
+
+	public String idche(MemVo memVo);
 }
