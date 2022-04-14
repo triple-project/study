@@ -543,7 +543,7 @@ function intra() {
                                 <div class="four">
                                     <div class="fourIn">
                                         <div class="tit">
-                                            <h2>펜션정책</h2>
+                                            <h2>${pvo.product_category}정책</h2>
                                         </div>
 
                                         <div class="fourCon">
