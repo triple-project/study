@@ -76,7 +76,7 @@
 			<p>공지사항</p>
 		</div>
 
-		<div class="aside_offlineguide asidediv_com" onclick="location.href='//tripleguide'">
+		<div class="aside_offlineguide asidediv_com" onclick="location.href='/tripleguide'">
 			<p>트리플 가이드</p>
 		</div>
 

@@ -798,7 +798,7 @@ function intra() {
 
                                                         <div class="img">
                                                             <%-- <img src="/resources/img/upload/${rl.r_img1}"> --%>
-                                                            <div style="border: none; background: url('/resources/img/tag_final/${rl.r_img1}.png') no-repeat 50% 50%; background-size: cover;width: 100%;height: 100%;"></div>
+                                                            <div style="border: none; background: url('/resources/img/upload/${rl.r_img1}') no-repeat 50% 50%; background-size: cover;width: 100%;height: 100%;"></div>
                                                         </div>
                                                     </li>
                                                 </c:forEach>
