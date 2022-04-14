@@ -7,8 +7,8 @@
 <title>공사중입니다</title>
 </head>
 <body>
-<a href="/">
-   <img src="/resources/img/500.png" width="800">
+<a href="/" style="width: 100%; height: 100vh; display: block;">
+   <img src="/resources/img/500.png" width="800" style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);">
 </a>
 </body>
 </html>

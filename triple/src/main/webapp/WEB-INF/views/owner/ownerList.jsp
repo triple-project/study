@@ -47,7 +47,7 @@
 				<div class="own_tbox">
 					<div class="box_num box_com">
 						<p>번호</p>
-						<div class="array">
+						<div class="array" style="display:none;">
 							<span>
 								<i class="fa-solid fa-chevron-up"></i>
 							</span>
@@ -61,7 +61,7 @@
 					</div>
 					<div class="box_name box_com">
 						<p>상품이름</p>
-						<div class="array">
+						<div class="array" style="display:none;">
 							<span>
 								<i class="fa-solid fa-chevron-up"></i>
 							</span>
@@ -72,7 +72,7 @@
 					</div>
 					<div class="box_add box_com">
 						<p>주소</p>
-						<div class="array">
+						<div class="array" style="display:none;">
 							<span>
 								<i class="fa-solid fa-chevron-up"></i>
 							</span>
@@ -83,7 +83,7 @@
 					</div>
 					<div class="box_city box_com">
 						<p>도시</p>
-						<div class="array">
+						<div class="array" style="display:none;">
 							<span>
 								<i class="fa-solid fa-chevron-up"></i>
 							</span>
@@ -94,7 +94,7 @@
 					</div>
 					<div class="box_cate box_com">
 						<p>종류</p>
-						<div class="array">
+						<div class="array" style="display:none;">
 							<span>
 								<i class="fa-solid fa-chevron-up"></i>
 							</span>

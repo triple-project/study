@@ -302,8 +302,11 @@ public class TripleController {
 	 * return "error"; }
 	 */
 	
-	
-	
-	
+	@GetMapping("/tripleguide")
+	   public String triple() {
+		   //트리플가이드
+		   
+		   return "tripleguide";
+	   }
 
 }

@@ -124,4 +124,6 @@ public class TripleQnaContoller {
       return "redirect:/qna/list/"+q_id;
    }
    
+   
+   
 }

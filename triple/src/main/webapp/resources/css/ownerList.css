@@ -78,6 +78,10 @@ height: 30px;border:1px solid #999;border-radius: 10px; margin-left:2px;cursor:p
 #sec .own_bottom .paging .hoverbtn:hover {color:white;background: #5de4c2;border:none;}
 #sec .own_bottom .paging .leftbtn {width: 30px;height: 30px;border-radius: 10px;}
 #sec .own_bottom .paging .pagenum {width: 30px;height: 30px;display: flex;justify-content: center;align-items: center;margin: 0 2px;}
+#sec .own_bottom .paging .pagenum a {}
+#sec .own_bottom .paging .pagenum a:link{color:#000;}
+#sec .own_bottom .paging .pagenum a:visited{color:#000;}
+#sec .own_bottom .paging .pagenum a:active{color:#000;}
 #sec .own_bottom .paging .rightbtn {width: 30px;height: 30px;border-radius: 10px;}
 
 #sec .own_bottom .bottom_reg {width: 30%;height: 100%;display:flex;justify-content: right;align-items: center;}

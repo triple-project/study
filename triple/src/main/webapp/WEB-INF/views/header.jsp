@@ -1345,13 +1345,13 @@
 					</li>
 
 					<li>
-						<a href="javascript:;">
+						<a href="/tripleguide">
 							<div class="img">
 								<i class="fa-solid fa-book"></i>
 							</div>
 
 							<div class="txt">
-								<h3>오프라인가이드</h3>
+								<h3>트리플 가이드</h3>
 							</div>
 						</a>
 					</li>

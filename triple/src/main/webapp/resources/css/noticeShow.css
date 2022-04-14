@@ -12,7 +12,7 @@
 #sec .noticeShow_in .noticeShow_main .noticeShow_content {width: 100%;height: auto;border:1px solid #999;border-radius: 10px;padding: 5px;box-shadow: 1px 1px 4px 0px rgb(0 0 0 / 20%);margin-bottom:10px;}
 
 #sec .noticeShow_in .noticeShow_main .noticeShow_img{}
-#sec .noticeShow_in .noticeShow_main .noticeShow_img img{width: auto;height: 200px;border:none;display: block;margin-bottom: 5px;border-radius: 10px;    border: 1px solid #999;box-shadow: 1px 1px 4px 0px rgb(0 0 0 / 20%);}
+#sec .noticeShow_in .noticeShow_main .noticeShow_img img{width: auto;height: 200px;border:none;display: block;margin-bottom: 5px;border-radius: 10px;    border: 1px solid #999;box-shadow: 1px 1px 4px 0px rgb(0 0 0 / 20%);    max-width: 1240px;}
 
 
 #sec .noticeShow_in .noticeShow_main .nsadmin {border-top:1px dotted #999;;width: 100%;height: auto;}
@@ -23,7 +23,7 @@
 #sec .noticeShow_in .noticeShow_main .nsadmin .nsadmin_title input{border: none;outline: none;width: 1000px;height: 20px;font-size: 20px;}
 #sec .noticeShow_in .noticeShow_main .nsadmin .nsadmin_content{width: 100%;height: 200px;border:1px solid #999;border-radius: 10px;padding: 5px;box-shadow: 1px 1px 4px 0px rgb(0 0 0 / 20%);margin-bottom:10px;outline: none;}
 #sec .noticeShow_in .noticeShow_main .nsadmin .preview{}
-#sec .noticeShow_in .noticeShow_main .nsadmin .preview img{width: auto;height: 200px;border:none;display: block;margin-bottom: 5px;border-radius: 10px;    border: 1px solid #999;box-shadow: 1px 1px 4px 0px rgb(0 0 0 / 20%);}
+#sec .noticeShow_in .noticeShow_main .nsadmin .preview img{width: auto;height: 200px;border:none;display: block;margin-bottom: 5px;border-radius: 10px;    border: 1px solid #999;box-shadow: 1px 1px 4px 0px rgb(0 0 0 / 20%);    max-width: 1240px;}
 
 #sec .noticeShow_in .noticeShow_main .nsadmin .nsadmin_btn{width: 100%;height: 30px;display: flex;justify-content: flex-end;}
 #sec .noticeShow_in .noticeShow_main .nsadmin .nsadmin_btn .nsadmin_btn_com{width: 100px;height: 30px;border-radius: 10px;display: flex;justify-content: center;align-items: center;color: rgba(0,0,0,.9);border: 1px solid #999;cursor:pointer;}

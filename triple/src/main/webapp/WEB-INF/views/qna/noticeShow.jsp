@@ -68,6 +68,8 @@
 </script>
 <script type="text/javascript">
 	function uns() {
+		var filech = $("#unimage_file_name").val();
+		
 		var n_contentd = document.getElementById('n_contentd')
 		document.getElementById('n_content').value = n_contentd.innerHTML;
 		var today = new Date();
@@ -75,11 +77,16 @@
 		var minutes = ('0' + today.getMinutes()).slice(-2);
 		var seconds = ('0' + today.getSeconds()).slice(-2);
 		var ti = hours + minutes + seconds;
-		var fileValue = $("#unimage_file_name").val().split("\\");
-		var fileName = fileValue[fileValue.length - 1]; // 파일명
-		/* console.log(fileName); image_file_name_h */
-		const a = $('#unimg_h').val(ti+fileName);
-		const b = $('#unimage_file_name_h').val(ti+fileName);
+		
+		if(!filech){
+			$('#qimg_h').val('문의.JPG');
+		}else {
+			var fileValue = $("#unimage_file_name").val().split("\\");
+			var fileName = fileValue[fileValue.length - 1]; // 파일명
+			/* console.log(fileName); image_file_name_h */
+			$('#unimg_h').val(ti+fileName);
+			$('#unimage_file_name_h').val(ti+fileName);
+		}
 	}
 	
 	function unreadURL(input) {
