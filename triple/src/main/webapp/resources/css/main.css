@@ -13,12 +13,12 @@
 #sec .main .main_slide .main_slider .swiper-slide.img3{background: url(../img/대문3.jpg) no-repeat 50% 50%;background-size: cover;}
 #sec .main .main_slide .main_slider .swiper-slide.img4{background: url(../img/대문4.jpg) no-repeat 50% 50%;background-size: cover;}
 
-#sec .main .main_slide .main_slider .main_pagi{height:61px;bottom:35px;z-index: 3;}
-#sec .main .main_slide .main_slider .main_pagi span{margin:0;padding:15px 0 40px;border-radius: 0;background: none;border-top:1px solid rgba(255,255,255,.5);position: relative;width:162.5px;opacity: 1;font-family: 'Noto Sans KR';font-size: 13px;overflow: hidden;}
-#sec .main .main_slide .main_slider .main_pagi span:after{width:97.5px;display: inline-block;text-align: left;margin-left:15px;color:#fff;height:36px;letter-spacing: -1px;}
+#sec .main .main_slide .main_slider .main_pagi{height:61px;bottom:35px;z-index: 3; width:1300px; left:50%; transform: translateX(-50%);}
+#sec .main .main_slide .main_slider .main_pagi span{margin:0;padding:15px 0 40px;border-radius: 0;background: none;border-top:1px solid rgba(255,255,255,.5);position: relative;width:25%;opacity: 1;font-family: 'Noto Sans KR';font-size: 13px;overflow: hidden;}
+#sec .main .main_slide .main_slider .main_pagi span:after{width:63%;display: inline-block;text-align: left;margin-left:15px;color:#fff;height:36px;letter-spacing: -1px;}
 #sec .main .main_slide .main_slider .main_pagi span:before{content: "";border:2px solid #fff;width:4px;height:4px;display: inline-block;border-radius: 50%;position: absolute;margin-top:3px;background: #000;}
 
-#sec .main .main_slide .main_slider .main_pagi span:nth-child(1)::after{content: "[KTX]봄꽃특선! 천년고도 경주 왕벚꽃여행";width:84.5px;}
+#sec .main .main_slide .main_slider .main_pagi span:nth-child(1)::after{content: "[KTX]봄꽃특선! 천년고도 경주 왕벚꽃여행";}
 #sec .main .main_slide .main_slider .main_pagi span:nth-child(2)::after{content: "청암산 자연속 오토캠핑/캐러번";}
 #sec .main .main_slide .main_slider .main_pagi span:nth-child(3)::after{content: "[삼각지역]예약필수! 줄서도 못 먹는 맛집 몽탄";}
 #sec .main .main_slide .main_slider .main_pagi span:nth-child(4)::after{content: "[특별할인] 봄날 제주의 2일간의 골프 투어 더 클래식";}
