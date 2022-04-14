@@ -138,7 +138,7 @@
 	}
 	
 	/* 아이디체크용 ajax입니다 */
-	function idche() {
+	/* function idche() {
 		$.ajax({
 			type : "POST",
 			url : "/rest/idche",
@@ -157,7 +157,7 @@
 					console.log(a);
 	            }
 			});
-	}
+	} */
 	
 	function mtest() {
 		$.ajax({
@@ -271,18 +271,23 @@
       
 	//const a = $('#img').val();
 		//console.log(a);
+		var fileCheck = document.getElementById("nmimage_file_name").value;
 		var today = new Date();
 		var hours = ('0' + today.getHours()).slice(-2);
 		var minutes = ('0' + today.getMinutes()).slice(-2);
 		var seconds = ('0' + today.getSeconds()).slice(-2);
 		var ti = hours + minutes + seconds;
-		var fileValue = $("#image_file_name").val().split("\\");
+		var fileValue = $("#nmimage_file_name").val().split("\\");
 		var fileName = fileValue[fileValue.length - 1]; // 파일명
 		/* console.log(fileName); image_file_name_h */
-		const a = $('#img_h').val(ti+fileName);
-		const b = $('#image_file_name_h').val(ti+fileName);
+		if (!fileCheck) {
+				const a = $('#nmimg_h').val('프로필.png');
+				//console.log(a);
+			}else{
+				const a = $('#nmimg_h').val(ti+fileName);
+				const b = $('#nmimage_file_name_h').val(ti+fileName);
 		/* console.log(a); */
-
+			}
 		var e1 = $('#e_mail').val();	//e_mail 의 밸류
 		var e2 = $('#e_mail2').val();	//e_mail2 의 밸류
 		$('#e_mail').val(e1+e2);		//e_mail 의 밸류에 e1+e2를 넣어라
@@ -303,7 +308,7 @@
 			var fileValue = $("#image_file_name").val().split("\\");
 			var fileName = fileValue[fileValue.length - 1]; // 파일명
 			var fileName2 = $("#img_hs").val();
-			console.log(fileName);
+			//console.log(fileName);
 			if (!fileCheck) {
 				const a = $('#img_h').val(fileName2);
 				console.log(a);
@@ -341,8 +346,8 @@
 			//배포시엔 주석
 			/* var latitude = event.coords.latitude
 			var longitude = event.coords.longitude */
-
-			let apiKey = "059aa9eae2040819bfb97ec8742f408c"
+			let apiKey = "3eae638f314564da1ed023477b14ae79"
+			//let apiKey = "059aa9eae2040819bfb97ec8742f408c"
 			var apiURI = "https://api.openweathermap.org/data/2.5/weather?lat=" +
 				latitude + "&lon=" + longitude + "&lang=kr&appid=" +
 				apiKey + "&units=metric";
@@ -545,8 +550,9 @@
 
 		var latitude = sl[0];
 		var longitude = sl[1];
-
-		let apiKey = "059aa9eae2040819bfb97ec8742f408c"
+		
+		let apiKey = "3eae638f314564da1ed023477b14ae79"
+		//let apiKey = "059aa9eae2040819bfb97ec8742f408c"
 		var apiURI = "https://api.openweathermap.org/data/2.5/weather?lat=" + latitude + "&lon=" + longitude +
 			"&lang=kr&appid=" + apiKey + "&units=metric";
 		var api2URI = "https://api.openweathermap.org/data/2.5/onecall?lat=" + latitude + "&lon=" + longitude +
@@ -1471,7 +1477,8 @@
             <form id="mbs" method="post" enctype="multipart/form-data" action="/join" onsubmit="amu()">
                <div class="mbs_id mbs_con mbs_id_pw">
                   <span>아이디</span>
-                  <input type="text" name="mem_id" id="mem_id" placeholder="아이디 입력" maxlength="8">
+                  <input type="text" name="mem_id" id="mem_id" placeholder="아이디 입력" maxlength="8" class="input_id" required="required">
+				  <font id="checkId" size="2"></font>
                </div>
                <div class="mbs_pw1 mbs_con">
                   <span>비밀번호</span>
@@ -1507,19 +1514,20 @@
                      <div class="frame1_1">
                         <span>프로필 사진</span>
                         <!-- <input type="text" name="mem_img" placeholder="사진은 꼭 안넣으셔도 됩니다."> -->
-                        <input type="file" name="image_file_name" id="image_file_name" onchange="readURL(this);" /> 
-                        <input type="hidden" name="mem_img" id="img_h">
-                        <input type="hidden" name="image_file_name_h" id="image_file_name_h">
+                        <input type="file" name="image_file_name" id="nmimage_file_name" onchange="readURL(this);" /> 
+                        <input type="hidden" name="mem_img" id="nmimg_h">
+                        <input type="hidden" name="image_file_name_h" id="nmimage_file_name_h">
                         
                         </div>
                      <!-- <div class="frame1_2">
                         <p>기본 프로필 사용</p>
                         <input type="checkbox" name="">
                      </div> -->
+                     	<input type="submit" style="display: none;" id="newsub">
                   </div>
                   <div class="profile_frame2">
                      <div class="preview">
-                           <img id="preview" src="/resources/img/프로필.png" width=100 height=100 />
+                           <img id="preview" src="/resources/img/프로필.png" width=100 height=100 style="object-fit: cover;"/>
                      </div>
                   <!--    <span></span> -->
                   </div>
@@ -1529,7 +1537,7 @@
                      뒤로가기
                      <!-- <input type="submit" value="뒤로가기" id="backtologin"> -->
                   </div>
-                  <div class="mbs_btn_join mbs_btn_frame" onclick="$('#mbs').submit()">
+                  <div class="mbs_btn_join mbs_btn_frame" onclick="nmche()">
                      회원가입 
                   </div>
                   	
@@ -1539,6 +1547,45 @@
          </div>
       </div>
    </div>
+   <script>
+		/* 아이디체크용 ajax입니다 */
+		$(".input_id").focusout(function(){
+			let userId = $(".input_id").val();
+
+			$.ajax({
+				type : "POST",
+				url : "/rest/idche",
+				dataType : "json",
+				data : {
+					//mem_id : $("#mem_id").val()
+					mem_id: userId
+				},
+				success : function(data) {
+					if(data==='wan'){
+						//alert('사용가능한 아이디 입니다' + data)
+						$("#checkId").html("사용가능한 아이디 입니다.")
+						$("#checkId").attr("color","green")
+					}else {
+						//alert('불가능한 아이디 입니다' + data)
+						$("#checkId").html("사용할수 없는 아이디 입니다.")
+						$("#checkId").attr("color","red")
+					}
+				},
+				error : function(a){
+					console.log(a);
+				}
+			});
+		});
+		
+		/* function fileb() {
+	          $('#image_file_name' + count).click();
+	      } */
+		function nmche() {
+			
+				$('#newsub').click();
+			
+		} 
+   </script>
    </security:authorize>
    
    	<security:authorize access="isAuthenticated()">
@@ -2117,7 +2164,9 @@
          </div>
         </div>
     </div>
-   <!-- 비밀번호 찾기 끝 -->
+    <div class="fpwCover"></div>
+<!-- 비밀번호 찾기 끝 -->
+
 
 <div id="myInfoCover"></div>
 <!-- 회원 리뷰 등 정보 추가 끝 -->

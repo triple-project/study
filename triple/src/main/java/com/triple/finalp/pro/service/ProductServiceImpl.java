@@ -13,6 +13,9 @@ import com.triple.finalp.pro.dao.ProductDao;
 import com.triple.finalp.pro.vo.ProductDetailVo;
 import com.triple.finalp.pro.vo.ProductVo;
 import com.triple.finalp.pro.vo.UltiProVo;
+import com.triple.finalp.review.dao.ReviewDao;
+import com.triple.finalp.review.vo.ReviewVo;
+import com.triple.finalp.search.dao.SearchDao;
 import com.triple.finalp.tag.dao.TagDao;
 import com.triple.finalp.tag.vo.TagTagVo;
 import com.triple.finalp.tag.vo.TagVo;
@@ -28,6 +31,12 @@ public class ProductServiceImpl implements ProductService{
 	
 	@Autowired
 	MemDao memDao;
+	
+	@Autowired
+	ReviewDao reviewDao;
+	
+	@Autowired
+	SearchDao searchDao;
 
 
 	@Override
@@ -119,6 +128,9 @@ public class ProductServiceImpl implements ProductService{
 		ArrayList<TagVo> tcl = tagDao.getList2(pvo.getProduct_category());
 		int hc = memDao.heartcount(product_id);
 		
+		ArrayList<ReviewVo> reviewList = reviewDao.showReview(product_id);
+	    model.addAttribute("reviewList",reviewList);
+		
 		model.addAttribute("heartcount",hc);
 		model.addAttribute("pvo",pvo);
 		model.addAttribute("dList",dList);
@@ -172,8 +184,16 @@ public class ProductServiceImpl implements ProductService{
 	public void index(Model model) {
 		// TODO Auto-generated method stub
 		ArrayList<UltiProVo> ultListH = productDao.indexH();
-		ArrayList<UltiProVo> ultListL = productDao.indexL();
 		
+		List<String> clist = searchDao.catelist();
+		ArrayList<UltiProVo> ultListL = new ArrayList<UltiProVo>();
+		ArrayList<UltiProVo> ultListL2 = new ArrayList<UltiProVo>();
+		for (int i = 0; i < clist.size(); i++) {
+			ultListL2 = productDao.indexL(clist.get(i));
+			ultListL.addAll(ultListL2);
+		}
+		//ultListL = productDao.indexL();
+		//System.out.println(ultListL);
 		model.addAttribute("ultListH",ultListH);
 		model.addAttribute("ultListL",ultListL);
 		

@@ -97,21 +97,22 @@
 		on p.product_id = pd.product_id
 		group by product_id
 		order by heart_count desc
-		limit 10
+		limit 12
    </select>
    
    <select id="indexL" resultType="UltiVo">
-   		select p.product_id , product_img1, product_name , product_city , product_category , product_shortword , 
-        (select pd_price
-   		from product_detail
-        where product_id = p.product_id
-        order by cast(pd_price as unsigned)
+   		select p.product_id , product_img1, product_name , product_city , product_category , product_shortword , cast(replace(pd_price,',','') as unsigned) as pd_price3,
+        (select pd2.pd_price
+   		from product_detail pd2
+        where pd2.product_id = p.product_id
+        order by cast(replace(pd2.pd_price,',','') as unsigned)
         limit 1) as pd_price , (select count(*) from heart where HEART_ID = p.PRODUCT_ID) as heart_count
 		from product p join product_detail pd
 		on p.product_id = pd.product_id
 		group by product_id
-		order by pd_price
-		limit 20
+		having p.product_category = #{product_category}
+        order by pd_price3
+		limit 2
    </select>
    
    <select id="popList" resultType="UltiVo">

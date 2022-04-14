@@ -34,7 +34,7 @@ public interface ProductDao {
 	public ProductDetailVo getdetail(String pd_id);
 	public ArrayList<TagTagVo> gettag(String product_id);
 	public ArrayList<UltiProVo> indexH();
-	public ArrayList<UltiProVo> indexL();
+	public ArrayList<UltiProVo> indexL(String product_category);
 	public ArrayList<UltiProVo> popList();
 	public String getpdp(String product_id);
 }

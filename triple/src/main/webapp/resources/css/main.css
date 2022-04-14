@@ -20,8 +20,8 @@
 
 #sec .main .main_slide .main_slider .main_pagi span:nth-child(1)::after{content: "[KTX]봄꽃특선! 천년고도 경주 왕벚꽃여행";width:84.5px;}
 #sec .main .main_slide .main_slider .main_pagi span:nth-child(2)::after{content: "청암산 자연속 오토캠핑/캐러번";}
-#sec .main .main_slide .main_slider .main_pagi span:nth-child(3)::after{content: "";}
-#sec .main .main_slide .main_slider .main_pagi span:nth-child(4)::after{content: "";}
+#sec .main .main_slide .main_slider .main_pagi span:nth-child(3)::after{content: "[삼각지역]예약필수! 줄서도 못 먹는 맛집 몽탄";}
+#sec .main .main_slide .main_slider .main_pagi span:nth-child(4)::after{content: "[특별할인] 봄날 제주의 2일간의 골프 투어 더 클래식";}
 
 #sec .main .main_slide .main_slider .main_pagi span.swiper-pagination-bullet-active::before{border:2px solid #5de4c2;background: #fff;}
 #sec .main .main_slide .main_slider .main_pagi span.swiper-pagination-bullet-active{border-top:4px solid rgba(255,255,255,.7);}
@@ -195,7 +195,7 @@ height:310px;width:285px;overflow: hidden;border-radius: 15px;margin-bottom:33px
 #sec .con_slide .lowprice_slider .swiper-slide .lowprice_in .lowprice_text {display:flex;margin-top:5px;}
 #sec .con_slide .lowprice_slider .swiper-slide .lowprice_in .lowprice_text .lefttext{width:136px;height:30px;}
 #sec .con_slide .lowprice_slider .swiper-slide .lowprice_in .lowprice_text .lefttext p{font-size:26px;font-weight:500;line-height:30px;}
-#sec .con_slide .lowprice_slider .swiper-slide .lowprice_in .lowprice_text .righttext{width:70px;height:30px;display: flex;flex-direction: column;justify-content:center;}
+#sec .con_slide .lowprice_slider .swiper-slide .lowprice_in .lowprice_text .righttext{width:90px;height:30px;display: flex;flex-direction: column;justify-content:center;}
 #sec .con_slide .lowprice_slider .swiper-slide .lowprice_in .lowprice_text .righttext p{font-size:14px;font-weight: 500;}
 #sec .con_slide .lowprice_slider .swiper-slide .lowprice_in .lowprice_text .righttext p:nth-child(1){text-align: center;margin-bottom: 2px;padding: 2px;}
 #sec .con_slide .lowprice_slider .swiper-slide .lowprice_in .lowprice_text .righttext p:nth-child(2){text-align: center;padding: 2px}

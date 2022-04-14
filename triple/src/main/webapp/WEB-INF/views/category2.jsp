@@ -114,7 +114,7 @@
 
 														<div class="swiper-slide" onclick="result4(this)">
 															<div class="slide_in" id="${mv.mgz_id}">
-																<div class="slide_img" style="background: gray url(/resources/img/upload/${mv.mgz_thub});"></div>
+																<div class="slide_img" style="background: gray url(/resources/img/upload/${mv.mgz_thub}) no-repeat 50% 50%;background-size: cover;"></div>
 																<div class="slide_cover">
 																	<div class="txt">
 																		<h2 class="cover_txt">${mv.mgz_title}</h2>

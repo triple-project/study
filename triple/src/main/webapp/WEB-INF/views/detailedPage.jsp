@@ -445,19 +445,19 @@ function intra() {
                                             <div thumbsSlider="" class="swiper mySwiper">
                                                 <div class="swiper-wrapper">
                                                     <div class="swiper-slide">
-                                                        <div class="img" style="background: url(/resources/img/upload/${pvo.product_img1}) no-repeat 50% 50%;"></div>
+                                                        <div class="img" style="background: url(/resources/img/upload/${pvo.product_img1}) no-repeat 50% 50%; background-size:cover;"></div>
                                                     </div>
                                                     <div class="swiper-slide">
-                                                        <div class="img" style="background: url(/resources/img/upload/${pvo.product_img2}) no-repeat 50% 50%;"></div>
+                                                        <div class="img" style="background: url(/resources/img/upload/${pvo.product_img2}) no-repeat 50% 50%; background-size:cover;"></div>
                                                     </div>
                                                     <div class="swiper-slide">
-                                                        <div class="img" style="background: url(/resources/img/upload/${pvo.product_img3}) no-repeat 50% 50%;"></div>
+                                                        <div class="img" style="background: url(/resources/img/upload/${pvo.product_img3}) no-repeat 50% 50%; background-size:cover;"></div>
                                                     </div>
                                                     <div class="swiper-slide">
-                                                        <div class="img" style="background: url(/resources/img/upload/${pvo.product_img4}) no-repeat 50% 50%;"></div>
+                                                        <div class="img" style="background: url(/resources/img/upload/${pvo.product_img4}) no-repeat 50% 50%; background-size:cover;"></div>
                                                     </div>
                                                     <div class="swiper-slide">
-                                                        <div class="img" style="background: url(/resources/img/upload/${pvo.product_img5}) no-repeat 50% 50%;"></div>
+                                                        <div class="img" style="background: url(/resources/img/upload/${pvo.product_img5}) no-repeat 50% 50%; background-size:cover;"></div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -768,6 +768,7 @@ function intra() {
                                             </form>
                                         </div>
                                         </security:authorize>
+                                        
                                         <div class="tit">
                                             <h2>리뷰보기</h2>
                                         </div>
@@ -796,7 +797,8 @@ function intra() {
                                                         </div>
 
                                                         <div class="img">
-                                                            <img src="/resources/img/upload/${rl.r_img1}">
+                                                            <%-- <img src="/resources/img/upload/${rl.r_img1}"> --%>
+                                                            <div style="border: none; background: url('/resources/img/tag_final/${rl.r_img1}.png') no-repeat 50% 50%; background-size: cover;width: 100%;height: 100%;"></div>
                                                         </div>
                                                     </li>
                                                 </c:forEach>

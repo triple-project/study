@@ -154,8 +154,9 @@ $(function() {
 		//var longitude = event.coords.longitude
 		var latitude = 37.57;
 		var longitude = 126.99;
-	
-		let apiKey = "059aa9eae2040819bfb97ec8742f408c"
+		
+		let apiKey = "3eae638f314564da1ed023477b14ae79"
+		//let apiKey = "059aa9eae2040819bfb97ec8742f408c"
 		var apiURI = "https://api.openweathermap.org/data/2.5/weather?lat=" + latitude + "&lon=" + longitude + "&lang=kr&appid=" + apiKey + "&units=metric";
 		var api2URI = "https://api.openweathermap.org/data/2.5/onecall?lat=" + latitude + "&lon=" + longitude + "&exclude=alerts&lang=kr&appid=" + apiKey + "&units=metric";
 		$.ajax({
@@ -524,10 +525,14 @@ $(function() {
 		$(this).addClass("on");
 	});
 	
-	   //로그인 창에서 비밀번호 찾기 눌렀을 시
-   $("#findpw").click(function(){
-      $("#fpw").addClass("on");
+	//로그인 창에서 비밀번호 찾기 눌렀을 시
+   $("#findpw").click(function () {
+      $("#fpw, .fpwCover").addClass("on");
       $("#join").removeClass("on");
+   });
+
+   $(".fpwCover").click(function(){
+      $("#fpw, .fpwCover").removeClass("on");
    });
 
 });

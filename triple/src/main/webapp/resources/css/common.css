@@ -470,7 +470,7 @@ body.on{overflow: hidden;}
 }
 
 /* 비밀번호 찾기 폼*/
-#fpw {width:700px;height:200px;position: fixed;left:50%;bottom:-600px;transform: translate(-50%,0%);z-index: 1001;overflow: hidden;border-radius: 10px;;opacity: 0;transition: all .6s ease-in-out;background:#f5f5f5;}
+#fpw {width:700px;height:200px;position: fixed;left:50%;bottom:-600px;transform: translate(-50%,0%);z-index: 1006;overflow: hidden;border-radius: 10px;;opacity: 0;transition: all .6s ease-in-out;background:#f5f5f5;}
 #fpw.on {opacity: 1;bottom: 260px;;transform: translate(-50%,50%);}
 #fpw .fpw_in{width: 100%;height: 100%;padding:30px;}
 #fpw .fpw_in h3{text-align: center;margin-bottom: 30px;}
@@ -508,4 +508,7 @@ body.on{overflow: hidden;}
 #fpw_form2 .fpw2_topright .fpw2_top_btn .fpw2_top_fbtn:hover{border:none;background:#5de4c2;color: #fff;}
 #fpw_form2 .fpw2_topright .fpw2_top_btn .fpw2_top_fbtn p:nth-child(1){margin-bottom: 5px;}
 #fpw_form2 .fpw2_topright .fpw2_top_btn .fpw2_top_fbtn p:nth-child(2){}
+
+.fpwCover{position: fixed;left:0;top:0;right:0;bottom:0;width: 100%;height: 100%;background: #000;opacity: .5;display: none;z-index: 1005;}
+.fpwCover.on{display: block;}
 /* 비밀번호 수정 끝 */

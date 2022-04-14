@@ -326,10 +326,10 @@
 							<a href="/category/admin120220413193113"></a>
 						</div>
 						<div class="swiper-slide img3">
-							<a href="/category/"></a>
+							<a href="/category/admin120220413204316"></a>
 						</div>
 						<div class="swiper-slide img4">
-							<a href="/category/"></a>
+							<a href="/category/admin120220413195521"></a>
 						</div>
 					</div>
 					<div class="swiper-pagination main_pagi"></div>
@@ -746,7 +746,7 @@
                <!-- 최저가 꺼내기 시작 -->
                <c:forEach items="${ultListL}" var="uL">
                <div class="swiper-slide img1">
-                  <a href="1">
+                  <a href="/category/${uL.product_id}">
                      <div class="lowprice_in">
                         <div class="lowprice_img"
                            style="background: url('/resources/img/upload/${uL.product_img1}') no-repeat 50% 50%; background-size: cover;">

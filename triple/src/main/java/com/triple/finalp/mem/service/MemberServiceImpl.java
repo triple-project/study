@@ -365,6 +365,7 @@ public class MemberServiceImpl implements MemberService{
 	@Override
 	public String idche(MemVo memVo) {
 		// TODO Auto-generated method stub
+		//System.out.println(memVo.getMem_id());
 		int idche = memDao.idche(memVo);
 		if (idche==0) {
 			
