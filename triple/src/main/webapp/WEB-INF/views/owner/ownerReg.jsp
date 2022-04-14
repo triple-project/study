@@ -337,6 +337,7 @@
             	console.log(pfdel);
                 e.target.remove();
                 var re = pfcount-1;
+                $("#oimage_file_name"+re).val("");
             	$("input").remove("#oimage_file_name"+pfcount);
                 pfcount--;
             }
