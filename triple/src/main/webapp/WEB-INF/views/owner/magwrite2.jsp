@@ -44,7 +44,7 @@
         <div class="magreg_frame">
             <div class="mag_reg">
                 <h3>매거진 등록</h3>
-                
+                <!-- <button onclick="magregsave()">테스트</button> -->
                 <div class="magreg_in">
                     <form action="/writesave" onsubmit="magregsave()" method="post" id="writeform" enctype="multipart/form-data">
                         <div class="magform_in">
@@ -183,10 +183,13 @@
         });
 
         function magregsave() {
+        	
            mfilech = $('#image_file_name0').val()
-           var mgz_smallcontentd = document.getElementById('mgz_smallcontentd')
-          document.getElementById('mgz_smallcontent').value = mgz_smallcontentd.value;
-            const element = document.getElementById('magwrite');
+           const mgz_smallcontentd = document.getElementById('mgz_smallcontentd')
+          document.getElementById('mgz_smallcontent').value = mgz_smallcontentd.innerHTML;
+           //console.log(mgz_smallcontentd.innerHTML);
+           
+           const element = document.getElementById('magwrite');
             var today = new Date();
          var year = today.getFullYear();
          var month = ('0' + (today.getMonth() + 1)).slice(-2);

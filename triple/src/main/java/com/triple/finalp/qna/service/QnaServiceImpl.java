@@ -25,6 +25,8 @@ public class QnaServiceImpl implements QnaService{
 
    @Override
    public void writeQna(QnaVo qvo) {
+	 //0415 작성이슈확인용
+	  //System.out.println(qvo);
       qnaDao.writeQna(qvo);
    }
 
@@ -36,6 +38,7 @@ public class QnaServiceImpl implements QnaService{
    
    @Override
    public void writeNotice(NoticeVo nvo) {
+	   //System.out.println(nvo);
       qnaDao.writeNotice(nvo);
    }
 

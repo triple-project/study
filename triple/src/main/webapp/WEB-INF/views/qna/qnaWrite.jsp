@@ -64,8 +64,9 @@
 	function qs() {
 		var filech = $("#qimage_file_name").val();
 		
-		var q_contentd = document.getElementById('q_contentd')
+		const q_contentd = document.getElementById('q_contentd')
 		document.getElementById('q_content').value = q_contentd.innerHTML;
+		//console.log(q_contentd.innerHTML);
 		var today = new Date();
 		var hours = ('0' + today.getHours()).slice(-2);
 		var minutes = ('0' + today.getMinutes()).slice(-2);
@@ -113,7 +114,7 @@
 			</div>
 
 			<div class="qnawrite_main">
-			
+			<!-- <button onclick="qs()">테스트</button> -->
 			<h3>문의 작성</h3>
 				<div class="qnawrite_title">
 					<div class="title1 qnawr_title_com">
@@ -127,7 +128,7 @@
 					</div>
 				</div>
 				<div class="qnawrite_form">
-					<form action="qnaWrite" method="post" onclick="qs()" enctype="multipart/form-data" id="qnaform">
+					<form action="qnaWrite" method="post" onsubmit="qs()" enctype="multipart/form-data" id="qnaform">
 						<div class="qnawr_title qnawr_com">
 							<input type="text" id="q_title" name="q_title" placeholder="제목을 입력해주세요."onfocus="this.placeholder=''" onblur="this.placeholder='제목을 입력해주세요.'">
 						</div>

@@ -24,6 +24,8 @@ public class MagServiceImpl implements MagSerivce{
 	public void save(MagVo magVo) {
 		// TODO Auto-generated method stub
 		magDao.save(magVo);
+		//0415 작성이슈확인용
+		//System.out.println(magVo);
 	}
 
 	@Override

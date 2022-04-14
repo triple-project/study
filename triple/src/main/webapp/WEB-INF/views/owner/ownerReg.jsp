@@ -293,7 +293,7 @@
 	    //등록하기 눌렀을떄
 	    function tos() {
 	    	
-	    	var p_subcontentd = document.getElementById('p_subcontentd')
+	    	const p_subcontentd = document.getElementById('p_subcontentd')
 			document.getElementById('product_subcontent').value = p_subcontentd.innerHTML;
 	    	
 			for (var i = 0; i < c; i++) {

@@ -64,8 +64,9 @@
 	function ns() {
 		var filech = $("#nimage_file_name").val();
 		
-		var n_contentd = document.getElementById('n_contentd')
+		const n_contentd = document.getElementById('n_contentd')
 		document.getElementById('n_content').value = n_contentd.innerHTML;
+		//console.log(n_contentd.innerHTML);
 		var today = new Date();
 		var hours = ('0' + today.getHours()).slice(-2);
 		var minutes = ('0' + today.getMinutes()).slice(-2);
@@ -106,7 +107,7 @@
 
 	<section id="sec">
 		<div class="noticeWrite_in">
-
+		
 			<div class="noticeWrite_aside">
 				<aside>
 					<jsp:include page="/WEB-INF/views/qna/qnaAside.jsp" flush="true" />
@@ -114,6 +115,7 @@
 			</div>
 
 			<div class="noticeWrite_main">
+			<!-- <button onclick="ns()">테스트</button> -->
 				<h3>공지사항 작성</h3>
 				<div class="noticeWrite_title">
 					<div class="title1 noticewr_title_com">
@@ -128,7 +130,7 @@
 				</div>
 
 				<div class="ntw_form">
-					<form action="/qna/noticeWrite" method="post" onclick="ns()" enctype="multipart/form-data" id="noticeWriteform">
+					<form action="/qna/noticeWrite" method="post" onsubmit="ns()" enctype="multipart/form-data" id="noticeWriteform">
 						<div class="ntw_title ntw_com">
 							<input type="text" id="n_title" name="n_title" placeholder="제목을 입력해주세요."onfocus="this.placeholder=''" onblur="this.placeholder='제목을 입력해주세요.'"> 
 						</div>

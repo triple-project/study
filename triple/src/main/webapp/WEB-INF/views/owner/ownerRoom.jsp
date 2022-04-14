@@ -213,7 +213,7 @@
 
         function ros() {
         	
-        	var pd_contentsd = document.getElementById('pd_contentsd')
+        	const pd_contentsd = document.getElementById('pd_contentsd')
 			document.getElementById('pd_contents').value = pd_contentsd.innerHTML;
 	    	
 
